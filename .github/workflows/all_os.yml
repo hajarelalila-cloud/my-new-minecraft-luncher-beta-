@@ -185,6 +185,12 @@ jobs:
           toolchain: 1.82.0
           targets: x86_64-pc-windows-msvc
           components: clippy, rustfmt
+      - name: Install scoop
+        run: |
+          Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+      - name: install llvm
+        run: |
+          scoop install llvm
       - name: Prepare
         shell: bash
         run: |
