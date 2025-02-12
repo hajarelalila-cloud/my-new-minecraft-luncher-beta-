@@ -9,6 +9,7 @@ export type Procedures = {
         { key: "account.getHead", input: string, result: null } | 
         { key: "account.peekGdlAccount", input: string, result: FEGDLAccount | null } | 
         { key: "echo", input: string, result: string } | 
+        { key: "fake", input: never, result: CoreModuleStatus } | 
         { key: "getAppVersion", input: never, result: string } | 
         { key: "instance.explore", input: ExploreQuery, result: ExploreEntry[] } | 
         { key: "instance.findModUpdate", input: UpdateMod, result: RemoteVersion | null } | 
@@ -367,6 +368,8 @@ export type FEModFileChangelogResponse = { data: string; pagination: CFFEPaginat
 
 export type CFFEModParameters = { modId: number }
 
+export type CoreModuleStatus = "LoadAndMigrate" | "LaunchBackgroundTasks" | "RefreshMSAuth" | "RequestingCode" | "PollingCode" | "McLogin" | "XboxAuth" | "MCEntitlements" | "McProfile" | "AccountRefreshComplete"
+
 export type FEUnifiedPagination = { index: number; pageSize: number; resultCount: number; totalCount: number }
 
 export type MRFEProjectSearchResult = { slug: string; title: string; description: string; categories: string[] | null; client_side: MRFEProjectSupportRange; server_side: MRFEProjectSupportRange; project_type: MRFEProjectType; downloads: number; icon_url: string | null; color: number | null; project_id: string; author: string; display_categories: string[] | null; versions: string[]; follows: number; date_created: string; date_modified: string; latest_version: string | null; license: string; gallery: string[] | null; featured_gallery: string | null }
@@ -420,6 +423,8 @@ export type CFFEModAuthor = { id: number; name: string; url: string }
 export type ModrinthModMetadata = { project_id: string; version_id: string; title: string; version: string; urlslug: string; description: string; authors: string; has_image: boolean }
 
 export type ListInstance = { id: FEInstanceId; group_id: FEGroupId; name: string; favorite: boolean; status: ListInstanceStatus; icon_revision: number | null; last_played: string | null; date_created: string; date_updated: string; seconds_played: number }
+
+export type Set<T> = { Set: T }
 
 export type CFFEModFilesParametersQuery = { gameVersion?: string | null; modLoaderType?: CFFEModLoaderType | null; gameVersionTypeId?: number | null; index?: number | null; pageSize?: number | null }
 
@@ -484,8 +489,6 @@ export type FullImportScanStatus = { scanning: boolean; status: ImportScanStatus
 export type InstanceFolder = "Root" | "Data" | "Mods" | "Configs" | "Screenshots" | "Saves" | "Logs" | "CrashReports" | "ResourcePacks" | "TexturePacks" | "ShaderPacks"
 
 export type FEModdedManifest = { gameVersions: FEModdedManifestVersion[] }
-
-export type Set<T> = { Set: T }
 
 export type FEModFilesResponse = { data: CFFEFile[]; pagination: CFFEPagination | null }
 

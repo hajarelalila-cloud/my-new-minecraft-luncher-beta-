@@ -1,4 +1,5 @@
 use crate::api::keys::settings::GET_SETTINGS;
+use crate::api::{update_core_module_status, CoreModuleStatus};
 use crate::domain::account::*;
 use crate::{
     api::keys::account::*,
@@ -1119,6 +1120,8 @@ impl AccountRefreshService {
             // tokio::sync::Notify is not cancellation safe, but in this case we don't care
             // because if it's cancelled, we'll just continue
             _ = notifier.notified() => {
+                update_core_module_status(CoreModuleStatus::AccountRefreshComplete);
+
                 info!("Initial refresh complete");
             }
             _ = tokio::time::sleep(Duration::from_secs(10)) => {

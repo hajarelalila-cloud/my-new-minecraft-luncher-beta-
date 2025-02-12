@@ -16,7 +16,7 @@ import App from "@/app"
 import { ModalProvider } from "@/managers/ModalsManager"
 import "virtual:uno.css"
 import "@gd/ui/style.css"
-import { ContextMenuProvider, NotificationsProvider } from "@gd/ui"
+import { ContextMenuProvider, NotificationsProvider, Progressbar } from "@gd/ui"
 import { NavigationManager } from "./managers/NavigationManager"
 // import { ContextMenuProvider } from "./components/ContextMenu/ContextMenuContext";
 import RiveAppWapper from "./utils/RiveAppWrapper"
@@ -24,6 +24,10 @@ import GDAnimation from "./gd_logo_animation.riv"
 import { GlobalStoreProvider } from "./components/GlobalStoreContext"
 
 render(() => {
+  const [coreModuleProgress, setCoreModuleProgress] = createSignal<
+    number | undefined
+  >(undefined)
+
   const [coreModuleLoaded] = createResource(async () => {
     let port
     try {
@@ -57,6 +61,37 @@ render(() => {
     }
 
     return port
+  })
+
+  window.listenToCoreModuleProgress((_, progress) => {
+    console.log("Core module progress", progress)
+
+    const startProgress = coreModuleProgress() ?? 0
+    const endProgress = progress
+    const duration = 300
+    const startTime = Date.now()
+
+    const easeOutCubic = (x: number): number => {
+      return 1 - Math.pow(1 - x, 3)
+    }
+
+    const animate = () => {
+      const currentTime = Date.now()
+      const elapsed = currentTime - startTime
+      const progress = Math.min(elapsed / duration, 1)
+
+      if (progress < 1) {
+        const easedProgress = easeOutCubic(progress)
+        const currentValue =
+          startProgress + (endProgress - startProgress) * easedProgress
+        setCoreModuleProgress(currentValue)
+        requestAnimationFrame(animate)
+      } else {
+        setCoreModuleProgress(endProgress)
+      }
+    }
+
+    requestAnimationFrame(animate)
   })
 
   const startTime = Date.now()
@@ -101,6 +136,18 @@ render(() => {
                   </div>
                 </Show>
                 <div class="animate-spin rounded-full h-12 w-12 bg-blue-500 i-ri:loader-4-line" />
+
+                <div
+                  class="w-1/3 transition-opacity duration-300"
+                  classList={{
+                    "opacity-0": coreModuleProgress() === undefined
+                  }}
+                >
+                  <Progressbar
+                    color="bg-blue-500"
+                    percentage={coreModuleProgress() ?? 0}
+                  />
+                </div>
               </div>
             </Match>
           </Switch>
