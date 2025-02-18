@@ -66,8 +66,6 @@ render(() => {
   })
 
   window.listenToCoreModuleProgress((_, progress) => {
-    console.log("Core module progress", progress)
-
     const startProgress = coreModuleProgress() ?? 0
     const endProgress = progress
     const duration = 300
@@ -106,7 +104,7 @@ render(() => {
   createEffect(() => {
     if (!isIntroAnimationFinished()) return
 
-    const minLoadingTime = 2000
+    const minLoadingTime = 2500
     const timeElapsed = Date.now() - startTime
 
     if (coreModuleLoaded.state === "ready" && timeElapsed >= minLoadingTime) {
@@ -152,7 +150,7 @@ render(() => {
                     <img
                       src={gdlauncherLogo}
                       class="animate-logoReveal opacity-0"
-                      style={{ "animation-delay": "500ms" }}
+                      style={{ "animation-delay": "1000ms" }}
                     />
                   </div>
 

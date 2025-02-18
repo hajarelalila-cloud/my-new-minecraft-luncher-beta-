@@ -47,7 +47,7 @@ const PatternBackground = (props: Props) => {
           background-image: url(./assets/images/gdlauncher_pattern.svg);
           background-position: ${-x * tileSize}px ${-y * tileSize}px;
           transition: opacity 0.2s ease-out;
-          transition-delay: ${(distance * duration) / (rows + cols)}ms;
+          transition-delay: ${(distance * duration) / (rows + cols) + 500}ms;
         `
         container.appendChild(tile)
         tiles.push({ element: tile, x, y, distance })
