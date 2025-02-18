@@ -22,6 +22,8 @@ import { NavigationManager } from "./managers/NavigationManager"
 import RiveAppWapper from "./utils/RiveAppWrapper"
 import GDAnimation from "./gd_logo_animation.riv"
 import { GlobalStoreProvider } from "./components/GlobalStoreContext"
+import PatternBackground from "./components/PatternBackground"
+import gdlauncherLogo from "/assets/images/gdlauncher_wide_logo_blue.svg"
 
 render(() => {
   const [coreModuleProgress, setCoreModuleProgress] = createSignal<
@@ -104,7 +106,16 @@ render(() => {
   createEffect(() => {
     if (!isIntroAnimationFinished()) return
 
-    setIsReady(coreModuleLoaded.state === "ready")
+    const minLoadingTime = 2000
+    const timeElapsed = Date.now() - startTime
+
+    if (coreModuleLoaded.state === "ready" && timeElapsed >= minLoadingTime) {
+      setIsReady(true)
+    } else if (coreModuleLoaded.state === "ready") {
+      setTimeout(() => {
+        setIsReady(true)
+      }, minLoadingTime - timeElapsed)
+    }
   })
 
   return (
@@ -126,34 +137,45 @@ render(() => {
               </NotificationsProvider>
             </Match>
             <Match when={!isReady()}>
-              <div class="flex flex-col gap-8 justify-center items-center h-screen w-screen">
-                <Show when={Date.now() - startTime > 5000}>
-                  <div class="text-xl">
-                    {
-                      // Hardcoded because we don't know the language at this point
-                      "App initialization is taking longer than expected. Please wait for up to 2 minutes."
-                    }
-                  </div>
-                </Show>
-                <div class="animate-spin rounded-full h-12 w-12 bg-blue-500 i-ri:loader-4-line" />
+              <PatternBackground>
+                <div class="flex h-screen w-screen flex-col items-center justify-center gap-8">
+                  <Show when={Date.now() - startTime > 5000}>
+                    <div class="text-xl">
+                      {
+                        // Hardcoded because we don't know the language at this point
+                        "App initialization is taking longer than expected. Please wait for up to 2 minutes."
+                      }
+                    </div>
+                  </Show>
 
-                <div
-                  class="w-1/3 transition-opacity duration-300"
-                  classList={{
-                    "opacity-0": coreModuleProgress() === undefined
-                  }}
-                >
-                  <Progressbar
-                    color="bg-blue-500"
-                    percentage={coreModuleProgress() ?? 0}
-                  />
+                  <div class="overflow-visible">
+                    <img
+                      src={gdlauncherLogo}
+                      class="animate-logoReveal opacity-0"
+                      style={{ "animation-delay": "500ms" }}
+                    />
+                  </div>
+
+                  <div class="i-ri:loader-4-line h-12 w-12 animate-spin rounded-full bg-blue-500" />
+
+                  <div
+                    class="w-1/3 transition-opacity duration-300"
+                    classList={{
+                      "opacity-0": coreModuleProgress() === undefined
+                    }}
+                  >
+                    <Progressbar
+                      color="bg-blue-500"
+                      percentage={coreModuleProgress() ?? 0}
+                    />
+                  </div>
                 </div>
-              </div>
+              </PatternBackground>
             </Match>
           </Switch>
         </Match>
         <Match when={!isIntroAnimationFinished()}>
-          <div class="w-full flex justify-center items-center h-screen">
+          <div class="flex h-screen w-full items-center justify-center">
             <RiveAppWapper
               src={GDAnimation}
               onStop={() => {
