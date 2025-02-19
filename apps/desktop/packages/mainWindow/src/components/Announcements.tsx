@@ -1,12 +1,10 @@
 import { For, Show, Suspense } from "solid-js"
-import { rspc } from "@/utils/rspcClient"
 import { Announcement } from "@gd/core_module/bindings"
 import { marked } from "marked"
 import sanitizeHtml from "sanitize-html"
+import { useGlobalStore } from "./GlobalStoreContext"
 const Announcements = () => {
-  const announcements = rspc.createQuery(() => ({
-    queryKey: ["getAnnouncements"]
-  }))
+  const globalStore = useGlobalStore()
 
   const htmlTitle = (title: string) => {
     return marked.parse(title, {
@@ -41,8 +39,8 @@ const Announcements = () => {
 
   return (
     <Suspense>
-      <Show when={announcements?.data?.length || 0 > 0}>
-        <For each={announcements?.data}>
+      <Show when={globalStore.announcements?.data?.length || 0 > 0}>
+        <For each={globalStore.announcements?.data}>
           {(announcement) => (
             <div class="mb-8 box-border flex w-full flex-col">
               <div

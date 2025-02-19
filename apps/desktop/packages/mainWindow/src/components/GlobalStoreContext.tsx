@@ -1,6 +1,7 @@
 import { rspc } from "@/utils/rspcClient"
 import {
   AccountEntry,
+  Announcement,
   FEGDLAccountStatus,
   FESettings,
   ListGroup,
@@ -18,6 +19,7 @@ interface Context {
   currentlySelectedAccount: () => AccountEntry | null
   currentlySelectedAccountUuid: CreateQueryResult<string | null, RSPCError>
   gdlAccount: CreateQueryResult<FEGDLAccountStatus | null, RSPCError>
+  announcements: CreateQueryResult<Announcement[], RSPCError>
 }
 
 const GlobalStoreContext = createContext()
@@ -54,6 +56,10 @@ export const GlobalStoreProvider = (props: { children: JSX.Element }) => {
     return accounts.data?.find((account) => account.uuid === uuid) || null
   }
 
+  const announcements = rspc.createQuery(() => ({
+    queryKey: ["getAnnouncements"]
+  }))
+
   const store: Context = {
     instances,
     instanceGroups: groups,
@@ -61,7 +67,8 @@ export const GlobalStoreProvider = (props: { children: JSX.Element }) => {
     accounts,
     currentlySelectedAccountUuid,
     currentlySelectedAccount,
-    gdlAccount
+    gdlAccount,
+    announcements
   }
 
   return (
