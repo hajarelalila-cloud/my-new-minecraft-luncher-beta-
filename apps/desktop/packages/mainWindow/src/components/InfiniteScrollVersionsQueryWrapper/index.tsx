@@ -114,56 +114,52 @@ const InfiniteScrollVersionsQueryWrapper = (props: Props) => {
           total: response.pagination?.totalCount || 0
         } satisfies VersionRowType
       } else {
-        try {
-          const project = await rspcContext.client.query([
-            "modplatforms.modrinth.getProject",
-            props.modId
-          ])
+        const project = await rspcContext.client.query([
+          "modplatforms.modrinth.getProject",
+          props.modId
+        ])
 
-          const response = await rspcContext.client.query([
-            "modplatforms.modrinth.getProjectVersions",
-            {
-              project_id: props.modId,
-              game_versions: versionsQuery.gameVersion
-                ? [versionsQuery.gameVersion]
-                : undefined,
-              loaders: versionsQuery.modLoaderType
-                ? [versionsQuery.modLoaderType]
-                : undefined,
-              limit: versionsQuery.pageSize,
-              offset: ctx.pageParam
-            }
-          ])
+        const response = await rspcContext.client.query([
+          "modplatforms.modrinth.getProjectVersions",
+          {
+            project_id: props.modId,
+            game_versions: versionsQuery.gameVersion
+              ? [versionsQuery.gameVersion]
+              : undefined,
+            loaders: versionsQuery.modLoaderType
+              ? [versionsQuery.modLoaderType]
+              : undefined,
+            limit: versionsQuery.pageSize,
+            offset: ctx.pageParam
+          }
+        ])
 
-          const processedData = {
-            data: response
-              .map((v) => ({
-                id: v.project_id,
-                fileId: v.id,
-                name: v.name,
-                releaseType: v.version_type as string,
-                gameVersions: v.game_versions,
-                downloads: v.downloads,
-                datePublished: v.date_published,
-                fileName: v.files[0].filename,
-                size: v.files[0].size,
-                hash: v.files[0].hashes.sha512,
-                status: v.status || "",
-                mainThumbnail: project.icon_url || undefined
-              }))
-              .sort(
-                (a, b) =>
-                  new Date(b.datePublished).getTime() -
-                  new Date(a.datePublished).getTime()
-              ),
-            index: ctx.pageParam,
-            total: project.versions.length
-          } satisfies VersionRowType
+        const processedData = {
+          data: response
+            .map((v) => ({
+              id: v.project_id,
+              fileId: v.id,
+              name: v.name,
+              releaseType: v.version_type as string,
+              gameVersions: v.game_versions,
+              downloads: v.downloads,
+              datePublished: v.date_published,
+              fileName: v.files[0].filename,
+              size: v.files[0].size,
+              hash: v.files[0].hashes.sha512,
+              status: v.status || "",
+              mainThumbnail: project.icon_url || undefined
+            }))
+            .sort(
+              (a, b) =>
+                new Date(b.datePublished).getTime() -
+                new Date(a.datePublished).getTime()
+            ),
+          index: ctx.pageParam,
+          total: project.versions.length
+        } satisfies VersionRowType
 
-          return processedData
-        } catch (error) {
-          throw error
-        }
+        return processedData
       }
     },
     initialPageParam: 0,
