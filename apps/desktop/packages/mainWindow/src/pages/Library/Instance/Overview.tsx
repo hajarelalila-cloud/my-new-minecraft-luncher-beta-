@@ -171,15 +171,11 @@ const Overview = () => {
                     onClick={() => {
                       if (modpackPlatform() === "curseforge") {
                         navigator.navigate(
-                          `/addon/${modpackProjectId()}/curseforge?instanceId=${
-                            params.id
-                          }`
+                          `/addon/${modpackProjectId()}/curseforge`
                         )
                       } else if (modpackPlatform() === "modrinth") {
                         navigator.navigate(
-                          `/addon/${modpackProjectId()}/modrinth?instanceId=${
-                            params.id
-                          }`
+                          `/addon/${modpackProjectId()}/modrinth`
                         )
                       }
                     }}
