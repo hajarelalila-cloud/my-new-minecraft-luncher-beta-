@@ -54,7 +54,9 @@ export const AddonFilters = (props: AddonFiltersProps) => {
       }
 
       // Only show addon types that have at least one installed addon
-      const hasAddonsOfType = props.addons().some(addon => addon.addon_type === type)
+      const hasAddonsOfType = props
+        .addons()
+        .some((addon) => addon.addon_type === type)
       return hasAddonsOfType
     })
   }

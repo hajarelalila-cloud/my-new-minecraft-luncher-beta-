@@ -338,7 +338,24 @@ const AddonExplore = () => {
                   </div>
                 </Tabs>
                 <Show when={isSticky()}>
-                  <div>{/* <ModDownloadButton /> */}</div>
+                  <div>
+                    <Switch fallback={<></>}>
+                      <Match
+                        when={
+                          project.data?.type && project.data?.type === "modpack"
+                        }
+                      >
+                        <ModpackDownloadButton addon={project.data} />
+                      </Match>
+                      <Match
+                        when={
+                          project.data?.type && project.data?.type !== "modpack"
+                        }
+                      >
+                        <ModDownloadButton addon={project.data} />
+                      </Match>
+                    </Switch>
+                  </div>
                 </Show>
               </div>
               <Show

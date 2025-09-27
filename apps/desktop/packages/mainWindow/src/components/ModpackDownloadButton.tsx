@@ -16,6 +16,7 @@ const ModpackDownloadButton = (props: ModDownloadButtonProps) => {
   const owner = getOwner()
   const [loading, setLoading] = createSignal(false)
   const [t] = useTransContext()
+  const rspcContext = rspc.useContext()
 
   const navigator = useGDNavigate()
 
@@ -88,12 +89,23 @@ const ModpackDownloadButton = (props: ModDownloadButtonProps) => {
       const imgUrl = props.addon?.imageUrl
       if (imgUrl) loadIconMutation.mutate(imgUrl)
 
+      let fileVersion = props.fileId
+      if (!fileVersion && props.addon?.platform === "modrinth") {
+        const mrVersions = await rspcContext.client.query([
+          "modplatforms.modrinth.getProjectVersions",
+          {
+            project_id: props.addon.id.toString()
+          }
+        ])
+        fileVersion = mrVersions[0].id
+      }
+
       createInstanceMutation.mutate({
         use_loaded_icon: true,
         notes: "",
         name: props.name || props.addon?.title!,
         version: {
-          Modpack: instanceCreationObj(props.fileId, props.addon?.id)
+          Modpack: instanceCreationObj(fileVersion, props.addon?.id)
         }
       })
     })
