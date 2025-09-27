@@ -73,7 +73,6 @@
   "login.read_and_accept": "By proceeding I confirm that I have read, understood and accepted the <0>Terms of Service</0> and <1>Privacy Statement</1>",
   "login.enable_hashed_email": "Enable the use of <0>hashed email</0> for advertising personalization. This does not affect whether or not you ads are show, but you will see ads more relevant to you.",
   "login.agree_and_continue": "Agree and Continue",
-  "login.accept_all_and_continue": "Accept All and Continue",
   "login.next": "Next",
   "login.prev": "Prev",
   "login.register": "Register",

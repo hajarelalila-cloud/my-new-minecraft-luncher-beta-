@@ -95,6 +95,7 @@ const Addons = () => {
         }
         updateCount={updateCount}
         hasModloaders={hasModloaders}
+        addons={() => addonData.addonsStore}
       />
 
       {/* Loading state */}

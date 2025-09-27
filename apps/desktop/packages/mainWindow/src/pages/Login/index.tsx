@@ -779,7 +779,7 @@ export default function Login() {
                   <i class="i-ri:arrow-right-line" />
                 </Match>
                 <Match when={step() === Steps.PrivacyNotice}>
-                  <Trans key="login.accept_all_and_continue" />
+                  <Trans key="login.agree_and_continue" />
                   <i class="i-ri:arrow-right-line" />
                 </Match>
                 <Match

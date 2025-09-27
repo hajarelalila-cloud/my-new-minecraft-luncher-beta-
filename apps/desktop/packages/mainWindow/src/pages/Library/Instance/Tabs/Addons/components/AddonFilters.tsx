@@ -12,7 +12,7 @@ import {
 } from "@gd/ui"
 import { For, Show } from "solid-js"
 import { Trans, useTransContext } from "@gd/i18n"
-import { AddonType } from "@gd/core_module/bindings"
+import { AddonType, Mod } from "@gd/core_module/bindings"
 
 const ADDON_TYPES: AddonType[] = [
   "mods",
@@ -37,6 +37,7 @@ interface AddonFiltersProps {
   onUpdateAll: () => void
   updateCount: () => number
   hasModloaders: () => boolean
+  addons: () => Mod[]
 }
 
 export const AddonFilters = (props: AddonFiltersProps) => {
@@ -51,7 +52,10 @@ export const AddonFilters = (props: AddonFiltersProps) => {
       if (type === "mods" && !props.hasModloaders()) {
         return false
       }
-      return true
+
+      // Only show addon types that have at least one installed addon
+      const hasAddonsOfType = props.addons().some(addon => addon.addon_type === type)
+      return hasAddonsOfType
     })
   }
 
