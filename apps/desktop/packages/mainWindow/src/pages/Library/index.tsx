@@ -14,7 +14,6 @@ function Library() {
   }))
 
   onMount(() => {
-    console.log(settings.data?.lastAppVersion, __APP_VERSION__)
     if (settings.data?.lastAppVersion !== __APP_VERSION__) {
       modalsManager?.openModal({
         name: "changelogs"

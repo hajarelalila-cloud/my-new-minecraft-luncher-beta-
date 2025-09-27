@@ -69,6 +69,8 @@ interface AddonTableProps {
   /** Configuration for virtualization behavior */
   virtualizationConfig?: VirtualizationConfig
   isInstanceLocked: () => boolean
+  /** Dynamic top offset for sticky header based on filter height */
+  headerTopOffset?: number
   /** Mutation handlers */
   mutations?: {
     handleToggleMod: (mod: ModType) => Promise<void>
@@ -978,7 +980,7 @@ export const AddonTable = (props: AddonTableProps) => {
         <div
           ref={headerRef}
           class="bg-darkSlate-700 sticky z-10 rounded-t-lg"
-          style={{ top: "170px" }}
+          style={{ top: `${props.headerTopOffset ?? 170}px` }}
         >
           <For each={table.getHeaderGroups()}>
             {(headerGroup) => (

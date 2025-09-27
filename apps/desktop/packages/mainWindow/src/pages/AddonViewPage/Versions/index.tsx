@@ -85,7 +85,7 @@ const Versions = () => {
       <div class="flex h-full flex-col" ref={versionsContainerRef}>
         <div
           class="bg-darkSlate-800 border-darkSlate-600 sticky z-20 mb-4 grid grid-cols-[4fr_130px_100px_120px_150px] gap-4 border-b px-6 pb-3 pt-4 text-xs font-medium uppercase tracking-wide text-lightSlate-400"
-          style={{ top: "136px" }}
+          style={{ top: mod?.data?.type === "modpack" ? "72px" : "136px" }}
         >
           <div>
             <Trans key="browser_table_headers.name" />

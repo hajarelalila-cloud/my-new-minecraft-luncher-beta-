@@ -1,4 +1,4 @@
-import { For, Show, createMemo } from "solid-js"
+import { For, Show, createMemo, createSignal } from "solid-js"
 import { useRouteData, useParams } from "@solidjs/router"
 import fetchData from "../../instance.data"
 import {
@@ -12,6 +12,9 @@ const Addons = () => {
   const routeData: ReturnType<typeof fetchData> = useRouteData()
   const params = useParams()
   let tableInstance: any = null
+
+  // Track filter height for dynamic table header offset
+  const [filterHeight, setFilterHeight] = createSignal(0)
 
   // Data and state management
   const addonData = useAddonData()
@@ -49,6 +52,19 @@ const Addons = () => {
   // Calculate update counts
   const updateCount = createMemo(() => {
     return addonData.filteredAddons().filter((addon) => addon.has_update).length
+  })
+
+  // Calculate dynamic table header offset based on filter height
+  const tableHeaderOffset = createMemo(() => {
+    const baseTabHeight = 56 // top-14 = 56px
+    const currentFilterHeight = filterHeight()
+
+    // If no filter height measured yet, use default
+    if (currentFilterHeight === 0) {
+      return 170 // Default fallback
+    }
+
+    return baseTabHeight + currentFilterHeight
   })
 
   // Column configuration
@@ -96,6 +112,7 @@ const Addons = () => {
         updateCount={updateCount}
         hasModloaders={hasModloaders}
         addons={() => addonData.addonsStore}
+        onHeightChange={setFilterHeight}
       />
 
       {/* Loading state */}
@@ -134,6 +151,7 @@ const Addons = () => {
                 tableInstance = table
               }}
               isInstanceLocked={isInstanceLocked}
+              headerTopOffset={tableHeaderOffset()}
               mutations={{
                 handleToggleMod: addonMutations.handleToggleMod,
                 handleUpdateMod: addonMutations.handleUpdateMod,

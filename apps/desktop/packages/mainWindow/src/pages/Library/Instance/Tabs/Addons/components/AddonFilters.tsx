@@ -10,7 +10,7 @@ import {
   TooltipContent,
   TooltipTrigger
 } from "@gd/ui"
-import { For, Show } from "solid-js"
+import { For, Show, onMount, onCleanup, createEffect } from "solid-js"
 import { Trans, useTransContext } from "@gd/i18n"
 import { AddonType, Mod } from "@gd/core_module/bindings"
 
@@ -38,10 +38,12 @@ interface AddonFiltersProps {
   updateCount: () => number
   hasModloaders: () => boolean
   addons: () => Mod[]
+  onHeightChange?: (height: number) => void
 }
 
 export const AddonFilters = (props: AddonFiltersProps) => {
   const [t] = useTransContext()
+  let containerRef: HTMLDivElement | undefined
 
   const getAddonTypeLabel = (type: AddonType) => {
     return t(`instance.tabs.${type}`)
@@ -61,8 +63,42 @@ export const AddonFilters = (props: AddonFiltersProps) => {
     })
   }
 
+  const measureHeight = () => {
+    if (containerRef && props.onHeightChange) {
+      const height = containerRef.offsetHeight
+      props.onHeightChange(height)
+    }
+  }
+
+  onMount(() => {
+    if (containerRef && props.onHeightChange) {
+      // Initial measurement
+      measureHeight()
+
+      // Observe size changes
+      const resizeObserver = new ResizeObserver(() => {
+        measureHeight()
+      })
+
+      resizeObserver.observe(containerRef)
+
+      onCleanup(() => {
+        resizeObserver.disconnect()
+      })
+    }
+  })
+
+  // Also measure when visible addon types change (affects badge layout)
+  createEffect(() => {
+    visibleAddonTypes() // Track dependency
+    setTimeout(measureHeight, 0) // Defer to next tick to ensure layout is updated
+  })
+
   return (
-    <div class="bg-darkSlate-800 border-darkSlate-700 sticky top-14 z-20 border-b px-6 py-4">
+    <div
+      ref={containerRef}
+      class="bg-darkSlate-800 border-darkSlate-700 sticky top-14 z-20 border-b px-6 py-4"
+    >
       <div class="flex flex-col gap-4">
         {/* Search and main actions */}
         <div class="flex items-center justify-between gap-4">

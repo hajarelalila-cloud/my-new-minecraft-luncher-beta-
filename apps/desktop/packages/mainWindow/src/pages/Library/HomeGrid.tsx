@@ -209,10 +209,6 @@ const HomeGrid = () => {
       })
     }
 
-    console.log(
-      `Recomputing filtered groups ${performance.now() - timeStart} ms`
-    )
-
     return _groups
   })
 
