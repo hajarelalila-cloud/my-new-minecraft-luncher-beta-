@@ -88,8 +88,6 @@ const HomeGrid = () => {
   >
 
   const filteredGroups = createMemo(() => {
-    const timeStart = performance.now()
-
     const _groups: Groups = {}
 
     const nameFilter = filter().replaceAll(" ", "").toLowerCase()

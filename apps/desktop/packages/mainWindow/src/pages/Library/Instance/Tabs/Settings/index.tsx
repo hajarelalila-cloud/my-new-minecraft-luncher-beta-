@@ -4,13 +4,7 @@ import { Trans, useTransContext } from "@gd/i18n"
 import { Button, Dropdown, Input, Radio, Slider, Switch } from "@gd/ui"
 import { useParams, useRouteData } from "@solidjs/router"
 import fetchData from "../../instance.data"
-import {
-  Match,
-  Show,
-  createMemo,
-  Switch as SolidSwitch,
-  createEffect
-} from "solid-js"
+import { Match, Show, createMemo, Switch as SolidSwitch } from "solid-js"
 import { InstanceDetails } from "@gd/core_module/bindings"
 import Title from "@/pages/Settings/components/Title"
 import Row from "@/pages/Settings/components/Row"
@@ -28,10 +22,6 @@ const Settings = () => {
   const updateInstanceMutation = rspc.createMutation(() => ({
     mutationKey: ["instance.updateInstance"]
   }))
-
-  createEffect(() => {
-    console.log("LOCKED", routeData.instanceDetails.data?.modpack?.locked)
-  })
 
   const getAllProfiles = rspc.createQuery(() => ({
     queryKey: ["java.getJavaProfiles"]

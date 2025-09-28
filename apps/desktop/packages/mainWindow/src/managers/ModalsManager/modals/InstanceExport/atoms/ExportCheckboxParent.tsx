@@ -92,7 +92,11 @@ const ExportCheckboxParent = (props: Props) => {
           }
         />
       </div>
-      <ExportCheckbox initialData={explore.data} instanceId={props.instanceId} folder={{ path: [] }} />
+      <ExportCheckbox
+        initialData={explore.data}
+        instanceId={props.instanceId}
+        folder={{ path: [] }}
+      />
     </>
   )
 }

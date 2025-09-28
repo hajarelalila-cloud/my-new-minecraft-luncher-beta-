@@ -50,7 +50,6 @@ import {
 import { setCheckedFiles } from "@/managers/ModalsManager/modals/InstanceExport/atoms/ExportCheckboxParent"
 import { isFullScreen } from "./Tabs/Log"
 import FeatureStatusBadge from "@/components/FeatureStatusBadge"
-import useSearchContext from "@/components/SearchInputContext"
 import { useGlobalStore } from "@/components/GlobalStoreContext"
 
 interface InstancePage {
@@ -60,7 +59,6 @@ interface InstancePage {
 
 const Instance = () => {
   const navigator = useGDNavigate()
-  const searchContext = useSearchContext()
   const params = useParams()
   const rspcContext = rspc.useContext()
   const location = useLocation()

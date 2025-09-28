@@ -61,7 +61,11 @@ const FileCheckbox = (props: { file: FileFolder; name: string }) => {
   )
 }
 
-const ExportCheckbox = (props: { folder: FileFolder; initialData: any; instanceId: number }) => {
+const ExportCheckbox = (props: {
+  folder: FileFolder
+  initialData: any
+  instanceId: number
+}) => {
   const [isOpen, setIsOpen] = createSignal(false)
   const [contents, setContents] = createSignal<any[]>([])
   const rspcContext = rspc.useContext()
