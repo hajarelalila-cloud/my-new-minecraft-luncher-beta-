@@ -1,6 +1,7 @@
 import {
   Badge,
   Button,
+  Input,
   Select,
   SelectContent,
   SelectItem,
@@ -103,13 +104,13 @@ export const AddonFilters = (props: AddonFiltersProps) => {
         {/* Search and main actions */}
         <div class="flex items-center justify-between gap-4">
           <div class="flex flex-1 items-center gap-4">
-            {/* <Input
+            <Input
               value={props.searchQuery()}
               onInput={(e) => props.setSearchQuery(e.target.value)}
               placeholder={t("instance.search_addons")}
               icon={<div class="i-ri:search-line" />}
               class="max-w-sm"
-            /> */}
+            />
 
             <div class="flex items-center gap-2">
               <span class="text-lightSlate-600 text-sm">
