@@ -304,7 +304,6 @@
   "instance.table.local": "Local",
   "instance.search_addons": "Search addons...",
   "instance.platform_filter": "Platform",
-  "instance.addon_types": "Types",
   "instance.filter.all": "All",
   "instance.filter.local": "Local",
   "instance.no_addons_text": "This instance doesn't contain any addons yet. Add some from the search page!",

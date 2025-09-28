@@ -267,9 +267,7 @@ export const AddonFilters = (props: AddonFiltersProps) => {
         {/* Addon type filters */}
         <div class="flex items-center justify-between gap-4">
           <div class="flex flex-wrap items-center gap-2">
-            <span class="text-lightSlate-600 text-sm">
-              {t("instance.addon_types")}:
-            </span>
+            <div class="i-ri:filter-3-line text-lightSlate-600 w-5 h-5" />
             <For each={visibleAddonTypes()}>
               {(type) => (
                 <Badge
