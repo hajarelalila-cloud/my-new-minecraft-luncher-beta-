@@ -21,6 +21,21 @@ export default function ThemeSelector() {
       value: "win95",
       label: "Windows 95",
       description: "Retro Windows 95 style"
+    },
+    {
+      value: "inferno",
+      label: "Inferno",
+      description: "Fiery crimson theme"
+    },
+    {
+      value: "aether",
+      label: "Aether",
+      description: "Ethereal void theme"
+    },
+    {
+      value: "frost",
+      label: "Frost",
+      description: "Icy arctic theme"
     }
   ]
 

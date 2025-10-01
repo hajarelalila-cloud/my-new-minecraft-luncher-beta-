@@ -16,16 +16,19 @@ const Versions = () => {
 
   const rows = () => infiniteQuery.allRows()
 
-  const instanceId = () => parseInt(searchParams.instanceId, 10)
+  const instanceId = () => {
+    const id = parseInt(searchParams.instanceId, 10)
+    return isNaN(id) ? undefined : id
+  }
 
   const instanceMods = rspc.createQuery(() => ({
     queryKey: ["instance.getInstanceMods", instanceId()],
-    enabled: !isNaN(instanceId()) && instanceId() > 0
+    enabled: instanceId() !== undefined && instanceId()! > 0
   }))
 
   const instanceDetails = rspc.createQuery(() => ({
     queryKey: ["instance.getInstanceDetails", instanceId()],
-    enabled: !isNaN(instanceId()) && instanceId() > 0
+    enabled: instanceId() !== undefined && instanceId()! > 0
   }))
 
   const installedMod = () => {

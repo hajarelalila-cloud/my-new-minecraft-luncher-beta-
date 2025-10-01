@@ -21,25 +21,38 @@ const Authors = (props: Props) => {
   const [isLoading, setIsLoading] = createSignal(false)
   const rspcContext = rspc.useContext()
 
-  createEffect(async () => {
+  createEffect((prevTeamId) => {
     if (
       props.modpackDetails &&
       props.isModrinth &&
       (props.modpackDetails as MRFEProject)?.team
     ) {
-      setIsLoading(true)
-      try {
-        const modrinthAuthorsQuery = await rspcContext.client.query([
-          "modplatforms.modrinth.getTeam",
-          (props.modpackDetails as MRFEProject)?.team
-        ])
+      const currentTeamId = (props.modpackDetails as MRFEProject)?.team
 
-        if (modrinthAuthorsQuery) setAuthors(modrinthAuthorsQuery)
-      } finally {
+      setIsLoading(true)
+
+      rspcContext.client.query([
+        "modplatforms.modrinth.getTeam",
+        currentTeamId
+      ]).then((modrinthAuthorsQuery) => {
+        // Check if team hasn't changed during async operation
+        const currentTeam = props.isModrinth && props.modpackDetails
+          ? (props.modpackDetails as MRFEProject)?.team
+          : undefined
+
+        if (currentTeam === currentTeamId && modrinthAuthorsQuery) {
+          setAuthors(modrinthAuthorsQuery)
+        }
         setIsLoading(false)
-      }
+      }).catch(() => {
+        setIsLoading(false)
+      })
+
+      return currentTeamId
     }
-  })
+
+    return prevTeamId
+  }, undefined)
 
   const getAuthors = () => {
     if (props.isCurseforge && props.modpackDetails) {

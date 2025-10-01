@@ -68,21 +68,20 @@ const ModDownloadButton = (props: ModDownloadButtonProps) => {
   })
 
   // Handle task progress for single instance button
-  createEffect(async () => {
-    if (taskId() !== null) {
-      const task = rspc.createQuery(() => ({
-        queryKey: ["vtask.getTask", taskId()]
-      }))
+  const task = rspc.createQuery(() => ({
+    queryKey: ["vtask.getTask", taskId()],
+    enabled: taskId() !== null
+  }))
 
-      createEffect(() => {
-        if (task?.data?.progress.type === "Known") {
-          setProgress(Math.round(task?.data?.progress.value * 100))
-        } else if (task?.data === null && taskId() !== null) {
-          setLoading(false)
-          setTaskId(null)
-          setProgress(null)
-        }
-      })
+  createEffect(() => {
+    if (taskId() !== null) {
+      if (task?.data?.progress.type === "Known") {
+        setProgress(Math.round(task?.data?.progress.value * 100))
+      } else if (task?.data === null) {
+        setLoading(false)
+        setTaskId(null)
+        setProgress(null)
+      }
     }
   })
 

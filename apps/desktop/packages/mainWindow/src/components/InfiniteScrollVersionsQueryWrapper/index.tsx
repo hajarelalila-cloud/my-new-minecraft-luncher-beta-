@@ -181,11 +181,12 @@ const InfiniteScrollVersionsQueryWrapper = (props: Props) => {
   }
 
   const _instanceId = parseInt(searchParams.instanceId, 10)
-  searchContext?.setSelectedInstanceId(_instanceId)
+  const instanceId = isNaN(_instanceId) ? undefined : _instanceId
+  searchContext?.setSelectedInstanceId(instanceId)
 
-  if (_instanceId && !isNaN(_instanceId)) {
+  if (instanceId !== undefined) {
     rspcContext.client
-      .query(["instance.getInstanceDetails", _instanceId])
+      .query(["instance.getInstanceDetails", instanceId])
       .then((details) => {
         setQueryWrapper({
           modLoaderType: details?.modloaders[0].type_,

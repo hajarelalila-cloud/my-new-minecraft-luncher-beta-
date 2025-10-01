@@ -307,7 +307,11 @@ const Mods = () => {
                 setSelectedModsMap(
                   produce((prev) => {
                     for (const mod of routeData.instanceMods || []) {
-                      prev[mod.id] = action || undefined!
+                      if (action) {
+                        prev[mod.id] = action
+                      } else {
+                        delete prev[mod.id]
+                      }
                     }
 
                     return prev

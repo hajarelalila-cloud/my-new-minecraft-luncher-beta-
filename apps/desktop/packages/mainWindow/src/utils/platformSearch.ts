@@ -57,7 +57,8 @@ export const getSearchResults = (_opts?: SearchResultsOpts) => {
   const [searchParams, _setSearchParams] = useSearchParams()
 
   const selectedInstanceId = () => {
-    return parseInt(searchParams.instanceId, 10)
+    const id = parseInt(searchParams.instanceId, 10)
+    return isNaN(id) ? undefined : id
   }
 
   const setSelectedInstanceId = (instanceId: number | undefined) => {
@@ -77,19 +78,25 @@ export const getSearchResults = (_opts?: SearchResultsOpts) => {
     enabled: !!selectedInstanceId()
   }))
 
-  createEffect(async () => {
-    if (selectedInstanceId()) {
+  createEffect((prevId) => {
+    const currentId = selectedInstanceId()
+    if (currentId && currentId !== prevId) {
       selectedInstanceMods.refetch()
-      const res = await selectedInstance.refetch()
-      const modloader = res.data?.modloaders[0]
-      const gameVersion = res.data?.version
-      setSearchQuery({
-        ...searchQuery(),
-        modloaders: modloader ? [modloader.type_] : null,
-        gameVersions: gameVersion ? [gameVersion] : null
+      selectedInstance.refetch().then((res) => {
+        // Check if still on same instance to avoid race conditions
+        if (selectedInstanceId() === currentId) {
+          const modloader = res.data?.modloaders[0]
+          const gameVersion = res.data?.version
+          setSearchQuery((prev) => ({
+            ...prev,
+            modloaders: modloader ? [modloader.type_] : null,
+            gameVersions: gameVersion ? [gameVersion] : null
+          }))
+        }
       })
     }
-  })
+    return currentId
+  }, undefined)
 
   const [searchQuery, _setSearchQuery] =
     createSignal<FEUnifiedSearchParameters>(
@@ -129,7 +136,7 @@ export const getSearchResults = (_opts?: SearchResultsOpts) => {
     }
 
     return selectedInstanceId()
-  }, selectedInstanceId())
+  }, undefined)
 
   const actualPageSize = () => {
     let pageSize = searchQuery().pageSize || 40
@@ -207,19 +214,27 @@ export const getSearchResults = (_opts?: SearchResultsOpts) => {
     }
   }))
 
-  createEffect(() => {
-    searchQuery()
+  // Debounce search query changes to avoid excessive refetching
+  createEffect((prevQuery) => {
+    const currentQuery = searchQuery()
 
-    rspcContext.queryClient.removeQueries({
-      queryKey: ["modplatforms.unifiedSearch.cf"]
-    })
-    rspcContext.queryClient.removeQueries({
-      queryKey: ["modplatforms.unifiedSearch.mr"]
-    })
+    // Only refetch if query actually changed (deep comparison)
+    const queryChanged = JSON.stringify(prevQuery) !== JSON.stringify(currentQuery)
 
-    mrInfiniteResults.refetch()
-    cfInfiniteResults.refetch()
-  })
+    if (queryChanged) {
+      rspcContext.queryClient.removeQueries({
+        queryKey: ["modplatforms.unifiedSearch.cf"]
+      })
+      rspcContext.queryClient.removeQueries({
+        queryKey: ["modplatforms.unifiedSearch.mr"]
+      })
+
+      mrInfiniteResults.refetch()
+      cfInfiniteResults.refetch()
+    }
+
+    return currentQuery
+  }, null)
 
   const allRows = (): SearchResultItem[] => {
     const cfData =

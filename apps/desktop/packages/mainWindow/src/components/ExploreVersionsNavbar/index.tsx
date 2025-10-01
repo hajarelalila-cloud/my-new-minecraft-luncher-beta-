@@ -36,7 +36,10 @@ interface Props {
 
 const ExploreVersionsNavbar = (props: Props) => {
   const [searchParams, _setSearchParams] = useSearchParams()
-  const instanceId = () => parseInt(searchParams.instanceId, 10)
+  const instanceId = () => {
+    const id = parseInt(searchParams.instanceId, 10)
+    return isNaN(id) ? undefined : id
+  }
   const globalStore = useGlobalStore()
 
   const infiniteQuery = useInfiniteVersionsQuery()

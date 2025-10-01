@@ -398,7 +398,13 @@ where
         let Ok(entry) = entry else { return None };
 
         let srcpath = entry.path().to_path_buf();
-        let relpath = srcpath.strip_prefix(from).unwrap();
+        let relpath = match srcpath.strip_prefix(from) {
+            Ok(rel) => rel,
+            Err(_) => {
+                // Path is not relative to source directory, skip it
+                return None;
+            }
+        };
 
         if !filter(&relpath) {
             return None;
@@ -410,7 +416,9 @@ where
             if entry.metadata()?.is_dir() {
                 tokio::fs::create_dir_all(destpath).await?;
             } else {
-                tokio::fs::create_dir_all(destpath.parent().unwrap()).await?;
+                if let Some(parent) = destpath.parent() {
+                    tokio::fs::create_dir_all(parent).await?;
+                }
                 tokio::fs::copy(srcpath, destpath).await?;
             }
 

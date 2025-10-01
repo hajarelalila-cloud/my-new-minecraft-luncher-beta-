@@ -59,13 +59,17 @@ const News = (props: CarouselProps) => {
   const lastSlide = () => props.slides[props.slides.length - 1]
   const copiedSlides = () => [lastSlide(), ...props.slides, firstSlide()]
 
+  let intervalId: number | undefined
+
   const resetInterval = () => {
-    clearInterval(interval)
-    interval = setInterval(() => {
+    if (intervalId !== undefined) {
+      clearInterval(intervalId)
+    }
+    intervalId = setInterval(() => {
       if (!props.disableAutoRotation) {
         changeSlide(mergedProps.rtl ? "right" : "left")
       }
-    }, props.speed || 5000)
+    }, props.speed || 5000) as unknown as number
   }
 
   const handleTransitionEnd = () => {
@@ -83,11 +87,19 @@ const News = (props: CarouselProps) => {
   }
 
   onMount(() => {
-    slidesRef.addEventListener("transitionend", handleTransitionEnd)
+    if (slidesRef) {
+      slidesRef.addEventListener("transitionend", handleTransitionEnd)
+    }
+    resetInterval()
   })
 
   onCleanup(() => {
-    slidesRef.removeEventListener("transitionend", handleTransitionEnd)
+    if (slidesRef) {
+      slidesRef.removeEventListener("transitionend", handleTransitionEnd)
+    }
+    if (intervalId !== undefined) {
+      clearInterval(intervalId)
+    }
   })
 
   const changeSlide = (direction: "right" | "left") => {
@@ -102,12 +114,6 @@ const News = (props: CarouselProps) => {
     }
     moveSlide()
   }
-
-  createEffect(() => {
-    resetInterval()
-  })
-
-  onCleanup(() => clearInterval(interval))
 
   const Slider = (props: SliderProps) => {
     onMount(() => {

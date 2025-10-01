@@ -72,27 +72,38 @@ const SingleEntity = (props: {
     setPath(entityDefaultPath.data!)
   })
 
-  createEffect(async () => {
-    if (path()) {
-      await scanImportableInstancesMutation.mutateAsync([
-        props.entity.entity,
-        path()!
-      ])
+  createEffect((prevPath) => {
+    const currentPath = path()
 
-      queryClient.invalidateQueries({
-        queryKey: ["instance.getImportScanStatus"]
-      })
-    } else {
-      await scanImportableInstancesMutation.mutateAsync([
-        props.entity.entity,
-        ""
-      ])
+    const scanAndInvalidate = async () => {
+      try {
+        if (currentPath) {
+          await scanImportableInstancesMutation.mutateAsync([
+            props.entity.entity,
+            currentPath
+          ])
+        } else {
+          await scanImportableInstancesMutation.mutateAsync([
+            props.entity.entity,
+            ""
+          ])
+        }
 
-      queryClient.invalidateQueries({
-        queryKey: ["instance.getImportScanStatus"]
-      })
+        // Check if path hasn't changed during async operation
+        if (path() === currentPath) {
+          queryClient.invalidateQueries({
+            queryKey: ["instance.getImportScanStatus"]
+          })
+        }
+      } catch (error) {
+        console.error("Failed to scan importable instances:", error)
+      }
     }
-  })
+
+    scanAndInvalidate()
+
+    return currentPath
+  }, undefined)
 
   createEffect(() => {
     const status = importScanStatus.data

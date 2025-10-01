@@ -257,36 +257,55 @@ const TransWrapper = (props: TransWrapperProps) => {
     queryKey: ["settings.getSettings"]
   }))
 
-  createEffect(async () => {
+  createEffect((prevLanguage) => {
     if (settings.isSuccess) {
       const { language } = settings.data
+
       if (!_i18nInstance.isInitialized) {
-        let maybeEnglish = null
-        if (language !== "english") {
-          maybeEnglish = await loadLanguageFiles("english")
+        const currentLanguage = language
+
+        const initI18n = async () => {
+          let maybeEnglish = null
+          if (currentLanguage !== "english") {
+            maybeEnglish = await loadLanguageFiles("english")
+          }
+
+          // Check if language hasn't changed during async load
+          if (settings.data.language !== currentLanguage) {
+            return
+          }
+
+          const defaultNamespacesMap = await loadLanguageFiles(currentLanguage)
+
+          // Check again after second async load
+          if (settings.data.language !== currentLanguage) {
+            return
+          }
+
+          await _i18nInstance.init({
+            ns: Object.keys(defaultNamespacesMap),
+            defaultNS: "common",
+            lng: currentLanguage,
+            fallbackLng: "english",
+            resources: {
+              [currentLanguage]: defaultNamespacesMap,
+              ...(maybeEnglish && { english: maybeEnglish })
+            },
+            partialBundledLanguages: true,
+            debug: true
+          })
+
+          setIsI18nReady(true)
         }
 
-        const defaultNamespacesMap = await loadLanguageFiles(language)
-
-        await _i18nInstance.init({
-          ns: Object.keys(defaultNamespacesMap),
-          defaultNS: "common",
-          lng: language,
-          fallbackLng: "english",
-          resources: {
-            [language]: defaultNamespacesMap,
-            ...(maybeEnglish && { english: maybeEnglish })
-          },
-          partialBundledLanguages: true,
-          debug: true
-        })
-
-        setIsI18nReady(true)
-
-        return
+        initI18n()
       }
+
+      return language
     }
-  })
+
+    return prevLanguage
+  }, undefined)
 
   createEffect(() => {
     const root = document.getElementById("root")

@@ -209,84 +209,106 @@ const Changelog = () => {
     }
   })
 
-  createEffect(async () => {
+  createEffect((prev) => {
     const modpackId = parseInt(params.id, 10)
+    const currentFileId = fileId()
+    const currentLastFile = lastFile()
+    const isCurseforge = routeData.isCurseforge
 
-    if (routeData.isCurseforge) {
+    const current = { modpackId, currentFileId, currentLastFile, isCurseforge }
+
+    if (isCurseforge) {
       if (
-        fileId() !== undefined ||
-        (lastFile() && (lastFile() as CFFEFile).id !== undefined)
+        currentFileId !== undefined ||
+        (currentLastFile && (currentLastFile as CFFEFile).id !== undefined)
       ) {
         setIsLoadingChangelog(true)
         setChangelog(undefined)
         setReleaseDate(undefined)
 
-        try {
-          const targetFileId =
-            parseInt(fileId() as string, 10) || (lastFile() as CFFEFile).id
-          const changelogQuery = await rspcContext.client.query([
-            "modplatforms.curseforge.getModFileChangelog",
-            {
-              modId: modpackId,
-              fileId: targetFileId
-            }
-          ])
-          setChangelog(changelogQuery.data)
-          const fileData =
-            routeData.modpackDetails.data?.data.latestFiles.find(
-              (file) => file.id === targetFileId
-            ) ||
-            routeData.modpackDetails.data?.data.latestFilesIndexes.find(
-              (file) => file.fileId === targetFileId
-            )
+        const targetFileId =
+          parseInt(currentFileId as string, 10) || (currentLastFile as CFFEFile).id
 
-          if (fileData && "fileDate" in fileData) {
-            setReleaseDate(fileData.fileDate)
-          } else {
-            setReleaseDate(undefined)
+        rspcContext.client.query([
+          "modplatforms.curseforge.getModFileChangelog",
+          {
+            modId: modpackId,
+            fileId: targetFileId
           }
-        } catch (e) {
+        ]).then((changelogQuery) => {
+          // Check if parameters haven't changed during async operation
+          if (fileId() === currentFileId && routeData.isCurseforge === isCurseforge) {
+            setChangelog(changelogQuery.data)
+            const fileData =
+              routeData.modpackDetails.data?.data.latestFiles.find(
+                (file) => file.id === targetFileId
+              ) ||
+              routeData.modpackDetails.data?.data.latestFilesIndexes.find(
+                (file) => file.fileId === targetFileId
+              )
+
+            if (fileData && "fileDate" in fileData) {
+              setReleaseDate(fileData.fileDate)
+            } else {
+              setReleaseDate(undefined)
+            }
+            setIsLoadingChangelog(false)
+          }
+        }).catch((e) => {
           console.error(e)
-          setChangelog(undefined)
-          setReleaseDate(undefined)
-        } finally {
-          setIsLoadingChangelog(false)
-        }
+          if (fileId() === currentFileId && routeData.isCurseforge === isCurseforge) {
+            setChangelog(undefined)
+            setReleaseDate(undefined)
+            setIsLoadingChangelog(false)
+          }
+        })
       }
     }
-  })
 
-  createEffect(async () => {
-    if (!routeData.isCurseforge) {
-      if (fileId() !== undefined) {
+    return current
+  }, { modpackId: 0, currentFileId: undefined, currentLastFile: undefined, isCurseforge: false })
+
+  createEffect((prev) => {
+    const currentFileId = fileId()
+    const isCurseforge = routeData.isCurseforge
+
+    const current = { currentFileId, isCurseforge }
+
+    if (!isCurseforge) {
+      if (currentFileId !== undefined) {
         setIsLoadingChangelog(true)
         setChangelog(undefined)
         setReleaseDate(undefined)
 
-        try {
-          const changelogQuery = await rspcContext.client.query([
-            "modplatforms.modrinth.getVersion",
-            fileId() as string
-          ])
-
-          if (changelogQuery?.changelog) {
-            setChangelog(changelogQuery.changelog)
+        rspcContext.client.query([
+          "modplatforms.modrinth.getVersion",
+          currentFileId as string
+        ]).then((changelogQuery) => {
+          // Check if parameters haven't changed during async operation
+          if (fileId() === currentFileId && !routeData.isCurseforge) {
+            if (changelogQuery?.changelog) {
+              setChangelog(changelogQuery.changelog)
+            }
+            if (changelogQuery?.date_published) {
+              setReleaseDate(changelogQuery.date_published)
+            } else {
+              setReleaseDate(undefined)
+            }
+            setIsLoadingChangelog(false)
           }
-          if (changelogQuery?.date_published) {
-            setReleaseDate(changelogQuery.date_published)
-          } else {
-            setReleaseDate(undefined)
-          }
-        } catch (err) {
+        }).catch((err) => {
           console.error(err)
-          setChangelog(undefined)
-          setReleaseDate(undefined)
-        } finally {
-          setIsLoadingChangelog(false)
-        }
+          if (fileId() === currentFileId && !routeData.isCurseforge) {
+            setChangelog(undefined)
+            setReleaseDate(undefined)
+            setIsLoadingChangelog(false)
+          }
+        })
       }
     }
-  })
+
+    return current
+  }, { currentFileId: undefined, isCurseforge: false })
 
   const isLoading = createMemo(() => isLoadingChangelog())
 

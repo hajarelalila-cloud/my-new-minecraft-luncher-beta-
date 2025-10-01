@@ -20,7 +20,7 @@ const SingleImport = (props: {
     queryKey: ["vtask.getTask", props.taskId || null]
   }))
 
-  createEffect(async () => {
+  createEffect(() => {
     if (taskIds() !== undefined) {
       const task = _task.data
       try {

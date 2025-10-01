@@ -271,36 +271,53 @@ const Instance = () => {
     routeData.instanceDetails.data?.modpack?.modpack.type === "curseforge" &&
     routeData.instanceDetails.data?.modpack?.modpack.value
 
-  createEffect(async () => {
+  createEffect((prevData) => {
     const isCurseforge = curseforgeData()
+
     if (isCurseforge) {
-      setModpackDetails(
-        await rspcContext.client.query([
-          "modplatforms.curseforge.getMod",
-          {
-            modId: isCurseforge.project_id
-          }
-        ])
-      )
+      const currentProjectId = isCurseforge.project_id
+
+      rspcContext.client.query([
+        "modplatforms.curseforge.getMod",
+        {
+          modId: currentProjectId
+        }
+      ]).then((modpackData) => {
+        // Check if data hasn't changed during async operation
+        const currentCfData = curseforgeData()
+        if (currentCfData && currentCfData.project_id === currentProjectId) {
+          setModpackDetails(modpackData)
+        }
+      })
     }
-  })
+
+    return isCurseforge
+  }, false)
 
   const modrinthData = () =>
     routeData.instanceDetails.data?.modpack?.modpack.type === "modrinth" &&
     routeData.instanceDetails.data?.modpack?.modpack.value
 
-  createEffect(async () => {
+  createEffect((prevData) => {
     const isModrinth = modrinthData()
 
     if (isModrinth) {
-      setModpackDetails(
-        await rspcContext.client.query([
-          "modplatforms.modrinth.getProject",
-          isModrinth.project_id
-        ])
-      )
+      const currentProjectId = isModrinth.project_id
+
+      rspcContext.client.query([
+        "modplatforms.modrinth.getProject",
+        currentProjectId
+      ]).then((modpackData) => {
+        // Check if data hasn't changed during async operation
+        const currentMrData = modrinthData()
+        if (currentMrData && currentMrData.project_id === currentProjectId) {
+          setModpackDetails(modpackData)
+        }
+      })
     }
-  })
+
+    return isModrinth
+  }, false)
 
   const handleNameChange = () => {
     if (newName()) {

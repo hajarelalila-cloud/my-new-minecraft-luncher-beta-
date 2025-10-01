@@ -39,7 +39,7 @@ export default function DynamicBadgeContainer(props: {
               variant={isInSearchQuery ? "default" : "secondary"}
               class="flex shrink-0 items-center gap-2"
               classList={{
-                "text-lightSlate-700": !isInSearchQuery,
+                "text-lightSlate-500": !isInSearchQuery,
                 "text-white": isInSearchQuery
               }}
               onClick={(e) => {

@@ -83,6 +83,9 @@ export interface ContentItem {
 const fetchPatchNotes = async (): Promise<ContentItem[]> => {
   try {
     const resp = await fetch(JAVA_PATCH_NOTES_URL)
+    if (!resp.ok) {
+      throw new Error(`Failed to fetch patch notes: ${resp.status} ${resp.statusText}`)
+    }
     const data = await resp.json()
 
     const patchNotesArr =
@@ -109,6 +112,9 @@ const fetchPatchNotes = async (): Promise<ContentItem[]> => {
 const fetchNews = async (): Promise<ContentItem[]> => {
   try {
     const resp = await fetch(NEWS_URL)
+    if (!resp.ok) {
+      throw new Error(`Failed to fetch news: ${resp.status} ${resp.statusText}`)
+    }
     const data = await resp.json()
     const filteredNews = data.entries
 

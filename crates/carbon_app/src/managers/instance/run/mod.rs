@@ -501,11 +501,13 @@ impl ManagerRef<'_, InstanceManager> {
 
                     let start_time = Utc::now();
 
+                    let process_id = child.id().expect("Failed to get process ID for child process. The process may have already exited.");
+
                     let _ = app.instance_manager()
                         .change_launch_state(
                             instance_id,
                             LaunchState::Running(RunningInstance {
-                                process_id: child.id().expect("child process id is not present even though child process was started"),
+                                process_id,
                                 kill_tx,
                                 start_time,
                                 log: log_id,
@@ -515,9 +517,7 @@ impl ManagerRef<'_, InstanceManager> {
 
                     let (Some(stdout), Some(stderr)) = (child.stdout.take(), child.stderr.take())
                     else {
-                        panic!(
-                            "stdout and stderr are not availible even though the child process was created with both enabled"
-                        );
+                        panic!("Failed to capture stdout and stderr from child process. The process was created with piped stdio, but the streams are not available. This may indicate a system-level issue with process creation.");
                     };
 
                     let mut last_stored_time = start_time;

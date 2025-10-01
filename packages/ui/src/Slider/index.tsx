@@ -117,6 +117,10 @@ function Slider(props: Props) {
     if (currentValue() !== value) {
       onChange(value)
     }
+
+    // Add document listeners when dragging starts
+    document.addEventListener("mousemove", mousemove)
+    document.addEventListener("mouseup", mouseup)
   }
 
   const onChange = (val: number) => {
@@ -144,6 +148,10 @@ function Slider(props: Props) {
     setShowTooltip(false)
     setDragging(false)
     props?.OnRelease?.(currentValue())
+
+    // Remove document listeners when dragging ends
+    document.removeEventListener("mousemove", mousemove)
+    document.removeEventListener("mouseup", mouseup)
   }
 
   const trackClick = (e: MouseEvent) => {
@@ -161,17 +169,28 @@ function Slider(props: Props) {
   }
 
   onMount(() => {
-    handleRef()?.addEventListener("mousedown", mousedown)
-    sliderRef.addEventListener("click", trackClick)
-    document.addEventListener("mousemove", mousemove)
-    document.addEventListener("mouseup", mouseup)
+    const handle = handleRef()
+    if (handle) {
+      handle.addEventListener("mousedown", mousedown)
+    }
+    if (sliderRef) {
+      sliderRef.addEventListener("click", trackClick)
+    }
   })
 
   onCleanup(() => {
-    handleRef()?.removeEventListener("mousedown", mousedown)
-    sliderRef.removeEventListener("click", trackClick)
-    document.removeEventListener("mousemove", mousemove)
-    document.removeEventListener("mouseup", mouseup)
+    const handle = handleRef()
+    if (handle) {
+      handle.removeEventListener("mousedown", mousedown)
+    }
+    if (sliderRef) {
+      sliderRef.removeEventListener("click", trackClick)
+    }
+    // Clean up document listeners if still attached (e.g., component unmounts while dragging)
+    if (dragging()) {
+      document.removeEventListener("mousemove", mousemove)
+      document.removeEventListener("mouseup", mouseup)
+    }
   })
 
   const calcOffset = (value: number) => {

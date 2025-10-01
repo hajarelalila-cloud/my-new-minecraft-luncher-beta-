@@ -12,6 +12,11 @@ export interface Changelog {
 const changelogs: Changelog = {
   new: [
     {
+      title: "New Themes",
+      description:
+        "Added three new themes: Inferno (fiery crimson theme), Aether (ethereal void theme with purples), and Frost (icy arctic theme with cool blues)."
+    },
+    {
       title: "Unified Search & Discovery System",
       description:
         "Complete overhaul replacing separate mod and modpack pages with a unified search experience supporting all addon types."
