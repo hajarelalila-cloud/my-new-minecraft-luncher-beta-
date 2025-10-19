@@ -116,7 +116,7 @@ export const createAddonColumns = (config: ColumnConfig) => {
               when={imageUrl}
               fallback={
                 <div class="h-8 w-8 rounded bg-darkSlate-600 flex items-center justify-center">
-                  <div class="i-ri:file-3-line text-lightSlate-400 text-lg" />
+                  <div class="i-hugeicons:file-01 text-lightSlate-400 text-lg" />
                 </div>
               }
             >
@@ -193,7 +193,7 @@ export const createAddonColumns = (config: ColumnConfig) => {
           <Show when={mod.is_duplicate}>
             <Tooltip>
               <TooltipTrigger>
-                <div class="i-ri:alert-fill text-lg text-yellow-500" />
+                <div class="i-hugeicons:alert-01 text-lg text-yellow-500" />
               </TooltipTrigger>
               <TooltipContent>
                 <Trans key="instance.duplicate_mod_warning" />
@@ -236,7 +236,7 @@ export const createAddonColumns = (config: ColumnConfig) => {
           return (
             <Tooltip>
               <TooltipTrigger>
-                <div class="i-ri:folder-fill text-lg text-gray-500" />
+                <div class="i-hugeicons:folder-01 text-lg text-gray-500" />
               </TooltipTrigger>
               <TooltipContent>{t("instance.table.local")}</TooltipContent>
             </Tooltip>
@@ -320,7 +320,7 @@ export const createAddonColumns = (config: ColumnConfig) => {
                   fallback={<Spinner class="h-5 w-5 text-blue-400" />}
                 >
                   <div
-                    class="i-ri:download-2-fill text-lg transition-colors cursor-pointer"
+                    class="i-hugeicons:download-02 text-lg transition-colors cursor-pointer"
                     classList={{
                       "text-green-500 hover:text-green-400": !isDisabled(),
                       "text-gray-400 cursor-not-allowed": isDisabled()
@@ -400,7 +400,7 @@ export const createAddonColumns = (config: ColumnConfig) => {
               <Tooltip>
                 <TooltipTrigger>
                   <div
-                    class="i-ri:arrow-left-right-line text-lg text-lightSlate-400 hover:text-lightSlate-200 cursor-pointer transition-colors"
+                    class="i-hugeicons:arrow-left-right text-lg text-lightSlate-400 hover:text-lightSlate-200 cursor-pointer transition-colors"
                     onClick={() => config.onSwitchVersion(mod)}
                   />
                 </TooltipTrigger>

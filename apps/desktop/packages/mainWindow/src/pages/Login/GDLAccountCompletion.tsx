@@ -43,7 +43,7 @@ const GDLAccountCompletion = (props: Props) => {
 
           <Tooltip>
             <TooltipTrigger>
-              <div class="i-ri:information-fill h-4 w-4" />
+              <div class="i-hugeicons:information-circle h-4 w-4" />
             </TooltipTrigger>
             <TooltipContent>
               <Trans key="login.recovery_email_description" />
@@ -74,7 +74,7 @@ const GDLAccountCompletion = (props: Props) => {
           <Trans key="login.enter_your_nickname" />
           <Tooltip>
             <TooltipTrigger>
-              <div class="i-ri:information-fill h-4 w-4" />
+              <div class="i-hugeicons:information-circle h-4 w-4" />
             </TooltipTrigger>
             <TooltipContent>
               <Trans key="login.nickname_description" />

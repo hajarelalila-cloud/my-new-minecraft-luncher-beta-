@@ -118,13 +118,13 @@ const Settings = () => {
                   })
                 }}
               >
-                <i class="i-ri:lock-fill h-5 w-5" />
+                <i class="i-hugeicons:lock h-5 w-5" />
                 <Trans key="instance_settings.unlock" />
               </Button>
             </Show>
             <Show when={!routeData.instanceDetails.data?.modpack?.locked}>
               <div class="flex items-center gap-2">
-                <i class="i-ri:lock-unlock-fill h-5 w-5" />
+                <i class="i-hugeicons:lock-key-open h-5 w-5" />
                 <Trans key="instance_settings.unlocked" />
               </div>
             </Show>
@@ -143,7 +143,7 @@ const Settings = () => {
                 )
               }}
             >
-              <i class="i-ri:git-branch-fill h-5 w-5" />
+              <i class="i-hugeicons:git-branch h-5 w-5" />
               <Trans key="instance_settings.unpair" />
             </Button>
             <Button
@@ -159,7 +159,7 @@ const Settings = () => {
                 )
               }}
             >
-              <i class="i-ri:arrow-left-right-fill h-5 w-5" />
+              <i class="i-hugeicons:arrow-left-right h-5 w-5" />
               <Trans key="instance_settings.change_modpack_version" />
             </Button>
           </div>
@@ -421,7 +421,7 @@ const Settings = () => {
               })
             }}
           >
-            <i class="i-ri:arrow-go-back-fill h-5 w-5" />
+            <i class="i-hugeicons:arrow-turn-backward h-5 w-5" />
           </Button>
           <Button
             rounded={false}
@@ -435,7 +435,7 @@ const Settings = () => {
               })
             }}
           >
-            <i class="i-ri:close-fill h-5 w-5" />
+            <i class="i-hugeicons:cancel-01 h-5 w-5" />
           </Button>
         </div>
       </Show>

@@ -228,7 +228,7 @@ function ScrollBottomButton(props: {
           <Switch>
             <Match when={props.newLogsCount > 0}>
               <div class="flex items-center gap-2">
-                <div class="i-ri:arrow-down-s-line" />
+                <div class="i-hugeicons:arrow-down-01" />
                 <Trans
                   key="logs.new_logs"
                   options={{
@@ -242,7 +242,7 @@ function ScrollBottomButton(props: {
             </Match>
             <Match when={props.newLogsCount === 0}>
               <div class="flex items-center gap-2">
-                <div class="i-ri:arrow-down-s-line" />
+                <div class="i-hugeicons:arrow-down-01" />
                 <Trans key="logs.see_new_logs" />
               </div>
             </Match>
@@ -250,7 +250,7 @@ function ScrollBottomButton(props: {
         </Match>
         <Match when={!isHovered()}>
           <div class="flex items-center gap-2">
-            <div class="i-ri:pause-fill h-4 w-4" />
+            <div class="i-hugeicons:pause h-4 w-4" />
             <Trans key="logs.logs_paused_due_to_scroll" />
           </div>
         </Match>

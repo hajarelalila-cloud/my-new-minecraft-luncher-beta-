@@ -60,7 +60,7 @@ const GDLAccountRowItem = (props: {
               </div>
             </Show>
             <div class="hidden group-hover:block">
-              <div class="i-ri:clipboard-fill text-lightSlate-50" />
+              <div class="i-hugeicons:clipboard text-lightSlate-50" />
             </div>
           </div>
         </Show>
@@ -123,16 +123,16 @@ const defaultColumns: ColumnDef<AccountEntry>[] = [
       <div class="flex items-center justify-center">
         <Switch>
           <Match when={info.getValue() === "ok"}>
-            <div class="i-ri:check-fill h-4 w-4 text-green-500" />
+            <div class="i-hugeicons:tick-02 h-4 w-4 text-green-500" />
           </Match>
           <Match when={info.getValue() === "expired"}>
-            <div class="i-ri:alert-fill h-4 w-4 text-yellow-500" />
+            <div class="i-hugeicons:alert-01 h-4 w-4 text-yellow-500" />
           </Match>
           <Match when={info.getValue() === "refreshing"}>
-            <div class="i-ri:refresh-line h-4 w-4 text-yellow-500" />
+            <div class="i-hugeicons:refresh h-4 w-4 text-yellow-500" />
           </Match>
           <Match when={info.getValue() === "invalid"}>
-            <div class="i-ri:close-line h-4 w-4 text-red-500" />
+            <div class="i-hugeicons:cancel-01 h-4 w-4 text-red-500" />
           </Match>
         </Switch>
       </div>
@@ -263,7 +263,7 @@ const Accounts = () => {
                     <Popover>
                       <PopoverTrigger>
                         <div class="flex items-center gap-2">
-                          <i class="i-ri:logout-box-line block h-6 w-6" />
+                          <i class="i-hugeicons:logout-01 block h-6 w-6" />
 
                           <Trans key="settings:log_out_gdl_account" />
                         </div>
@@ -275,7 +275,7 @@ const Accounts = () => {
                             removeGDLAccountMutation.mutate(undefined)
                           }}
                         >
-                          <i class="i-ri:logout-box-line block h-6 w-6" />
+                          <i class="i-hugeicons:logout-01 block h-6 w-6" />
                         </Button>
                       </PopoverContent>
                     </Popover>
@@ -285,7 +285,7 @@ const Accounts = () => {
                   >
                     <div class="mb-4 flex items-center justify-between gap-8 rounded-md p-4 text-yellow-500 outline outline-yellow-500">
                       <div class="flex items-center gap-4">
-                        <i class="i-ri:alert-fill block h-6 w-6" />
+                        <i class="i-hugeicons:alert-01 block h-6 w-6" />
                         <Trans key="settings:gdl_account_not_verified" />
                       </div>
                       <Tooltip>
@@ -368,7 +368,7 @@ const Accounts = () => {
                 </div>
 
                 <div class="my-10 flex items-center gap-2 text-xl text-red-500">
-                  <div class="i-ri:alert-fill h-4 w-4" />
+                  <div class="i-hugeicons:alert-01 h-4 w-4" />
                   <Trans key="settings:danger_zone" />
                 </div>
                 <div class="text-lightSlate-700 flex items-center justify-between gap-12">
@@ -387,7 +387,7 @@ const Accounts = () => {
                           })
                         }}
                       >
-                        <i class="i-ri:delete-bin-7-fill block h-6 w-6" />
+                        <i class="i-hugeicons:delete-01 block h-6 w-6" />
                         <Trans key="settings:request_account_deletion" />
                       </Button>
                     </TooltipTrigger>
@@ -424,7 +424,7 @@ const Accounts = () => {
                       removeGDLAccountMutation.mutate(undefined)
                     }}
                   >
-                    <i class="i-ri:logout-box-line block h-6 w-6" />
+                    <i class="i-hugeicons:logout-01 block h-6 w-6" />
                     <Trans key="settings:log_out_gdl_account" />
                   </Button>
                 </div>
@@ -445,7 +445,7 @@ const Accounts = () => {
                   gdNavigator.navigate("/?addMicrosoftAccount=true")
                 }}
               >
-                <div class="i-ri:add-line" />
+                <div class="i-hugeicons:add-01" />
               </Button>
             </div>
           </Title>
@@ -513,7 +513,7 @@ const Accounts = () => {
                               <Show when={row.original.status !== "ok"}>
                                 <div class="w-full text-yellow-500 hover:text-yellow-200">
                                   <div
-                                    class="i-ri:refresh-line h-4 w-4"
+                                    class="i-hugeicons:refresh h-4 w-4"
                                     onClick={async () => {
                                       gdNavigator.navigate(
                                         "/?addMicrosoftAccount=true"
@@ -524,7 +524,7 @@ const Accounts = () => {
                               </Show>
                               <div class="flex w-full items-center justify-center hover:text-red-500">
                                 <div
-                                  class="i-ri:delete-bin-2-fill h-4 w-4"
+                                  class="i-hugeicons:delete-02 h-4 w-4"
                                   onClick={async () => {
                                     const gdlAccountUuid =
                                       globalStore.settings.data?.gdlAccountId
@@ -565,7 +565,7 @@ const Accounts = () => {
                             }
                           >
                             <div class="flex items-center justify-center">
-                              <div class="text-lightSlate-50 i-ri:checkbox-circle-fill h-4 w-4" />
+                              <div class="text-lightSlate-50 i-hugeicons:tick-double-02 h-4 w-4" />
                             </div>
                           </Match>
                           <Match
@@ -576,7 +576,7 @@ const Accounts = () => {
                             }
                           >
                             <div class="flex items-center justify-center opacity-0 duration-100 ease-in-out group-hover/internal:opacity-100">
-                              <div class="text-darkSlate-300 i-ri:checkbox-circle-fill h-4 w-4" />
+                              <div class="text-darkSlate-300 i-hugeicons:tick-double-02 h-4 w-4" />
                             </div>
                           </Match>
                           <Match
@@ -586,7 +586,7 @@ const Accounts = () => {
                             }
                           >
                             <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 duration-100 ease-in-out group-hover/internal:opacity-100">
-                              <div class="i-ri:clipboard-fill text-lightSlate-50" />
+                              <div class="i-hugeicons:clipboard text-lightSlate-50" />
                             </div>
                           </Match>
                         </Switch>

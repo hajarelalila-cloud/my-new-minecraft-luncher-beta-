@@ -73,7 +73,7 @@ const PageView = () => {
                 }
               >
                 <div class="flex items-center justify-center gap-3 text-lightSlate-400">
-                  <div class="animate-spin i-ri:loader-4-line text-2xl" />
+                  <div class="animate-spin i-hugeicons:loading-03 text-2xl" />
                   <span class="text-xl">Loading article...</span>
                 </div>
               </Show>
@@ -96,7 +96,7 @@ const PageView = () => {
               onClick={() => navigator.navigate("/news")}
               class="self-start text-lightSlate-400 hover:text-lightSlate-200 flex items-center gap-3 mb-2 transition-colors group"
             >
-              <div class="i-ri:arrow-left-line group-hover:transform group-hover:-translate-x-1 transition-transform" />
+              <div class="i-hugeicons:arrow-left-01 group-hover:transform group-hover:-translate-x-1 transition-transform" />
               <span class="font-medium">Back to News</span>
             </button>
 
@@ -132,7 +132,7 @@ const PageView = () => {
 
               <div class="flex items-center gap-4 text-lightSlate-300">
                 <div class="flex items-center gap-2">
-                  <i class="i-ri:calendar-line text-primary-400" />
+                  <i class="i-hugeicons:calendar-01 text-primary-400" />
                   <time class="text-lg font-medium">
                     {new Date(article().date).toLocaleDateString(undefined, {
                       year: "numeric",
@@ -161,7 +161,7 @@ const PageView = () => {
                   fallback={
                     <div class="flex items-center justify-center py-16">
                       <div class="flex items-center gap-3 text-lightSlate-400">
-                        <div class="animate-spin i-ri:loader-4-line text-xl" />
+                        <div class="animate-spin i-hugeicons:loading-03 text-xl" />
                         <span class="text-lg">Loading patch content...</span>
                       </div>
                     </div>
@@ -306,7 +306,7 @@ const PageView = () => {
                     ? "Read Full Patch Notes"
                     : "Read Full Article"}
                 </span>
-                <div class="i-ri:external-link-line text-xl" />
+                <div class="i-hugeicons:link-square-02 text-xl" />
               </Button>
             </div>
           </article>

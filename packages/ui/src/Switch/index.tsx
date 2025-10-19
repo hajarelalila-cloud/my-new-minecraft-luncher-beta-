@@ -132,7 +132,7 @@ function Switch(props: Props) {
       >
         {state().isLoading && (
           <i
-            class="i-ri:loader-4-line absolute text-xs text-lightSlate-700 z-50 animate-spin"
+            class="i-hugeicons:loading-03 absolute text-xs text-lightSlate-700 z-50 animate-spin"
             style={{ left: "calc(50% - 0.38rem)", top: "calc(50% - 0.38rem)" }}
           />
         )}

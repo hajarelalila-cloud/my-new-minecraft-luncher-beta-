@@ -90,7 +90,7 @@ const AppNavbar = () => {
           <div class="bg-darkSlate-700 -z-1 absolute left-0 top-0 h-full w-full scale-75 rounded-md opacity-0 transition-[transform,opacity] duration-150 ease-[cubic-bezier(.4,0,.2,1)] group-hover:scale-100 group-hover:opacity-100" />
           <div class="flex items-center gap-2 px-2">
             <div
-              class="i-ri:arrow-left-s-fill h-6 w-6 transition-[transform,opacity] duration-200 ease-[cubic-bezier(.4,0,.2,1)]"
+              class="i-hugeicons:arrow-left-01 h-6 w-6 transition-[transform,opacity] duration-200 ease-[cubic-bezier(.4,0,.2,1)]"
               classList={{
                 "opacity-0 -translate-x-4": location.pathname === "/library"
               }}
@@ -132,7 +132,7 @@ const AppNavbar = () => {
                   }
                 >
                   <div
-                    class="i-ri:close-line text-darkSlate-500 text-xl transition-colors duration-200 ease-in-out hover:text-white"
+                    class="i-hugeicons:cancel-01 text-darkSlate-500 text-xl transition-colors duration-200 ease-in-out hover:text-white"
                     onClick={(e) => {
                       e.preventDefault()
                       e.stopPropagation()
@@ -156,7 +156,7 @@ const AppNavbar = () => {
               })
             }}
           >
-            <i class="i-ri:add-fill flex" />
+            <i class="i-hugeicons:add-01 flex" />
           </Button>
         </div>
         <div class="text-lightSlate-50 flex h-full list-none items-center gap-6">
@@ -171,7 +171,7 @@ const AppNavbar = () => {
                 >
                   <Tab>
                     <div
-                      class="i-ri:settings-3-fill text-2xl"
+                      class="i-hugeicons:settings-01 text-2xl"
                       classList={{
                         "text-lightSlate-50":
                           !!isSettings() || !!isSettingsNested()
@@ -186,7 +186,7 @@ const AppNavbar = () => {
                 >
                   <Tab>
                     <div
-                      class="i-ri:news-fill text-2xl"
+                      class="i-hugeicons:news text-2xl"
                       classList={{
                         "text-lightSlate-50": !!isNews()
                       }}
@@ -204,7 +204,7 @@ const AppNavbar = () => {
                     <Tooltip>
                       <TooltipTrigger>
                         <div
-                          class="i-ri:download-2-fill text-2xl text-green-500"
+                          class="i-hugeicons:download-02 text-2xl text-green-500"
                           classList={{
                             "hover:text-green-100": !updateDownloaded()
                           }}

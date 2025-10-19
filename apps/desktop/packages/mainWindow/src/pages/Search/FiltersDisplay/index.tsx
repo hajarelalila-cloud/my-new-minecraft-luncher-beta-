@@ -49,7 +49,7 @@ export default function FiltersDisplay() {
             size="small"
             class="text-xs"
           >
-            <div class="i-ri:close-circle-line h-4 w-4" />
+            <div class="i-hugeicons:cancel-circle h-4 w-4" />
             Clear all
           </Button>
           <div class="w-px h-4 bg-darkSlate-600" />

@@ -258,7 +258,7 @@ const CacheStatusPopover: Component<CacheStatusPopoverProps> = (props) => {
           <div class="flex items-center justify-between mb-6">
             <div class="flex items-center gap-3">
               <div class="p-2 bg-blue-500/10 rounded-lg">
-                <div class="i-ri:task-line text-blue-400 text-lg" />
+                <div class="i-hugeicons:tick-02 text-blue-400 text-lg" />
               </div>
               <div>
                 <h3 class="text-lg font-semibold text-lightSlate-50">
@@ -294,7 +294,7 @@ const CacheStatusPopover: Component<CacheStatusPopoverProps> = (props) => {
                 <div class="text-center py-12">
                   <div class="flex justify-center mb-4">
                     <div class="p-4 bg-lightSlate-800/30 rounded-full">
-                      <div class="i-ri:checkbox-circle-line text-3xl text-lightSlate-400" />
+                      <div class="i-hugeicons:tick-double-02 text-3xl text-lightSlate-400" />
                     </div>
                   </div>
                   <h4 class="text-lightSlate-300 font-medium mb-2">

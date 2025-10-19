@@ -115,7 +115,7 @@ const Screenshots = () => {
               />
             </div>
             <div class="flex items-center gap-2 cursor-pointer hover:text-lightSlate-50 transition duration-100 ease-in-out">
-              <span class="i-ri:folder-open-fill text-2xl" />
+              <span class="i-hugeicons:folder-open text-2xl" />
               <Trans
                 key="instance.open_screenshots_folder"
                 options={{
@@ -124,7 +124,7 @@ const Screenshots = () => {
               />
             </div>
             <div class="flex items-center gap-2 cursor-pointer hover:text-lightSlate-50 transition duration-100 ease-in-out">
-              <span class="i-ri:forbid-line text-2xl" />
+              <span class="i-hugeicons:unavailable text-2xl" />
               <Trans
                 key="instance.disable_screenshot"
                 options={{
@@ -133,7 +133,7 @@ const Screenshots = () => {
               />
             </div>
             <div class="flex items-center gap-2 cursor-pointer hover:text-lightSlate-50 transition duration-100 ease-in-out">
-              <span class="i-ri:delete-bin-2-fill text-2xl" />
+              <span class="i-hugeicons:delete-02 text-2xl" />
               <Trans
                 key="instance.delete_screenshot"
                 options={{
@@ -168,7 +168,7 @@ const Screenshots = () => {
                           <p class="m-0 text-lightSlate-700 text-md">
                             {format(new Date(screenshot.date), "dd-MM-yyyy")}
                           </p>
-                          <div class="text-lightSlate-700 i-ri:more-2-fill" />
+                          <div class="text-lightSlate-700 i-hugeicons:more-horizontal" />
                         </div>
                       </div>
                     )}

@@ -404,12 +404,12 @@ const Instance = () => {
 
   const menuItems = () => [
     {
-      icon: "i-ri:pencil-fill",
+      icon: "i-hugeicons:pencil-edit-01",
       label: t("instance.action_edit"),
       action: handleEdit
     },
     {
-      icon: "i-ri:folder-open-fill",
+      icon: "i-hugeicons:folder-open",
       label: t("instance.action_open_folder"),
       action: handleOpenFolder
     },
@@ -440,7 +440,7 @@ const Instance = () => {
       }
     },
     {
-      icon: "i-ri:delete-bin-2-fill",
+      icon: "i-hugeicons:delete-02",
       label: t("instance.action_delete"),
       action: handleDelete
     }
@@ -496,7 +496,7 @@ const Instance = () => {
               size="small"
               type="transparent"
             >
-              <div class="i-ri:arrow-drop-left-line text-xl" />
+              <div class="i-hugeicons:arrow-left-01 text-xl" />
             </Button>
           </div>
           <div class="absolute right-5 top-5 z-50 flex w-fit gap-2">
@@ -509,7 +509,7 @@ const Instance = () => {
                   size="small"
                   type="transparent"
                 >
-                  <div class="i-ri:more-2-fill text-xl" />
+                  <div class="i-hugeicons:more-horizontal text-xl" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -539,8 +539,8 @@ const Instance = () => {
               <div
                 class="text-xl"
                 classList={{
-                  "text-yellow-500 i-ri:star-s-fill": isFavorite(),
-                  "i-ri:star-line": !isFavorite()
+                  "text-yellow-500 i-hugeicons:star": isFavorite(),
+                  "i-hugeicons:star": !isFavorite()
                 }}
               />
             </Button>
@@ -602,7 +602,7 @@ const Instance = () => {
                         </h1>
                         <Show when={!editableName()}>
                           <div
-                            class="transition-color i-ri:pencil-fill hover:text-lightSlate-700 duration-100 ease-in-out"
+                            class="transition-color i-hugeicons:pencil-edit-01 hover:text-lightSlate-700 duration-100 ease-in-out"
                             onClick={() => setEditableName(true)}
                           />
                         </Show>
@@ -612,14 +612,14 @@ const Instance = () => {
                         classList={{ "bg-darkSlate-800 pl-2": editableName() }}
                       >
                         <div
-                          class="text-lightSlate-50 i-ri:check-fill duration-50 z-10 cursor-pointer text-3xl transition ease-in-out hover:text-green-500"
+                          class="text-lightSlate-50 i-hugeicons:tick-02 duration-50 z-10 cursor-pointer text-3xl transition ease-in-out hover:text-green-500"
                           classList={{
                             hidden: !editableName()
                           }}
                           onClick={() => handleNameChange()}
                         />
                         <div
-                          class="text-lightSlate-50 duration-50 i-ri:close-fill z-10 cursor-pointer text-3xl transition ease-in-out hover:text-red-500"
+                          class="text-lightSlate-50 duration-50 i-hugeicons:cancel-01 z-10 cursor-pointer text-3xl transition ease-in-out hover:text-red-500"
                           classList={{
                             hidden: !editableName()
                           }}
@@ -674,7 +674,7 @@ const Instance = () => {
                           }
                         >
                           <div class="flex items-center gap-2">
-                            <div class="i-ri:time-fill text-lg" />
+                            <div class="i-hugeicons:clock-01 text-lg" />
                             <span class="whitespace-nowrap">
                               {convertSecondsToHumanTime(
                                 routeData.instanceDetails.data!.secondsPlayed
@@ -702,11 +702,11 @@ const Instance = () => {
                         >
                           <Switch>
                             <Match when={!isRunning()}>
-                              <i class="i-ri:play-fill" />
+                              <i class="i-hugeicons:play" />
                               <Trans key="instance.play" />
                             </Match>
                             <Match when={isRunning()}>
-                              <i class="i-ri:stop-fill" />
+                              <i class="i-hugeicons:stop" />
                               <Trans key="instance.stop" />
                             </Match>
                           </Switch>
@@ -750,7 +750,7 @@ const Instance = () => {
                 >
                   <Button
                     onClick={() => navigator.navigate("/library")}
-                    icon={<div class="i-ri:arrow-drop-left-line text-2xl" />}
+                    icon={<div class="i-hugeicons:arrow-left-01 text-2xl" />}
                     size="small"
                     type="secondary"
                   >
@@ -796,11 +796,11 @@ const Instance = () => {
                 >
                   <Switch>
                     <Match when={!isRunning()}>
-                      <i class="i-ri:play-fill" />
+                      <i class="i-hugeicons:play" />
                       <Trans key="instance.play" />
                     </Match>
                     <Match when={isRunning()}>
-                      <i class="i-ri:stop-fill" />
+                      <i class="i-hugeicons:stop" />
                       <Trans key="instance.stop" />
                     </Match>
                   </Switch>
@@ -825,7 +825,7 @@ const Instance = () => {
                   }}
                 >
                   <div class="flex items-center gap-3">
-                    <div class="i-ri:alert-line text-yellow-500 text-2xl" />
+                    <div class="i-hugeicons:alert-01 text-yellow-500 text-2xl" />
                     <div>
                       <h3 class="font-semibold text-yellow-200 m-0 mb-1">
                         Duplicated Mods Detected

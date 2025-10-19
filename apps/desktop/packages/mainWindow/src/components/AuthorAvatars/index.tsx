@@ -161,7 +161,7 @@ const AuthorAvatars = (props: AuthorAvatarsProps) => {
   return (
     <Show when={props.authors.length > 0}>
       <div class="flex items-center">
-        <div class="i-ri:user-fill mr-2 text-lightSlate-600 text-lg" />
+        <div class="i-hugeicons:user mr-2 text-lightSlate-600 text-lg" />
         <div class="flex items-center">
           <For each={displayedAuthors()}>
             {(author, index) => renderAuthorAvatar(author, index())}

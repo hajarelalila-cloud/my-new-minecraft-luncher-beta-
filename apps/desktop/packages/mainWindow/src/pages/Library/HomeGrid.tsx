@@ -348,11 +348,11 @@ const HomeGrid = () => {
                         onClick={() => {
                           setFilter("")
                         }}
-                        class="i-ri:close-line hover:bg-white"
+                        class="i-hugeicons:cancel-01 hover:bg-white"
                       />
                     </Match>
                     <Match when={!filter()}>
-                      <div class="i-ri:search-line" />
+                      <div class="i-hugeicons:search-01" />
                     </Match>
                   </Switch>
                 }
@@ -360,7 +360,7 @@ const HomeGrid = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <Button type="secondary" size="small">
-                    <i class="i-ri:filter-fill h-4 w-4" />
+                    <i class="i-hugeicons:filter h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent class="w-64">
@@ -445,10 +445,10 @@ const HomeGrid = () => {
                               <div
                                 class="h-4 w-4 ml-2"
                                 classList={{
-                                  "i-ri:sort-alphabet-asc":
+                                  "i-hugeicons:sorting-az-01":
                                     globalStore.settings.data
                                       ?.instancesSortByAsc,
-                                  "i-ri:sort-alphabet-desc":
+                                  "i-hugeicons:sorting-za-01":
                                     !globalStore.settings.data
                                       ?.instancesSortByAsc
                                 }}
@@ -506,10 +506,10 @@ const HomeGrid = () => {
                                       <div
                                         class="h-4 w-4 ml-4"
                                         classList={{
-                                          "i-ri:sort-alphabet-asc":
+                                          "i-hugeicons:sorting-az-01":
                                             globalStore.settings.data
                                               ?.instancesSortByAsc,
-                                          "i-ri:sort-alphabet-desc":
+                                          "i-hugeicons:sorting-za-01":
                                             !globalStore.settings.data
                                               ?.instancesSortByAsc
                                         }}
@@ -540,10 +540,10 @@ const HomeGrid = () => {
                               <div
                                 class="h-4 w-4 ml-2"
                                 classList={{
-                                  "i-ri:sort-alphabet-asc":
+                                  "i-hugeicons:sorting-az-01":
                                     globalStore.settings.data
                                       ?.instancesGroupByAsc,
-                                  "i-ri:sort-alphabet-desc":
+                                  "i-hugeicons:sorting-za-01":
                                     !globalStore.settings.data
                                       ?.instancesGroupByAsc
                                 }}
@@ -602,10 +602,10 @@ const HomeGrid = () => {
                                       <div
                                         class="h-4 w-4 ml-4"
                                         classList={{
-                                          "i-ri:sort-alphabet-asc":
+                                          "i-hugeicons:sorting-az-01":
                                             globalStore.settings.data
                                               ?.instancesGroupByAsc,
-                                          "i-ri:sort-alphabet-desc":
+                                          "i-hugeicons:sorting-za-01":
                                             !globalStore.settings.data
                                               ?.instancesGroupByAsc
                                         }}
@@ -741,7 +741,7 @@ const HomeGrid = () => {
                       })
                     }}
                   >
-                    <div class="i-ri:file-add-fill h-4 w-4" />
+                    <div class="i-hugeicons:file-add h-4 w-4" />
                     Create New Instance
                   </ContextMenuItem>
                   <ContextMenuItem
@@ -757,7 +757,7 @@ const HomeGrid = () => {
                       )
                     }}
                   >
-                    <div class="i-ri:import-fill h-4 w-4" />
+                    <div class="i-hugeicons:download-square-01 h-4 w-4" />
                     Import Instance
                   </ContextMenuItem>
                 </ContextMenuGroup>

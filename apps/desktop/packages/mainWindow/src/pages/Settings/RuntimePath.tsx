@@ -62,7 +62,7 @@ const RuntimePath = () => {
               value={runtimePath()}
               icon={
                 <div
-                  class="hover:text-lightSlate-700 i-ri:folder-fill h-5 w-5 cursor-pointer transition-colors ease-in-out"
+                  class="hover:text-lightSlate-700 i-hugeicons:folder-01 h-5 w-5 cursor-pointer transition-colors ease-in-out"
                   onClick={async () => {
                     const result = await window.openFileDialog({
                       title: "Select Runtime Path",
@@ -93,7 +93,7 @@ const RuntimePath = () => {
                     setRuntimePath(currentRuntimePath()!)
                   }}
                 >
-                  <i class="i-ri:arrow-go-back-fill h-5 w-5" />
+                  <i class="i-hugeicons:arrow-turn-backward h-5 w-5" />
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
@@ -111,7 +111,7 @@ const RuntimePath = () => {
                     setRuntimePath(initialRuntimePath()!)
                   }}
                 >
-                  <i class="i-ri:close-fill h-5 w-5" />
+                  <i class="i-hugeicons:cancel-01 h-5 w-5" />
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
@@ -152,7 +152,7 @@ const RuntimePath = () => {
                     )
                   }}
                 >
-                  <i class="i-ri-restart-line h-5 w-5" />
+                  <i class="i-hugeicons:arrow-reload-horizontal h-5 w-5" />
                 </Button>
               </TooltipTrigger>
               <TooltipContent>

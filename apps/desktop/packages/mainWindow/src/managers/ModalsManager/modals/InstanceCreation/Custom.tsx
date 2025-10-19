@@ -534,7 +534,7 @@ const Custom = (props: Pick<ModalProps, "data">) => {
                 <Match when={bgPreview()}>
                   <div class="absolute top-0 right-0 pb-2 pl-2 bg-darkSlate-700 rounded-bl-2xl">
                     <div
-                      class="text-lightSlate-50 transition-all duration-100 ease-in-out text-lg i-ri:close-circle-fill hover:color-red-500"
+                      class="text-lightSlate-50 transition-all duration-100 ease-in-out text-lg i-hugeicons:cancel-circle hover:color-red-500"
                       onClick={(e) => {
                         e.preventDefault()
                         setBgPreview(null)

@@ -155,7 +155,7 @@ const ExploreVersionsNavbar = (props: Props) => {
           containerClass="w-full"
           options={filteredMappedGameVersions()}
           disabled={!overrideEnabled()}
-          icon={<div class="i-ri:price-tag-3-fill" />}
+          icon={<div class="i-hugeicons:tag-01" />}
           value={infiniteQuery.query.gameVersion || null}
           onChange={(val) => {
             infiniteQuery?.setQuery({
@@ -170,7 +170,7 @@ const ExploreVersionsNavbar = (props: Props) => {
           containerClass="w-full"
           options={modloaders()}
           disabled={!overrideEnabled()}
-          icon={<div class="i-ri:price-tag-3-fill" />}
+          icon={<div class="i-hugeicons:tag-01" />}
           value={infiniteQuery.query.modLoaderType || null}
           onChange={(val) => {
             infiniteQuery?.setQuery({

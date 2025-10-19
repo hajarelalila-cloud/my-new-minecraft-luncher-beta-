@@ -80,7 +80,7 @@ const Versions = () => {
       when={mod?.data}
       fallback={
         <div class="flex h-40 items-center justify-center">
-          <div class="i-ri:loader-4-line animate-spin text-2xl text-lightSlate-400" />
+          <div class="i-hugeicons:loading-03 animate-spin text-2xl text-lightSlate-400" />
           <span class="ml-2">Loading mod data...</span>
         </div>
       }
@@ -110,11 +110,11 @@ const Versions = () => {
             fallback={
               <div class="flex flex-col items-center justify-center py-16 text-center">
                 <Show when={infiniteQuery.isLoading}>
-                  <div class="i-ri:loader-4-line animate-spin text-2xl text-lightSlate-400" />
+                  <div class="i-hugeicons:loading-03 animate-spin text-2xl text-lightSlate-400" />
                   <span class="ml-2">Loading versions...</span>
                 </Show>
                 <Show when={infiniteQuery.infiniteQuery.error}>
-                  <div class="i-ri:error-warning-line text-red-400 mb-4 text-3xl" />
+                  <div class="i-hugeicons:alert-02 text-red-400 mb-4 text-3xl" />
                   <h3 class="text-red-300 mb-2 text-lg font-semibold">
                     Error loading versions
                   </h3>
@@ -123,7 +123,7 @@ const Versions = () => {
                     size="small"
                     onClick={() => infiniteQuery.infiniteQuery.refetch()}
                   >
-                    <div class="i-ri:refresh-line mr-2" />
+                    <div class="i-hugeicons:refresh mr-2" />
                     Retry
                   </Button>
                 </Show>
@@ -191,7 +191,7 @@ const Versions = () => {
             </div>
             <Show when={infiniteQuery.infiniteQuery.isFetchingNextPage}>
               <div class="flex h-20 items-center justify-center">
-                <div class="i-ri:loader-4-line animate-spin text-2xl text-lightSlate-400" />
+                <div class="i-hugeicons:loading-03 animate-spin text-2xl text-lightSlate-400" />
               </div>
             </Show>
           </Show>

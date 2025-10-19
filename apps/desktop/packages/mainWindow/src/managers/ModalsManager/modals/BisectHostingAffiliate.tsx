@@ -32,7 +32,7 @@ const BisectHostingAffiliate = (props: ModalProps) => {
             }}
           >
             <Trans key="modals.bisectHosting.buttonText" />
-            <div class="i-ri:external-link-fill" />
+            <div class="i-hugeicons:link-square-02" />
           </Button>
         </div>
       </div>

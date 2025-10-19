@@ -169,7 +169,7 @@ const CodeStep = (props: Props) => {
               <div>
                 <Trans key="login.need_help" />
               </div>
-              <div class="i-ri:question-fill ml-2 h-4 w-4" />
+              <div class="i-hugeicons:help-circle ml-2 h-4 w-4" />
             </div>
           </PopoverTrigger>
           <PopoverContent>
@@ -187,7 +187,7 @@ const CodeStep = (props: Props) => {
                   toast.success("The link has been copied")
                 }}
               >
-                <div class="i-ri:link h-4 w-4" />
+                <div class="i-hugeicons:link-01 h-4 w-4" />
                 <div>{deviceCodeLink()}</div>
               </div>
             </div>
@@ -246,7 +246,7 @@ const CodeStep = (props: Props) => {
           }}
         >
           <Trans key="login.open_in_browser" />
-          <div class="text-md i-ri:external-link-fill" />
+          <div class="text-md i-hugeicons:link-square-02" />
         </Button>
         <p
           class="text-sm text-yellow-500"

@@ -41,7 +41,7 @@ export default function SortDisplay() {
       <Show when={getCurseforgeSortField()}>
         <FilterBadge onClick={clearPlatformFilters}>
           <div class="flex items-center gap-2">
-            <div class="i-ri:sort-asc h-4 w-4" />
+            <div class="i-hugeicons:sort-by-up-01 h-4 w-4" />
             Sort: {capitalize(getCurseforgeSortField())}
           </div>
         </FilterBadge>
@@ -53,8 +53,8 @@ export default function SortDisplay() {
             <div
               class={`h-4 w-4 ${
                 getCurseforgeSortOrder() === "ascending"
-                  ? "i-ri:sort-asc"
-                  : "i-ri:sort-desc"
+                  ? "i-hugeicons:sort-by-up-01"
+                  : "i-hugeicons:sort-by-down-01"
               }`}
             />
             Order: {capitalize(getCurseforgeSortOrder())}
@@ -65,7 +65,7 @@ export default function SortDisplay() {
       <Show when={getModrinthSortIndex()}>
         <FilterBadge onClick={clearPlatformFilters}>
           <div class="flex items-center gap-2">
-            <div class="i-ri:sort-asc h-4 w-4" />
+            <div class="i-hugeicons:sort-by-up-01 h-4 w-4" />
             Sort: {capitalize(getModrinthSortIndex())}
           </div>
         </FilterBadge>

@@ -118,14 +118,14 @@ const Java = () => {
 
   const menuItems = () => [
     {
-      icon: "i-ri:pencil-fill",
+      icon: "i-hugeicons:pencil-edit-01",
       label: "Add Managed",
       action: () => {
         modalsContext?.openModal({ name: "addManagedJava" })
       }
     },
     {
-      icon: "i-ri:folder-open-fill",
+      icon: "i-hugeicons:folder-open",
       label: "Add Custom",
       action: () => {
         modalsContext?.openModal({ name: "addCustomJava" })
@@ -201,7 +201,7 @@ const Java = () => {
                     })
                   }}
                 >
-                  <i class="i-ri:arrow-go-back-fill h-5 w-5" />
+                  <i class="i-hugeicons:arrow-turn-backward h-5 w-5" />
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
@@ -222,7 +222,7 @@ const Java = () => {
                     })
                   }}
                 >
-                  <i class="i-ri:close-fill h-5 w-5" />
+                  <i class="i-hugeicons:cancel-01 h-5 w-5" />
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
@@ -283,7 +283,7 @@ const Java = () => {
                     <DropdownMenu placement="bottom-end">
                       <DropdownMenuTrigger class="b-0 bg-transparent p-0">
                         <Button as="div" type="secondary" size="small">
-                          <div class="i-ri:add-fill text-xl" />
+                          <div class="i-hugeicons:add-01 text-xl" />
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent>
@@ -332,7 +332,7 @@ const Java = () => {
                                                 <Match when={java.isValid}>
                                                   <Tooltip>
                                                     <TooltipTrigger>
-                                                      <div class="i-ri:checkbox-circle-fill flex text-emerald-500" />
+                                                      <div class="i-hugeicons:tick-double-02 flex text-emerald-500" />
                                                     </TooltipTrigger>
                                                     <TooltipContent>
                                                       This java path works and
@@ -343,7 +343,7 @@ const Java = () => {
                                                 <Match when={!java.isValid}>
                                                   <Tooltip>
                                                     <TooltipTrigger>
-                                                      <div class="i-ri:error-warning-fill flex text-yellow-500" />
+                                                      <div class="i-hugeicons:alert-02 flex text-yellow-500" />
                                                     </TooltipTrigger>
                                                     <TooltipContent>
                                                       This java path doesn't
@@ -417,7 +417,7 @@ const Java = () => {
                                           }
                                         >
                                           <div
-                                            class="text-lightSlate-700 transition-color i-ri:delete-bin-7-fill text-lg duration-100 ease-in-out hover:text-red-400"
+                                            class="text-lightSlate-700 transition-color i-hugeicons:delete-01 text-lg duration-100 ease-in-out hover:text-red-400"
                                             onClick={() =>
                                               deleteJavaMutation.mutate(java.id)
                                             }
@@ -472,7 +472,7 @@ const Java = () => {
                                 })
                               }}
                             >
-                              <div class="i-ri:add-fill text-xl" />
+                              <div class="i-hugeicons:add-01 text-xl" />
                             </Button>
                           </Show>
                         </div>
@@ -509,7 +509,7 @@ const Java = () => {
                                   />
                                   <Show when={i() === 1}>
                                     <div
-                                      class="text-lightSlate-700 transition-color i-ri:delete-bin-7-fill text-lg duration-100 ease-in-out hover:text-red-400"
+                                      class="text-lightSlate-700 transition-color i-hugeicons:delete-01 text-lg duration-100 ease-in-out hover:text-red-400"
                                       onClick={() => {
                                         deleteProfile.mutate(profile.name)
                                       }}
@@ -518,7 +518,7 @@ const Java = () => {
                                   <Show when={profile.isSystem}>
                                     <Popover>
                                       <PopoverTrigger>
-                                        <div class="i-ri:information-fill text-lightSlate-700 hover:text-lightSlate-100 transition-color text-lg duration-100 ease-in-out" />
+                                        <div class="i-hugeicons:information-circle text-lightSlate-700 hover:text-lightSlate-100 transition-color text-lg duration-100 ease-in-out" />
                                       </PopoverTrigger>
                                       <PopoverContent>
                                         <div class="max-w-100 flex h-auto flex-col gap-8 p-4">

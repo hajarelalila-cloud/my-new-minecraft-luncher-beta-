@@ -30,7 +30,7 @@ const SummaryStep = (props: Props) => {
     <div class="flex flex-col justify-between h-full">
       <div class="flex flex-col gap-4">
         <div class="flex items-center gap-3 mb-2">
-          <div class="i-ri:check-double-fill text-green-500 text-3xl" />
+          <div class="i-hugeicons:checkmark-badge-01 text-green-500 text-3xl" />
           <h2 class="text-xl font-bold m-0">
             <Trans key="instance.duplicates.summary.title" />
           </h2>
@@ -42,7 +42,7 @@ const SummaryStep = (props: Props) => {
 
         <div class="bg-darkSlate-600 rounded-lg p-4 mb-2">
           <div class="flex items-center gap-2 mb-3">
-            <div class="i-ri:information-fill text-primary-500" />
+            <div class="i-hugeicons:information-circle text-primary-500" />
             <h3 class="text-sm font-semibold m-0">
               <Trans key="instance.duplicates.summary.action_title" />
             </h3>
@@ -68,7 +68,7 @@ const SummaryStep = (props: Props) => {
                     when={mod.modId && mod.platform}
                     fallback={
                       <div class="w-10 h-10 rounded-lg bg-darkSlate-600 flex items-center justify-center">
-                        <div class="i-ri:puzzle-fill text-xl text-darkSlate-400" />
+                        <div class="i-hugeicons:puzzle text-xl text-darkSlate-400" />
                       </div>
                     }
                   >
@@ -89,7 +89,7 @@ const SummaryStep = (props: Props) => {
                       {(version) => (
                         <div class="bg-darkSlate-800 rounded p-2 mb-2">
                           <div class="flex items-center gap-2 text-xs">
-                            <div class="i-ri:check-fill text-green-500" />
+                            <div class="i-hugeicons:tick-02 text-green-500" />
                             <span class="text-green-400">
                               <Trans key="instance.duplicates.summary.status_keep" />
                             </span>
@@ -108,9 +108,9 @@ const SummaryStep = (props: Props) => {
                             <div
                               class="text-sm"
                               classList={{
-                                "i-ri:eye-off-fill text-yellow-500":
+                                "i-hugeicons:view-off text-yellow-500":
                                   props.action === "disable",
-                                "i-ri:delete-bin-fill text-red-500":
+                                "i-hugeicons:delete-01 text-red-500":
                                   props.action === "remove"
                               }}
                             />

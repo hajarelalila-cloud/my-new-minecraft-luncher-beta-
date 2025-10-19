@@ -554,7 +554,7 @@ export const AddonTable = (props: AddonTableProps) => {
             navigator.clipboard.writeText(displayName)
             toast.success(t("instance.copied_to_clipboard"))
           },
-          icon: "i-ri:clipboard-line",
+          icon: "i-hugeicons:clipboard",
           id: "copy"
         },
         { type: "separator" },
@@ -568,7 +568,7 @@ export const AddonTable = (props: AddonTableProps) => {
               await props.mutations.handleToggleMod(mod)
             }
           },
-          icon: mod.enabled ? "i-ri:toggle-fill" : "i-ri:toggle-line",
+          icon: mod.enabled ? "i-hugeicons:toggle-off" : "i-hugeicons:toggle-off",
           id: "toggle",
           disabled: props.isInstanceLocked()
         }
@@ -583,7 +583,7 @@ export const AddonTable = (props: AddonTableProps) => {
               await props.mutations.handleUpdateMod(mod)
             }
           },
-          icon: "i-ri:download-2-fill",
+          icon: "i-hugeicons:download-02",
           id: "update",
           disabled: props.isInstanceLocked()
         })
@@ -605,7 +605,7 @@ export const AddonTable = (props: AddonTableProps) => {
               }
             )
           },
-          icon: "i-ri:information-line",
+          icon: "i-hugeicons:information-circle",
           id: "details"
         },
         {
@@ -616,7 +616,7 @@ export const AddonTable = (props: AddonTableProps) => {
               props.mutations.handleOpenFolder()
             }
           },
-          icon: "i-ri:folder-open-fill",
+          icon: "i-hugeicons:folder-open",
           id: "folder"
         }
       )
@@ -627,7 +627,7 @@ export const AddonTable = (props: AddonTableProps) => {
           items.push({
             type: "submenu",
             label: t("instance.view_on_platform"),
-            icon: "i-ri:external-link-line",
+            icon: "i-hugeicons:link-square-02",
             id: "platform",
             children: [
               {
@@ -695,7 +695,7 @@ export const AddonTable = (props: AddonTableProps) => {
           }
         },
         destructive: true,
-        icon: "i-ri:delete-bin-2-fill",
+        icon: "i-hugeicons:delete-02",
         id: "delete",
         disabled: props.isInstanceLocked()
       }
@@ -753,7 +753,7 @@ export const AddonTable = (props: AddonTableProps) => {
               )
             }
           },
-          icon: "i-ri:toggle-fill",
+          icon: "i-hugeicons:toggle-off",
           id: "enable-all",
           disabled: props.isInstanceLocked()
         })
@@ -772,7 +772,7 @@ export const AddonTable = (props: AddonTableProps) => {
               )
             }
           },
-          icon: "i-ri:toggle-line",
+          icon: "i-hugeicons:toggle-off",
           id: "disable-all",
           disabled: props.isInstanceLocked()
         })
@@ -789,7 +789,7 @@ export const AddonTable = (props: AddonTableProps) => {
               await props.mutations.handleUpdateSelected(mods)
             }
           },
-          icon: "i-ri:download-2-fill",
+          icon: "i-hugeicons:download-02",
           id: "update-selected",
           disabled: props.isInstanceLocked()
         })
@@ -806,7 +806,7 @@ export const AddonTable = (props: AddonTableProps) => {
             }
           },
           destructive: true,
-          icon: "i-ri:delete-bin-2-fill",
+          icon: "i-hugeicons:delete-02",
           id: "delete",
           disabled: props.isInstanceLocked()
         }
@@ -1013,14 +1013,14 @@ export const AddonTable = (props: AddonTableProps) => {
                           <Show when={header.column.getCanSort()}>
                             <div class="flex flex-col">
                               <div
-                                class={`i-ri:arrow-up-s-line text-xs ${
+                                class={`i-hugeicons:arrow-up-01 text-xs ${
                                   header.column.getIsSorted() === "asc"
                                     ? "text-blue-400"
                                     : "text-lightSlate-500"
                                 }`}
                               />
                               <div
-                                class={`i-ri:arrow-down-s-line -mt-1 text-xs ${
+                                class={`i-hugeicons:arrow-down-01 -mt-1 text-xs ${
                                   header.column.getIsSorted() === "desc"
                                     ? "text-blue-400"
                                     : "text-lightSlate-500"

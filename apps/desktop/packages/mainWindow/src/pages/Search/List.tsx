@@ -94,7 +94,7 @@ export function List() {
       tabs.push({
         label: t("search.modpacks"),
         value: "modpack",
-        icon: "i-ri:folder-fill",
+        icon: "i-hugeicons:folder-01",
         path: "/search/modpack"
       })
     }
@@ -106,7 +106,7 @@ export function List() {
       tabs.push({
         label: t("search.mods"),
         value: "mod",
-        icon: "i-ri:file-text-fill",
+        icon: "i-hugeicons:note",
         path: "/search/mod"
       })
     }
@@ -115,13 +115,13 @@ export function List() {
       {
         label: t("search.shaders"),
         value: "shader",
-        icon: "i-ri:paint-fill",
+        icon: "i-hugeicons:paint-brush-01",
         path: "/search/shader"
       },
       {
         label: t("search.resource_packs"),
         value: "resourcePack",
-        icon: "i-ri:folder-fill",
+        icon: "i-hugeicons:folder-01",
         path: "/search/resourcePack"
       }
     ])
@@ -130,7 +130,7 @@ export function List() {
       tabs.push({
         label: t("search.data_packs"),
         value: "datapack",
-        icon: "i-ri:folder-fill",
+        icon: "i-hugeicons:folder-01",
         path: "/search/datapack"
       })
     }
@@ -138,7 +138,7 @@ export function List() {
     tabs.push({
       label: t("search.worlds"),
       value: "world",
-      icon: "i-ri:folder-fill",
+      icon: "i-hugeicons:folder-01",
       path: "/search/world"
     })
 
@@ -195,7 +195,7 @@ export function List() {
               navigator.navigate(`/library/${instanceId()}/addons`)
             }}
           >
-            <div class="i-ri:arrow-left-line" />
+            <div class="i-hugeicons:arrow-left-01" />
             <Trans key="search.go_back" />
           </Button>
         </div>
@@ -236,11 +236,11 @@ export function List() {
             <DropdownMenuTrigger>
               <Button type="glass" size="small" class="text-xs">
                 <div class="flex items-center gap-1">
-                  <div class="i-ri:filter-3-line" />
+                  <div class="i-hugeicons:filter" />
                   <div>
                     <Trans key="search.filters" />
                   </div>
-                  <div class="i-ri:arrow-down-s-line text-xs" />
+                  <div class="i-hugeicons:arrow-down-01 text-xs" />
                 </div>
               </Button>
             </DropdownMenuTrigger>
@@ -260,7 +260,7 @@ export function List() {
             when={(searchContext?.allRows() || []).length > 0}
             fallback={
               <div class="flex flex-col items-center justify-center px-6 py-16 text-center">
-                <div class="i-ri:search-line mb-4 text-6xl text-gray-400" />
+                <div class="i-hugeicons:search-01 mb-4 text-6xl text-gray-400" />
                 <h3 class="mb-2 text-xl font-semibold text-gray-300">
                   <Trans key="search.no_results_found" />
                 </h3>

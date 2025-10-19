@@ -59,13 +59,13 @@ const NewsPage = () => {
             <TabList>
               <Tab>
                 <div class="flex items-center gap-2 py-3">
-                  <i class="i-ri:newspaper-line w-5 h-5" />
+                  <i class="i-hugeicons:news-01 w-5 h-5" />
                   <Trans key="news.minecraft_news">News</Trans>
                 </div>
               </Tab>
               <Tab>
                 <div class="flex items-center gap-2 py-3">
-                  <i class="i-ri:file-text-line w-5 h-5" />
+                  <i class="i-hugeicons:note w-5 h-5" />
                   <Trans key="news.minecraft_patches">Patch Notes</Trans>
                 </div>
               </Tab>

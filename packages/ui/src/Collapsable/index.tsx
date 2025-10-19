@@ -28,7 +28,7 @@ const Collapsable = (props: Props) => {
         }}
       >
         <div
-          class="transition ease-in-out i-ri:arrow-down-s-line min-w-4 min-h-4 text-lightSlate-700"
+          class="transition ease-in-out i-hugeicons:arrow-down-01 min-w-4 min-h-4 text-lightSlate-700"
           classList={{
             "-rotate-180": !opened()
           }}

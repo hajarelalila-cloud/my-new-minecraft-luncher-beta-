@@ -419,7 +419,7 @@ export default function Login() {
               <Trans key="login.titles.sign_in_with_microsoft" />
             </Match>
             <Match when={step() === Steps.CodeStep}>
-              <i class="i-ri:microsoft-fill inline-block h-4 w-4" />
+              <i class="i-hugeicons:microsoft inline-block h-4 w-4" />
               <Trans key="login.titles.microsoft_code_step" />
             </Match>
             <Match when={step() === Steps.GDLAccount}>
@@ -575,10 +575,10 @@ export default function Login() {
                     }
                   >
                     <Trans key="general.skip" />
-                    <i class="i-ri:skip-forward-line" />
+                    <i class="i-hugeicons:next" />
                   </Match>
                   <Match when={step() !== Steps.GDLAccount}>
-                    <i class="i-ri:arrow-left-line" />
+                    <i class="i-hugeicons:arrow-left-01" />
                     <Trans key="general.back" />
                   </Match>
                 </Switch>
@@ -776,17 +776,17 @@ export default function Login() {
               <Switch>
                 <Match when={step() === Steps.TermsAndConditions}>
                   <Trans key="login.agree_and_continue" />
-                  <i class="i-ri:arrow-right-line" />
+                  <i class="i-hugeicons:arrow-right-01" />
                 </Match>
                 <Match when={step() === Steps.PrivacyNotice}>
                   <Trans key="login.agree_and_continue" />
-                  <i class="i-ri:arrow-right-line" />
+                  <i class="i-hugeicons:arrow-right-01" />
                 </Match>
                 <Match
                   when={step() === Steps.GDLAccountCompletion && !gdlUser.data}
                 >
                   <Trans key="login.register" />
-                  <i class="i-ri:arrow-right-line" />
+                  <i class="i-hugeicons:arrow-right-01" />
                 </Match>
                 <Match
                   when={
@@ -796,14 +796,14 @@ export default function Login() {
                   }
                 >
                   <Trans key="login.request_email_change" />
-                  <i class="i-ri:arrow-right-line" />
+                  <i class="i-hugeicons:arrow-right-01" />
                 </Match>
                 <Match when={step() === Steps.GDLAccount && gdlUser.data}>
                   <Trans key="login.sync_gdl_account" />
-                  <i class="i-ri:arrow-right-line" />
+                  <i class="i-hugeicons:arrow-right-01" />
                 </Match>
                 <Match when={step() === Steps.Auth}>
-                  <i class="i-ri:microsoft-fill h-4 w-4" />
+                  <i class="i-hugeicons:microsoft h-4 w-4" />
                   <Trans key="login.sign_in" />
                 </Match>
                 <Match
@@ -813,7 +813,7 @@ export default function Login() {
                 </Match>
                 <Match when={step() !== Steps.Auth}>
                   <Trans key="login.next" />
-                  <i class="i-ri:arrow-right-line" />
+                  <i class="i-hugeicons:arrow-right-01" />
                 </Match>
               </Switch>
             </Button>

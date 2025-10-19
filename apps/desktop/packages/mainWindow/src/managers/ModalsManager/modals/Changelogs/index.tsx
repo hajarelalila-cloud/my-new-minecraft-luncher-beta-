@@ -37,11 +37,11 @@ const Section = (props: SectionProps) => {
   const icon = () => {
     switch (props.type) {
       case "new":
-        return "i-ri:shining-2-fill"
+        return "i-hugeicons:sparkles"
       case "improved":
-        return "i-ri:hammer-fill"
+        return "i-hugeicons:development-tools"
       case "fixed":
-        return "i-ri:bug-fill"
+        return "i-hugeicons:bug-01"
     }
   }
 
@@ -155,7 +155,7 @@ const Changelogs = (props: ModalProps) => {
             }}
           >
             <div class="flex items-center justify-center gap-4 animate-wiggle animate-delay-1400 animate-loop">
-              <div class="i-ri:discord-fill w-6 h-6 inline-block" />
+              <div class="i-hugeicons:discord w-6 h-6 inline-block" />
               <Trans key="changelogs.join_our_discord" />
             </div>
           </Button>

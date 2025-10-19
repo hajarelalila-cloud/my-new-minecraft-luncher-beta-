@@ -148,7 +148,7 @@ export const AccountsDropdown = (props: Props) => {
                 )?.username
               }
             </div>
-            <div class="i-ri:arrow-down-s-line h-4 w-4" />
+            <div class="i-hugeicons:arrow-down-01 h-4 w-4" />
           </div>
         </div>
       </PopoverTrigger>
@@ -225,24 +225,24 @@ export const AccountsDropdown = (props: Props) => {
                   <div class="flex items-center gap-2">
                     <Switch>
                       <Match when={account.type.type === "microsoft"}>
-                        <div class="i-ri:microsoft-fill h-4 w-4" />
+                        <div class="i-hugeicons:microsoft h-4 w-4" />
                       </Match>
                       <Match when={account.type.type === "offline"}>
-                        <div class="i-ri:computer-line h-4 w-4" />
+                        <div class="i-hugeicons:computer h-4 w-4" />
                       </Match>
                     </Switch>
                     <Switch>
                       <Match when={account.status === "ok"}>
-                        <div class="i-ri:check-fill h-4 w-4 text-green-500" />
+                        <div class="i-hugeicons:tick-02 h-4 w-4 text-green-500" />
                       </Match>
                       <Match when={account.status === "expired"}>
-                        <div class="i-ri:alert-fill h-4 w-4 text-yellow-500" />
+                        <div class="i-hugeicons:alert-01 h-4 w-4 text-yellow-500" />
                       </Match>
                       <Match when={account.status === "refreshing"}>
-                        <div class="i-ri:loader-4-fill h-4 w-4 text-yellow-500" />
+                        <div class="i-hugeicons:loading-03 h-4 w-4 text-yellow-500" />
                       </Match>
                       <Match when={account.status === "invalid"}>
-                        <div class="i-ri:close-fill h-4 w-4 text-red-500" />
+                        <div class="i-hugeicons:cancel-01 h-4 w-4 text-red-500" />
                       </Match>
                     </Switch>
                   </div>
@@ -265,7 +265,7 @@ export const AccountsDropdown = (props: Props) => {
               }}
             >
               <div
-                class="i-ri:settings-line pointer-events-auto text-2xl"
+                class="i-hugeicons:settings-01 pointer-events-auto text-2xl"
                 classList={{
                   "text-lightSlate-50": !!props.disabled,
                   "hover:text-lightSlate-100 duration-100 ease-in-out":

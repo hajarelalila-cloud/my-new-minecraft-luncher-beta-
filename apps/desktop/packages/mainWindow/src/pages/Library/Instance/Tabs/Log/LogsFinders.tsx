@@ -69,7 +69,7 @@ const LogsFinders = (props: Props) => {
     <Popover open={props.open} gutter={4} placement="bottom">
       <PopoverTrigger as="div" onClick={() => props.setOpen(!props.open)}>
         <div
-          class="hover:bg-lightSlate-50 i-ri:search-line h-6 w-6 transition-colors duration-200 ease-in-out"
+          class="hover:bg-lightSlate-50 i-hugeicons:search-01 h-6 w-6 transition-colors duration-200 ease-in-out"
           classList={{
             "bg-lightSlate-50": props.open,
             "bg-lightSlate-800": !props.open
@@ -166,15 +166,15 @@ const LogsFinders = (props: Props) => {
             </Switch>
           </div>
           <div
-            class="bg-lightSlate-800 hover:bg-lightSlate-50 i-ri:arrow-up-line h-4 w-4 transition-colors duration-200 ease-in-out"
+            class="bg-lightSlate-800 hover:bg-lightSlate-50 i-hugeicons:arrow-up-01 h-4 w-4 transition-colors duration-200 ease-in-out"
             onClick={() => handleArrowClick("up")}
           />
           <div
-            class="bg-lightSlate-800 hover:bg-lightSlate-50 i-ri:arrow-down-line h-4 w-4 transition-colors duration-200 ease-in-out"
+            class="bg-lightSlate-800 hover:bg-lightSlate-50 i-hugeicons:arrow-down-01 h-4 w-4 transition-colors duration-200 ease-in-out"
             onClick={() => handleArrowClick("down")}
           />
           <div
-            class="bg-lightSlate-800 hover:bg-lightSlate-50 i-ri:close-line h-4 w-4 transition-colors duration-200 ease-in-out"
+            class="bg-lightSlate-800 hover:bg-lightSlate-50 i-hugeicons:cancel-01 h-4 w-4 transition-colors duration-200 ease-in-out"
             onClick={() => props.setOpen(false)}
           />
         </div>

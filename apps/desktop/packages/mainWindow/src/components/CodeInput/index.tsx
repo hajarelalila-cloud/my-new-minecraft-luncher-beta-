@@ -54,7 +54,7 @@ export const DeviceCode = (props: Props) => {
           "translate-x-0": copied()
         }}
       >
-        <i class="i-ri:check-fill w-4 h-4 mr-2" />
+        <i class="i-hugeicons:tick-02 w-4 h-4 mr-2" />
         <Trans key="genera.copied_to_clipboard" />
       </div>
 
@@ -71,8 +71,8 @@ export const DeviceCode = (props: Props) => {
         id={props.id}
         class="transition-color duration-100 ease-in-out hover:bg-lightSlate-50"
         classList={{
-          "i-ri:file-copy-fill": !props.expired,
-          "i-ri:refresh-line": props.expired,
+          "i-hugeicons:copy-01": !props.expired,
+          "i-hugeicons:refresh": props.expired,
           "animate-spin": refreshing(),
           "text-lightSlate-50": props.expired,
           "text-lightSlate-700": !props.expired

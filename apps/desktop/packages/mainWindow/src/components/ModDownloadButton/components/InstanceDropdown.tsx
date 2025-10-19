@@ -176,7 +176,7 @@ export const InstanceDropdown = (props: InstanceDropdownProps) => {
               }}
               onKeyDown={(e) => e.stopPropagation()}
               onKeyUp={(e) => e.stopPropagation()}
-              icon={<div class="i-ri:search-line h-4 w-4" />}
+              icon={<div class="i-hugeicons:search-01 h-4 w-4" />}
               variant="transparent"
               class="h-full"
             />

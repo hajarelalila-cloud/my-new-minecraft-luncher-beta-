@@ -114,7 +114,7 @@ export function ListItem(props: SearchResultItemProps) {
                 <Switch>
                   <Match when={props.isInstalled}>
                     <div class="flex items-center gap-2 text-xl font-bold text-green-500">
-                      <i class="i-ri:check-line" />
+                      <i class="i-hugeicons:tick-02" />
                       Installed
                     </div>
                   </Match>

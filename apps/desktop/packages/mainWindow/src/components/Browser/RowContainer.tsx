@@ -57,7 +57,7 @@ const RowContainer = (props: Props & AdditionalProps) => {
           <div class="flex flex-col justify-center py-2 min-w-0">
             <div class="flex items-center gap-2 min-w-0">
               <Show when={props.isInstalled}>
-                <div class="i-ri:check-line text-green-400 text-sm" />
+                <div class="i-hugeicons:tick-02 text-green-400 text-sm" />
               </Show>
               <Tooltip placement="top">
                 <TooltipTrigger>

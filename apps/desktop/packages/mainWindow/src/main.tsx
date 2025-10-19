@@ -172,7 +172,7 @@ render(() => {
                     />
                   </div>
 
-                  <div class="i-ri:loader-4-line h-12 w-12 animate-spin rounded-full bg-blue-500" />
+                  <div class="i-hugeicons:loading-03 h-12 w-12 animate-spin rounded-full bg-blue-500" />
 
                   <div
                     class="w-1/3 transition-opacity duration-300"

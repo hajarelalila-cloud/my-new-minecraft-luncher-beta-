@@ -82,7 +82,7 @@ const CopiableEntity = (props: {
 //         <div>
 //           <div class="text-sm text-lightSlate-200">{props.modName}</div>
 //         </div>
-//         <div class="w-5 h-5 text-lightSlate-200 i-ri:arrow-down-s-line" />
+//         <div class="w-5 h-5 text-lightSlate-200 i-hugeicons:arrow-down-01" />
 //         <SolidSwitch>
 //           <Match when={updatePreview.data?.platform === "Curseforge"}>
 //             {(updatePreview.data as CFFEFile).displayName}
@@ -328,7 +328,7 @@ const Mod = (props: Props) => {
           <Show when={props.mod.is_duplicate}>
             <Tooltip>
               <TooltipTrigger>
-                <i class="i-ri:alert-fill h-5 w-5 text-yellow-500" />
+                <i class="i-hugeicons:alert-01 h-5 w-5 text-yellow-500" />
               </TooltipTrigger>
               <TooltipContent>
                 <Trans key="instance.duplicate_mod_warning" />
@@ -338,7 +338,7 @@ const Mod = (props: Props) => {
           <Show when={props.mod.has_update && props.isInstanceLocked}>
             <Tooltip>
               <TooltipTrigger class="max-w-38 flex overflow-hidden text-ellipsis">
-                <i class="text-lightSlate-700 i-ri:download-2-fill h-5 w-5" />
+                <i class="text-lightSlate-700 i-hugeicons:download-02 h-5 w-5" />
               </TooltipTrigger>
               <TooltipContent>
                 <Trans key="instance.locked_cannot_apply_changes" />
@@ -352,9 +352,9 @@ const Mod = (props: Props) => {
               <i
                 class="flex h-5 w-5"
                 classList={{
-                  "i-ri:download-2-fill text-lightSlate-700 hover:text-green-500":
+                  "i-hugeicons:download-02 text-lightSlate-700 hover:text-green-500":
                     updateModTaskId() === null,
-                  "i-ri:loader-4-line animate-spin text-green-500":
+                  "i-hugeicons:loading-03 animate-spin text-green-500":
                     updateModTaskId() !== null || updateModMutation.isPending
                 }}
                 onClick={(e) => {
@@ -386,9 +386,9 @@ const Mod = (props: Props) => {
               <i
                 class="flex h-5 w-5"
                 classList={{
-                  "i-ri:download-2-fill text-lightSlate-700 hover:text-green-500":
+                  "i-hugeicons:download-02 text-lightSlate-700 hover:text-green-500":
                     updateModTaskId() === null,
-                  "i-ri:loader-4-line animate-spin text-green-500":
+                  "i-hugeicons:loading-03 animate-spin text-green-500":
                     updateModTaskId() !== null || updateModMutation.isPending
                 }}
                 onClick={(e) => {
@@ -437,7 +437,7 @@ const Mod = (props: Props) => {
             <Tooltip>
               <TooltipTrigger>
                 <div
-                  class="text-lightSlate-700 i-ri:delete-bin-2-fill text-2xl duration-100 ease-in-out"
+                  class="text-lightSlate-700 i-hugeicons:delete-02 text-2xl duration-100 ease-in-out"
                   onClick={(e) => {
                     e.stopPropagation()
 
@@ -457,7 +457,7 @@ const Mod = (props: Props) => {
           </Show>
           <Show when={!props.isInstanceLocked}>
             <div
-              class="text-lightSlate-700 i-ri:delete-bin-2-fill transition-color text-2xl duration-100 ease-in-out hover:text-red-500"
+              class="text-lightSlate-700 i-hugeicons:delete-02 transition-color text-2xl duration-100 ease-in-out hover:text-red-500"
               onClick={(e) => {
                 e.stopPropagation()
 
@@ -477,7 +477,7 @@ const Mod = (props: Props) => {
             >
               <PopoverTrigger>
                 <div
-                  class="text-lightSlate-700 i-ri:information-fill transition-color hover:text-lightSlate-50 cursor-pointer text-2xl duration-100 ease-in-out"
+                  class="text-lightSlate-700 i-hugeicons:information-circle transition-color hover:text-lightSlate-50 cursor-pointer text-2xl duration-100 ease-in-out"
                   classList={{
                     "text-lightSlate-50": isHoveringInfoCard()
                   }}
@@ -619,7 +619,7 @@ const Mod = (props: Props) => {
                           }}
                         >
                           <Trans key="instance.open_mod_page" />
-                          <div class="i-ri:arrow-right-s-line ml-1" />
+                          <div class="i-hugeicons:arrow-right-01 ml-1" />
                         </Button>
                         <Button
                           type="outline"
@@ -632,7 +632,7 @@ const Mod = (props: Props) => {
                           }}
                         >
                           <Trans key="instance.open_in_browser" />
-                          <div class="i-ri:external-link-line ml-1" />
+                          <div class="i-hugeicons:link-square-02 ml-1" />
                         </Button>
                       </div>
                     </Show>
@@ -670,7 +670,7 @@ const Mod = (props: Props) => {
                           }}
                         >
                           <Trans key="instance.open_mod_page" />
-                          <div class="i-ri:arrow-right-s-line ml-1" />
+                          <div class="i-hugeicons:arrow-right-01 ml-1" />
                         </Button>
                         <Button
                           type="outline"
@@ -683,7 +683,7 @@ const Mod = (props: Props) => {
                           }}
                         >
                           <Trans key="instance.open_in_browser" />
-                          <div class="i-ri:external-link-line ml-1" />
+                          <div class="i-hugeicons:link-square-02 ml-1" />
                         </Button>
                       </div>
                     </Show>
@@ -696,7 +696,7 @@ const Mod = (props: Props) => {
             <Popover placement="left">
               <PopoverTrigger>
                 <div
-                  class="text-lightSlate-700 transition-color hover:text-lightSlate-50 i-ri:more-2-fill cursor-pointer text-2xl duration-100 ease-in-out"
+                  class="text-lightSlate-700 transition-color hover:text-lightSlate-50 i-hugeicons:more-horizontal cursor-pointer text-2xl duration-100 ease-in-out"
                   classList={{
                     "text-lightSlate-50": isHoveringOptionsCard()
                   }}

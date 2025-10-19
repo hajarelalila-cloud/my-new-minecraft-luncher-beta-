@@ -152,7 +152,7 @@ const ModRow = (props: ModRowProps) => {
         </div>
         <div class="flex gap-4 items-center">
           <div class="flex items-center gap-2 text-lightSlate-700">
-            <i class="text-lightSlate-700 i-ri:time-fill" />
+            <i class="text-lightSlate-700 i-hugeicons:clock-01" />
             <div class="whitespace-nowrap text-sm">
               {formatDistanceToNowStrict(
                 new Date(props.data.releaseDate).getTime()
@@ -160,13 +160,13 @@ const ModRow = (props: ModRowProps) => {
             </div>
           </div>
           <div class="flex gap-2 items-center text-lightSlate-700">
-            <i class="text-lightSlate-700 i-ri:download-fill" />
+            <i class="text-lightSlate-700 i-hugeicons:download-01" />
             <div class="text-sm whitespace-nowrap">
               {formatDownloadCount(props.data.downloadsCount)}
             </div>
           </div>
           <div class="flex gap-2 items-center text-lightSlate-700">
-            <i class="text-lightSlate-700 i-ri:user-fill" />
+            <i class="text-lightSlate-700 i-hugeicons:user" />
             <Authors modProps={props} isRowSmall={isRowSmall} />
           </div>
         </div>

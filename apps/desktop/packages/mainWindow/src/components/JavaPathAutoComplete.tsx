@@ -141,20 +141,20 @@ const JavaPathAutoComplete = (props: Props) => {
         icon={
           <Switch>
             <Match when={createCustomJavaVersionMutation.isPending}>
-              <div class="flex i-ri:loader-4-line animate-spin text-lightSlate-700" />
+              <div class="flex i-hugeicons:loading-03 animate-spin text-lightSlate-700" />
             </Match>
             <Match when={javaComponent()}>
               <Switch>
                 <Match when={javaComponent()?.isValid}>
-                  <div class="flex i-ri:checkbox-circle-fill text-emerald-500" />
+                  <div class="flex i-hugeicons:tick-double-02 text-emerald-500" />
                 </Match>
                 <Match when={!javaComponent()?.isValid}>
-                  <div class="flex i-ri:error-warning-fill text-yellow-500" />
+                  <div class="flex i-hugeicons:alert-02 text-yellow-500" />
                 </Match>
               </Switch>
             </Match>
             <Match when={shouldSuggestCreation()}>
-              <div class="flex i-ri:add-fill text-lightSlate-700" />
+              <div class="flex i-hugeicons:add-01 text-lightSlate-700" />
             </Match>
           </Switch>
         }

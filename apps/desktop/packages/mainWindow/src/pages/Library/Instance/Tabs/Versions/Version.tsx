@@ -30,7 +30,7 @@ const Active = () => {
           defaultValue: "Active"
         }}
       />
-      <div class="text-green-500 text-2xl i-ri:check-fill" />
+      <div class="text-green-500 text-2xl i-hugeicons:tick-02" />
     </div>
   )
 }
@@ -71,7 +71,7 @@ const Version = (props: Props) => {
                 defaultValue: "Switch Version"
               }}
             />
-            <div class="text-darkSlate-300 text-2xl i-ri:download-2-line group-hover:text-lightSlate-700" />
+            <div class="text-darkSlate-300 text-2xl i-hugeicons:download-02 group-hover:text-lightSlate-700" />
           </div>
         </Show>
       </div>

@@ -34,7 +34,7 @@ export const Tag = (props: Props) => {
       </Show>
       <Show when={mergedProps.type === "default"}>
         <div
-          class="i-ri:close-fill text-lg text-darkSlate-200 cursor-pointer"
+          class="i-hugeicons:cancel-01 text-lg text-darkSlate-200 cursor-pointer"
           onClick={() => {
             if (props.name) props.onClose?.(props.name)
           }}

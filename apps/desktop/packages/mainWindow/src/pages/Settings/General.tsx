@@ -406,7 +406,7 @@ const General = () => {
               <div class="flex justify-end gap-4 flex-col items-center 2xl:flex-row">
                 <Button type="secondary" onClick={handleClearCache}>
                   <div class="flex items-center gap-2">
-                    <i class="w-5 h-5 i-ri:delete-back-2-line" />
+                    <i class="w-5 h-5 i-hugeicons:delete-02" />
                     <div>
                       <Trans key="settings:clear_cache_button" />
                     </div>
@@ -419,7 +419,7 @@ const General = () => {
                   }}
                 >
                   <div class="flex items-center gap-2">
-                    <i class="w-5 h-5 i-ri:restart-line" />
+                    <i class="w-5 h-5 i-hugeicons:arrow-reload-horizontal" />
                     <div>
                       <Trans key="settings:restart_app" />
                     </div>
@@ -427,7 +427,7 @@ const General = () => {
                 </Button>
                 <Button type="secondary">
                   <div class="flex items-center gap-2">
-                    <i class="w-5 h-5 i-ri:delete-bin-7-line" />
+                    <i class="w-5 h-5 i-hugeicons:delete-01" />
                     <div>
                       <Trans key="settings:reset_all_data" />
                     </div>

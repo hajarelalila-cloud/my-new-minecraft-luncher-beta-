@@ -20,8 +20,8 @@ export default function EnvironmentDisplay() {
           <div
             class={`h-4 w-4 ${
               searchContext?.searchQuery().environment === "server"
-                ? "i-ri:server-line"
-                : "i-ri:computer-line"
+                ? "i-hugeicons:server-01"
+                : "i-hugeicons:computer"
             }`}
           />
           {capitalize(searchContext?.searchQuery().environment)}

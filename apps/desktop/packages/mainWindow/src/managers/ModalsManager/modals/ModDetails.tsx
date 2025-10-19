@@ -116,7 +116,7 @@ const ModDetails: Component<ModDetailsProps> = (props) => {
             when={getModImage()}
             fallback={
               <div class="h-24 w-24 rounded-lg bg-darkSlate-700 flex items-center justify-center shadow-lg">
-                <div class="i-ri:file-zip-fill text-4xl text-lightSlate-600" />
+                <div class="i-hugeicons:zip-01 text-4xl text-lightSlate-600" />
               </div>
             }
           >
@@ -190,7 +190,7 @@ const ModDetails: Component<ModDetailsProps> = (props) => {
 
               <Show when={mod().has_update}>
                 <Badge variant="warning" class="gap-1">
-                  <div class="i-ri:download-2-fill" />
+                  <div class="i-hugeicons:download-02" />
                   {t("modals.mod_details.update_available")}
                 </Badge>
               </Show>
@@ -249,7 +249,7 @@ const ModDetails: Component<ModDetailsProps> = (props) => {
                       )
                     }}
                   >
-                    <div class="i-ri:external-link-line" />
+                    <div class="i-hugeicons:link-square-02" />
                     {t("modals.mod_details.view_on_curseforge")}
                   </Button>
                 </Show>
@@ -264,7 +264,7 @@ const ModDetails: Component<ModDetailsProps> = (props) => {
                       )
                     }}
                   >
-                    <div class="i-ri:external-link-line" />
+                    <div class="i-hugeicons:link-square-02" />
                     {t("modals.mod_details.view_on_modrinth")}
                   </Button>
                 </Show>

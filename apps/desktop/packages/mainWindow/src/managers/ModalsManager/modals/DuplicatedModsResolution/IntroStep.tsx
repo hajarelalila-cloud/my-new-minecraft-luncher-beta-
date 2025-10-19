@@ -11,7 +11,7 @@ const IntroStep = (props: Props) => {
     <div class="flex flex-col justify-between box-border h-full">
       <div class="flex flex-col gap-4">
         <div class="flex items-center gap-3 mb-2">
-          <div class="i-ri:alert-line text-yellow-500 text-3xl" />
+          <div class="i-hugeicons:alert-01 text-yellow-500 text-3xl" />
           <h2 class="text-xl font-bold m-0">
             <Trans key="instance.duplicates.intro.title" />
           </h2>

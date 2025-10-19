@@ -125,7 +125,7 @@ const ConfirmChangeRuntimePath = (props: ModalProps) => {
                 <Match when={!migrationError()}>
                   <div class="flex text-2xl items-center">
                     <Trans key="settings:applying_new_runtime_path" />
-                    <div class="ml-2 i-ri:loader-4-line animate-spin" />
+                    <div class="ml-2 i-hugeicons:loading-03 animate-spin" />
                   </div>
                 </Match>
               </Switch>

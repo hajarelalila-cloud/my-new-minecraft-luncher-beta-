@@ -156,7 +156,7 @@ const ResourcePacks = () => {
         <div class="flex justify-between items-center pb-4 flex-wrap gap-1">
           <Input
             placeholder={t("general.type_here")}
-            icon={<div class="i-ri:search-line" />}
+            icon={<div class="i-hugeicons:search-01" />}
             class="w-full rounded-full text-lightSlate-700"
             inputClass=""
           />
@@ -199,7 +199,7 @@ const ResourcePacks = () => {
               />
             </div>
             <div class="flex items-center gap-2 cursor-pointer hover:text-lightSlate-50 transition duration-100 ease-in-out">
-              <span class="i-ri:folder-open-fill text-2xl" />
+              <span class="i-hugeicons:folder-open text-2xl" />
               <Trans
                 key="instance.open_resource_packs_folder"
                 options={{
@@ -208,7 +208,7 @@ const ResourcePacks = () => {
               />
             </div>
             <div class="flex items-center gap-2 cursor-pointer hover:text-lightSlate-50 transition duration-100 ease-in-out">
-              <span class="text-2xl i-ri:forbid-line" />
+              <span class="text-2xl i-hugeicons:unavailable" />
               <Trans
                 key="instance.disable_resource_pack"
                 options={{
@@ -217,7 +217,7 @@ const ResourcePacks = () => {
               />
             </div>
             <div class="flex items-center gap-2 cursor-pointer hover:text-lightSlate-50 transition duration-100 ease-in-out">
-              <span class="i-ri:delete-bin-2-fill text-2xl" />
+              <span class="i-hugeicons:delete-02 text-2xl" />
               <Trans
                 key="instance.delete_resource_pack"
                 options={{

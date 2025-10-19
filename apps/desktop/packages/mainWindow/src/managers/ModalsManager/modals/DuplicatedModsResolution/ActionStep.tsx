@@ -27,7 +27,7 @@ const ActionStep = (props: Props) => {
     <div class="flex flex-col justify-between h-full">
       <div class="flex flex-col gap-4">
         <div class="flex items-center gap-3 mb-2">
-          <div class="i-ri:settings-3-fill text-primary-500 text-3xl" />
+          <div class="i-hugeicons:settings-01 text-primary-500 text-3xl" />
           <h2 class="text-xl font-bold m-0">
             <Trans key="instance.duplicates.action.title" />
           </h2>
@@ -54,7 +54,7 @@ const ActionStep = (props: Props) => {
             >
               <div class="flex flex-col gap-2 w-full">
                 <div class="flex items-center gap-2">
-                  <div class="i-ri:eye-off-fill text-lg" />
+                  <div class="i-hugeicons:view-off text-lg" />
                   <span class="font-semibold">
                     <Trans key="instance.duplicates.action.disable_title" />
                   </span>
@@ -81,7 +81,7 @@ const ActionStep = (props: Props) => {
             >
               <div class="flex flex-col gap-2 w-full">
                 <div class="flex items-center gap-2">
-                  <div class="i-ri:delete-bin-fill text-lg text-red-500" />
+                  <div class="i-hugeicons:delete-01 text-lg text-red-500" />
                   <span class="font-semibold">
                     <Trans key="instance.duplicates.action.remove_title" />
                   </span>

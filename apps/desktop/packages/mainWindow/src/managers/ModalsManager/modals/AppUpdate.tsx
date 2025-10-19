@@ -65,7 +65,7 @@ const AppUpdate = (props: ModalProps) => {
               </div>
               <div class="text-left">{__APP_VERSION__}</div>
             </div>
-            <div class="text-2xl i-ri:arrow-right-double-fill" />
+            <div class="text-2xl i-hugeicons:arrow-right-double" />
             <div class="flex flex-col gap-4">
               <div class="text-left font-bold">
                 <Trans key="app_update.available_version" />

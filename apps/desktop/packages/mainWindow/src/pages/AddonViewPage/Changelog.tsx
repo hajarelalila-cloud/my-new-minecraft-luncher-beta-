@@ -41,7 +41,7 @@ const ChangelogCard = (props: {
               }
             >
               <div class="flex items-center gap-2 text-xs text-lightSlate-600">
-                <div class="i-ri:calendar-line flex-shrink-0"></div>
+                <div class="i-hugeicons:calendar-01 flex-shrink-0"></div>
                 <span>{format(new Date(props.releaseDate!), "PPP")}</span>
                 <span class="text-lightSlate-700">•</span>
                 <span class="text-lightSlate-500">
@@ -129,7 +129,7 @@ const EmptyChangelogState = () => {
   return (
     <div class="flex flex-col items-center justify-center py-12 sm:py-16 px-4 sm:px-6 text-center">
       <div class="w-16 h-16 sm:w-24 sm:h-24 bg-darkSlate-600 rounded-full flex items-center justify-center mb-6">
-        <div class="i-ri:file-text-line text-2xl sm:text-3xl text-lightSlate-500"></div>
+        <div class="i-hugeicons:note text-2xl sm:text-3xl text-lightSlate-500"></div>
       </div>
       <h3 class="text-lg sm:text-xl font-semibold text-lightSlate-200 mb-2">
         No changelog available
@@ -140,7 +140,7 @@ const EmptyChangelogState = () => {
       </p>
       <div class="mt-6 sm:mt-8 p-3 sm:p-4 bg-darkSlate-700 rounded-lg border border-darkSlate-600 text-left max-w-md w-full">
         <div class="flex items-center gap-2 text-lightSlate-400 text-sm mb-2">
-          <div class="i-ri:information-line flex-shrink-0"></div>
+          <div class="i-hugeicons:information-circle flex-shrink-0"></div>
           <span class="font-medium">Tip</span>
         </div>
         <p class="text-xs sm:text-sm text-lightSlate-600 leading-relaxed">

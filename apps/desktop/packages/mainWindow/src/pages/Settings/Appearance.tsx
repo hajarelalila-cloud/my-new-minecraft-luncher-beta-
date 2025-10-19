@@ -72,7 +72,7 @@ const Appearance = () => {
                           "opacity-100": themeName() === theme
                         }}
                       >
-                        <div class="i-ri:check-fill w-6 h-6" />
+                        <div class="i-hugeicons:tick-02 w-6 h-6" />
                       </div>
 
                       <ThemePreview

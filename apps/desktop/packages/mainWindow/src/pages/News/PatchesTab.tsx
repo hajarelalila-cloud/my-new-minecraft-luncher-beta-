@@ -22,16 +22,16 @@ const getVersionTypeColor = (versionType?: string) => {
 const getVersionTypeIcon = (versionType?: string) => {
   switch (versionType?.toLowerCase()) {
     case "release":
-      return "i-ri:check-double-line"
+      return "i-hugeicons:checkmark-badge-01"
     case "snapshot":
-      return "i-ri:camera-line"
+      return "i-hugeicons:camera-01"
     case "beta":
-      return "i-ri:test-tube-line"
+      return "i-hugeicons:lab"
     case "rc":
     case "release-candidate":
-      return "i-ri:star-line"
+      return "i-hugeicons:star"
     default:
-      return "i-ri:bookmark-line"
+      return "i-hugeicons:bookmark-01"
   }
 }
 
@@ -128,7 +128,7 @@ const PatchesTab = (props: PatchesTabProps) => {
                           </span>
                           <div class="flex items-center text-primary-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
                             <span class="mr-2 font-medium">Read More</span>
-                            <i class="i-ri:arrow-right-line" />
+                            <i class="i-hugeicons:arrow-right-01" />
                           </div>
                         </div>
                       </div>

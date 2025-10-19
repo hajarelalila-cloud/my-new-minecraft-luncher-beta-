@@ -44,7 +44,7 @@ function FilterWarning() {
   return (
     <div class="px-3 py-2 mx-2 mb-2 bg-yellow-900/20 border border-yellow-600/30 rounded-md">
       <div class="flex items-start gap-2 text-sm text-yellow-200">
-        <div class="i-ri:alert-fill h-4 w-4 text-yellow-500 flex-shrink-0 mt-0.5" />
+        <div class="i-hugeicons:alert-01 h-4 w-4 text-yellow-500 flex-shrink-0 mt-0.5" />
         <span class="leading-relaxed">
           <Trans key="search.instance_compatibility_warning" />
         </span>
@@ -370,7 +370,7 @@ export function SearchModloaderDropdown(_props: DropdownProps) {
                   // Prevent dropdown menu from handling these keys
                   e.stopPropagation()
                 }}
-                icon={<div class="i-ri:search-line h-4 w-4" />}
+                icon={<div class="i-hugeicons:search-01 h-4 w-4" />}
                 variant="transparent"
                 class="h-full"
               />
@@ -479,8 +479,8 @@ export function SearchEnvironmentDropdown(_props: DropdownProps) {
                     <div
                       class={`h-4 w-4 ${
                         value === "server"
-                          ? "i-ri:server-line"
-                          : "i-ri:computer-line"
+                          ? "i-hugeicons:server-01"
+                          : "i-hugeicons:computer"
                       }`}
                     />
                     {capitalize(value)}
@@ -755,7 +755,7 @@ export function SearchGameVersionDropdown(_props: DropdownProps) {
         {/* Custom checkbox styled like DropdownMenuCheckboxItem */}
         <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
           <Show when={isChecked()}>
-            <div class="i-ri:check-line h-4 w-4" />
+            <div class="i-hugeicons:tick-02 h-4 w-4" />
           </Show>
         </span>
         <div class="flex items-center gap-2">
@@ -812,7 +812,7 @@ export function SearchGameVersionDropdown(_props: DropdownProps) {
                   // Prevent dropdown menu from handling these keys
                   e.stopPropagation()
                 }}
-                icon={<div class="i-ri:search-line h-4 w-4" />}
+                icon={<div class="i-hugeicons:search-01 h-4 w-4" />}
                 variant="transparent"
                 class="h-full"
               />

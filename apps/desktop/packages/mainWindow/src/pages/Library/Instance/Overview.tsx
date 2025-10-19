@@ -138,7 +138,7 @@ const Overview = () => {
                         />
                       </div>
                       <div class="flex items-center gap-2">
-                        <div class="w-3 h-3 i-ri:file-fill" />
+                        <div class="w-3 h-3 i-hugeicons:file-01" />
                         <div class="truncate whitespace-break-spaces">
                           {routeData.modpackInfo.data?.version_name}
                         </div>
@@ -163,7 +163,7 @@ const Overview = () => {
                     }}
                   >
                     <Trans key="instance.modpack_open_website" />
-                    <i class="i-ri:external-link-line" />
+                    <i class="i-hugeicons:link-square-02" />
                   </Button>
                   <Button
                     rounded={false}
@@ -181,7 +181,7 @@ const Overview = () => {
                     }}
                   >
                     <Trans key="instance.modpack_view" />
-                    <i class="w-4 h-4 i-ri:arrow-right-line" />
+                    <i class="w-4 h-4 i-hugeicons:arrow-right-01" />
                   </Button>
                 </div>
               </div>

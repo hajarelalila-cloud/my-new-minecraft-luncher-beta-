@@ -160,7 +160,7 @@ const Mods = () => {
             class="text-lightSlate-700 hover:text-lightSlate-50 mr-2 flex h-full items-center px-6"
             onClick={() => setSelectedModsMap(reconcile({}))}
           >
-            <div class="i-ri:close-fill text-2xl" />
+            <div class="i-hugeicons:cancel-01 text-2xl" />
           </div>
           <div class="text-lightSlate-700">
             <Trans
@@ -236,7 +236,7 @@ const Mods = () => {
             <Tooltip placement="top">
               <TooltipTrigger>
                 <div class="text-lightSlate-700 flex cursor-pointer items-center gap-2">
-                  <span class="i-ri:delete-bin-2-fill text-2xl" />
+                  <span class="i-hugeicons:delete-02 text-2xl" />
                   <Trans key="instance.delete_mod" />
                 </div>
               </TooltipTrigger>
@@ -257,7 +257,7 @@ const Mods = () => {
                 })
               }}
             >
-              <span class="i-ri:delete-bin-2-fill text-2xl" />
+              <span class="i-hugeicons:delete-02 text-2xl" />
               <Trans key="instance.delete_mod" />
             </div>
           </Show>
@@ -268,7 +268,7 @@ const Mods = () => {
               <Tooltip placement="top">
                 <TooltipTrigger>
                   <div class="text-lightSlate-700 flex items-center gap-2">
-                    <span class="i-ri:download-2-fill text-2xl" />
+                    <span class="i-hugeicons:download-02 text-2xl" />
                     <Trans key="instance.update_mods" />
                   </div>
                 </TooltipTrigger>
@@ -284,7 +284,7 @@ const Mods = () => {
                   updateSelectedMods()
                 }}
               >
-                <span class="i-ri:download-2-fill text-2xl" />
+                <span class="i-hugeicons:download-02 text-2xl" />
                 <Trans key="instance.update_mods" />
               </div>
             </Show>
@@ -325,7 +325,7 @@ const Mods = () => {
             <Input
               onInput={(e) => setFilter(e.target.value)}
               placeholder={t("instance.mods.search")}
-              icon={<div class="i-ri:search-line" />}
+              icon={<div class="i-hugeicons:search-01" />}
               class="text-lightSlate-700 rounded-full"
             />
           </div>
@@ -350,7 +350,7 @@ const Mods = () => {
                 });
               }}
             >
-              <span class="text-2xl i-ri:filter-line" />
+              <span class="text-2xl i-hugeicons:filter" />
             </div> */}
             <Show when={isInstanceLocked()}>
               <Tooltip placement="top">
@@ -393,7 +393,7 @@ const Mods = () => {
                       updateAllMods()
                     }}
                   >
-                    <span class="i-ri:download-2-fill text-2xl" />
+                    <span class="i-hugeicons:download-02 text-2xl" />
                     <div
                       classList={{
                         "w-0": isInstanceLocked()
@@ -426,7 +426,7 @@ const Mods = () => {
                     })
                   }}
                 >
-                  <span class="i-ri:folder-open-fill text-2xl" />
+                  <span class="i-hugeicons:folder-open text-2xl" />
                 </div>
               </TooltipTrigger>
               <TooltipContent class="max-w-38 overflow-hidden text-ellipsis">

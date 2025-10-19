@@ -230,7 +230,7 @@ const Tile = (props: Props) => {
               >
                 <div
                   class={`h-4 w-4 ${
-                    props.isRunning ? "i-ri:stop-fill" : "i-ri:play-fill"
+                    props.isRunning ? "i-hugeicons:stop" : "i-hugeicons:play"
                   }`}
                 />
                 {props.isRunning
@@ -242,7 +242,7 @@ const Tile = (props: Props) => {
                 onClick={handleEdit}
                 disabled={isLoading() || isInQueue() || props.isDeleting}
               >
-                <div class="i-ri:pencil-fill h-4 w-4" />
+                <div class="i-hugeicons:pencil-edit-01 h-4 w-4" />
                 {t("instance.action_edit")}
               </ContextMenuItem>
               <ContextMenuItem
@@ -250,7 +250,7 @@ const Tile = (props: Props) => {
                 onClick={handleSettings}
                 disabled={isLoading() || isInQueue() || props.isDeleting}
               >
-                <div class="i-ri:settings-3-fill h-4 w-4" />
+                <div class="i-hugeicons:settings-01 h-4 w-4" />
                 {t("instance.action_settings")}
               </ContextMenuItem>
               <ContextMenuItem
@@ -266,8 +266,8 @@ const Tile = (props: Props) => {
                 <div
                   class="h-4 w-4"
                   classList={{
-                    "i-ri:star-fill": props.instance.favorite,
-                    "i-ri:star-line": !props.instance.favorite
+                    "i-hugeicons:star": props.instance.favorite,
+                    "i-hugeicons:star": !props.instance.favorite
                   }}
                 />
                 {props.instance.favorite
@@ -294,7 +294,7 @@ const Tile = (props: Props) => {
                 }}
                 disabled={isLoading() || isInQueue() || props.isDeleting}
               >
-                <div class="i-ri:export-fill h-4 w-4" />
+                <div class="i-hugeicons:upload-square-01 h-4 w-4" />
                 {t("instance.export_instance")}
               </ContextMenuItem>
               <ContextMenuSeparator />
@@ -308,7 +308,7 @@ const Tile = (props: Props) => {
                       class="flex items-center gap-2"
                       onClick={handleOpenFolder}
                     >
-                      <div class="i-ri:folder-open-fill h-4 w-4" />
+                      <div class="i-hugeicons:folder-open h-4 w-4" />
                       {t("instance.action_open_folder")}
                     </ContextMenuItem>
                     <ContextMenuItem
@@ -317,7 +317,7 @@ const Tile = (props: Props) => {
                         navigate.navigate(`/library/${props.instance.id}/logs`)
                       }}
                     >
-                      <div class="i-ri:file-list-fill h-4 w-4" />
+                      <div class="i-hugeicons:file-management h-4 w-4" />
                       {t("instance.view_logs")}
                     </ContextMenuItem>
                     <ContextMenuItem
@@ -328,7 +328,7 @@ const Tile = (props: Props) => {
                         )
                       }}
                     >
-                      <div class="i-ri:list-check h-4 w-4" />
+                      <div class="i-hugeicons:task-done-01 h-4 w-4" />
                       {t("instance.view_mods")}
                     </ContextMenuItem>
                     {!props.isInvalid && (
@@ -339,7 +339,7 @@ const Tile = (props: Props) => {
                           isLoading() || isInQueue() || props.isDeleting
                         }
                       >
-                        <div class="i-ri:file-copy-fill h-4 w-4" />
+                        <div class="i-hugeicons:copy-01 h-4 w-4" />
                         {t("instance.action_duplicate")}
                       </ContextMenuItem>
                     )}
@@ -352,7 +352,7 @@ const Tile = (props: Props) => {
                 onClick={handleDelete}
                 disabled={isLoading() || isInQueue() || props.isDeleting}
               >
-                <div class="i-ri:delete-bin-2-fill h-4 w-4" />
+                <div class="i-hugeicons:delete-02 h-4 w-4" />
                 {t("instance.action_delete")}
               </ContextMenuItem>
             </ContextMenuGroup>
@@ -431,7 +431,7 @@ const Tile = (props: Props) => {
                         </h2>
                         <div class="z-1 absolute bottom-0 left-0 right-0 top-0 h-full w-full rounded-2xl bg-gradient-to-l from-black from-30% opacity-50" />
                         <div class="z-1 absolute bottom-0 left-0 right-0 top-0 h-full w-full rounded-2xl bg-gradient-to-t from-black opacity-50" />
-                        <div class="i-ri:alert-fill z-1 absolute right-1 top-1 text-2xl text-yellow-500" />
+                        <div class="i-hugeicons:alert-01 z-1 absolute right-1 top-1 text-2xl text-yellow-500" />
                       </Show>
                       <Show when={props.failError}>
                         <div
@@ -455,7 +455,7 @@ const Tile = (props: Props) => {
                           }
                         />
                         <div
-                          class="i-ri:alert-fill z-1 absolute bottom-20 left-0 right-0 top-0 m-auto text-4xl text-red-500"
+                          class="i-hugeicons:alert-01 z-1 absolute bottom-20 left-0 right-0 top-0 m-auto text-4xl text-red-500"
                           style={
                             props.shouldSetViewTransition
                               ? {
@@ -631,8 +631,8 @@ const Tile = (props: Props) => {
                         <div
                           class="text-lightSlate-50"
                           classList={{
-                            "i-ri:play-fill": !props.isRunning,
-                            "i-ri:stop-fill text-xl": props.isRunning
+                            "i-hugeicons:play": !props.isRunning,
+                            "i-hugeicons:stop text-xl": props.isRunning
                           }}
                         />
                       </div>
@@ -651,9 +651,9 @@ const Tile = (props: Props) => {
                             <div
                               class="h-6 w-6"
                               classList={{
-                                "text-lightSlate-700 hover:text-lightSlate-100 duration-100 ease-in-out i-ri:file-copy-2-fill":
+                                "text-lightSlate-700 hover:text-lightSlate-100 duration-100 ease-in-out i-hugeicons:copy-01":
                                   !copiedError(),
-                                "text-green-400 i-ri:checkbox-circle-fill":
+                                "text-green-400 i-hugeicons:tick-double-02":
                                   copiedError()
                               }}
                               onClick={(e) => {

@@ -112,7 +112,7 @@ export const AddonFilters = (props: AddonFiltersProps) => {
               value={props.searchQuery()}
               onInput={(e) => props.setSearchQuery(e.target.value)}
               placeholder={t("instance.search_addons")}
-              icon={<div class="i-ri:search-line" />}
+              icon={<div class="i-hugeicons:search-01" />}
               class="max-w-sm"
             />
 
@@ -145,13 +145,13 @@ export const AddonFilters = (props: AddonFiltersProps) => {
                   const getIcon = (value: string) => {
                     switch (value) {
                       case "all":
-                        return <div class="i-ri:global-line w-4 h-4" />
+                        return <div class="i-hugeicons:globe w-4 h-4" />
                       case "curseforge":
                         return <div class="i-simple-icons:curseforge w-4 h-4" />
                       case "modrinth":
                         return <div class="i-simple-icons:modrinth w-4 h-4" />
                       case "local":
-                        return <div class="i-ri:folder-line w-4 h-4" />
+                        return <div class="i-hugeicons:folder-01 w-4 h-4" />
                       default:
                         return null
                     }
@@ -186,7 +186,7 @@ export const AddonFilters = (props: AddonFiltersProps) => {
                       const getIcon = (value: string) => {
                         switch (value) {
                           case "all":
-                            return <div class="i-ri:global-line w-4 h-4" />
+                            return <div class="i-hugeicons:globe w-4 h-4" />
                           case "curseforge":
                             return (
                               <div class="i-simple-icons:curseforge w-4 h-4" />
@@ -196,7 +196,7 @@ export const AddonFilters = (props: AddonFiltersProps) => {
                               <div class="i-simple-icons:modrinth w-4 h-4" />
                             )
                           case "local":
-                            return <div class="i-ri:folder-line w-4 h-4" />
+                            return <div class="i-hugeicons:folder-01 w-4 h-4" />
                           default:
                             return null
                         }
@@ -227,7 +227,7 @@ export const AddonFilters = (props: AddonFiltersProps) => {
                     disabled={props.isInstanceLocked()}
                     class="text-xs"
                   >
-                    <div class="i-ri:download-2-fill text-sm" />
+                    <div class="i-hugeicons:download-02 text-sm" />
                     <Trans
                       key="instance.update_all_count"
                       options={{ count: props.updateCount() }}
@@ -246,7 +246,7 @@ export const AddonFilters = (props: AddonFiltersProps) => {
               onClick={props.onOpenFolder}
               class="px-3"
             >
-              <div class="i-ri:folder-open-fill" />
+              <div class="i-hugeicons:folder-open" />
             </Button>
 
             <Tooltip open={props.isInstanceLocked() ? undefined : false}>
@@ -271,7 +271,7 @@ export const AddonFilters = (props: AddonFiltersProps) => {
         {/* Addon type filters */}
         <div class="flex items-center justify-between gap-4">
           <div class="flex flex-wrap items-center gap-2">
-            <div class="i-ri:filter-3-line text-lightSlate-600 w-5 h-5" />
+            <div class="i-hugeicons:filter text-lightSlate-600 w-5 h-5" />
             <For each={visibleAddonTypes()}>
               {(type) => (
                 <Badge
@@ -288,14 +288,14 @@ export const AddonFilters = (props: AddonFiltersProps) => {
                 >
                   {getAddonTypeLabel(type)}
                   <Show when={props.enabledAddonTypes[type]}>
-                    <div class="i-ri:check-line ml-1" />
+                    <div class="i-hugeicons:tick-02 ml-1" />
                   </Show>
                 </Badge>
               )}
             </For>
           </div>
           <div class="text-lightSlate-600 text-xs flex items-center gap-2">
-            <div class="i-ri:mouse-line" />
+            <div class="i-hugeicons:mouse-01" />
             <span>{t("instance.right_click_hint")}</span>
             <span class="text-lightSlate-700">•</span>
             <span>{t("instance.multi_select_hint")}</span>

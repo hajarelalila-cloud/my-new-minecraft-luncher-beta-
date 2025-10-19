@@ -79,7 +79,7 @@ export function SearchableDropdown(props: SearchableDropdownProps) {
       </Show>
       <span class="flex-1 truncate">{option.label}</span>
       <Show when={props.isSelected?.(option)}>
-        <div class="i-ri:check-line h-4 w-4 text-primary-500" />
+        <div class="i-hugeicons:tick-02 h-4 w-4 text-primary-500" />
       </Show>
     </div>
   )
@@ -106,7 +106,7 @@ export function SearchableDropdown(props: SearchableDropdownProps) {
               placeholder={props.searchPlaceholder || "Search..."}
               value={searchQuery()}
               onInput={(e) => setSearchQuery(e.target.value)}
-              icon={<div class="i-ri:search-line h-4 w-4" />}
+              icon={<div class="i-hugeicons:search-01 h-4 w-4" />}
               variant="transparent"
               onClick={(e) => {
                 e.stopPropagation()

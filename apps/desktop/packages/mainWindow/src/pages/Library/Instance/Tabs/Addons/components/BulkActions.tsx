@@ -33,7 +33,7 @@ export const BulkActions = (props: BulkActionsProps) => {
                 disabled={props.isInstanceLocked()}
                 onClick={props.onUpdateSelected}
               >
-                <div class="i-ri:download-2-fill" />
+                <div class="i-hugeicons:download-02" />
                 <Trans key="instance.update_selected" />
               </Button>
             </Show>
@@ -42,7 +42,7 @@ export const BulkActions = (props: BulkActionsProps) => {
               disabled={props.isInstanceLocked()}
               onClick={props.onDeleteSelected}
             >
-              <div class="i-ri:delete-bin-2-fill" />
+              <div class="i-hugeicons:delete-02" />
               <Trans key="instance.delete_selected" />
             </Button>
           </div>

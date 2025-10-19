@@ -50,7 +50,7 @@ const ModSelectionStep = (props: Props) => {
               when={props.mod.modId && props.mod.platform !== undefined}
               fallback={
                 <div class="w-12 h-12 rounded-lg bg-darkSlate-600 flex items-center justify-center">
-                  <div class="i-ri:puzzle-fill text-2xl text-darkSlate-400" />
+                  <div class="i-hugeicons:puzzle text-2xl text-darkSlate-400" />
                 </div>
               }
             >

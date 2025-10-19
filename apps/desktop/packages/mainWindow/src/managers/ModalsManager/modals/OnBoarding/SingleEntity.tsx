@@ -183,7 +183,7 @@ const SingleEntity = (props: {
                   onClick={() => {
                     setPath("")
                   }}
-                  class="i-ri:close-line bg-darkSlate-50 hover:bg-white"
+                  class="i-hugeicons:cancel-01 bg-darkSlate-50 hover:bg-white"
                 />
               }
             />
@@ -196,7 +196,7 @@ const SingleEntity = (props: {
                         onClick={async () => {
                           setPath(entityDefaultPath.data!)
                         }}
-                        class="i-ri:arrow-go-back-fill text-xl"
+                        class="i-hugeicons:arrow-turn-backward text-xl"
                       />
                     </div>
                   </TooltipTrigger>
@@ -223,7 +223,7 @@ const SingleEntity = (props: {
 
                           setPath(result.filePaths[0])
                         }}
-                        class="i-ri:folder-line text-xl"
+                        class="i-hugeicons:folder-01 text-xl"
                       />
                     </div>
                   </TooltipTrigger>
@@ -260,7 +260,7 @@ const SingleEntity = (props: {
 
                           setPath(result.filePaths[0])
                         }}
-                        class="i-ri:file-zip-line text-xl"
+                        class="i-hugeicons:zip-01 text-xl"
                       />
                     </div>
                   </TooltipTrigger>

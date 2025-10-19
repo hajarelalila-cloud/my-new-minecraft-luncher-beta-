@@ -227,7 +227,7 @@ const Dropdown = (props: Props) => {
               {selectedValue()?.label ?? props.placeholder}
             </div>
           </Show>
-          <div class="i-ri:arrow-drop-down-line w-8 h-8 ease-in-out duration-100" />
+          <div class="i-hugeicons:arrow-down-01 w-8 h-8 ease-in-out duration-100" />
         </button>
         <Show when={menuOpened()}>
           <Portal>

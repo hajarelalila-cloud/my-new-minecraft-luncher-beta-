@@ -32,15 +32,15 @@ const AddCustomJava = (props: ModalProps) => {
               icon={
                 <Switch>
                   <Match when={validateJavaPath.isPending}>
-                    <div class="flex i-ri:loader-4-line animate-spin text-lightSlate-700" />
+                    <div class="flex i-hugeicons:loading-03 animate-spin text-lightSlate-700" />
                   </Match>
                   <Match when={value()}>
                     <Switch>
                       <Match when={validPath() === true}>
-                        <div class="flex i-ri:checkbox-circle-fill text-emerald-500" />
+                        <div class="flex i-hugeicons:tick-double-02 text-emerald-500" />
                       </Match>
                       <Match when={validPath() === false}>
-                        <div class="flex i-ri:error-warning-fill text-yellow-500" />
+                        <div class="flex i-hugeicons:alert-02 text-yellow-500" />
                       </Match>
                     </Switch>
                   </Match>

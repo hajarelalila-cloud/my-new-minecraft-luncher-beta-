@@ -47,7 +47,7 @@ function AccountExpired(props: ModalProps) {
             }}
           >
             <div class="flex items-center gap-2">
-              <i class="w-4 h-4 i-ri:play-fill" />
+              <i class="w-4 h-4 i-hugeicons:play" />
               <Trans key="account_expired.launch_anyway" />
             </div>
           </Button>
@@ -60,7 +60,7 @@ function AccountExpired(props: ModalProps) {
             }}
           >
             <div class="flex items-center gap-2">
-              <i class="w-4 h-4 i-ri:microsoft-fill" />
+              <i class="w-4 h-4 i-hugeicons:microsoft" />
               <Trans key="account_expired.back_to_login" />
             </div>
           </Button>

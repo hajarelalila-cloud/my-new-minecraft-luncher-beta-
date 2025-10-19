@@ -65,24 +65,24 @@ const GDLAccount = (props: Props) => {
             <div class="flex items-center gap-2">
               <Switch>
                 <Match when={account.type.type === "microsoft"}>
-                  <div class="w-4 h-4 i-ri:microsoft-fill" />
+                  <div class="w-4 h-4 i-hugeicons:microsoft" />
                 </Match>
                 <Match when={account.type.type === "offline"}>
-                  <div class="w-4 h-4 i-ri:computer-line" />
+                  <div class="w-4 h-4 i-hugeicons:computer" />
                 </Match>
               </Switch>
               <Switch>
                 <Match when={account.status === "ok"}>
-                  <div class="w-4 h-4 text-green-500 i-ri:check-fill" />
+                  <div class="w-4 h-4 text-green-500 i-hugeicons:tick-02" />
                 </Match>
                 <Match when={account.status === "expired"}>
-                  <div class="w-4 h-4 text-yellow-500 i-ri:alert-fill" />
+                  <div class="w-4 h-4 text-yellow-500 i-hugeicons:alert-01" />
                 </Match>
                 <Match when={account.status === "refreshing"}>
-                  <div class="w-4 h-4 text-yellow-500 i-ri:loader-4-fill" />
+                  <div class="w-4 h-4 text-yellow-500 i-hugeicons:loading-03" />
                 </Match>
                 <Match when={account.status === "invalid"}>
-                  <div class="w-4 h-4 text-red-500 i-ri:close-fill" />
+                  <div class="w-4 h-4 text-red-500 i-hugeicons:cancel-01" />
                 </Match>
               </Switch>
             </div>
