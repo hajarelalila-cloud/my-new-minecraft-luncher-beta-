@@ -63,8 +63,9 @@ const ExploreVersionsNavbar = (props: Props) => {
     return ["", ...(results?.map((v) => v.toString()) || [])]
   }
 
-  const getModloaderLabel = (value: string) => {
-    return value || "Select a modloader"
+  const getModloaderLabel = (value: string | null | undefined) => {
+    if (!value) return "All modloaders"
+    return value
   }
 
   const filteredGameVersions = createMemo(() => {
@@ -85,17 +86,20 @@ const ExploreVersionsNavbar = (props: Props) => {
     return ["", ...(filteredGameVersions() || []).map((item) => item.id)]
   }
 
-  const getGameVersionLabel = (versionId: string) => {
+  const getGameVersionLabel = (versionId: string | null | undefined) => {
     if (!versionId) {
       return <Trans key="minecraft_all_versions" />
     }
     const version = filteredGameVersions()?.find((v) => v.id === versionId)
-    return (
-      <div class="flex w-full justify-between">
-        <span>{versionId}</span>
-        {version && mapTypeToColor(version.type)}
-      </div>
-    )
+    if (version) {
+      return (
+        <div class="flex w-full justify-between">
+          <span>{versionId}</span>
+          {mapTypeToColor(version.type)}
+        </div>
+      )
+    }
+    return versionId
   }
 
   return (
@@ -140,6 +144,12 @@ const ExploreVersionsNavbar = (props: Props) => {
           value={infiniteQuery.query.gameVersion || ""}
           options={filteredMappedGameVersions()}
           disabled={!overrideEnabled()}
+          placeholder={
+            <div class="flex items-center gap-2">
+              <div class="i-hugeicons:tag-01" />
+              <Trans key="minecraft_all_versions" />
+            </div>
+          }
           onChange={(val) => {
             infiniteQuery?.setQuery({
               gameVersion: val || null
@@ -156,7 +166,7 @@ const ExploreVersionsNavbar = (props: Props) => {
               {(state) => (
                 <div class="flex items-center gap-2">
                   <div class="i-hugeicons:tag-01" />
-                  {getGameVersionLabel(state.selectedOption() || "")}
+                  <span>{state.selectedOption()}</span>
                 </div>
               )}
             </SelectValue>
@@ -169,6 +179,12 @@ const ExploreVersionsNavbar = (props: Props) => {
           value={infiniteQuery.query.modLoaderType || ""}
           options={modloaders()}
           disabled={!overrideEnabled()}
+          placeholder={
+            <div class="flex items-center gap-2">
+              <div class="i-hugeicons:tag-01" />
+              <span>All modloaders</span>
+            </div>
+          }
           onChange={(val) => {
             infiniteQuery?.setQuery({
               modLoaderType: val || null
@@ -185,7 +201,7 @@ const ExploreVersionsNavbar = (props: Props) => {
               {(state) => (
                 <div class="flex items-center gap-2">
                   <div class="i-hugeicons:tag-01" />
-                  {getModloaderLabel(state.selectedOption() || "")}
+                  <span>{state.selectedOption()}</span>
                 </div>
               )}
             </SelectValue>

@@ -159,9 +159,9 @@ const SingleEntity = (props: {
   })
 
   return (
-    <>
-      <div class="flex w-full flex-1 flex-col items-center justify-center p-4">
-        <div class="flex w-full flex-col items-start justify-start gap-2">
+    <div class="flex flex-col h-full">
+      {/* Fixed Header - path input */}
+      <div class="flex-shrink-0 flex w-full flex-col items-start justify-start gap-2 p-4">
           <span class="font-bold">
             {props.entity.entity} <Trans key="instance.import_path" />:
           </span>
@@ -271,8 +271,11 @@ const SingleEntity = (props: {
               </Show>
             </div>
           </div>
-        </div>
-        <div class="mt-2 flex w-full flex-1 items-start justify-start rounded-md bg-[#1D2028] py-2">
+      </div>
+
+      {/* Scrollable Content - results area */}
+      <div class="flex-1 overflow-y-auto mx-4 mb-4">
+        <div class="flex w-full flex-col items-start justify-start rounded-md bg-[#1D2028] py-2">
           <Switch>
             <Match when={step() === "selectionStep"}>
               <Switch
@@ -365,7 +368,9 @@ const SingleEntity = (props: {
           </Switch>
         </div>
       </div>
-      <div class="flex w-full items-center justify-between pt-6">
+
+      {/* Fixed Footer - buttons */}
+      <div class="flex-shrink-0 flex w-full items-center justify-between px-4 pb-4">
         <Button
           type="secondary"
           onClick={() => {
@@ -390,7 +395,7 @@ const SingleEntity = (props: {
           </Button>
         </Show>
       </div>
-    </>
+    </div>
   )
 }
 export default SingleEntity

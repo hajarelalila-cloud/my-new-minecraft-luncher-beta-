@@ -54,7 +54,7 @@ const ActionStep = (props: Props) => {
             >
               <div class="flex flex-col gap-2 w-full">
                 <div class="flex items-center gap-2">
-                  <div class="i-hugeicons:view-off text-lg" />
+                  <div class="i-hugeicons:view-off-slash text-lg" />
                   <span class="font-semibold">
                     <Trans key="instance.duplicates.action.disable_title" />
                   </span>

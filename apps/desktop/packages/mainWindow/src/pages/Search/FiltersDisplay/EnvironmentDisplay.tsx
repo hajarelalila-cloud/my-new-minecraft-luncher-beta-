@@ -20,7 +20,7 @@ export default function EnvironmentDisplay() {
           <div
             class={`h-4 w-4 ${
               searchContext?.searchQuery().environment === "server"
-                ? "i-hugeicons:server-01"
+                ? "i-hugeicons:server-stack-01"
                 : "i-hugeicons:computer"
             }`}
           />

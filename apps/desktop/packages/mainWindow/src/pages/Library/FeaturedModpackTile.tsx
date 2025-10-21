@@ -121,7 +121,7 @@ const FeaturedModpackTile = () => {
         </Show>
         <Show when={!settings()?.showFeatured}>
           <div
-            class="text-lightSlate-900 hover:text-lightSlate-50 opacity-50 my-2 mr-2 duration-200 ease-in-out i-hugeicons:view-off w-4 h-4"
+            class="text-lightSlate-900 hover:text-lightSlate-50 opacity-50 my-2 mr-2 duration-200 ease-in-out i-hugeicons:view-off-slash w-4 h-4"
             onClick={(e) => {
               e.stopPropagation()
               settingsMutation.mutate({

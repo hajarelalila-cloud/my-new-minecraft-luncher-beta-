@@ -211,6 +211,7 @@ const ModDownloadButton = (props: ModDownloadButtonProps) => {
           clearInstanceLoadingState={clearInstanceLoadingState}
           handleInstanceSelection={handleInstanceSelection}
           onDropdownOpenChange={props.onDropdownOpenChange}
+          size={props.size}
         />
       </Match>
       <Match when={props.selectedInstanceId}>

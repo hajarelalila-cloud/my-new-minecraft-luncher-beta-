@@ -512,7 +512,7 @@ const Custom = (props: Pick<ModalProps, "data">) => {
           </div>
           <div class="flex gap-4 w-full items-start">
             <div
-              class="relative flex justify-center items-center bg-darkSlate-800 bg-center bg-cover h-20 w-20 rounded-xl box-border cursor-pointer border-2 border-transparent hover:border-primary-500/50 transition-all group flex-shrink-0"
+              class="relative flex justify-center items-center bg-darkSlate-800 bg-center bg-cover h-20 w-20 rounded-xl box-border cursor-pointer border-0 outline-none hover:outline-darkSlate-600 transition-all group flex-shrink-0"
               style={{
                 ...(bgPreview() && {
                   "background-image": `url("${bgPreview()}")`

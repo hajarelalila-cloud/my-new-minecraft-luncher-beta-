@@ -215,7 +215,7 @@ export const createAddonColumns = (config: ColumnConfig) => {
         const mod = props.row.original
         return (
           <Badge variant="secondary" class="flex items-center gap-1.5">
-            <div class={`${getAddonTypeIcon(mod.addon_type)} text-base`} />
+            <div class={`${getAddonTypeIcon(mod.addon_type)} text-base flex-shrink-0`} />
             {t(`instance.tabs.${mod.addon_type}`)}
           </Badge>
         )

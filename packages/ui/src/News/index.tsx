@@ -135,16 +135,15 @@ const News = (props: CarouselProps) => {
                   background: "rgba(29, 32, 40, 0.7)"
                 }}
               />
-              <div class="absolute box-border flex h-full w-full p-8">
+              <div
+                class="absolute box-border flex h-full w-full p-8 cursor-pointer group"
+                onClick={() => props.onSlideClick?.(slide)}
+              >
                 <div class="flex select-none flex-col gap-2 w-full">
-                  <div
-                    class="group flex cursor-pointer items-center gap-2 text-3xl"
-                    onClick={() => props.onSlideClick?.(slide)}
-                  >
+                  <div class="flex items-center gap-2 text-3xl">
                     <h1 class="m-0 overflow-hidden text-ellipsis whitespace-nowrap group-hover:underline">
                       {slide.title}
                     </h1>
-                    <div class="i-hugeicons:link-square-02 peer" />
                   </div>
                   <h2 class="text-lightSlate-200 m-0 w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl">
                     {slide.description}

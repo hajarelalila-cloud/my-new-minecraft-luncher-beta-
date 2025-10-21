@@ -27,8 +27,9 @@ const SummaryStep = (props: Props) => {
   }
 
   return (
-    <div class="flex flex-col justify-between h-full">
-      <div class="flex flex-col gap-4">
+    <div class="flex flex-col h-full">
+      {/* Fixed Header - won't scroll */}
+      <div class="flex-shrink-0 flex flex-col gap-4">
         <div class="flex items-center gap-3 mb-2">
           <div class="i-hugeicons:checkmark-badge-01 text-green-500 text-3xl" />
           <h2 class="text-xl font-bold m-0">
@@ -58,8 +59,11 @@ const SummaryStep = (props: Props) => {
             </Show>
           </p>
         </div>
+      </div>
 
-        <div class="flex flex-col gap-3 max-h-80 overflow-y-auto pr-2">
+      {/* Scrollable Content - only this section scrolls */}
+      <div class="flex-1 overflow-y-auto overflow-x-hidden pr-2 mt-2">
+        <div class="flex flex-col gap-3">
           <For each={props.mods}>
             {(mod) => (
               <div class="border border-darkSlate-500 rounded-lg p-4 bg-darkSlate-700">
@@ -108,7 +112,7 @@ const SummaryStep = (props: Props) => {
                             <div
                               class="text-sm"
                               classList={{
-                                "i-hugeicons:view-off text-yellow-500":
+                                "i-hugeicons:view-off-slash text-yellow-500":
                                   props.action === "disable",
                                 "i-hugeicons:delete-02 text-red-500":
                                   props.action === "remove"
@@ -142,7 +146,8 @@ const SummaryStep = (props: Props) => {
         </div>
       </div>
 
-      <div class="flex justify-between mt-6">
+      {/* Fixed Footer - won't scroll */}
+      <div class="flex-shrink-0 flex justify-between mt-6">
         <Button
           type="secondary"
           size="large"

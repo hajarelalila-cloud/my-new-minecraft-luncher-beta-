@@ -479,7 +479,7 @@ export function SearchEnvironmentDropdown(_props: DropdownProps) {
                     <div
                       class={`h-4 w-4 ${
                         value === "server"
-                          ? "i-hugeicons:server-01"
+                          ? "i-hugeicons:server-stack-01"
                           : "i-hugeicons:computer"
                       }`}
                     />

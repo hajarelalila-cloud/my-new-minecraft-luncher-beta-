@@ -1,5 +1,6 @@
 import useSearchContext from "./SearchInputContext"
 import { Show } from "solid-js"
+import InstanceDisplay from "@/pages/Search/FiltersDisplay/InstanceDisplay"
 import CategoriesDisplay from "@/pages/Search/FiltersDisplay/CategoriesDisplay"
 import ModloadersDisplay from "@/pages/Search/FiltersDisplay/ModloadersDisplay"
 import GameVersionsDisplay from "@/pages/Search/FiltersDisplay/GameVersionsDisplay"
@@ -18,13 +19,15 @@ export function InlineFilterBadges() {
       query?.gameVersions?.length ||
       query?.searchApi ||
       query?.environment ||
-      query?.platformFilters
+      query?.platformFilters ||
+      searchContext?.selectedInstanceId()
     )
   }
 
   return (
     <Show when={hasActiveFilters()}>
-      <div class="flex items-center gap-1.5 flex-wrap gap-y-2">
+      <div class="flex items-center gap-3 flex-wrap gap-y-2">
+        <InstanceDisplay />
         <SearchApiDisplay />
         <CategoriesDisplay />
         <ModloadersDisplay />

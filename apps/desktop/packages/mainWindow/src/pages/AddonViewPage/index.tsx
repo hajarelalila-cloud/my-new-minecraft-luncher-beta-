@@ -25,7 +25,8 @@ import {
   Switch,
   createContext,
   createSignal,
-  createMemo
+  createMemo,
+  onMount
 } from "solid-js"
 import { format } from "date-fns"
 import ExploreVersionsNavbar from "@/components/ExploreVersionsNavbar"
@@ -163,7 +164,13 @@ const AddonExplore = () => {
   ]
 
   let refStickyTabs: HTMLDivElement
+  let backButtonRef: HTMLSpanElement
   const [isSticky, setIsSticky] = createSignal(false)
+  const [tabsTranslate, setTabsTranslate] = createSignal(0)
+
+  onMount(() => {
+    setTabsTranslate(-backButtonRef.offsetWidth)
+  })
 
   return (
     <div
@@ -172,8 +179,17 @@ const AddonExplore = () => {
         "scrollbar-gutter": "stable"
       }}
       onScroll={() => {
-        const rect = refStickyTabs.getBoundingClientRect()
-        setIsSticky(rect.top <= 104)
+        if (!refStickyTabs) return
+
+        requestAnimationFrame(() => {
+          const rect = refStickyTabs.getBoundingClientRect()
+          setIsSticky(rect.top <= 104)
+          if (rect.top <= 104) {
+            setTabsTranslate(0)
+          } else {
+            setTabsTranslate(-backButtonRef.offsetWidth)
+          }
+        })
       }}
     >
       <div class="h-58 max-h-58 min-h-58 flex flex-col items-stretch justify-between transition-all ease-in-out">
@@ -332,9 +348,18 @@ const AddonExplore = () => {
               }}
               class="bg-darkSlate-800 sticky top-0 z-30 flex flex-col pb-0"
             >
-              <div class="mb-4 flex items-center justify-between">
-                <Show when={isSticky()}>
-                  <span class="mr-4">
+              <div class="mb-4 flex h-14 w-full items-center justify-between">
+                <div class="flex h-full items-center">
+                  <div
+                    class="mr-4 origin-left transition-transform duration-100 ease-in-out"
+                    classList={{
+                      "scale-x-100": isSticky(),
+                      "scale-x-0": !isSticky()
+                    }}
+                    ref={(el) => {
+                      backButtonRef = el
+                    }}
+                  >
                     <Button
                       onClick={() => navigator.prev()}
                       size="small"
@@ -343,57 +368,67 @@ const AddonExplore = () => {
                       <div class="i-hugeicons:arrow-left-01 text-2xl" />
                       <Trans key="instance.step_back" />
                     </Button>
-                  </span>
-                </Show>
-                <Tabs index={indexTab()}>
-                  <div class="h-14">
-                    <TabList>
-                      <For each={instancePages()}>
-                        {(page) => (
-                          <Tab
-                            onClick={() => {
-                              navigator.navigate(
-                                `${page.path}${location.search}`,
-                                {
-                                  replace: true
-                                }
-                              )
-                            }}
-                          >
-                            <div class="flex items-center gap-2">
-                              <div class={`${page.icon} text-lg`} />
-                              {page.label}
-                            </div>
-                          </Tab>
-                        )}
-                      </For>
-                    </TabList>
                   </div>
-                </Tabs>
-                <Show when={isSticky()}>
-                  <div>
-                    <Switch fallback={<></>}>
-                      <Match
-                        when={
-                          project.data?.type && project.data?.type === "modpack"
-                        }
-                      >
-                        <ModpackDownloadButton addon={project.data} />
-                      </Match>
-                      <Match
-                        when={
-                          project.data?.type && project.data?.type !== "modpack"
-                        }
-                      >
-                        <ModDownloadButton
-                          addon={project.data}
-                          selectedInstanceId={selectedInstanceId()}
-                          selectedInstanceMods={instanceMods.data ?? undefined}
-                        />
-                      </Match>
-                    </Switch>
+                  <div
+                    class="flex h-full origin-left items-center transition-transform duration-100 ease-in-out"
+                    style={{
+                      transform: `translateX(${tabsTranslate()}px)`
+                    }}
+                  >
+                    <Tabs index={indexTab()}>
+                      <TabList>
+                        <For each={instancePages()}>
+                          {(page) => (
+                            <Tab
+                              onClick={() => {
+                                navigator.navigate(
+                                  `${page.path}${location.search}`,
+                                  {
+                                    replace: true
+                                  }
+                                )
+                              }}
+                            >
+                              <div class="flex items-center gap-2">
+                                <div class={`${page.icon} text-lg`} />
+                                {page.label}
+                              </div>
+                            </Tab>
+                          )}
+                        </For>
+                      </TabList>
+                    </Tabs>
                   </div>
-                </Show>
+                </div>
+                <div
+                  class="ml-4 origin-right transition-transform duration-100 ease-in-out"
+                  classList={{
+                    "scale-x-100": isSticky(),
+                    "scale-x-0": !isSticky()
+                  }}
+                >
+                  <Switch fallback={<></>}>
+                    <Match
+                      when={
+                        project.data?.type && project.data?.type === "modpack"
+                      }
+                    >
+                      <ModpackDownloadButton addon={project.data} size="small" />
+                    </Match>
+                    <Match
+                      when={
+                        project.data?.type && project.data?.type !== "modpack"
+                      }
+                    >
+                      <ModDownloadButton
+                        addon={project.data}
+                        selectedInstanceId={selectedInstanceId()}
+                        selectedInstanceMods={instanceMods.data ?? undefined}
+                        size="small"
+                      />
+                    </Match>
+                  </Switch>
+                </div>
               </div>
               <Show
                 when={

@@ -1,5 +1,5 @@
 import { Button, Radio } from "@gd/ui"
-import { For, Show, createSignal } from "solid-js"
+import { For, Show, createSignal, createEffect } from "solid-js"
 import { getModImageUrl } from "@/utils/instances"
 import { Trans } from "@gd/i18n"
 
@@ -33,6 +33,11 @@ const ModSelectionStep = (props: Props) => {
   const [selectedVersionLocal, setSelectedVersionLocal] = createSignal(
     props.selectedVersion || props.mod.versions[0]?.id
   )
+
+  // Update local selection when switching between mods
+  createEffect(() => {
+    setSelectedVersionLocal(props.selectedVersion || props.mod.versions[0]?.id)
+  })
 
   const handleSelect = (versionId: string | number | string[] | undefined) => {
     if (typeof versionId === "string") {

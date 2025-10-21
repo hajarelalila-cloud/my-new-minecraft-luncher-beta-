@@ -83,20 +83,6 @@ export function List() {
 
   return (
     <div class="flex h-full flex-col overflow-hidden">
-      <Show when={instanceId()}>
-        <div class="flex w-full p-6">
-          <Button
-            size="small"
-            type="outline"
-            onClick={() => {
-              navigator.navigate(`/library/${instanceId()}/addons`)
-            }}
-          >
-            <div class="i-hugeicons:arrow-left-01" />
-            <Trans key="search.go_back" />
-          </Button>
-        </div>
-      </Show>
       <div class="flex-1 overflow-hidden pt-6">
         <Show
           when={!searchContext?.isInitialLoading()}

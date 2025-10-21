@@ -1,7 +1,7 @@
 import ModalLayout from "../../ModalLayout"
 import { ModalProps, useModal } from "../.."
 import { Steps, toast } from "@gd/ui"
-import { Match, Switch, createSignal, Index } from "solid-js"
+import { Match, Switch, createSignal } from "solid-js"
 import IntroStep from "./IntroStep"
 import ModSelectionStep, { DuplicatedMod } from "./ModSelectionStep"
 import ActionStep, { DuplicateAction } from "./ActionStep"
@@ -14,21 +14,20 @@ interface DuplicatedModsData {
   instanceId: number
 }
 
-const [currentStep, setCurrentStep] = createSignal(0)
-const [_currentModIndex, setCurrentModIndex] = createSignal(0)
-const [selectedVersions, setSelectedVersions] = createSignal<
-  Record<string, string>
->({})
-const [selectedAction, setSelectedAction] =
-  createSignal<DuplicateAction>("disable")
-
-export { currentStep, setCurrentStep }
-
 const DuplicatedModsResolution = (props: ModalProps) => {
   const [t] = useTransContext()
   const modalContext = useModal()
   const data: () => DuplicatedModsData = () => props.data
   const duplicatedMods = () => data()?.duplicatedMods || []
+
+  // Component-level signals - reset on each mount
+  const [currentStep, setCurrentStep] = createSignal(0)
+  const [currentModIndex, setCurrentModIndex] = createSignal(0)
+  const [selectedVersions, setSelectedVersions] = createSignal<
+    Record<string, string>
+  >({})
+  const [selectedAction, setSelectedAction] =
+    createSignal<DuplicateAction>("disable")
 
   // Mutations for mod management
   const deleteModMutation = rspc.createMutation(() => ({
@@ -49,7 +48,7 @@ const DuplicatedModsResolution = (props: ModalProps) => {
     setSelectedVersions(initial)
   }
 
-  const totalSteps = 2 + duplicatedMods().length // Intro + Mods + Action + Summary
+  const totalSteps = 3 // Intro + Select Mods + Action + Summary
 
   const resolutionSteps = [
     {
@@ -60,50 +59,53 @@ const DuplicatedModsResolution = (props: ModalProps) => {
         setCurrentModIndex(0)
       }
     },
-    ...duplicatedMods().map((mod, index) => ({
-      label:
-        mod.name.length > 15 ? mod.name.substring(0, 15) + "..." : mod.name,
-      icon: <div>{index + 2}</div>,
-      onClick: () => {
-        setCurrentStep(1 + index)
-        setCurrentModIndex(index)
-      }
-    })),
     {
-      label: t("instance.duplicates.steps.action"),
-      icon: <div>{duplicatedMods().length + 2}</div>,
+      label: t("instance.duplicates.steps.select_mods"),
+      icon: <div>2</div>,
       onClick: () => {
-        setCurrentStep(1 + duplicatedMods().length)
+        setCurrentStep(1)
+        // Keep currentModIndex as-is (stay on current mod)
       }
     },
     {
+      label: t("instance.duplicates.steps.action"),
+      icon: <div>3</div>,
+      onClick: () => setCurrentStep(2)
+    },
+    {
       label: t("instance.duplicates.steps.summary"),
-      icon: <div>{duplicatedMods().length + 3}</div>,
-      onClick: () => {
-        setCurrentStep(2 + duplicatedMods().length)
-      }
+      icon: <div>4</div>,
+      onClick: () => setCurrentStep(3)
     }
   ]
 
   const nextStep = () => {
-    if (currentStep() < totalSteps + 1) {
-      setCurrentStep((prev) => prev + 1)
-
-      // Update mod index if we're in the mod selection phase
-      if (currentStep() > 0 && currentStep() <= duplicatedMods().length) {
+    if (currentStep() === 1) {
+      // On Select Mods step: cycle through mods first
+      if (currentModIndex() < duplicatedMods().length - 1) {
         setCurrentModIndex((prev) => prev + 1)
+      } else {
+        setCurrentStep(2) // Move to Action step
       }
+    } else if (currentStep() < 3) {
+      setCurrentStep((prev) => prev + 1)
     }
   }
 
   const prevStep = () => {
-    if (currentStep() > 0) {
-      setCurrentStep((prev) => prev - 1)
-
-      // Update mod index if we're in the mod selection phase
-      if (currentStep() > 1 && currentStep() <= duplicatedMods().length + 1) {
+    if (currentStep() === 1) {
+      // On Select Mods step: cycle back through mods first
+      if (currentModIndex() > 0) {
         setCurrentModIndex((prev) => prev - 1)
+      } else {
+        setCurrentStep(0) // Back to Intro
       }
+    } else if (currentStep() === 2) {
+      // Back from Action: go to last mod
+      setCurrentStep(1)
+      setCurrentModIndex(duplicatedMods().length - 1)
+    } else if (currentStep() > 0) {
+      setCurrentStep((prev) => prev - 1)
     }
   }
 
@@ -146,11 +148,7 @@ const DuplicatedModsResolution = (props: ModalProps) => {
         }
       }
 
-      // Success - reset state and close modal
-      setCurrentStep(0)
-      setCurrentModIndex(0)
-      setSelectedVersions({})
-      setSelectedAction("disable")
+      // Success - close modal (signals will reset on remount)
       modalContext?.closeModal()
     } catch (error) {
       console.error("Failed to apply duplicate resolution:", error)
@@ -183,26 +181,27 @@ const DuplicatedModsResolution = (props: ModalProps) => {
               />
             </Match>
 
-            <Index each={duplicatedMods()}>
-              {(mod, index) => (
-                <Match when={currentStep() === index + 1}>
-                  <ModSelectionStep
-                    mod={mod()}
-                    currentModIndex={index}
-                    totalMods={duplicatedMods().length}
-                    nextStep={nextStep}
-                    prevStep={prevStep}
-                    onVersionSelect={(versionId) =>
-                      handleVersionSelect(mod().name, versionId)
-                    }
-                    selectedVersion={selectedVersions()[mod().name]}
-                    instanceId={data().instanceId}
-                  />
-                </Match>
-              )}
-            </Index>
+            <Match when={currentStep() === 1}>
+              <ModSelectionStep
+                mod={duplicatedMods()[currentModIndex()]}
+                currentModIndex={currentModIndex()}
+                totalMods={duplicatedMods().length}
+                nextStep={nextStep}
+                prevStep={prevStep}
+                onVersionSelect={(versionId) =>
+                  handleVersionSelect(
+                    duplicatedMods()[currentModIndex()].name,
+                    versionId
+                  )
+                }
+                selectedVersion={
+                  selectedVersions()[duplicatedMods()[currentModIndex()].name]
+                }
+                instanceId={data().instanceId}
+              />
+            </Match>
 
-            <Match when={currentStep() === duplicatedMods().length + 1}>
+            <Match when={currentStep() === 2}>
               <ActionStep
                 nextStep={nextStep}
                 prevStep={prevStep}
@@ -211,7 +210,7 @@ const DuplicatedModsResolution = (props: ModalProps) => {
               />
             </Match>
 
-            <Match when={currentStep() === duplicatedMods().length + 2}>
+            <Match when={currentStep() === 3}>
               <SummaryStep
                 mods={duplicatedMods()}
                 selectedVersions={selectedVersions()}
