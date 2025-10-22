@@ -57,7 +57,7 @@ pub async fn process_minecraft(
     mut version_info: VersionInfo,
     version: &StandardVersion,
     java: &JavaComponent,
-    log: &watch::Sender<GameLog>,
+    log: Option<&watch::Sender<GameLog>>,
     file: Option<&mut File>,
     downloads: &mut Vec<Downloadable>,
 ) -> anyhow::Result<(LibraryGroup, AssetsDir, VersionInfo)> {
@@ -171,7 +171,7 @@ pub async fn process_minecraft(
 
     let (lwjgl_group, version_files) = app
         .minecraft_manager()
-        .get_all_version_info_files(version_info.clone(), &java.arch, &log, file)
+        .get_all_version_info_files(version_info.clone(), &java.arch, log, file)
         .await?;
 
     downloads.extend(version_files);

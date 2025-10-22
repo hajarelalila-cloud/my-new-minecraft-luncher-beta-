@@ -67,6 +67,10 @@ export function EnhancedSearchBar() {
       />
 
       <Show when={!isExpanded()}>
+        <div class="i-hugeicons:search-01 text-darkSlate-400 h-5 w-5 shrink-0" />
+      </Show>
+
+      <Show when={!isExpanded()}>
         <input
           ref={simpleInputRef}
           placeholder={t("search.search_discover_anything")}
@@ -131,7 +135,7 @@ export function EnhancedSearchBar() {
             class="text-lightSlate-50 hover:bg-darkSlate-600 data-[expanded]:bg-darkSlate-600 flex items-center justify-center rounded p-1.5 transition-colors hover:text-white data-[expanded]:text-white"
             title={t("search.filters")}
           >
-            <div class="text-lg" />
+            <div class="i-hugeicons:filter text-lg" />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <FiltersDropdown />

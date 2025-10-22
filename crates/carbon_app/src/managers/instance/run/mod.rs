@@ -247,7 +247,12 @@ impl ManagerRef<'_, InstanceManager> {
         drop(instance);
         drop(instances);
 
-        let (log_id, log) = app.instance_manager().create_log(instance_id, None).await;
+        let (log_id, log) = if launch_account.is_some() {
+            let (id, sender) = app.instance_manager().create_log(instance_id, None).await;
+            (Some(id), Some(sender))
+        } else {
+            (None, None)
+        };
 
         let now = Utc::now();
 
@@ -307,9 +312,11 @@ impl ManagerRef<'_, InstanceManager> {
         );
 
         if let Some(file) = file.as_mut() {
-            log.send_modify(|log| {
-                log.add_entry(LogEntry::system_message(msg.clone()));
-            });
+            if let Some(log) = log.as_ref() {
+                log.send_modify(|log| {
+                    log.add_entry(LogEntry::system_message(msg.clone()));
+                });
+            }
             file.write_all(format_message_as_log4j_event(&msg).as_bytes())
                 .await?;
         }
@@ -370,7 +377,7 @@ impl ManagerRef<'_, InstanceManager> {
                     &version,
                     java_override,
                     auto_manage_java_system_profiles,
-                    &log,
+                    log.as_ref(),
                     file.as_mut(),
                 )
                 .await?;
@@ -384,7 +391,7 @@ impl ManagerRef<'_, InstanceManager> {
                     version_info,
                     &version,
                     &java,
-                    &log,
+                    log.as_ref(),
                     file.as_mut(),
                     &mut downloads,
                 )
@@ -511,7 +518,7 @@ impl ManagerRef<'_, InstanceManager> {
                                 process_id,
                                 kill_tx,
                                 start_time,
-                                log: log_id,
+                                log: log_id.expect("log_id must exist when launching game"),
                             }),
                         )
                         .await;
@@ -550,7 +557,7 @@ impl ManagerRef<'_, InstanceManager> {
                             tracing::info!("Instance killed");
                             drop(child.kill().await);
                         },
-                        _ = read_logs(&log, stdout, stderr, file.as_mut()) => {
+                        _ = read_logs(log.as_ref().expect("log must exist when launching game"), stdout, stderr, file.as_mut()) => {
                             tracing::info!("Instance read logs");
                         },
                         _ = update_playtime => {
@@ -576,10 +583,12 @@ impl ManagerRef<'_, InstanceManager> {
                         let msg = format!("{exitcode}");
 
                         if let Some(file) = file.as_mut() {
-                            // TODO: not sure how to handle an error in here
-                            log.send_modify(|log| {
-                                log.add_entry(LogEntry::system_message(msg.clone()))
-                            });
+                            if let Some(log) = log.as_ref() {
+                                // TODO: not sure how to handle an error in here
+                                log.send_modify(|log| {
+                                    log.add_entry(LogEntry::system_message(msg.clone()))
+                                });
+                            }
                             let _ = file
                                 .write_all(format_message_as_log4j_event(&msg).as_bytes())
                                 .await;

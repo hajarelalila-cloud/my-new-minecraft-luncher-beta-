@@ -14,7 +14,8 @@ export default defineConfig(({ mode }) => {
   const isDev = mode === "development"
 
   const definitions = {
-    __APP_VERSION__: JSON.stringify(appVersion)
+    __APP_VERSION__: JSON.stringify(appVersion),
+    __SHOWCASE_MODE__: JSON.stringify(process.env.VITE_SHOWCASE_MODE === "true")
   }
 
   if (isDev) {

@@ -8,6 +8,7 @@ import { For, Switch, Match, createSignal } from "solid-js"
 import gdlLogo from "/assets/images/gdlauncher_logo.svg"
 import defaultInstanceImg from "/assets/images/default-instance-img.png"
 import { useGlobalStore } from "../GlobalStoreContext"
+import { getAccountImageUuid } from "@/utils/showcaseHelpers"
 
 export interface Label {
   name: string
@@ -130,13 +131,14 @@ export const AccountsDropdown = (props: Props) => {
 
           <div class="flex items-center gap-4">
             <img
-              src={`http://127.0.0.1:${port}/account/headImage?uuid=${
-                globalStore.accounts.data?.find(
+              src={`http://127.0.0.1:${port}/account/headImage?uuid=${(() => {
+                const account = globalStore.accounts.data?.find(
                   (account) =>
                     account.uuid ===
                     globalStore.currentlySelectedAccountUuid.data
-                )?.uuid
-              }`}
+                )
+                return account ? getAccountImageUuid(account) : ""
+              })()}`}
               class="h-6 w-6 rounded-md"
             />
             <div class="max-w-30 truncate">
@@ -217,7 +219,7 @@ export const AccountsDropdown = (props: Props) => {
                 >
                   <div class="flex items-center gap-4">
                     <img
-                      src={`http://127.0.0.1:${port}/account/headImage?uuid=${account.uuid}`}
+                      src={`http://127.0.0.1:${port}/account/headImage?uuid=${getAccountImageUuid(account)}`}
                       class="h-6 w-6 rounded-md"
                     />
                     <div class="max-w-30 truncate">{account.username}</div>

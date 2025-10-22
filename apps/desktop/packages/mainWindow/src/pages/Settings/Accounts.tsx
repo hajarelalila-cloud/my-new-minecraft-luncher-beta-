@@ -26,6 +26,7 @@ import { useGDNavigate } from "@/managers/NavigationManager"
 import { convertSecondsToHumanTime } from "@/utils/helpers"
 import { useModal } from "@/managers/ModalsManager"
 import { AccountEntry } from "@gd/core_module/bindings"
+import { getAccountImageUuid } from "@/utils/showcaseHelpers"
 
 const GDLAccountRowItem = (props: {
   title?: string
@@ -92,7 +93,7 @@ const defaultColumns: ColumnDef<AccountEntry>[] = [
     cell: (info) => (
       <div class="flex items-center gap-4">
         <img
-          src={`http://127.0.0.1:${port}/account/headImage?uuid=${info.row.original.uuid}`}
+          src={`http://127.0.0.1:${port}/account/headImage?uuid=${getAccountImageUuid(info.row.original)}`}
           class="h-8 w-8 rounded-md"
         />
         <div class="max-w-50 2xl:max-w-100 truncate">
@@ -262,11 +263,10 @@ const Accounts = () => {
 
                     <Popover>
                       <PopoverTrigger>
-                        <div class="flex items-center gap-2">
+                        <Button type="outline">
                           <i class="i-hugeicons:logout-01 block h-6 w-6" />
-
                           <Trans key="settings:log_out_gdl_account" />
-                        </div>
+                        </Button>
                       </PopoverTrigger>
                       <PopoverContent>
                         <Button
@@ -276,6 +276,7 @@ const Accounts = () => {
                           }}
                         >
                           <i class="i-hugeicons:logout-01 block h-6 w-6" />
+                          <Trans key="settings:confirm" />
                         </Button>
                       </PopoverContent>
                     </Popover>

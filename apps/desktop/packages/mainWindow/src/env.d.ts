@@ -15,3 +15,4 @@ declare module "*.riv" {
 }
 
 declare const __APP_VERSION__: string
+declare const __SHOWCASE_MODE__: boolean

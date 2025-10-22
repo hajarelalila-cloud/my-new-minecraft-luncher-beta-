@@ -1,5 +1,7 @@
 // Intentionally putting this on top to catch any potential error in dependencies as well
 
+declare const __SHOWCASE_MODE__: boolean
+
 console.log("Initializing application...")
 
 process.on("uncaughtException", handleUncaughtException)
@@ -660,7 +662,7 @@ async function createWindow(): Promise<BrowserWindow> {
       }
     )
 
-    if (import.meta.env.DEV) {
+    if (import.meta.env.DEV && !__SHOWCASE_MODE__) {
       win?.webContents.openDevTools()
     }
   })

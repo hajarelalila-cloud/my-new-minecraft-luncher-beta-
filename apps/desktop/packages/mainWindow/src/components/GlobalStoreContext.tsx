@@ -43,17 +43,92 @@ export const GlobalStoreProvider = (props: { children: JSX.Element }) => {
     queryKey: ["settings.getSettings"]
   }))
 
-  const accounts = rspc.createQuery(() => ({
+  const accountsRaw = rspc.createQuery(() => ({
     queryKey: ["account.getAccounts"]
   }))
 
-  const currentlySelectedAccountUuid = rspc.createQuery(() => ({
+  const currentlySelectedAccountUuidRaw = rspc.createQuery(() => ({
     queryKey: ["account.getActiveUuid"]
   }))
 
-  const gdlAccount = rspc.createQuery(() => ({
+  const gdlAccountRaw = rspc.createQuery(() => ({
     queryKey: ["account.getGdlAccount"]
   }))
+
+  // Map real UUID to anonymized UUID in showcase mode
+  const currentlySelectedAccountUuid = __SHOWCASE_MODE__
+    ? // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+      (new Proxy(currentlySelectedAccountUuidRaw, {
+        get(target, prop) {
+          if (prop === "data") {
+            const realUuid = target.data
+            if (!realUuid) return null
+
+            // Find the index of the account with this UUID in the raw data
+            const index = accountsRaw.data?.findIndex(
+              (account) => account.uuid === realUuid
+            )
+            if (index !== undefined && index !== -1) {
+              return `00000000-0000-0000-0000-00000000000${index}`
+            }
+            return realUuid
+          }
+          return target[prop as keyof typeof target]
+        }
+      }) as CreateQueryResult<string | null, RSPCError>)
+    : currentlySelectedAccountUuidRaw
+
+  // In showcase mode, create reactive proxy objects that anonymize data
+  const accounts = __SHOWCASE_MODE__
+    ? // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+      (new Proxy(accountsRaw, {
+        get(target, prop) {
+          if (prop === "data") {
+            return target.data?.map((account, index) => ({
+              ...account,
+              username: "Player",
+              uuid: `00000000-0000-0000-0000-00000000000${index}`,
+              // Store real UUID for image fetching (prefixed with underscore to indicate internal use)
+              _realUuid: account.uuid,
+              type:
+                account.type.type === "microsoft"
+                  ? {
+                      type: "microsoft" as const,
+                      value: { email: "player@example.com" }
+                    }
+                  : account.type
+            }))
+          }
+          return target[prop as keyof typeof target]
+        }
+      }) as CreateQueryResult<AccountEntry[], RSPCError>)
+    : accountsRaw
+
+  const gdlAccount = __SHOWCASE_MODE__
+    ? // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+      (new Proxy(gdlAccountRaw, {
+        get(target, prop) {
+          if (prop === "data") {
+            const data = target.data
+            if (data?.status === "valid") {
+              return {
+                ...data,
+                value: {
+                  ...data.value,
+                  nickname: "DemoUser",
+                  email: "demo@example.com",
+                  friendCode: "DEMO#0000",
+                  microsoftOid: "00000000-0000-0000-0000-000000000000",
+                  microsoftEmail: "player@example.com"
+                }
+              }
+            }
+            return data
+          }
+          return target[prop as keyof typeof target]
+        }
+      }) as CreateQueryResult<FEGDLAccountStatus | null, RSPCError>)
+    : gdlAccountRaw
 
   const currentlySelectedAccount = () => {
     const uuid = currentlySelectedAccountUuid.data

@@ -360,7 +360,7 @@ const HomeGrid = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <Button type="secondary" size="small">
-                    <i class="h-4 w-4" />
+                    <i class="i-hugeicons:filter h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent class="w-64">

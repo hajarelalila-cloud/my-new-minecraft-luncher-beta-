@@ -60,7 +60,7 @@ pub async fn check_and_install(
     version: &StandardVersion,
     java_override: Option<JavaOverride>,
     auto_manage_java_system_profiles: bool,
-    log: &watch::Sender<GameLog>,
+    log: Option<&watch::Sender<GameLog>>,
     mut file: Option<&mut File>,
 ) -> anyhow::Result<JavaComponent> {
     let java_profile = daedalus::minecraft::MinecraftJavaProfile::try_from(
@@ -76,7 +76,9 @@ pub async fn check_and_install(
     let msg = format!("Suggested Java Profile: {java_profile:?}");
 
     if let Some(ref mut file) = file {
-        log.send_modify(|log| log.add_entry(LogEntry::system_message(msg.clone())));
+        if let Some(log) = log {
+            log.send_modify(|log| log.add_entry(LogEntry::system_message(msg.clone())));
+        }
         file.write_all(format_message_as_log4j_event(&msg).as_bytes())
             .await?;
     }
@@ -273,7 +275,9 @@ pub async fn check_and_install(
     let msg = format!("Using Java: {java:#?}");
 
     if let Some(file) = file {
-        log.send_modify(|log| log.add_entry(LogEntry::system_message(msg.clone())));
+        if let Some(log) = log {
+            log.send_modify(|log| log.add_entry(LogEntry::system_message(msg.clone())));
+        }
         file.write_all(format_message_as_log4j_event(&msg).as_bytes())
             .await?;
     }

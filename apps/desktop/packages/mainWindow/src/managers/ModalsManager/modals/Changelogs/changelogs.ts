@@ -1,6 +1,7 @@
 export interface ChangelogEntry {
   title: string
   description?: string
+  media?: string // URL to gif/video for hero features
 }
 
 export interface Changelog {
@@ -12,29 +13,26 @@ export interface Changelog {
 const changelogs: Changelog = {
   new: [
     {
+      title: "Redesigned Addons Browser",
+      description:
+        "Completely rethought and redesigned addons browser with support for mods, resource packs, shaders, modpacks, data packs, and worlds. Features a unified search experience, enhanced filtering, type-aware installation, and a modern interface that replaces the old separate mod and modpack pages.",
+      media:
+        "https://cdn.gdl.gg/launcher/changelog/2.0.26/addons-browser-overhaul.mp4"
+    },
+    {
+      title: "Duplicated Mods Resolution Wizard",
+      description:
+        "New multi-step wizard automatically detects and helps resolve duplicate mods in your instances. Choose to disable or delete duplicate versions with a comprehensive summary before applying changes."
+    },
+    {
       title: "New Themes",
       description:
         "Added three new themes: Inferno (fiery crimson theme), Aether (ethereal void theme with purples), and Frost (icy arctic theme with cool blues)."
     },
     {
-      title: "Unified Search & Discovery System",
-      description:
-        "Complete overhaul replacing separate mod and modpack pages with a unified search experience supporting all addon types."
-    },
-    {
-      title: "Multiple Addon Type Support",
-      description:
-        "Expanded beyond mods and modpacks to support shaders, resource packs, data packs, and worlds with type-aware installation and management."
-    },
-    {
       title: "Advanced Search Filters",
       description:
         "Enhanced filtering system with visual filter badges, platform-specific filters, game version filtering, modloader filtering, category filtering, and environment filtering."
-    },
-    {
-      title: "Redesigned Instance Addons Management",
-      description:
-        "New unified Addons tab replacing the separate Mods tab, featuring a comprehensive addon table with bulk operations, multi-select support, and enhanced addon information display."
     },
     {
       title: "Logs Finder",
@@ -63,11 +61,21 @@ const changelogs: Changelog = {
   ],
   fixed: [
     {
-      title: "Fixed authentication issues with GDL accounts.",
+      title: "Fixed instance export modal",
+      description:
+        "Instance export now properly receives and uses the correct instance ID."
+    },
+    {
+      title: "Fixed modpack version changes",
+      description:
+        "Resolved issues with empty versions when navigating from instance to modpack and improved Modrinth modpack latest version selection."
+    },
+    {
+      title: "Fixed authentication issues with GDL accounts",
       description: "The token is now refreshed before opening the app window."
     },
     {
-      title: "Removed LWJGL debug mode.",
+      title: "Removed LWJGL debug mode",
       description:
         "It was causing issues with some mods (e.g. CustomLoadingScreen)."
     },
@@ -104,6 +112,36 @@ const changelogs: Changelog = {
     }
   ],
   improved: [
+    {
+      title: "Redesigned Instance Creation Modal",
+      description:
+        "Improved interface for creating new instances with a cleaner, more intuitive design and better user experience."
+    },
+    {
+      title: "Instance Addons Management Overhaul",
+      description:
+        "Complete redesign of the instance addons management system. New unified Addons tab replaces the old Mods tab, featuring a comprehensive addon table with bulk operations, multi-select support, powerful search and filtering within your installed addons, sortable columns, right-click context menus, and enhanced addon information display with better version tracking."
+    },
+    {
+      title: "Easier addon version changes",
+      description:
+        "Changing versions of installed addons is now much simpler, especially for mods available on multiple platforms."
+    },
+    {
+      title: "Refreshed icon set",
+      description:
+        "Updated all icons across the interface for better consistency and visual clarity."
+    },
+    {
+      title: "Enhanced addon filters",
+      description:
+        "Improved addon type filtering that intelligently shows only compatible types based on your instance configuration (e.g., mods only show when modloaders are present)."
+    },
+    {
+      title: "Better error messages",
+      description:
+        "Error messages throughout the application are now clearer and more helpful for troubleshooting issues."
+    },
     {
       title: "Complete UI Component System Overhaul",
       description:

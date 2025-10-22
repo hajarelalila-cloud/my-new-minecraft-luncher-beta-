@@ -22,6 +22,7 @@ import { Trans } from "@gd/i18n"
 import { useModal } from "@/managers/ModalsManager"
 import { useGlobalStore } from "./GlobalStoreContext"
 import { EnhancedSearchBar } from "./EnhancedSearchBar"
+import { getAccountImageUuid } from "@/utils/showcaseHelpers"
 
 export interface AccountsStatus {
   label: {
@@ -58,7 +59,7 @@ const AppNavbar = () => {
         return {
           label: {
             name: account?.username,
-            icon: `http://127.0.0.1:${port}/account/headImage?uuid=${account.uuid}`,
+            icon: `http://127.0.0.1:${port}/account/headImage?uuid=${getAccountImageUuid(account)}`,
             uuid: account.uuid,
             type: account.type,
             status: accountStatusQuery.data

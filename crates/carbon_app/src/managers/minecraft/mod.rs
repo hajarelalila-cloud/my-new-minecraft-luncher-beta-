@@ -95,7 +95,7 @@ impl ManagerRef<'_, MinecraftManager> {
         self,
         version_info: VersionInfo,
         java_arch: &JavaArch,
-        log: &watch::Sender<GameLog>,
+        log: Option<&watch::Sender<GameLog>>,
         mut file: Option<&mut File>,
     ) -> anyhow::Result<(LibraryGroup, Vec<Downloadable>)> {
         let runtime_path = &self.app.settings_manager().runtime_path;
@@ -119,7 +119,9 @@ impl ManagerRef<'_, MinecraftManager> {
         let msg = format!("LWJGL Meta {} - {}", lwjgl.uid, lwjgl.version);
 
         if let Some(file) = file.as_mut() {
-            log.send_modify(|log| log.add_entry(LogEntry::system_message(msg.clone())));
+            if let Some(log) = log {
+                log.send_modify(|log| log.add_entry(LogEntry::system_message(msg.clone())));
+            }
             file.write_all(format_message_as_log4j_event(&msg).as_bytes())
                 .await?;
         }
@@ -154,7 +156,9 @@ impl ManagerRef<'_, MinecraftManager> {
         );
 
         if let Some(file) = file.as_mut() {
-            log.send_modify(|log| log.add_entry(LogEntry::system_message(msg.clone())));
+            if let Some(log) = log {
+                log.send_modify(|log| log.add_entry(LogEntry::system_message(msg.clone())));
+            }
             file.write_all(format_message_as_log4j_event(&msg).as_bytes())
                 .await?;
         }
@@ -175,7 +179,9 @@ impl ManagerRef<'_, MinecraftManager> {
         );
 
         if let Some(file) = file.as_mut() {
-            log.send_modify(|log| log.add_entry(LogEntry::system_message(msg.clone())));
+            if let Some(log) = log {
+                log.send_modify(|log| log.add_entry(LogEntry::system_message(msg.clone())));
+            }
             file.write_all(format_message_as_log4j_event(&msg).as_bytes())
                 .await?;
         }

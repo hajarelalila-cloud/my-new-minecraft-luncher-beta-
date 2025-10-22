@@ -43,7 +43,8 @@ export default defineConfig({
   assetsInclude: ["**/*.riv"],
   envDir: resolve(__dirname, "../../../../"),
   define: {
-    __APP_VERSION__: JSON.stringify(appVersion)
+    __APP_VERSION__: JSON.stringify(appVersion),
+    __SHOWCASE_MODE__: JSON.stringify(process.env.VITE_SHOWCASE_MODE === "true")
   },
   base: "./",
   optimizeDeps: {
