@@ -361,7 +361,12 @@ mod tests {
 
         let (_, vanilla_files) = app
             .minecraft_manager()
-            .get_all_version_info_files(version_info.clone(), &java_component.arch, &log, None)
+            .get_all_version_info_files(
+                version_info.clone(),
+                &java_component.arch,
+                Some(&log),
+                None,
+            )
             .await
             .unwrap();
 
