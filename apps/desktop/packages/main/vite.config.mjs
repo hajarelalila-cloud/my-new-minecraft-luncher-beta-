@@ -48,6 +48,11 @@ export default defineConfig(({ mode }) => {
       }
     },
     define: definitions,
+    test: {
+      globals: true,
+      environment: "node",
+      setupFiles: "./setupVitest.ts"
+    },
     build: {
       outDir: "../../dist/main",
       lib: {

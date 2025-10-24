@@ -63,9 +63,7 @@ jobs:
           USER_AGENT_PREFIX: ${{ vars.USER_AGENT_PREFIX }}
           CURSEFORGE_API_KEY: "${{ vars.CURSEFORGE_API_KEY }}"
           CURSEFORGE_API_BASE: ${{ vars.CURSEFORGE_API_BASE }}
-        run: |
-          pnpm test
-          cargo test
+        run: pnpm test:all
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
         if: always()
@@ -145,8 +143,7 @@ jobs:
           sleep 2
           ps aux | grep Xvfb
           ls -l /tmp/.X11-unix/
-          pnpm test
-          cargo test
+          pnpm test:all
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
@@ -238,9 +235,7 @@ jobs:
           CURSEFORGE_API_KEY: "${{ vars.CURSEFORGE_API_KEY }}"
           CURSEFORGE_API_BASE: ${{ vars.CURSEFORGE_API_BASE }}
           CARGO_NET_GIT_FETCH_WITH_CLI: true
-        run: |
-          pnpm test
-          cargo test
+        run: pnpm test:all
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
         if: always()

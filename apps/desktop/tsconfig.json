@@ -29,7 +29,7 @@
     "packages/preload/vite.config.mjs",
     "packages/mainWindow/vite.config.mjs",
     "packages/main/vite.config.mjs",
-    "./__tests__/**/*.ts",
+    "./e2e-tests/**/*.ts",
     "./playwright.config.ts"
   ],
   "exclude": ["./dist/**/*", "node_modules/**/*", "playwright-report/**/*"]

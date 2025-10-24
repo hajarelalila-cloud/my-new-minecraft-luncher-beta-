@@ -50,6 +50,17 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ["@tanstack/solid-query", "path", "fs", "promises"]
   },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    transformMode: {
+      web: [/\.[t|s]sx?$/]
+    },
+    setupFiles: "./setupVitest.ts",
+    deps: {
+      inline: [/solid-js/]
+    }
+  },
   build: {
     target: "esnext",
     emptyOutDir: true,
