@@ -64,5 +64,9 @@ pub fn get_migrations() -> Migrations<'static> {
             env!("CARGO_MANIFEST_DIR"),
             "/prisma/migrations/20250902113747_remove_show_news_setting/migration.sql"
         ))),
+        M::up(include_str!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/prisma/migrations/20251024094741_hashed_email/migration.sql"
+        ))),
     ])
 }

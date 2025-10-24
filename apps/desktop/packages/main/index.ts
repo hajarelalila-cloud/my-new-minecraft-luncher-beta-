@@ -28,6 +28,7 @@ import type { ChildProcessWithoutNullStreams } from "child_process"
 import { spawn } from "child_process"
 import crypto from "crypto"
 import log from "electron-log/main"
+import { hashEmail } from "./utils/emailHash"
 import * as Sentry from "@sentry/electron/main"
 import "./preloadListeners"
 import getAdSize from "./adSize"
@@ -450,14 +451,20 @@ const loadCoreModule: CoreModule = () =>
           const email = rightPart.split("|")[1]
           if (enabled) {
             if ((app as any).overwolf) {
-              ;(app as any).overwolf.generateUserEmailHashes(email)
+              // Hash email client-side per UID2 specification for better privacy/security
+              const sha256Hash = hashEmail(email)
+              ;(app as any).overwolf.setUserEmailHashes({
+                SHA256: sha256Hash
+              })
+              console.log("Hashed email enabled - hash sent to Overwolf")
             }
           } else {
             if ((app as any).overwolf) {
-              ;(app as any).overwolf.generateUserEmailHashes({})
+              // Clear hashes when user opts out
+              ;(app as any).overwolf.setUserEmailHashes({})
+              console.log("Hashed email disabled - hashes cleared")
             }
           }
-          console.log("Hashed email preference changed:", enabled, email)
         }
       }
     })
