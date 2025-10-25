@@ -44,7 +44,9 @@ const Privacy = () => {
         </Row>
         <Row>
           <Title
-            description={<Trans key="settings:email_personalization_description" />}
+            description={
+              <Trans key="settings:email_personalization_description" />
+            }
           >
             <Trans key="settings:email_personalization_title" />
           </Title>

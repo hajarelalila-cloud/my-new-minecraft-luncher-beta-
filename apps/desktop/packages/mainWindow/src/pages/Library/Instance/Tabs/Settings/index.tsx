@@ -51,7 +51,8 @@ const Settings = () => {
           if (!old) return old
           return {
             ...old,
-            name: variables.name?.Set !== undefined ? variables.name.Set : old.name,
+            name:
+              variables.name?.Set !== undefined ? variables.name.Set : old.name,
             modpack:
               variables.modpackLocked?.Set !== undefined
                 ? variables.modpackLocked.Set === null

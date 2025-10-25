@@ -44,10 +44,11 @@ export function EnhancedSearchBar() {
     <div
       class="bg-darkSlate-700 outline-2 outline outline-offset-2 outline-transparent has-[:focus-visible]:outline-darkSlate-500 hover:outline-darkSlate-600 hover:has-[:focus-visible]:outline-darkSlate-500 flex h-10 items-center gap-2 overflow-hidden rounded-md duration-300"
       style={{
-        "transition": "width 300ms cubic-bezier(0.4, 0, 0.2, 1), padding 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), outline-color 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+        transition:
+          "width 300ms cubic-bezier(0.4, 0, 0.2, 1), padding 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), outline-color 150ms cubic-bezier(0.4, 0, 0.2, 1)",
         "will-change": "width, padding",
-        "contain": "layout",
-        "transform": "translateZ(0)"
+        contain: "layout",
+        transform: "translateZ(0)"
       }}
       classList={{
         "w-80 px-4": !isExpanded(),

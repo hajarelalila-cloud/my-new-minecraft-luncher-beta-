@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+import crypto from "crypto"
 
 /**
  * Normalize email address per UID2 specification
@@ -16,28 +16,28 @@ import crypto from 'crypto';
  */
 export function normalizeEmail(email: string): string {
   // 1. Trim whitespace
-  let normalized = email.trim();
+  let normalized = email.trim()
 
   // 2. Lowercase
-  normalized = normalized.toLowerCase();
+  normalized = normalized.toLowerCase()
 
   // 3. Gmail-specific rules
-  if (normalized.endsWith('@gmail.com')) {
-    const [localPart, domain] = normalized.split('@');
+  if (normalized.endsWith("@gmail.com")) {
+    const [localPart, domain] = normalized.split("@")
 
     // Remove periods from local part
-    let gmailLocal = localPart.replace(/\./g, '');
+    let gmailLocal = localPart.replace(/\./g, "")
 
     // Remove + and everything after it
-    const plusIndex = gmailLocal.indexOf('+');
+    const plusIndex = gmailLocal.indexOf("+")
     if (plusIndex !== -1) {
-      gmailLocal = gmailLocal.substring(0, plusIndex);
+      gmailLocal = gmailLocal.substring(0, plusIndex)
     }
 
-    normalized = `${gmailLocal}@${domain}`;
+    normalized = `${gmailLocal}@${domain}`
   }
 
-  return normalized;
+  return normalized
 }
 
 /**
@@ -54,13 +54,11 @@ export function normalizeEmail(email: string): string {
  * @returns Base64-encoded SHA-256 hash
  */
 export function hashEmail(email: string): string {
-  const normalized = normalizeEmail(email);
+  const normalized = normalizeEmail(email)
 
   // SHA-256 produces a buffer of bytes
-  const hashBytes = crypto.createHash('sha256')
-    .update(normalized)
-    .digest(); // Returns Buffer (bytes)
+  const hashBytes = crypto.createHash("sha256").update(normalized).digest() // Returns Buffer (bytes)
 
   // Base64 encode the bytes
-  return hashBytes.toString('base64');
+  return hashBytes.toString("base64")
 }

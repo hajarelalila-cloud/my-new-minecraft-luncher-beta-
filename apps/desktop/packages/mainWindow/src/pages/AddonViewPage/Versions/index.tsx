@@ -127,61 +127,61 @@ const Versions = () => {
             </Show>
           }
         >
-            <div
-              style={{
-                height: `${virtualizer.getTotalSize()}px`,
-                width: "100%",
-                position: "relative"
+          <div
+            style={{
+              height: `${virtualizer.getTotalSize()}px`,
+              width: "100%",
+              position: "relative"
+            }}
+          >
+            <For each={virtualizer.getVirtualItems()}>
+              {(virtualItem) => {
+                const version = rows()[virtualItem.index]
+                if (!version) return null
+
+                if (
+                  virtualItem.index >= rows().length - 5 &&
+                  infiniteQuery.infiniteQuery.hasNextPage &&
+                  !infiniteQuery.infiniteQuery.isFetchingNextPage
+                ) {
+                  infiniteQuery.infiniteQuery.fetchNextPage().catch(() => {})
+                }
+
+                return (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "0",
+                      left: "0",
+                      width: "100%",
+                      height: `${virtualItem.size}px`,
+                      transform: `translateY(${virtualItem.start}px)`
+                    }}
+                    class="border-darkSlate-700 hover:bg-darkSlate-700/30 grid grid-cols-[4fr_130px_100px_120px_150px] gap-4 border-b py-2 transition-colors duration-150"
+                    classList={{
+                      "bg-green-500/5 border-green-500/20":
+                        installedMod()?.remoteId.toString() ===
+                        version?.fileId.toString()
+                    }}
+                  >
+                    <VersionRow
+                      project={mod?.data}
+                      modVersion={version}
+                      installedFile={installedMod()}
+                      instanceId={instanceId()}
+                      type={mod?.data?.type}
+                      instanceMods={instanceMods.data || undefined}
+                      instanceDetails={instanceDetails.data || undefined}
+                    />
+                  </div>
+                )
               }}
-            >
-              <For each={virtualizer.getVirtualItems()}>
-                {(virtualItem) => {
-                  const version = rows()[virtualItem.index]
-                  if (!version) return null
-
-                  if (
-                    virtualItem.index >= rows().length - 5 &&
-                    infiniteQuery.infiniteQuery.hasNextPage &&
-                    !infiniteQuery.infiniteQuery.isFetchingNextPage
-                  ) {
-                    infiniteQuery.infiniteQuery.fetchNextPage().catch(() => {})
-                  }
-
-                  return (
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "0",
-                        left: "0",
-                        width: "100%",
-                        height: `${virtualItem.size}px`,
-                        transform: `translateY(${virtualItem.start}px)`
-                      }}
-                      class="border-darkSlate-700 hover:bg-darkSlate-700/30 grid grid-cols-[4fr_130px_100px_120px_150px] gap-4 border-b py-2 transition-colors duration-150"
-                      classList={{
-                        "bg-green-500/5 border-green-500/20":
-                          installedMod()?.remoteId.toString() ===
-                          version?.fileId.toString()
-                      }}
-                    >
-                      <VersionRow
-                        project={mod?.data}
-                        modVersion={version}
-                        installedFile={installedMod()}
-                        instanceId={instanceId()}
-                        type={mod?.data?.type}
-                        instanceMods={instanceMods.data || undefined}
-                        instanceDetails={instanceDetails.data || undefined}
-                      />
-                    </div>
-                  )
-                }}
-              </For>
+            </For>
+          </div>
+          <Show when={infiniteQuery.infiniteQuery.isFetchingNextPage}>
+            <div class="flex h-20 items-center justify-center">
+              <Spinner class="h-8 w-8" />
             </div>
-            <Show when={infiniteQuery.infiniteQuery.isFetchingNextPage}>
-              <div class="flex h-20 items-center justify-center">
-                <Spinner class="h-8 w-8" />
-              </div>
           </Show>
         </Show>
       </div>

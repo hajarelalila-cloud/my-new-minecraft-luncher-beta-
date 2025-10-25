@@ -410,16 +410,15 @@ const Tile = (props: Props) => {
                         class="bg-darkSlate-800 relative flex h-full w-full items-center justify-center overflow-hidden rounded-2xl bg-cover bg-center transition-all duration-300 ease-in-out"
                         classList={{
                           grayscale: isLoading() || isInQueue(),
-                          "group-hover:scale-120":
-                            !isLoading() && !isInQueue()
+                          "group-hover:scale-120": !isLoading() && !isInQueue()
                         }}
                         style={{
                           "background-image": props.img
                             ? `url("${props.img}")`
                             : `url("${DefaultImg}")`,
                           "will-change": "transform, opacity",
-                          "contain": "layout style",
-                          "transform": "translateZ(0)",
+                          contain: "layout style",
+                          transform: "translateZ(0)",
                           ...(props.shouldSetViewTransition
                             ? {
                                 "view-transition-name": `instance-tile-image`

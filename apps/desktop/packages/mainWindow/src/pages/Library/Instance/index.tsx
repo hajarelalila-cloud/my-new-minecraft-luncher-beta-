@@ -27,10 +27,7 @@ import { useGDNavigate } from "@/managers/NavigationManager"
 import { queryClient, rspc } from "@/utils/rspcClient"
 import fetchData from "./instance.data"
 import { detectDuplicatedMods } from "@/utils/duplicateMods"
-import {
-  InstanceDetails,
-  ListInstance
-} from "@gd/core_module/bindings"
+import { InstanceDetails, ListInstance } from "@gd/core_module/bindings"
 import {
   getInstanceImageUrl,
   getPreparingState,
@@ -60,7 +57,6 @@ interface InstancePage {
 const Instance = () => {
   const navigator = useGDNavigate()
   const params = useParams()
-  const rspcContext = rspc.useContext()
   const location = useLocation()
   const [editableName, setEditableName] = createSignal(false)
   const [isFavorite, setIsFavorite] = createSignal(false)
