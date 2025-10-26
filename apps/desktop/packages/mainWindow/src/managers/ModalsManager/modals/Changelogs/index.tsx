@@ -128,7 +128,7 @@ const HeroFeatureCard = (props: HeroFeatureCardProps) => {
         class="relative z-10"
         classList={{
           "p-6": !props.entry.media,
-          "grid grid-cols-2 gap-6": !!props.entry.media
+          "grid grid-cols-1 md:grid-cols-2 gap-6": !!props.entry.media
         }}
       >
         {/* Content Section */}
@@ -162,7 +162,7 @@ const HeroFeatureCard = (props: HeroFeatureCardProps) => {
                 <img
                   src={props.entry.media}
                   alt={props.entry.title}
-                  class="h-full w-full rounded-lg object-cover shadow-lg"
+                  class="aspect-[4/3] w-full rounded-lg object-cover shadow-lg"
                 />
               }
             >
@@ -173,7 +173,7 @@ const HeroFeatureCard = (props: HeroFeatureCardProps) => {
                 loop
                 muted
                 playsinline
-                class="h-full w-full rounded-lg object-cover shadow-lg"
+                class="aspect-[4/3] w-full rounded-lg object-cover shadow-lg"
               />
             </Show>
           </div>
@@ -310,8 +310,8 @@ const Changelogs = (props: ModalProps) => {
       noHeader={props.noHeader}
       title={props?.title}
       noPadding
-      height="h-[700px]"
-      width="w-[900px]"
+      height="h-[700px] max-h-[90vh]"
+      width="w-[80vw] max-w-[900px]"
     >
       <style>
         {`

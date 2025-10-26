@@ -143,6 +143,32 @@ render(() => {
     }
   })
 
+  // Check if we can skip login screen
+  createAsyncEffect(async () => {
+    if (coreModuleLoaded.state === "ready" && coreModuleLoaded()) {
+      const port = coreModuleLoaded() as unknown as number
+      const { client } = initRspc(port)
+
+      try {
+        const settings = await client.query(["settings.getSettings"])
+        const activeUuid = await client.query(["account.getActiveUuid"])
+        const accounts = await client.query(["account.getAccounts"])
+
+        // Skip login if user is already set up
+        if (
+          settings.termsAndPrivacyAccepted &&
+          activeUuid &&
+          accounts.length > 0 &&
+          (settings.gdlAccountId || settings.gdlAccountId === "")
+        ) {
+          window.location.hash = "#/library"
+        }
+      } catch (e) {
+        console.error("Error checking login status:", e)
+      }
+    }
+  })
+
   return (
     <ProdWrapErrorBoundary>
       <Switch>
@@ -172,14 +198,7 @@ render(() => {
                     />
                   </div>
 
-                  <div class="i-hugeicons:loading-03 h-12 w-12 animate-spin rounded-full bg-blue-500" />
-
-                  <div
-                    class="w-1/3 transition-opacity duration-300"
-                    classList={{
-                      "opacity-0": coreModuleProgress() === undefined
-                    }}
-                  >
+                  <div class="w-1/3">
                     <Progress
                       color="bg-blue-500"
                       value={coreModuleProgress() ?? 0}

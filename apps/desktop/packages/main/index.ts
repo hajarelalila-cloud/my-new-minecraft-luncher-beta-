@@ -363,25 +363,25 @@ const loadCoreModule: CoreModule = () =>
             let progress = 0
             switch (event as CoreModuleStatus) {
               case "LoadAndMigrate":
-                progress = 10
+                progress = 15
                 break
               case "RefreshMSAuth":
-                progress = 25
+                progress = 30
                 break
               case "XboxAuth":
-                progress = 35
+                progress = 45
                 break
               case "McLogin":
-                progress = 50
+                progress = 60
                 break
               case "MCEntitlements":
-                progress = 65
+                progress = 72
                 break
               case "McProfile":
-                progress = 80
+                progress = 84
                 break
               case "AccountRefreshComplete":
-                progress = 90
+                progress = 92
                 break
               case "LaunchBackgroundTasks":
                 progress = 100
