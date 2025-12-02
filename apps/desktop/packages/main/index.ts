@@ -33,7 +33,7 @@ import * as Sentry from "@sentry/electron/main"
 import "./preloadListeners"
 import getAdSize from "./adSize"
 import handleUncaughtException from "./handleUncaughtException"
-import initAutoUpdater from "./autoUpdater"
+import initAutoUpdater, { installPendingUpdateOnQuit } from "./autoUpdater"
 import "./appMenu"
 import {
   CoreModuleStatus,
@@ -1048,6 +1048,10 @@ app.on("window-all-closed", async () => {
 })
 
 app.on("before-quit", async () => {
+  // Use our own install-on-quit mechanism for consistent behavior across platforms
+  // (autoInstallOnAppQuit is disabled because it doesn't work reliably on macOS)
+  installPendingUpdateOnQuit()
+
   try {
     const _coreModule = await coreModule
     if (_coreModule.type === "success") {
