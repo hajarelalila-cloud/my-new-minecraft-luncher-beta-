@@ -624,7 +624,9 @@ pub async fn process_modpack_staging(
         // Check if staging-packinfo.json exists - if not, this was a version/modloader-only change
         // and we should skip staging entirely to avoid deleting existing mods
         if !staging_packinfo.exists() {
-            trace!("No staging-packinfo.json found, skipping staging (version/modloader-only change)");
+            trace!(
+                "No staging-packinfo.json found, skipping staging (version/modloader-only change)"
+            );
             tokio::fs::remove_dir_all(&staging_dir).await?;
             tokio::fs::write(setup_path.join("modpack-complete"), "").await?;
             t_subtasks.t_apply_staging.complete_opaque();
