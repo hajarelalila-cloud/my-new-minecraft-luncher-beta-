@@ -414,6 +414,13 @@ impl<'s> ManagerRef<'s, InstanceManager> {
                                         Some(GameVersion::Custom(_)) => None,
                                         None => None,
                                     },
+                                    modloader_version: match &status.config.game_configuration.version {
+                                        Some(GameVersion::Standard(version)) => {
+                                            version.modloaders.iter().next().map(|m| m.version.clone())
+                                        }
+                                        Some(GameVersion::Custom(_)) => None,
+                                        None => None,
+                                    },
                                     modpack: status
                                         .config
                                         .modpack
@@ -1932,6 +1939,7 @@ pub enum ListInstanceStatus {
 pub struct ValidListInstance {
     pub mc_version: Option<String>,
     pub modloader: Option<info::ModLoaderType>,
+    pub modloader_version: Option<String>,
     pub modpack: Option<Modpack>,
     pub state: domain::LaunchState,
 }

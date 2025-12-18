@@ -76,7 +76,6 @@ const Tile = (props: Props) => {
 
   const [copiedError, setCopiedError] = createSignal(false)
 
-  const rspcContext = rspc.useContext()
   const [t] = useTransContext()
   const navigate = useGDNavigate()
   const modalsContext = useModal()
@@ -163,12 +162,7 @@ const Tile = (props: Props) => {
       ? props.instance.status.value
       : undefined
 
-  const handleEdit = async () => {
-    const instanceDetails = await rspcContext.client.query([
-      "instance.getInstanceDetails",
-      props.instance.id
-    ])
-
+  const handleEdit = () => {
     modalsContext?.openModal(
       {
         name: "instanceCreation"
@@ -178,7 +172,7 @@ const Tile = (props: Props) => {
         modloader: validInstance()?.modloader,
         title: props.instance.name,
         mcVersion: validInstance()?.mc_version,
-        modloaderVersion: instanceDetails?.modloaders[0].version,
+        modloaderVersion: validInstance()?.modloader_version,
         img: props.img
       }
     )

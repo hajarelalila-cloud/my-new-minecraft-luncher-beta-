@@ -19,21 +19,21 @@ export default function SortDisplay() {
   const getCurseforgeSortField = () => {
     const filters = platformFilters()
     return (
-      (filters?.platform === "curseforge" && filters.filters.sort_field) || null
+      (filters?.platform === "curseforge" && filters.filters.sortField) || null
     )
   }
 
   const getCurseforgeSortOrder = () => {
     const filters = platformFilters()
     return (
-      (filters?.platform === "curseforge" && filters.filters.sort_order) || null
+      (filters?.platform === "curseforge" && filters.filters.sortOrder) || null
     )
   }
 
   const getModrinthSortIndex = () => {
     const filters = platformFilters()
     return (
-      (filters?.platform === "modrinth" && filters.filters.sort_index) || null
+      (filters?.platform === "modrinth" && filters.filters.sortIndex) || null
     )
   }
 

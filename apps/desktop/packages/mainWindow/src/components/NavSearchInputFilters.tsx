@@ -512,10 +512,10 @@ export function CurseforgeFiltersDropdown(_props: DropdownProps) {
     if (filters?.platform === "curseforge") {
       return filters.filters
     }
-    return { sort_field: null, sort_order: null }
+    return { sortField: null, sortOrder: null }
   }
 
-  const updateCurseforgeFilters = (updates: Partial<typeof currentFilters>) => {
+  const updateCurseforgeFilters = (updates: Partial<ReturnType<typeof currentFilters>>) => {
     searchResults?.setSearchQuery((prev) => ({
       ...prev,
       platformFilters: {
@@ -536,16 +536,16 @@ export function CurseforgeFiltersDropdown(_props: DropdownProps) {
         </DropdownMenuSubTrigger>
         <DropdownMenuPortal>
           <DropdownMenuSubContent>
-            <DropdownMenuRadioGroup value={currentFilters().sort_field ?? ""}>
+            <DropdownMenuRadioGroup value={currentFilters().sortField ?? ""}>
               <For each={sortFieldOptions}>
                 {(option) => (
                   <DropdownMenuRadioItem
                     value={option.value}
                     onSelect={() => {
-                      if (option.value === currentFilters().sort_field) {
-                        updateCurseforgeFilters({ sort_field: null })
+                      if (option.value === currentFilters().sortField) {
+                        updateCurseforgeFilters({ sortField: null })
                       } else {
-                        updateCurseforgeFilters({ sort_field: option.value })
+                        updateCurseforgeFilters({ sortField: option.value })
                       }
                     }}
                   >
@@ -564,16 +564,16 @@ export function CurseforgeFiltersDropdown(_props: DropdownProps) {
         </DropdownMenuSubTrigger>
         <DropdownMenuPortal>
           <DropdownMenuSubContent>
-            <DropdownMenuRadioGroup value={currentFilters().sort_order ?? ""}>
+            <DropdownMenuRadioGroup value={currentFilters().sortOrder ?? ""}>
               <For each={["ascending", "descending"] as const}>
                 {(value) => (
                   <DropdownMenuRadioItem
                     value={value}
                     onSelect={() => {
-                      if (value === currentFilters().sort_order) {
-                        updateCurseforgeFilters({ sort_order: null })
+                      if (value === currentFilters().sortOrder) {
+                        updateCurseforgeFilters({ sortOrder: null })
                       } else {
-                        updateCurseforgeFilters({ sort_order: value })
+                        updateCurseforgeFilters({ sortOrder: value })
                       }
                     }}
                   >
@@ -605,10 +605,10 @@ export function ModrinthFiltersDropdown(_props: DropdownProps) {
     if (filters?.platform === "modrinth") {
       return filters.filters
     }
-    return { sort_index: null }
+    return { sortIndex: null }
   }
 
-  const updateModrinthFilters = (updates: Partial<typeof currentFilters>) => {
+  const updateModrinthFilters = (updates: Partial<ReturnType<typeof currentFilters>>) => {
     searchResults?.setSearchQuery((prev) => ({
       ...prev,
       platformFilters: {
@@ -628,16 +628,16 @@ export function ModrinthFiltersDropdown(_props: DropdownProps) {
       </DropdownMenuSubTrigger>
       <DropdownMenuPortal>
         <DropdownMenuSubContent>
-          <DropdownMenuRadioGroup value={currentFilters().sort_index ?? ""}>
+          <DropdownMenuRadioGroup value={currentFilters().sortIndex ?? ""}>
             <For each={sortOptions}>
               {(option) => (
                 <DropdownMenuRadioItem
                   value={option.value}
                   onSelect={() => {
-                    if (option.value === currentFilters().sort_index) {
-                      updateModrinthFilters({ sort_index: null })
+                    if (option.value === currentFilters().sortIndex) {
+                      updateModrinthFilters({ sortIndex: null })
                     } else {
-                      updateModrinthFilters({ sort_index: option.value })
+                      updateModrinthFilters({ sortIndex: option.value })
                     }
                   }}
                 >
