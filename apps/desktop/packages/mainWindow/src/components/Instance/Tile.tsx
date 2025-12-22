@@ -62,6 +62,8 @@ interface Props {
   onClick?: (_e: MouseEvent) => void
   size: 1 | 2 | 3 | 4 | 5
   shouldSetViewTransition: boolean
+  isNew?: boolean
+  onHover?: () => void
 }
 
 const Tile = (props: Props) => {
@@ -352,13 +354,19 @@ const Tile = (props: Props) => {
                   props?.onClick?.(e)
                 }
               }}
+              onMouseEnter={() => props.onHover?.()}
             >
               <Tooltip
                 open={props.failError ? undefined : false}
                 placement="top"
               >
                 <TooltipTrigger>
-                  <div class="relative box-border overflow-hidden rounded-2xl p-[2px]">
+                  <div
+                    class="relative box-border overflow-hidden rounded-2xl p-[2px]"
+                    classList={{
+                      "instance-tile-new": props.isNew
+                    }}
+                  >
                     <div
                       class="absolute left-0 top-0 h-full w-full transition-[opacity,background] duration-300 ease-in-out"
                       classList={{
@@ -539,6 +547,11 @@ const Tile = (props: Props) => {
                               validInstance()?.modpack?.type
                             )}
                           />
+                        </div>
+                      </Show>
+                      <Show when={props.isNew}>
+                        <div class="border-1 border-primary-400 bg-primary-500 z-3 absolute left-2 top-2 flex items-center justify-center rounded-lg border-solid px-2 py-0.5 text-xs font-bold text-white uppercase shadow-md">
+                          NEW
                         </div>
                       </Show>
                       <Show

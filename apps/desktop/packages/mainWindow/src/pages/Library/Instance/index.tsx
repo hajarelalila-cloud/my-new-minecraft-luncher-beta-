@@ -97,6 +97,12 @@ const Instance = () => {
 
   onMount(() => {
     headerRef.parentElement?.addEventListener("scroll", handleScroll)
+
+    // Mark instance as seen when navigating directly to instance page
+    const instanceId = parseInt(params.id, 10)
+    if (!isNaN(instanceId)) {
+      globalStore.markInstanceAsSeen(instanceId)
+    }
   })
 
   onCleanup(() => {
