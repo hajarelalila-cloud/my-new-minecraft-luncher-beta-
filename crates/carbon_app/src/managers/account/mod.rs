@@ -1115,7 +1115,7 @@ impl<'s> ManagerRef<'s, AccountManager> {
     ) -> anyhow::Result<()> {
         use db::account::{SetParam, UniqueWhereParam};
 
-        info!("Checking account status");
+        debug!("Checking account status");
 
         let mut refresh_lock = match lock_refresh {
             true => Some(self.refreshloop_sleep.lock().await),
@@ -1133,7 +1133,7 @@ impl<'s> ManagerRef<'s, AccountManager> {
                 ..
             } => access_token,
             _ => {
-                info!(?account.status, "Account is not ok, ignoring");
+                debug!(?account.status, "Account is not ok, ignoring");
                 return Ok(());
             }
         };

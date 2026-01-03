@@ -31,6 +31,58 @@ mod preference_keys {
     pub const BETA_PROMPT_LAST_SHOWN: &str = "beta_prompt_last_shown";
 }
 
+/// Input state for beta prompt decision logic
+#[derive(Debug, Clone)]
+pub struct BetaPromptState {
+    pub release_channel: String,
+    pub first_launch_completed: bool,
+    pub permanently_dismissed: bool,
+    pub installation_id: Option<String>,
+    pub last_shown: Option<DateTime<Utc>>,
+}
+
+/// Constants for beta prompt logic
+pub const BETA_PROMPT_PERCENTAGE: f64 = 0.03; // 3% rollout
+pub const REMIND_AFTER_DAYS: i64 = 7;
+
+/// Pure function to determine if beta prompt should be shown.
+/// Extracted for testability.
+pub fn should_show_beta_prompt_logic(state: &BetaPromptState, now: DateTime<Utc>) -> bool {
+    // Only show to stable channel users
+    if state.release_channel != "stable" {
+        return false;
+    }
+
+    // Don't show on first launch (let them complete onboarding first)
+    if !state.first_launch_completed {
+        return false;
+    }
+
+    // Check if permanently dismissed
+    if state.permanently_dismissed {
+        return false;
+    }
+
+    // Check if installation ID exists and is in cohort
+    let Some(installation_id) = &state.installation_id else {
+        return false;
+    };
+
+    if !is_in_beta_prompt_cohort(installation_id, BETA_PROMPT_PERCENTAGE) {
+        return false;
+    }
+
+    // Check if recently shown (remind after X days)
+    if let Some(last_shown) = state.last_shown {
+        let remind_after = last_shown + Duration::days(REMIND_AFTER_DAYS);
+        if now < remind_after {
+            return false;
+        }
+    }
+
+    true
+}
+
 pub(super) fn mount() -> RouterBuilder<App> {
     router! {
         query GET_SETTINGS[app, _args: ()] {
@@ -143,22 +195,10 @@ pub(super) fn mount() -> RouterBuilder<App> {
 
         // Beta Prompt endpoints
         query SHOULD_SHOW_BETA_PROMPT[app, _args: ()] {
-            // TODO: Change back to 0.03 (3%) after testing
-            const BETA_PROMPT_PERCENTAGE: f64 = 1.0; // 100% for testing
-            const REMIND_AFTER_DAYS: i64 = 7;
-
             let db = &app.prisma_client;
             let config = app.settings_manager().get_settings().await?;
 
-            tracing::info!("Beta prompt check - release_channel: {}", config.release_channel);
-
-            // Only show to stable channel users
-            if config.release_channel != "stable" {
-                tracing::info!("Beta prompt: skipping, not on stable channel");
-                return Ok(false);
-            }
-
-            // Don't show on first launch (let them complete onboarding first)
+            // Load preferences from database
             let first_launch_pref = db
                 .frontend_preference()
                 .find_unique(frontend_preference::key::equals(
@@ -167,14 +207,6 @@ pub(super) fn mount() -> RouterBuilder<App> {
                 .exec()
                 .await?;
 
-            tracing::info!("Beta prompt check - first_launch_completed exists: {}", first_launch_pref.is_some());
-
-            if first_launch_pref.is_none() {
-                tracing::info!("Beta prompt: skipping, first launch not completed");
-                return Ok(false);
-            }
-
-            // Check if permanently dismissed
             let dismissed_pref = db
                 .frontend_preference()
                 .find_unique(frontend_preference::key::equals(
@@ -183,23 +215,6 @@ pub(super) fn mount() -> RouterBuilder<App> {
                 .exec()
                 .await?;
 
-            if dismissed_pref.map(|p| p.value == "true").unwrap_or(false) {
-                tracing::info!("Beta prompt: skipping, permanently dismissed");
-                return Ok(false);
-            }
-
-            // Check if installation ID exists and is in cohort
-            let Some(installation_id) = config.installation_id.clone() else {
-                tracing::info!("Beta prompt: skipping, no installation ID");
-                return Ok(false);
-            };
-
-            if !is_in_beta_prompt_cohort(&installation_id, BETA_PROMPT_PERCENTAGE) {
-                tracing::info!("Beta prompt: skipping, not in cohort (id: {})", installation_id);
-                return Ok(false);
-            }
-
-            // Check if recently shown (remind after X days)
             let last_shown_pref = db
                 .frontend_preference()
                 .find_unique(frontend_preference::key::equals(
@@ -208,18 +223,22 @@ pub(super) fn mount() -> RouterBuilder<App> {
                 .exec()
                 .await?;
 
-            if let Some(pref) = last_shown_pref {
-                if let Ok(last_shown) = DateTime::parse_from_rfc3339(&pref.value) {
-                    let remind_after = last_shown + Duration::days(REMIND_AFTER_DAYS);
-                    if Utc::now() < remind_after {
-                        tracing::info!("Beta prompt: skipping, shown recently");
-                        return Ok(false);
-                    }
-                }
-            }
+            // Build state for decision logic
+            let state = BetaPromptState {
+                release_channel: config.release_channel.clone(),
+                first_launch_completed: first_launch_pref.is_some(),
+                permanently_dismissed: dismissed_pref.map(|p| p.value == "true").unwrap_or(false),
+                installation_id: config.installation_id.clone(),
+                last_shown: last_shown_pref.and_then(|p| {
+                    DateTime::parse_from_rfc3339(&p.value)
+                        .ok()
+                        .map(|dt| dt.with_timezone(&Utc))
+                }),
+            };
 
-            tracing::info!("Beta prompt: SHOWING");
-            Ok(true)
+            let result = should_show_beta_prompt_logic(&state, Utc::now());
+            tracing::debug!("Beta prompt check: {:?} -> {}", state, result);
+            Ok(result)
         }
 
         mutation DISMISS_BETA_PROMPT_PERMANENTLY[app, _args: ()] {
@@ -694,3 +713,150 @@ mirror_into!(ModSources, carbon_platforms::ModSources, |value| Self {
         .map(Into::into)
         .collect(),
 });
+
+#[cfg(test)]
+mod beta_prompt_tests {
+    use super::*;
+    use chrono::TimeZone;
+
+    /// Helper to create a valid state that would show the prompt
+    fn valid_state() -> BetaPromptState {
+        BetaPromptState {
+            release_channel: "stable".to_string(),
+            first_launch_completed: true,
+            permanently_dismissed: false,
+            // Use an ID that's in the 3% cohort (starts with low hex value)
+            installation_id: Some("00000001-0000-0000-0000-000000000000".to_string()),
+            last_shown: None,
+        }
+    }
+
+    #[test]
+    fn shows_when_all_conditions_met() {
+        let state = valid_state();
+        let now = Utc::now();
+        assert!(should_show_beta_prompt_logic(&state, now));
+    }
+
+    #[test]
+    fn not_stable_channel_returns_false() {
+        let mut state = valid_state();
+        state.release_channel = "beta".to_string();
+        assert!(!should_show_beta_prompt_logic(&state, Utc::now()));
+
+        state.release_channel = "alpha".to_string();
+        assert!(!should_show_beta_prompt_logic(&state, Utc::now()));
+    }
+
+    #[test]
+    fn first_launch_not_completed_returns_false() {
+        let mut state = valid_state();
+        state.first_launch_completed = false;
+        assert!(!should_show_beta_prompt_logic(&state, Utc::now()));
+    }
+
+    #[test]
+    fn permanently_dismissed_returns_false() {
+        let mut state = valid_state();
+        state.permanently_dismissed = true;
+        assert!(!should_show_beta_prompt_logic(&state, Utc::now()));
+    }
+
+    #[test]
+    fn no_installation_id_returns_false() {
+        let mut state = valid_state();
+        state.installation_id = None;
+        assert!(!should_show_beta_prompt_logic(&state, Utc::now()));
+    }
+
+    #[test]
+    fn not_in_cohort_returns_false() {
+        let mut state = valid_state();
+        // Use an ID that's NOT in the 3% cohort (starts with high hex value)
+        state.installation_id = Some("ffffffff-0000-0000-0000-000000000000".to_string());
+        assert!(!should_show_beta_prompt_logic(&state, Utc::now()));
+    }
+
+    #[test]
+    fn recently_shown_returns_false() {
+        let mut state = valid_state();
+        let now = Utc::now();
+        // Shown 3 days ago - should still be within the 7-day reminder period
+        state.last_shown = Some(now - Duration::days(3));
+        assert!(!should_show_beta_prompt_logic(&state, now));
+    }
+
+    #[test]
+    fn shown_exactly_7_days_ago_returns_true() {
+        let mut state = valid_state();
+        let now = Utc::now();
+        // Shown exactly 7 days ago - reminder period has passed
+        state.last_shown = Some(now - Duration::days(7));
+        assert!(should_show_beta_prompt_logic(&state, now));
+    }
+
+    #[test]
+    fn shown_more_than_7_days_ago_returns_true() {
+        let mut state = valid_state();
+        let now = Utc::now();
+        // Shown 10 days ago - should show again
+        state.last_shown = Some(now - Duration::days(10));
+        assert!(should_show_beta_prompt_logic(&state, now));
+    }
+
+    #[test]
+    fn remind_later_within_period_does_not_show() {
+        let mut state = valid_state();
+        let now = Utc::now();
+
+        // Simulate "remind later" clicked 1 day ago
+        state.last_shown = Some(now - Duration::days(1));
+        assert!(!should_show_beta_prompt_logic(&state, now));
+
+        // Simulate "remind later" clicked 6 days ago
+        state.last_shown = Some(now - Duration::days(6));
+        assert!(!should_show_beta_prompt_logic(&state, now));
+    }
+
+    #[test]
+    fn dismiss_permanently_never_shows_again() {
+        let mut state = valid_state();
+        state.permanently_dismissed = true;
+
+        // Even if all other conditions are met, should not show
+        assert!(!should_show_beta_prompt_logic(&state, Utc::now()));
+
+        // Even after a long time
+        let future = Utc::now() + Duration::days(365);
+        assert!(!should_show_beta_prompt_logic(&state, future));
+    }
+
+    #[test]
+    fn remind_later_shows_after_period_expires() {
+        let mut state = valid_state();
+        let now = Utc::now();
+
+        // Clicked "remind later" 8 days ago - should show again
+        state.last_shown = Some(now - Duration::days(8));
+        assert!(should_show_beta_prompt_logic(&state, now));
+    }
+
+    #[test]
+    fn boundary_at_exactly_remind_period() {
+        let mut state = valid_state();
+        // Use a fixed timestamp for deterministic testing
+        let now = Utc.with_ymd_and_hms(2024, 6, 15, 12, 0, 0).unwrap();
+
+        // Last shown exactly 7 days ago at the same time
+        let seven_days_ago = now - Duration::days(7);
+        state.last_shown = Some(seven_days_ago);
+
+        // At exactly the boundary, should show (>= 7 days means show)
+        assert!(should_show_beta_prompt_logic(&state, now));
+
+        // 1 second before the boundary, should not show
+        let almost_now = now - Duration::seconds(1);
+        state.last_shown = Some(almost_now - Duration::days(7) + Duration::seconds(1));
+        assert!(!should_show_beta_prompt_logic(&state, almost_now));
+    }
+}
