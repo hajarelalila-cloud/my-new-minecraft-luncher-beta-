@@ -531,7 +531,9 @@ impl<'s> ManagerRef<'s, AccountManager> {
         self,
         friend_code: String,
     ) -> anyhow::Result<Vec<NicknameHistoryEntry>> {
-        self.gdl_account_task.get_nickname_history(friend_code).await
+        self.gdl_account_task
+            .get_nickname_history(friend_code)
+            .await
     }
 
     pub async fn clear_nickname_history(self, uuid: String) -> anyhow::Result<()> {
