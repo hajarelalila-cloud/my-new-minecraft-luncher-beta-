@@ -1,0 +1,166 @@
+name: Build Nokiatis Launcher
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build-windows:
+    runs-on: windows-2022
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+      
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: 1.85.1
+          targets: x86_64-pc-windows-msvc
+          components: clippy, rustfmt
+      
+      - name: Install scoop and llvm
+        run: |
+          Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+          scoop install llvm
+      
+      - name: Prepare
+        shell: bash
+        run: |
+          echo "" > crates/carbon_repos/src/db.rs
+      
+      - name: Install dependencies
+        shell: bash
+        run: npm run init
+      
+      - name: Iridium patchfix
+        shell: bash
+        run: node iridium_patchfix.js
+      
+      - name: Generate Prisma
+        shell: bash
+        env:
+          CARGO_INCREMENTAL: 0
+          CARGO_NET_GIT_FETCH_WITH_CLI: true
+        run: pnpm prisma:generate:win-x64
+      
+      - name: Build Windows
+        shell: bash
+        run: pnpm build:win-x64
+        env:
+          CARGO_INCREMENTAL: 0
+          CARGO_NET_GIT_FETCH_WITH_CLI: true
+      
+      - name: Upload Windows Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nokiatis-Launcher-Windows
+          path: apps/desktop/release/*.exe
+          retention-days: 30
+
+  build-linux:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+      
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: 1.85.1
+          targets: x86_64-unknown-linux-gnu
+          components: clippy, rustfmt
+      
+      - name: Prepare
+        run: |
+          echo "" > crates/carbon_repos/src/db.rs
+          cargo fmt --check
+      
+      - name: Install dependencies
+        run: |
+          npm run sudo-init
+          chmod -R a+x node_modules
+      
+      - name: Iridium patchfix
+        run: node iridium_patchfix.js
+      
+      - name: Generate Prisma
+        env:
+          CARGO_INCREMENTAL: 0
+        run: pnpm prisma:generate:linux-x64
+      
+      - name: Build Linux
+        run: pnpm build:linux-x64
+        env:
+          CARGO_INCREMENTAL: 0
+      
+      - name: Package Linux Build
+        run: |
+          cd apps/desktop/release
+          tar -czvf ../../../nokiatis-launcher-linux-x64.tar.gz *
+      
+      - name: Upload Linux Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nokiatis-Launcher-Linux
+          path: nokiatis-launcher-linux-x64.tar.gz
+          retention-days: 30
+
+  build-mac:
+    runs-on: macos-14
+    timeout-minutes: 90
+    env:
+      MACOSX_DEPLOYMENT_TARGET: "11.0"
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+      
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: 1.85.1
+          targets: aarch64-apple-darwin, x86_64-apple-darwin
+          components: clippy, rustfmt
+      
+      - name: Prepare
+        run: |
+          echo "" > crates/carbon_repos/src/db.rs
+          cargo fmt --check
+      
+      - name: Install dependencies
+        run: |
+          npm run sudo-init
+          chmod -R a+x node_modules
+      
+      - name: Iridium patchfix
+        run: node iridium_patchfix.js
+      
+      - name: Generate Prisma
+        env:
+          CARGO_INCREMENTAL: 0
+        run: pnpm prisma:generate
+      
+      - name: Build Mac Universal
+        run: pnpm build:mac-universal
+        env:
+          CARGO_INCREMENTAL: 0
+      
+      - name: Upload Mac Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nokiatis-Launcher-macOS
+          path: apps/desktop/release/*.dmg
+          retention-days: 30
