@@ -58,6 +58,13 @@ jobs:
         env:
           CARGO_INCREMENTAL: 0
           CARGO_NET_GIT_FETCH_WITH_CLI: true
+          BASE_API: ${{ vars.BASE_API || 'https://api.gdl.gg' }}
+          TEST_BASE_API: ${{ vars.TEST_BASE_API || 'https://test-api.gdl.gg' }}
+          MS_AUTH_CLIENT_ID: ${{ vars.MS_AUTH_CLIENT_ID || '00000000402b5d9b' }}
+          META_BASE_URL: ${{ vars.META_BASE_URL || 'https://meta.gdl.gg' }}
+          USER_AGENT_PREFIX: ${{ vars.USER_AGENT_PREFIX || 'NokiatisLauncher' }}
+          CURSEFORGE_API_KEY: ${{ vars.CURSEFORGE_API_KEY || '$2a$10$bKMQe9UXtXZvDz4ykG2nD.mYpmiKFzlZ8nPTC.VLd7bO6KLT7KQQm' }}
+          CURSEFORGE_API_BASE: ${{ vars.CURSEFORGE_API_BASE || 'https://api.curseforge.com' }}
       
       - name: Upload Windows Build
         uses: actions/upload-artifact@v4
@@ -104,6 +111,13 @@ jobs:
         run: pnpm build:linux-x64
         env:
           CARGO_INCREMENTAL: 0
+          BASE_API: ${{ vars.BASE_API || 'https://api.gdl.gg' }}
+          TEST_BASE_API: ${{ vars.TEST_BASE_API || 'https://test-api.gdl.gg' }}
+          MS_AUTH_CLIENT_ID: ${{ vars.MS_AUTH_CLIENT_ID || '00000000402b5d9b' }}
+          META_BASE_URL: ${{ vars.META_BASE_URL || 'https://meta.gdl.gg' }}
+          USER_AGENT_PREFIX: ${{ vars.USER_AGENT_PREFIX || 'NokiatisLauncher' }}
+          CURSEFORGE_API_KEY: ${{ vars.CURSEFORGE_API_KEY || '$2a$10$bKMQe9UXtXZvDz4ykG2nD.mYpmiKFzlZ8nPTC.VLd7bO6KLT7KQQm' }}
+          CURSEFORGE_API_BASE: ${{ vars.CURSEFORGE_API_BASE || 'https://api.curseforge.com' }}
       
       - name: Package Linux Build
         run: |
@@ -157,6 +171,13 @@ jobs:
         run: pnpm build:mac-universal
         env:
           CARGO_INCREMENTAL: 0
+          BASE_API: ${{ vars.BASE_API || 'https://api.gdl.gg' }}
+          TEST_BASE_API: ${{ vars.TEST_BASE_API || 'https://test-api.gdl.gg' }}
+          MS_AUTH_CLIENT_ID: ${{ vars.MS_AUTH_CLIENT_ID || '00000000402b5d9b' }}
+          META_BASE_URL: ${{ vars.META_BASE_URL || 'https://meta.gdl.gg' }}
+          USER_AGENT_PREFIX: ${{ vars.USER_AGENT_PREFIX || 'NokiatisLauncher' }}
+          CURSEFORGE_API_KEY: ${{ vars.CURSEFORGE_API_KEY || '$2a$10$bKMQe9UXtXZvDz4ykG2nD.mYpmiKFzlZ8nPTC.VLd7bO6KLT7KQQm' }}
+          CURSEFORGE_API_BASE: ${{ vars.CURSEFORGE_API_BASE || 'https://api.curseforge.com' }}
       
       - name: Upload Mac Build
         uses: actions/upload-artifact@v4

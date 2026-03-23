@@ -48,6 +48,7 @@ keys! {
         ENROLL_RESUME                               = "enroll.resume";
         REFRESH_ACCOUNT                             = "refreshAccount";
         GET_HEAD                                    = "getHead";
+        CREATE_OFFLINE_ACCOUNT                      = "createOfflineAccount";
 
         PEEK_GDL_ACCOUNT                            = "peekGdlAccount";
         GET_GDL_ACCOUNT                             = "getGdlAccount";
