@@ -141,29 +141,29 @@ keys! {
         EXPLORE                                     = "explore";
         EXPORT                                      = "export";
         GET_MODPACK_INFO                            = "getModpackInfo";
-        
+
         // Backup System
         GET_BACKUPS                                 = "getBackups";
         CREATE_BACKUP                               = "createBackup";
         RESTORE_BACKUP                              = "restoreBackup";
         DELETE_BACKUP                               = "deleteBackup";
-        
+
         // Mod Profiles
         GET_MOD_PROFILES                            = "getModProfiles";
         CREATE_MOD_PROFILE                          = "createModProfile";
         SWITCH_MOD_PROFILE                          = "switchModProfile";
         DELETE_MOD_PROFILE                          = "deleteModProfile";
-        
+
         // World Management
         GET_WORLDS                                  = "getWorlds";
         BACKUP_WORLD                                = "backupWorld";
         DELETE_WORLD                                = "deleteWorld";
         EXPORT_WORLD                                = "exportWorld";
-        
+
         // Crash Reports
         GET_CRASH_REPORTS                           = "getCrashReports";
         ANALYZE_CRASH                               = "analyzeCrash";
-        
+
         // GPU Selection
         SET_INSTANCE_GPU                            = "setInstanceGpu";
         GET_AVAILABLE_GPUS                          = "getAvailableGpus";

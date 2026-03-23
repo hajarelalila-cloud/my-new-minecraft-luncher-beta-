@@ -38,8 +38,8 @@ use tokio::sync::{Mutex, RwLock};
 use tracing::{debug, error, info, trace, warn};
 
 pub use self::enroll::{EnrollmentError, EnrollmentStatus};
-use self::{enroll::EnrollmentTask, skin::SkinManager};
 use self::skin::stitch_offline_skin_head;
+use self::{enroll::EnrollmentTask, skin::SkinManager};
 
 use super::{AppInner, AppRef, ManagerRef};
 
@@ -1340,9 +1340,7 @@ impl<'s> ManagerRef<'s, AccountManager> {
 
         if let Some(skin) = skin_data {
             // Render the head from the skin using the existing skin manager logic
-            let head = carbon_scheduler::cpu_block(|| {
-                stitch_offline_skin_head(&skin)
-            }).await?;
+            let head = carbon_scheduler::cpu_block(|| stitch_offline_skin_head(&skin)).await?;
 
             Ok(Some(head))
         } else {

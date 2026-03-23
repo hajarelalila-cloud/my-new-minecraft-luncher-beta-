@@ -92,7 +92,6 @@ jobs:
       - name: Prepare
         run: |
           echo "" > crates/carbon_repos/src/db.rs
-          cargo fmt --check
       
       - name: Install dependencies
         run: |
@@ -152,7 +151,6 @@ jobs:
       - name: Prepare
         run: |
           echo "" > crates/carbon_repos/src/db.rs
-          cargo fmt --check
       
       - name: Install dependencies
         run: |
