@@ -120,7 +120,7 @@ const NokiatisWelcome = (props: ModalProps) => {
     }
   }
 
-  const discordUrl = "https://discord.gg/FXn5zfEqBD"
+  const discordUrl = "https://discord.com/invite/8n3NnERF22"
 
   return (
     <ModalLayout
