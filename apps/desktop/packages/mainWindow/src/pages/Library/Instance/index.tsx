@@ -206,6 +206,35 @@ const Instance = () => {
     {
       label: (
         <div class="flex items-center gap-2">
+          <div class="i-hugeicons:user-circle text-lg" />
+          <span>Skins</span>
+          <FeatureStatusBadge type="new" />
+        </div>
+      ),
+      path: `/library/${params.id}/skins`
+    },
+    {
+      label: (
+        <div class="flex items-center gap-2">
+          <div class="i-hugeicons:globe-02 text-lg" />
+          <span>Servers</span>
+          <FeatureStatusBadge type="new" />
+        </div>
+      ),
+      path: `/library/${params.id}/servers`
+    },
+    {
+      label: (
+        <div class="flex items-center gap-2">
+          <div class="i-hugeicons:world text-lg" />
+          <span>Worlds</span>
+        </div>
+      ),
+      path: `/library/${params.id}/worlds`
+    },
+    {
+      label: (
+        <div class="flex items-center gap-2">
           <div class="i-hugeicons:settings-01 text-lg" />
           <Trans key="ui:_trn_settings" />
         </div>

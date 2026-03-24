@@ -85,6 +85,24 @@ export const routes: RouteDefinition[] = [
                 component: lazy(
                   () => import("@/pages/Library/Instance/Tabs/Versions")
                 )
+              },
+              {
+                path: "/skins",
+                component: lazy(
+                  () => import("@/pages/Library/Instance/Tabs/Skins")
+                )
+              },
+              {
+                path: "/servers",
+                component: lazy(
+                  () => import("@/pages/Library/Instance/Tabs/Servers")
+                )
+              },
+              {
+                path: "/worlds",
+                component: lazy(
+                  () => import("@/pages/Library/Instance/Tabs/Worlds")
+                )
               }
             ]
           }
