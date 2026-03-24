@@ -54,7 +54,9 @@ jobs:
       
       - name: Build Windows
         shell: bash
-        run: pnpm build:win-x64
+        run: |
+          export PATH="$PWD/node_modules/.bin:$PATH"
+          pnpm build:win-x64
         env:
           CARGO_INCREMENTAL: 0
           CARGO_NET_GIT_FETCH_WITH_CLI: true
@@ -107,7 +109,9 @@ jobs:
         run: pnpm prisma:generate:linux-x64
       
       - name: Build Linux
-        run: pnpm build:linux-x64
+        run: |
+          export PATH="$PWD/node_modules/.bin:$PATH"
+          pnpm build:linux-x64
         env:
           CARGO_INCREMENTAL: 0
           BASE_API: ${{ vars.BASE_API || 'https://api.gdl.gg' }}
@@ -166,7 +170,9 @@ jobs:
         run: pnpm prisma:generate
       
       - name: Build Mac Universal
-        run: pnpm build:mac-universal
+        run: |
+          export PATH="$PWD/node_modules/.bin:$PATH"
+          pnpm build:mac-universal
         env:
           CARGO_INCREMENTAL: 0
           BASE_API: ${{ vars.BASE_API || 'https://api.gdl.gg' }}
