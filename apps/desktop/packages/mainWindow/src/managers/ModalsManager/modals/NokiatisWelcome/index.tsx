@@ -109,6 +109,12 @@ const NokiatisWelcome = (props: ModalProps) => {
         key: "animationPerformance",
         value: selectedPerformance() || "medium"
       })
+      
+      // Disable welcome popup so it doesn't show again
+      await setPerformanceMutation.mutateAsync({
+        key: "showNokiatisWelcome",
+        value: false
+      })
 
       if (props.closeModal) {
         props.closeModal()

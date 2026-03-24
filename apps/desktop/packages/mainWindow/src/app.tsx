@@ -14,7 +14,7 @@ interface Props {
 
 const App = (props: Props) => {
   const [runItOnce, setRunItOnce] = createSignal(true)
-  const [welcomeShown, setWelcomeShown] = createSignal(false)
+  const [welcomeChecked, setWelcomeChecked] = createSignal(false)
   const Route = useRoutes(routes)
   const modalsContext = useModal()
   const currentRoute = useLocation()
@@ -47,13 +47,22 @@ const App = (props: Props) => {
     queryKey: ["settings.getSettings"]
   }))
 
-  // Show NokiatisWelcome popup every time the launcher starts
+  // Show NokiatisWelcome popup only once (when showNokiatisWelcome is true)
   createEffect(() => {
-    if (!welcomeShown() && !isFirstLaunch.isLoading) {
-      setWelcomeShown(true)
+    if (welcomeChecked() || settingsQuery.isLoading || isFirstLaunch.isLoading) return
+    
+    const settings = settingsQuery.data
+    const showWelcome = settings?.showNokiatisWelcome
+    
+    // Only show if setting is true AND this is not the first launch
+    if (showWelcome === true && isFirstLaunch.data !== true) {
+      setWelcomeChecked(true)
       untrack(() => {
         modalsContext?.openModal({ name: "nokiatisWelcome" })
       })
+    } else {
+      // Mark as checked so we don't keep trying
+      setWelcomeChecked(true)
     }
   })
 

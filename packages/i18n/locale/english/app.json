@@ -14,7 +14,7 @@
   "_trn_update_pending_title": "Update v{{version}} pending",
   "_trn_update_pending_description": "The update will be installed when you close the app",
   "_trn_update_up_to_date": "You're up to date!",
-  "_trn_update_latest_version": "GDLauncher {{version}} is the latest version",
+  "_trn_update_latest_version": "Nokiatis Launcher {{version}} is the latest version",
   "_trn_update_ready_description": "Install now or wait until you quit the app",
   "_trn_update_installing": "Installing update...",
   "_trn_update_installing_description": "The app will restart shortly",
