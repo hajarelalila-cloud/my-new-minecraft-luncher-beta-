@@ -95,6 +95,8 @@ const Instance = () => {
     })
   }
 
+  const globalStore = useGlobalStore()
+
   onMount(() => {
     headerRef.parentElement?.addEventListener("scroll", handleScroll)
 
@@ -278,7 +280,6 @@ const Instance = () => {
     mutationKey: ["instance.killInstance"]
   }))
 
-  const globalStore = useGlobalStore()
   const handlePlay = () => {
     const parsedInstanceId = parseInt(params.id, 10)
     if (isRunning()) {
