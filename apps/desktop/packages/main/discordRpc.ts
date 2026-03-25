@@ -16,9 +16,9 @@
 import DiscordRPC from "discord-rpc-revamp"
 import log from "electron-log/main"
 
-// Discord Application ID - You need to create a Discord application at https://discord.com/developers/applications
-// For now, we'll use a placeholder. Replace this with your actual Discord App ID
-const DISCORD_CLIENT_ID = "1354913057986965524" // Replace with your Discord App ID
+// Discord Application ID for Nokiatis Launcher
+// Created at https://discord.com/developers/applications
+const DISCORD_CLIENT_ID = "1486472122715996270"
 
 // Logger for Discord RPC
 const logger = log.scope("DiscordRPC")
