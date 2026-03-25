@@ -32,6 +32,7 @@ use crate::{
     },
     util::NormalizedWalkdir,
 };
+use crate::managers::rich_presence::DownloadInfo;
 use anyhow::{Context, anyhow, bail};
 use carbon_net::DownloadOptions;
 use carbon_parsing::log::{LogParser, ParsedItem};
@@ -511,13 +512,32 @@ impl ManagerRef<'_, InstanceManager> {
                         .map(|ml| (Some(ml.type_.to_string()), Some(ml.version.clone())))
                         .unwrap_or((None, None));
 
+                    // Get mod count for Discord Rich Presence
+                    let mod_count = app
+                        .instance_manager()
+                        .list_mods(instance_id, None)
+                        .await
+                        .ok()
+                        .map(|mods| mods.len());
+
                     // Update Discord Rich Presence with detailed game info
                     let game_info = GameInfo {
                         instance_name: instance_name.clone(),
+                        instance_id: instance_id.0.to_string(),
                         mc_version: version.release.clone(),
                         mod_loader,
                         mod_loader_version,
+                        mod_count,
+                        modpack_name: None, // TODO: Extract from config if available
+                        modpack_icon: None,
+                        modpack_version: None,
                         is_playing: true,
+                        is_multiplayer: None, // Will be updated if joining server
+                        server_ip: None,
+                        server_port: None,
+                        max_players: None,
+                        current_players: None,
+                        memory_allocated: Some(xmx_memory),
                     };
 
                     let _ = app

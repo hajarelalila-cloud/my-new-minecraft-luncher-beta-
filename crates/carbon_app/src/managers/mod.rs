@@ -19,7 +19,7 @@ use self::account::AccountManager;
 use self::download::DownloadManager;
 use self::instance::InstanceManager;
 use self::minecraft::MinecraftManager;
-use self::rich_presence::{GameInfo, RichPresenceManager};
+use self::rich_presence::{DownloadInfo, GameInfo, InstallInfo, RichPresenceManager};
 use self::vtask::VisualTaskManager;
 
 pub mod account;
