@@ -579,7 +579,7 @@ impl TryFrom<carbon_repos::db::app_configuration::Data> for FESettings {
             show_app_close_warning: data.show_app_close_warning,
             game_resolution: data
                 .game_resolution
-                .and_then(|r| GameResolution::from_str(&r).ok()),
+                .and_then(|r| GameResolution::from_str(r.as_str()).ok()),
             java_custom_args: data.java_custom_args,
             auto_manage_java_system_profiles: data.auto_manage_java_system_profiles,
             mod_sources: ModSources {

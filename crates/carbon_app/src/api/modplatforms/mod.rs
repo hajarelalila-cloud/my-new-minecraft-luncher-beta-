@@ -158,7 +158,7 @@ pub(super) fn mount() -> RouterBuilder<App> {
                                 data: vec![],
                                 pagination: Some(responses::FEUnifiedPagination {
                                     index: 0,
-                                    page_size: search_params.page_size.unwrap_or(40) as i32,
+                                    page_size: search_params.page_size.unwrap_or(40) as u32,
                                     result_count: 0,
                                     total_count: 0,
                                 }),
@@ -192,7 +192,7 @@ pub(super) fn mount() -> RouterBuilder<App> {
                         Ok(response) => response,
                         Err(e) => {
                             tracing::warn!("Modrinth search failed in unified search: {}", e);
-                            carbon_platforms::modrinth::responses::ProjectSearchResponse {
+                            carbon_platforms::modrinth::search::ProjectSearchResponse {
                                 hits: vec![],
                                 offset: 0,
                                 limit: 40,

@@ -409,37 +409,39 @@ impl ManagerRef<'_, InstanceManager> {
 
                 match launch_account {
                     Some(account) => {
-                        if let Some(pre_launch_hook) = pre_launch_hook.filter(|v| !v.is_empty()) {
-                            let mut split = shlex::split(&pre_launch_hook)
-                                .ok_or_else(|| anyhow::anyhow!("Failed to parse pre-launch hook"))?
-                                .into_iter();
+                        if let Some(ref hook) = pre_launch_hook {
+                            if !hook.is_empty() {
+                                let mut split = shlex::split(hook)
+                                    .ok_or_else(|| anyhow::anyhow!("Failed to parse pre-launch hook"))?
+                                    .into_iter();
 
-                            let main_command = split
-                                .next()
-                                .ok_or_else(|| anyhow::anyhow!("Pre-launch hook is empty"))?;
+                                let main_command = split
+                                    .next()
+                                    .ok_or_else(|| anyhow::anyhow!("Pre-launch hook is empty"))?;
 
-                            let pre_launch_command = tokio::process::Command::new(main_command)
-                                .args(split)
-                                .current_dir(instance_path.get_data_path())
-                                .output()
-                                .await
-                                .map_err(|e| {
-                                    anyhow::anyhow!("Pre-launch hook failed to start: {:?}", e)
-                                })?;
+                                let pre_launch_command = tokio::process::Command::new(main_command)
+                                    .args(split)
+                                    .current_dir(instance_path.get_data_path())
+                                    .output()
+                                    .await
+                                    .map_err(|e| {
+                                        anyhow::anyhow!("Pre-launch hook failed to start: {:?}", e)
+                                    })?;
 
-                            if !pre_launch_command.status.success() {
-                                return Err(anyhow::anyhow!(
-                                    "Pre-launch hook failed with status: {:?} \n{}",
-                                    pre_launch_command.status,
-                                    String::from_utf8(pre_launch_command.stderr)
-                                        .unwrap_or_default()
-                                ));
+                                if !pre_launch_command.status.success() {
+                                    return Err(anyhow::anyhow!(
+                                        "Pre-launch hook failed with status: {:?} \n{}",
+                                        pre_launch_command.status,
+                                        String::from_utf8(pre_launch_command.stderr)
+                                            .unwrap_or_default()
+                                    ));
+                                }
+
+                                tracing::info!(
+                                    "Pre-launch hook completed successfully {}",
+                                    String::from_utf8(pre_launch_command.stdout).unwrap_or_default()
+                                );
                             }
-
-                            tracing::info!(
-                                "Pre-launch hook completed successfully {}",
-                                String::from_utf8(pre_launch_command.stdout).unwrap_or_default()
-                            );
                         }
 
                         Ok(Some(
@@ -505,12 +507,18 @@ impl ManagerRef<'_, InstanceManager> {
                     let _liveness_watch = app.instance_manager().instance_running_tracker.marker();
 
                     // Get modloader info for Discord Rich Presence
+                    // version is Option<StandardVersion> here - if we got this far, it should be Some
                     let (mod_loader, mod_loader_version) = version
-                        .modloaders
-                        .iter()
-                        .next()
+                        .as_ref()
+                        .and_then(|v| v.modloaders.iter().next())
                         .map(|ml| (Some(ml.type_.to_string()), Some(ml.version.clone())))
                         .unwrap_or((None, None));
+
+                    // Get MC version for Discord Rich Presence
+                    let mc_version = version
+                        .as_ref()
+                        .map(|v| v.release.clone())
+                        .unwrap_or_else(|| "Unknown".to_string());
 
                     // Get mod count for Discord Rich Presence
                     let mod_count = app
@@ -524,7 +532,7 @@ impl ManagerRef<'_, InstanceManager> {
                     let game_info = GameInfo {
                         instance_name: instance_name.clone(),
                         instance_id: instance_id.0.to_string(),
-                        mc_version: version.release.clone(),
+                        mc_version,
                         mod_loader,
                         mod_loader_version,
                         mod_count,
@@ -638,43 +646,44 @@ impl ManagerRef<'_, InstanceManager> {
 
                     let _ = app.rich_presence_manager().stop_activity().await;
 
-                    if let Some(post_exit_hook) = post_exit_hook.filter(|v| !v.is_empty()) {
-                        match shlex::split(&post_exit_hook)
-                            .ok_or_else(|| anyhow::anyhow!("Failed to parse post-exit hook"))
-                            .map(|v| v.into_iter())
-                        {
-                            Ok(mut split) => match split.next() {
-                                Some(main_command) => {
-                                    let post_exit_command =
-                                        tokio::process::Command::new(main_command)
-                                            .args(split)
-                                            .current_dir(instance_path.get_data_path())
-                                            .output()
-                                            .await;
+                    if let Some(ref hook) = post_exit_hook {
+                        if !hook.is_empty() {
+                            match shlex::split(hook)
+                                .ok_or_else(|| anyhow::anyhow!("Failed to parse post-exit hook"))
+                                .map(|v| v.into_iter())
+                            {
+                                Ok(mut split) => match split.next() {
+                                    Some(main_command) => {
+                                        let post_exit_command =
+                                            tokio::process::Command::new(main_command)
+                                                .args(split)
+                                                .current_dir(instance_path.get_data_path())
+                                                .output()
+                                                .await;
 
-                                    match post_exit_command {
-                                        Ok(post_exit_command) => {
-                                            if !post_exit_command.status.success() {
+                                        match post_exit_command {
+                                            Ok(post_exit_command) => {
+                                                if !post_exit_command.status.success() {
+                                                    tracing::error!(
+                                                        "Post-exit hook failed with status: {:?} \n{}",
+                                                        post_exit_command.status,
+                                                        String::from_utf8(post_exit_command.stderr)
+                                                            .unwrap_or_default()
+                                                    );
+                                                } else {
+                                                    tracing::info!(
+                                                        "Post-exit hook completed successfully {}",
+                                                        String::from_utf8(post_exit_command.stdout)
+                                                            .unwrap_or_default()
+                                                    );
+                                                }
+                                            }
+                                            Err(e) => {
                                                 tracing::error!(
-                                                    "Post-exit hook failed with status: {:?} \n{}",
-                                                    post_exit_command.status,
-                                                    String::from_utf8(post_exit_command.stderr)
-                                                        .unwrap_or_default()
-                                                );
-                                            } else {
-                                                tracing::info!(
-                                                    "Post-exit hook completed successfully {}",
-                                                    String::from_utf8(post_exit_command.stdout)
-                                                        .unwrap_or_default()
+                                                    "Post-exit hook failed to start: {:?}",
+                                                    e
                                                 );
                                             }
-                                        }
-                                        Err(e) => {
-                                            tracing::error!(
-                                                "Post-exit hook failed to start: {:?}",
-                                                e
-                                            );
-                                        }
                                     }
                                 }
                                 None => {
@@ -684,6 +693,7 @@ impl ManagerRef<'_, InstanceManager> {
                             Err(e) => {
                                 tracing::error!("Post-exit hook failed to parse: {:?}", e);
                             }
+                        }
                         }
                     }
 
