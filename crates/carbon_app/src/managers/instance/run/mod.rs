@@ -694,7 +694,6 @@ impl ManagerRef<'_, InstanceManager> {
                                 tracing::error!("Post-exit hook failed to parse: {:?}", e);
                             }
                         }
-                        }
                     }
 
                     let _ = app
