@@ -1,4 +1,16 @@
 use super::ManagerRef;
+use serde::Serialize;
+
+/// Game information for Discord Rich Presence
+#[derive(Debug, Clone, Serialize)]
+pub struct GameInfo {
+    pub instance_name: String,
+    pub mc_version: String,
+    pub mod_loader: Option<String>,
+    pub mod_loader_version: Option<String>,
+    #[serde(rename = "isPlaying")]
+    pub is_playing: bool,
+}
 
 pub(crate) struct RichPresenceManager {}
 
@@ -46,6 +58,22 @@ impl ManagerRef<'_, RichPresenceManager> {
             .discord_integration
         {
             println!("_DRPC_:UPDATE_ACTIVITY|{state}");
+        }
+
+        Ok(())
+    }
+
+    /// Update Discord presence with detailed game information
+    pub async fn update_game_presence(&self, game_info: &GameInfo) -> anyhow::Result<()> {
+        if self
+            .app
+            .settings_manager()
+            .get_settings()
+            .await?
+            .discord_integration
+        {
+            let json = serde_json::to_string(game_info)?;
+            println!("_DRPC_:UPDATE_ACTIVITY|playing:{json}");
         }
 
         Ok(())

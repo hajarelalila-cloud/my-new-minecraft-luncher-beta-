@@ -23,6 +23,7 @@ use crate::{
     managers::minecraft::{UpdateValue, curseforge},
     managers::modplatforms::curseforge::convert_cf_version_to_standard_version,
     managers::modplatforms::modrinth::convert_mr_version_to_standard_version,
+    managers::rich_presence::GameInfo,
     managers::vtask::Subtask,
     managers::{
         self, ManagerRef,
@@ -230,6 +231,9 @@ impl ManagerRef<'_, InstanceManager> {
                 name: config.name.clone(),
             },
         });
+
+        // Capture instance name for Discord Rich Presence
+        let instance_name = config.name.clone();
 
         let id = self.app.task_manager().spawn_task(&task).await;
 
@@ -499,9 +503,26 @@ impl ManagerRef<'_, InstanceManager> {
 
                     let _liveness_watch = app.instance_manager().instance_running_tracker.marker();
 
+                    // Get modloader info for Discord Rich Presence
+                    let (mod_loader, mod_loader_version) = version
+                        .modloaders
+                        .iter()
+                        .next()
+                        .map(|ml| (Some(ml.type_.to_string()), Some(ml.version.clone())))
+                        .unwrap_or((None, None));
+
+                    // Update Discord Rich Presence with detailed game info
+                    let game_info = GameInfo {
+                        instance_name: instance_name.clone(),
+                        mc_version: version.release.clone(),
+                        mod_loader,
+                        mod_loader_version,
+                        is_playing: true,
+                    };
+
                     let _ = app
                         .rich_presence_manager()
-                        .update_activity("Playing Minecraft".to_string())
+                        .update_game_presence(&game_info)
                         .await;
 
                     let (kill_tx, mut kill_rx) = mpsc::channel::<()>(1);

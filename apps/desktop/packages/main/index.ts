@@ -39,6 +39,7 @@ import {
   CoreModuleStatus,
   FELauncherActionOnGameLaunch
 } from "@gd/core_module/bindings"
+import { discordRpcManager } from "./discordRpc"
 
 console.log("Modules imported successfully")
 
@@ -504,6 +505,37 @@ const loadCoreModule: CoreModule = () =>
             setOverwolfEmail(email)
           } else {
             clearOverwolfEmail()
+          }
+        } else if (row.startsWith("_DRPC_:")) {
+          // Handle Discord Rich Presence commands from the Rust backend
+          const rightPart = row.substring(7) // Get everything after "_DRPC_:"
+          console.log(`[DRPC] Command received: ${rightPart}`)
+
+          if (rightPart === "INIT") {
+            // Initialize Discord RPC
+            console.log("[DRPC] Initializing Discord RPC...")
+            discordRpcManager.init().then((success) => {
+              if (success) {
+                console.log("[DRPC] Discord RPC initialized successfully")
+              } else {
+                console.log("[DRPC] Discord RPC initialization failed or disabled")
+              }
+            })
+          } else if (rightPart === "SHUTDOWN") {
+            // Shutdown Discord RPC
+            console.log("[DRPC] Shutting down Discord RPC...")
+            discordRpcManager.shutdown()
+          } else if (rightPart === "STOP_ACTIVITY") {
+            // Stop/clear activity
+            console.log("[DRPC] Stopping activity...")
+            discordRpcManager.stopActivity()
+            // After stopping activity, show browsing presence
+            discordRpcManager.setBrowsingPresence()
+          } else if (rightPart.startsWith("UPDATE_ACTIVITY|")) {
+            // Update activity with state
+            const state = rightPart.substring(16) // Get everything after "UPDATE_ACTIVITY|"
+            console.log(`[DRPC] Updating activity: ${state}`)
+            discordRpcManager.updateActivity(state)
           }
         }
       }
@@ -1115,6 +1147,10 @@ app.on("window-all-closed", async () => {
 })
 
 app.on("before-quit", async () => {
+  // Shutdown Discord RPC before quitting
+  console.log("[DRPC] Shutting down Discord RPC on app quit...")
+  await discordRpcManager.shutdown()
+
   try {
     const _coreModule = await coreModule
     if (_coreModule.type === "success") {
