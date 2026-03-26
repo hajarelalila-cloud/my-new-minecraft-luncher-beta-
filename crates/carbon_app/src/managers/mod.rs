@@ -211,7 +211,7 @@ mod app {
             let _app = app.clone();
             tokio::spawn(async move {
                 match _app.account_manager().get_nokiatis_account().await {
-                    Ok(account::gdl_account::NokiatisAccountStatus::Valid(user)) => {
+                    Ok(nokiatis_account::NokiatisAccountStatus::Valid(user)) => {
                         info!("_Nokiatis_ACCOUNT_EMAIL_:{}", user.email);
                         println!("_Nokiatis_ACCOUNT_EMAIL_:{}", user.email);
                     }

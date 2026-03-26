@@ -93,8 +93,7 @@ pub fn main() {
             ))
             .expect("Branding not to fail");
 
-            #[cfg(feature = "production")]
-            iridium::startup_check();
+            // Iridium startup check removed - not available in this version
 
             info!("Initializing runtime path");
             let runtime_path = runtime_path_override::get_runtime_path_override().await;
