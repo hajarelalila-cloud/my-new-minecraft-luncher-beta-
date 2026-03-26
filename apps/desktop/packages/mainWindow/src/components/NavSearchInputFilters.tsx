@@ -14,6 +14,9 @@ import {
 import { VList } from "./VirtuaWrapper"
 import ModrinthLogo from "/assets/images/icons/modrinth_logo.svg"
 import CurseforgeLogo from "/assets/images/icons/curseforge_logo.svg"
+import ATLauncherLogo from "/assets/images/icons/atlauncher_logo.svg"
+import FTBLogo from "/assets/images/icons/ftb_logo.svg"
+import TechnicLogo from "/assets/images/icons/technic_logo.svg"
 import {
   For,
   Match,
@@ -56,6 +59,15 @@ function FilterWarning() {
 export function SearchApiDropdown() {
   const searchResults = useSearchContext()
 
+  // All available mod platforms with their icons
+  const platforms = [
+    { id: "curseforge", name: "CurseForge", icon: CurseforgeLogo },
+    { id: "modrinth", name: "Modrinth", icon: ModrinthLogo },
+    { id: "atlauncher", name: "ATLauncher", icon: ATLauncherLogo },
+    { id: "ftb", name: "FTB", icon: FTBLogo },
+    { id: "technic", name: "Technic", icon: TechnicLogo }
+  ] as const
+
   return (
     <>
       <DropdownMenuLabel>
@@ -66,12 +78,12 @@ export function SearchApiDropdown() {
         <DropdownMenuRadioGroup
           value={searchResults?.searchQuery().searchApi ?? ""}
         >
-          <For each={["curseforge", "modrinth"] as const}>
-            {(value) => (
+          <For each={platforms}>
+            {(platform) => (
               <DropdownMenuRadioItem
-                value={value}
+                value={platform.id}
                 onSelect={() => {
-                  if (value === searchResults?.searchQuery().searchApi) {
+                  if (platform.id === searchResults?.searchQuery().searchApi) {
                     searchResults?.setSearchQuery((prev) => ({
                       ...prev,
                       searchApi: null,
@@ -80,17 +92,18 @@ export function SearchApiDropdown() {
                   } else {
                     searchResults?.setSearchQuery((prev) => ({
                       ...prev,
-                      searchApi: value
+                      searchApi: platform.id
                     }))
                   }
                 }}
               >
                 <div class="flex items-center gap-2">
                   <img
-                    src={value === "curseforge" ? CurseforgeLogo : ModrinthLogo}
+                    src={platform.icon}
                     class="h-4 w-4"
+                    alt={platform.name}
                   />
-                  {capitalize(value)}
+                  {platform.name}
                 </div>
               </DropdownMenuRadioItem>
             )}
