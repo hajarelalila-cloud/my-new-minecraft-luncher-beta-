@@ -47,8 +47,8 @@ image = { version = "0.25.6" }
 jsonwebtoken = "9.3.1"
 # libc = "0.2"
 md-5 = "0.10.5"
-carbon_scheduler = { git = "https://github.com/nokiatis-team/carbon_scheduler", rev = "4212ac32ca648ceb45e4d8c849360203f96c2be2" }
-murmurhash32 = { git = "https://github.com/nokiatis-team/murmurhash32", rev = "4dfdc49b727581bbdcad4a2315452a2c28db6093" }
+carbon_scheduler = { git = "https://github.com/gorilla-devs/carbon_scheduler", rev = "4212ac32ca648ceb45e4d8c849360203f96c2be2" }
+murmurhash32 = { git = "https://github.com/gorilla-devs/murmurhash32", rev = "4dfdc49b727581bbdcad4a2315452a2c28db6093" }
 nom = "7"
 num_cpus = "1.16.0"
 opener = "0.7.1"
@@ -78,7 +78,7 @@ specta = "1"
 rspc-axum = "0.1.1"
 serde = "1.0.219"
 serde_json = "1.0.140"
-daedalus = { git = "https://github.com/nokiatis-team/daedalus", rev = "d3c9eed96e280312c5650ff0cf2b139393d65687" }
+daedalus = { git = "https://github.com/gorilla-devs/daedalus", rev = "d3c9eed96e280312c5650ff0cf2b139393d65687" }
 sha1 = "0.10.6"
 sha2 = "0.10.8"
 tar = "0.4.44"
