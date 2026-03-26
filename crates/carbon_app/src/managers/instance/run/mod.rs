@@ -650,46 +650,49 @@ impl ManagerRef<'_, InstanceManager> {
                                 .ok_or_else(|| anyhow::anyhow!("Failed to parse post-exit hook"))
                                 .map(|v| v.into_iter())
                             {
-                                Ok(mut split) => match split.next() {
-                                    Some(main_command) => {
-                                        let post_exit_command =
-                                            tokio::process::Command::new(main_command)
-                                                .args(split)
-                                                .current_dir(instance_path.get_data_path())
-                                                .output()
-                                                .await;
+                                Ok(mut split) => {
+                                    match split.next() {
+                                        Some(main_command) => {
+                                            let post_exit_command =
+                                                tokio::process::Command::new(main_command)
+                                                    .args(split)
+                                                    .current_dir(instance_path.get_data_path())
+                                                    .output()
+                                                    .await;
 
-                                        match post_exit_command {
-                                            Ok(post_exit_command) => {
-                                                if !post_exit_command.status.success() {
+                                            match post_exit_command {
+                                                Ok(post_exit_command) => {
+                                                    if !post_exit_command.status.success() {
+                                                        tracing::error!(
+                                                            "Post-exit hook failed with status: {:?} \n{}",
+                                                            post_exit_command.status,
+                                                            String::from_utf8(post_exit_command.stderr)
+                                                                .unwrap_or_default()
+                                                        );
+                                                    } else {
+                                                        tracing::info!(
+                                                            "Post-exit hook completed successfully {}",
+                                                            String::from_utf8(post_exit_command.stdout)
+                                                                .unwrap_or_default()
+                                                        );
+                                                    }
+                                                }
+                                                Err(e) => {
                                                     tracing::error!(
-                                                        "Post-exit hook failed with status: {:?} \n{}",
-                                                        post_exit_command.status,
-                                                        String::from_utf8(post_exit_command.stderr)
-                                                            .unwrap_or_default()
-                                                    );
-                                                } else {
-                                                    tracing::info!(
-                                                        "Post-exit hook completed successfully {}",
-                                                        String::from_utf8(post_exit_command.stdout)
-                                                            .unwrap_or_default()
+                                                        "Post-exit hook failed to start: {:?}",
+                                                        e
                                                     );
                                                 }
-                                            }
-                                            Err(e) => {
-                                                tracing::error!(
-                                                    "Post-exit hook failed to start: {:?}",
-                                                    e
-                                                );
                                             }
                                         }
                                         None => {
                                             tracing::error!("Post-exit hook is empty");
                                         }
                                     }
-                                },
-                            Err(e) => {
-                                tracing::error!("Post-exit hook failed to parse: {:?}", e);
+                                }
+                                Err(e) => {
+                                    tracing::error!("Post-exit hook failed to parse: {:?}", e);
+                                }
                             }
                         }
                     }
