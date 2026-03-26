@@ -239,7 +239,7 @@ pub enum ExploreEntryType {
 pub enum ExportTarget {
     Curseforge,
     Modrinth,
-    Nokiatis Launcher,
+    Gdlauncher,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

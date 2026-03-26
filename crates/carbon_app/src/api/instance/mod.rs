@@ -1115,7 +1115,7 @@ struct ExportArgs {
 
 #[derive(Type, Debug, Serialize, Deserialize)]
 pub enum ImportEntity {
-    LegacyNokiatis Launcher,
+    LegacyGdlauncher,
     MRPack,
     Modrinth,
     CurseForgeZip,
@@ -1661,7 +1661,7 @@ impl From<domain::ExploreEntry> for ExploreEntry {
 impl From<ImportEntity> for importer::Entity {
     fn from(entity: ImportEntity) -> Self {
         match entity {
-            ImportEntity::LegacyNokiatis Launcher => Self::LegacyNokiatis Launcher,
+            ImportEntity::LegacyGdlauncher => Self::LegacyGdlauncher,
             ImportEntity::MRPack => Self::MRPack,
             ImportEntity::Modrinth => Self::Modrinth,
             ImportEntity::CurseForgeZip => Self::CurseForgeZip,
@@ -1680,7 +1680,7 @@ impl From<importer::Entity> for ImportEntity {
         use importer::Entity as backend;
 
         match entity {
-            backend::LegacyNokiatis Launcher => Self::LegacyNokiatis Launcher,
+            backend::LegacyGdlauncher => Self::LegacyGdlauncher,
             backend::MRPack => Self::MRPack,
             backend::Modrinth => Self::Modrinth,
             backend::CurseForgeZip => Self::CurseForgeZip,

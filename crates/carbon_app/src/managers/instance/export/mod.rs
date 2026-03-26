@@ -20,7 +20,7 @@ use crate::{
 };
 
 mod curseforge_archive;
-mod nokiatis-launcher_archive;
+mod gdlauncher_archive;
 mod modrinth_archive;
 
 #[derive(Debug)]
@@ -65,8 +65,8 @@ impl ManagerRef<'_, InstanceExportManager> {
                 )
                 .await
             }
-            ExportTarget::Nokiatis Launcher => {
-                nokiatis-launcher_archive::export_nokiatis-launcher(
+            ExportTarget::Gdlauncher => {
+                gdlauncher_archive::export_gdlauncher(
                     self.app.clone(),
                     instance_id,
                     save_path,

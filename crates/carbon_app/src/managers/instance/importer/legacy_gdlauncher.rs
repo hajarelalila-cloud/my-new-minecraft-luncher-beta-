@@ -23,7 +23,7 @@ use tracing::trace;
 struct Importable {
     filename: String,
     path: PathBuf,
-    config: LegacyNokiatis LauncherConfig,
+    config: LegacyGdlauncherConfig,
 }
 
 impl From<Importable> for ImportableInstance {
@@ -36,11 +36,11 @@ impl From<Importable> for ImportableInstance {
 }
 
 #[derive(Debug)]
-pub struct LegacyNokiatis LauncherImporter {
+pub struct LegacyGdlauncherImporter {
     state: RwLock<ImporterState<Importable>>,
 }
 
-impl LegacyNokiatis LauncherImporter {
+impl LegacyGdlauncherImporter {
     pub fn new() -> Self {
         Self {
             state: RwLock::new(ImporterState::NoResults),
@@ -82,7 +82,7 @@ impl LegacyNokiatis LauncherImporter {
         }
 
         let config = tokio::fs::read_to_string(config).await?;
-        let config = serde_json::from_str::<LegacyNokiatis LauncherConfig>(&config);
+        let config = serde_json::from_str::<LegacyGdlauncherConfig>(&config);
         let filename = path
             .file_name()
             .expect("filename cannot be empty")
@@ -104,7 +104,7 @@ impl LegacyNokiatis LauncherImporter {
 }
 
 #[async_trait::async_trait]
-impl InstanceImporter for LegacyNokiatis LauncherImporter {
+impl InstanceImporter for LegacyGdlauncherImporter {
     async fn scan(&self, app: &Arc<AppInner>, scan_path: PathBuf) -> anyhow::Result<()> {
         if scan_path.is_dir() {
             let Ok(mut dir) = tokio::fs::read_dir(&scan_path).await else {
@@ -278,7 +278,7 @@ impl InstanceImporter for LegacyNokiatis LauncherImporter {
 
 #[derive(Debug, Clone, serde::Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct LegacyNokiatis LauncherConfig {
+pub struct LegacyGdlauncherConfig {
     loader: _Loader,
     time_played: Option<u32>,
     last_played: Option<u64>,
