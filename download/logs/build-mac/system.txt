@@ -1,0 +1,8 @@
+2026-03-25T23:20:31.1420000Z Requested labels: macos-14
+2026-03-25T23:20:31.1420000Z Job defined at: hajarelalila-cloud/my-new-minecraft-luncher-beta-/.github/workflows/build.yml@refs/heads/main
+2026-03-25T23:20:31.1420000Z Waiting for a runner to pick up this job...
+2026-03-25T23:20:31.1410000Z Evaluating build-mac.if
+2026-03-25T23:20:31.1410000Z Evaluating: success()
+2026-03-25T23:20:31.1410000Z Result: true
+2026-03-25T23:20:31.4980000Z Job is about to start running on the hosted runner: GitHub Actions 1000000015
+2026-03-25T23:20:31.4980000Z Job is waiting for a hosted runner to come online.
