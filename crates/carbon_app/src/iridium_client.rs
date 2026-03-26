@@ -1,15 +1,15 @@
-pub fn get_client(gdl_base_api: String) -> reqwest_middleware::ClientBuilder {
+pub fn get_client(nokiatis_base_api: String) -> reqwest_middleware::ClientBuilder {
     use reqwest::{Request, Response};
     use reqwest_middleware::{Middleware, Next};
 
     use crate::managers::modplatforms::modrinth::MODRINTH_API_BASE;
 
     struct AddHeaderMiddleware {
-        gdl_api_base_host: url::Url,
+        nokiatis_api_base_host: url::Url,
     };
 
-    let gdl_api_base_host =
-        url::Url::parse(&gdl_base_api).expect("Failed to parse GDLauncher API base URL");
+    let nokiatis_api_base_host =
+        url::Url::parse(&nokiatis_base_api).expect("Failed to parse Nokiatis Launcher API base URL");
 
     #[async_trait::async_trait]
     impl Middleware for AddHeaderMiddleware {
@@ -84,5 +84,5 @@ pub fn get_client(gdl_base_api: String) -> reqwest_middleware::ClientBuilder {
         ))
         .build()
         .expect("Failed to build HTTP client");
-    reqwest_middleware::ClientBuilder::new(client).with(AddHeaderMiddleware { gdl_api_base_host })
+    reqwest_middleware::ClientBuilder::new(client).with(AddHeaderMiddleware { nokiatis_api_base_host })
 }

@@ -544,7 +544,7 @@ struct FESettings {
     auto_manage_java_system_profiles: bool,
     mod_sources: ModSources,
     terms_and_privacy_accepted: bool,
-    gdl_account_id: Option<String>,
+    nokiatis_account_id: Option<String>,
     // Nokiatis specific settings
     show_nokiatis_welcome: bool,
     enable_offline_mode: bool,
@@ -603,7 +603,7 @@ impl TryFrom<carbon_repos::db::app_configuration::Data> for FESettings {
                     .collect::<Result<_, _>>()?,
             },
             terms_and_privacy_accepted: data.terms_and_privacy_accepted,
-            gdl_account_id: data.gdl_account_uuid,
+            nokiatis_account_id: data.nokiatis_account_uuid,
             // Nokiatis specific settings
             show_nokiatis_welcome: data.show_nokiatis_welcome,
             enable_offline_mode: data.enable_offline_mode,
@@ -707,7 +707,7 @@ pub struct FESettingsUpdate {
     #[specta(optional)]
     pub terms_and_privacy_accepted: Option<Set<bool>>,
     #[specta(optional)]
-    pub gdl_account_id: Option<Set<Option<String>>>,
+    pub nokiatis_account_id: Option<Set<Option<String>>>,
     // Nokiatis specific settings
     #[specta(optional)]
     pub show_nokiatis_welcome: Option<Set<bool>>,

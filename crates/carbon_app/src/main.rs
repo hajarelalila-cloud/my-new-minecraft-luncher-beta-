@@ -73,7 +73,7 @@ pub fn main() {
         ));
 
         sentry::configure_scope(|scope| {
-            scope.set_tag("gdl_session_id", &sentry_session_id);
+            scope.set_tag("nokiatis_session_id", &sentry_session_id);
         });
 
         s
@@ -88,7 +88,7 @@ pub fn main() {
         .unwrap()
         .block_on(async {
             daedalus::Branding::set_branding(daedalus::Branding::new(
-                "gdlauncher".to_string(),
+                "nokiatis-launcher".to_string(),
                 "".to_string(),
             ))
             .expect("Branding not to fail");

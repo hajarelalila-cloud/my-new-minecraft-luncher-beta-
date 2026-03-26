@@ -50,15 +50,15 @@ keys! {
         GET_HEAD                                    = "getHead";
         CREATE_OFFLINE_ACCOUNT                      = "createOfflineAccount";
 
-        PEEK_GDL_ACCOUNT                            = "peekGdlAccount";
-        GET_GDL_ACCOUNT                             = "getGdlAccount";
-        REGISTER_GDL_ACCOUNT                        = "registerGdlAccount";
+        PEEK_Nokiatis_ACCOUNT                            = "peekGdlAccount";
+        GET_Nokiatis_ACCOUNT                             = "getGdlAccount";
+        REGISTER_Nokiatis_ACCOUNT                        = "registerGdlAccount";
         REQUEST_NEW_VERIFICATION_TOKEN              = "requestNewVerificationToken";
         REQUEST_EMAIL_CHANGE                        = "requestEmailChange";
-        REMOVE_GDL_ACCOUNT                          = "removeGdlAccount";
-        SAVE_GDL_ACCOUNT                            = "saveGdlAccount";
-        REQUEST_GDL_ACCOUNT_DELETION                = "requestGdlAccountDeletion";
-        CHANGE_GDL_ACCOUNT_NICKNAME                 = "changeGdlAccountNickname";
+        REMOVE_Nokiatis_ACCOUNT                          = "removeGdlAccount";
+        SAVE_Nokiatis_ACCOUNT                            = "saveGdlAccount";
+        REQUEST_Nokiatis_ACCOUNT_DELETION                = "requestGdlAccountDeletion";
+        CHANGE_Nokiatis_ACCOUNT_NICKNAME                 = "changeGdlAccountNickname";
         UPLOAD_PROFILE_ICON                         = "uploadProfileIcon";
         DELETE_PROFILE_ICON                         = "deleteProfileIcon";
         CHECK_USERNAME_AVAILABLE                    = "checkUsernameAvailable";

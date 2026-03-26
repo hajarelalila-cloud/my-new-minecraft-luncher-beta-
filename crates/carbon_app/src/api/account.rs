@@ -3,9 +3,9 @@ use crate::api::router::router;
 use crate::domain::account as domain;
 use crate::error::{AxumError, FeError};
 use crate::managers::account::api::{UsernameAvailability, XboxError};
-use crate::managers::account::gdl_account::{
-    ChangeNicknameError, GDLAccountStatus, GDLUser, NicknameHistoryEntry, RegisterAccountBody,
-    RequestGDLAccountDeletionError, RequestNewEmailChangeError, RequestNewVerificationTokenError,
+use crate::managers::account::nokiatis_account::{
+    ChangeNicknameError, NokiatisAccountStatus, NokiatisUser, NicknameHistoryEntry, RegisterAccountBody,
+    RequestNokiatisAccountDeletionError, RequestNewEmailChangeError, RequestNewVerificationTokenError,
 };
 use crate::managers::{App, AppInner, account};
 use axum::extract::{Query, State};
@@ -86,24 +86,24 @@ pub(super) fn mount() -> RouterBuilder<App> {
 
         query GET_HEAD[_, _uuid: String] { Ok(()) }
 
-        query PEEK_GDL_ACCOUNT[app, uuid: String] {
-            let gdl_user = app.account_manager().peek_gdl_account(uuid).await?;
+        query PEEK_Nokiatis_ACCOUNT[app, uuid: String] {
+            let nokiatis_user = app.account_manager().peek_nokiatis_account(uuid).await?;
 
-            Ok(gdl_user.map(Into::<FEGDLAccount>::into))
+            Ok(nokiatis_user.map(Into::<FENokiatisAccount>::into))
         }
 
-        query GET_GDL_ACCOUNT[app, args: ()] {
-            let gdl_user = app.account_manager().get_gdl_account().await?;
+        query GET_Nokiatis_ACCOUNT[app, args: ()] {
+            let nokiatis_user = app.account_manager().get_nokiatis_account().await?;
 
-            Ok(Into::<FEGDLAccountStatus>::into(gdl_user))
+            Ok(Into::<FENokiatisAccountStatus>::into(nokiatis_user))
         }
 
-        mutation REGISTER_GDL_ACCOUNT[app, register_data: FERegisterAccount] {
-            let gdl_user = app.account_manager()
-                .register_gdl_account(register_data.uuid.clone(), register_data.into())
+        mutation REGISTER_Nokiatis_ACCOUNT[app, register_data: FERegisterAccount] {
+            let nokiatis_user = app.account_manager()
+                .register_nokiatis_account(register_data.uuid.clone(), register_data.into())
                 .await?;
 
-            Ok(Into::<FEGDLAccount>::into(gdl_user))
+            Ok(Into::<FENokiatisAccount>::into(nokiatis_user))
         }
 
         mutation REQUEST_NEW_VERIFICATION_TOKEN[app, uuid: String] {
@@ -114,15 +114,15 @@ pub(super) fn mount() -> RouterBuilder<App> {
             Ok(FERequestNewVerificationTokenStatus::from(result))
         }
 
-        mutation REMOVE_GDL_ACCOUNT[app, _args: ()] {
+        mutation REMOVE_Nokiatis_ACCOUNT[app, _args: ()] {
             app.account_manager()
-                .remove_gdl_account()
+                .remove_nokiatis_account()
                 .await
         }
 
-        mutation SAVE_GDL_ACCOUNT[app, args: Option<String>] {
+        mutation SAVE_Nokiatis_ACCOUNT[app, args: Option<String>] {
             app.account_manager()
-                .save_gdl_account(args)
+                .save_nokiatis_account(args)
                 .await
         }
 
@@ -134,15 +134,15 @@ pub(super) fn mount() -> RouterBuilder<App> {
             Ok(FERequestNewEmailChangeStatus::from(result))
         }
 
-        mutation REQUEST_GDL_ACCOUNT_DELETION[app, uuid: String] {
+        mutation REQUEST_Nokiatis_ACCOUNT_DELETION[app, uuid: String] {
             let result = app.account_manager()
-                .request_gdl_account_deletion(uuid)
+                .request_nokiatis_account_deletion(uuid)
                 .await;
 
             Ok(FERequestDeletionStatus::from(result))
         }
 
-        mutation CHANGE_GDL_ACCOUNT_NICKNAME[app, args: FEChangeGdlAccountNickname] {
+        mutation CHANGE_Nokiatis_ACCOUNT_NICKNAME[app, args: FEChangeGdlAccountNickname] {
             let result = app.account_manager()
                 .change_nickname(args.uuid, args.nickname)
                 .await;
@@ -251,8 +251,8 @@ pub(super) fn mount_axum_router() -> axum::Router<Arc<AppInner>> {
                         .await
                         .map_err(|e| FeError::from_anyhow(&e).make_axum())?;
 
-                    app.invalidate(PEEK_GDL_ACCOUNT, Some(query.uuid.clone().into()));
-                    app.invalidate(GET_GDL_ACCOUNT, None);
+                    app.invalidate(PEEK_Nokiatis_ACCOUNT, Some(query.uuid.clone().into()));
+                    app.invalidate(GET_Nokiatis_ACCOUNT, None);
 
                     Ok::<_, AxumError>("ok".to_string())
                 },
@@ -497,27 +497,27 @@ impl From<account::EnrollmentError> for EnrollmentError {
 #[derive(Type, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 #[serde(tag = "status", content = "value")]
-pub enum FEGDLAccountStatus {
-    Valid(FEGDLAccount),
+pub enum FENokiatisAccountStatus {
+    Valid(FENokiatisAccount),
     Invalid,
     Skipped,
     Unset,
 }
 
-impl From<GDLAccountStatus> for FEGDLAccountStatus {
-    fn from(value: GDLAccountStatus) -> Self {
+impl From<NokiatisAccountStatus> for FENokiatisAccountStatus {
+    fn from(value: NokiatisAccountStatus) -> Self {
         match value {
-            GDLAccountStatus::Valid(value) => Self::Valid(value.into()),
-            GDLAccountStatus::Invalid => Self::Invalid,
-            GDLAccountStatus::Skipped => Self::Skipped,
-            GDLAccountStatus::Unset => Self::Unset,
+            NokiatisAccountStatus::Valid(value) => Self::Valid(value.into()),
+            NokiatisAccountStatus::Invalid => Self::Invalid,
+            NokiatisAccountStatus::Skipped => Self::Skipped,
+            NokiatisAccountStatus::Unset => Self::Unset,
         }
     }
 }
 
 #[derive(Type, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-struct FEGDLAccount {
+struct FENokiatisAccount {
     email: String,
     microsoft_oid: String,
     nickname: String,
@@ -534,8 +534,8 @@ struct FEGDLAccount {
     nickname_change_timeout: Option<u32>,
 }
 
-impl From<GDLUser> for FEGDLAccount {
-    fn from(value: GDLUser) -> Self {
+impl From<NokiatisUser> for FENokiatisAccount {
+    fn from(value: NokiatisUser) -> Self {
         Self {
             email: value.email,
             microsoft_oid: value.microsoft_oid,
@@ -626,14 +626,14 @@ pub enum FERequestDeletionStatus {
     Failed(Option<u32>),
 }
 
-impl From<Result<(), RequestGDLAccountDeletionError>> for FERequestDeletionStatus {
-    fn from(value: Result<(), RequestGDLAccountDeletionError>) -> Self {
+impl From<Result<(), RequestNokiatisAccountDeletionError>> for FERequestDeletionStatus {
+    fn from(value: Result<(), RequestNokiatisAccountDeletionError>) -> Self {
         match value {
             Ok(_) => Self::Success,
-            Err(RequestGDLAccountDeletionError::TooManyRequests(cooldown)) => {
+            Err(RequestNokiatisAccountDeletionError::TooManyRequests(cooldown)) => {
                 Self::Failed(Some(cooldown))
             }
-            Err(RequestGDLAccountDeletionError::RequestFailed(_)) => Self::Failed(None),
+            Err(RequestNokiatisAccountDeletionError::RequestFailed(_)) => Self::Failed(None),
         }
     }
 }

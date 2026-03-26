@@ -105,7 +105,7 @@ export default function ShowcaseScroller(props: ShowcaseScrollerProps) {
   const handleClick = (element: FEUnifiedSearchResult) => {
     // Only navigate if the drag duration was less than 150ms
     if (Date.now() - dragStartTime() < 150) {
-      const contentWrapper = document.getElementById("gdl-content-wrapper")
+      const contentWrapper = document.getElementById("nokiatis-content-wrapper")
       saveScrollPosition(contentWrapper)
       navigator.navigate(`/addon/${element.id}/${element.platform}`)
     }

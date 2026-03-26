@@ -45,8 +45,8 @@ model AppConfiguration {
   // Legal
   termsAndPrivacyAccepted         Boolean  @default(false)
   termsAndPrivacyAcceptedChecksum String? // Should ask again if this changes
-  gdlAccountUuid                  String?
-  gdlAccountStatus                Bytes?
+  nokiatisAccountUuid                  String?
+  nokiatisAccountStatus                Bytes?
   // Stable installation ID for cohort-based features
   installationId                  String?
   // Nokiatis specific settings

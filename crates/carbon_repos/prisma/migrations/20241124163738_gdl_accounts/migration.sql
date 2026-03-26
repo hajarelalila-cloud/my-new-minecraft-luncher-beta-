@@ -45,8 +45,8 @@ CREATE TABLE "new_AppConfiguration" (
     "termsAndPrivacyAccepted" BOOLEAN NOT NULL DEFAULT false,
     "termsAndPrivacyAcceptedChecksum" TEXT,
     "hashedEmailAccepted" BOOLEAN NOT NULL DEFAULT false,
-    "gdlAccountUuid" TEXT,
-    "gdlAccountStatus" BLOB,
+    "nokiatisAccountUuid" TEXT,
+    "nokiatisAccountStatus" BLOB,
     CONSTRAINT "AppConfiguration_activeAccountUuid_fkey" FOREIGN KEY ("activeAccountUuid") REFERENCES "Account" ("uuid") ON DELETE SET NULL ON UPDATE CASCADE
 );
 -- Temporarily remove foreign key constraints to avoid errors during data migration

@@ -4,16 +4,16 @@ import { createSignal, Show, For } from "solid-js"
 import { rspc } from "@/utils/rspcClient"
 
 /**
- * Modal for optional GDL Account setup
+ * Modal for optional Nokiatis Account setup
  *
  * This is a simplified modal component that can be opened from the CompleteStep.
- * The full GDL account flow (GDLAccount, GDLAccountCompletion, GDLAccountVerification)
+ * The full Nokiatis account flow (NokiatisAccount, NokiatisAccountCompletion, NokiatisAccountVerification)
  * will be integrated here during the main index.tsx refactor.
  *
  * For now, this provides a basic structure and can be shown/hidden.
  */
 
-interface GDLAccountSetupModalProps {
+interface NokiatisAccountSetupModalProps {
   /** Whether the modal is open */
   isOpen: boolean
   /** Callback to close the modal */
@@ -30,10 +30,10 @@ enum ModalStep {
   Verification = 3
 }
 
-export function GDLAccountSetupModal(props: GDLAccountSetupModalProps) {
+export function NokiatisAccountSetupModal(props: NokiatisAccountSetupModalProps) {
   const [currentStep, setCurrentStep] = createSignal(ModalStep.Info)
 
-  // Mutation to save GDL account skip state
+  // Mutation to save Nokiatis account skip state
   const saveGdlAccountMutation = rspc.createMutation(() => ({
     mutationKey: ["account.saveGdlAccount"]
   }))
@@ -47,12 +47,12 @@ export function GDLAccountSetupModal(props: GDLAccountSetupModalProps) {
   }
 
   /**
-   * Skip GDL account setup
+   * Skip Nokiatis account setup
    * Saves empty string to indicate user explicitly skipped
    */
   const handleSkip = async () => {
     try {
-      // Save "" to indicate user skipped GDL account setup
+      // Save "" to indicate user skipped Nokiatis account setup
       await saveGdlAccountMutation.mutateAsync("")
       handleClose()
       // Trigger onComplete to proceed to library
@@ -91,7 +91,7 @@ export function GDLAccountSetupModal(props: GDLAccountSetupModalProps) {
         {/* Header */}
         <div class="border-darkSlate-600 flex items-center justify-between border-b px-6 py-4">
           <h2 class="text-lightSlate-50 text-lg font-bold">
-            <Trans key="auth:_trn_login.gdl_account_setup_title" />
+            <Trans key="auth:_trn_login.nokiatis_account_setup_title" />
           </h2>
           <button
             onClick={handleClose}
@@ -166,9 +166,9 @@ export function GDLAccountSetupModal(props: GDLAccountSetupModalProps) {
               <p class="text-lightSlate-600 text-sm">
                 <Trans key="auth:_trn_login.enter_recovery_email_nickname" />
               </p>
-              {/* TODO: Integrate GDLAccountCompletion component here */}
+              {/* TODO: Integrate NokiatisAccountCompletion component here */}
               <div class="text-lightSlate-500 text-center text-sm">
-                <Trans key="accounts:_trn_gdl_account.completion_form" />
+                <Trans key="accounts:_trn_nokiatis_account.completion_form" />
               </div>
             </div>
           </Show>
@@ -179,9 +179,9 @@ export function GDLAccountSetupModal(props: GDLAccountSetupModalProps) {
               <p class="text-lightSlate-600 text-sm">
                 <Trans key="auth:_trn_login.check_email_verification" />
               </p>
-              {/* TODO: Integrate GDLAccountVerification component here */}
+              {/* TODO: Integrate NokiatisAccountVerification component here */}
               <div class="text-lightSlate-500 text-center text-sm">
-                <Trans key="accounts:_trn_gdl_account.verification" />
+                <Trans key="accounts:_trn_nokiatis_account.verification" />
               </div>
             </div>
           </Show>

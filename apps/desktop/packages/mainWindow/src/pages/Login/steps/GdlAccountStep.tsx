@@ -5,20 +5,20 @@ import { useFlow } from "../flow/FlowContext"
 import type { AuthStep } from "../flow/types"
 
 interface GdlAccountStepProps {
-  step: Extract<AuthStep, { type: "gdl-account" }>
+  step: Extract<AuthStep, { type: "nokiatis-account" }>
 }
 
 export function GdlAccountStep(props: GdlAccountStepProps) {
   const [t] = useTransContext()
   const flow = useFlow()
 
-  const gdlState = () => props.step.gdlAccount || { type: "none" as const }
+  const nokiatisState = () => props.step.nokiatisAccount || { type: "none" as const }
 
   return (
     <div class="flex w-full flex-1 flex-col items-center gap-6 p-6 text-center overflow-y-auto">
-      <Show when={gdlState().type === "found-existing"}>
+      <Show when={nokiatisState().type === "found-existing"}>
         {(() => {
-          const state = gdlState()
+          const state = nokiatisState()
           const data = state.type === "found-existing" ? state.data : null
           if (!data) return null
 
@@ -41,11 +41,11 @@ export function GdlAccountStep(props: GdlAccountStepProps) {
                 </h4>
                 <Collapsable
                   defaultOpened={false}
-                  title={t("auth:_trn_login.what_is_a_gdlauncher_account")}
+                  title={t("auth:_trn_login.what_is_a_nokiatis-launcher_account")}
                   noPadding
                 >
                   <p class="text-lightSlate-600 text-sm m-0 pt-2 pb-3 pl-6 text-left leading-relaxed">
-                    <Trans key="auth:_trn_login.what_is_a_gdlauncher_account_text" />
+                    <Trans key="auth:_trn_login.what_is_a_nokiatis-launcher_account_text" />
                   </p>
                 </Collapsable>
                 <Collapsable
@@ -97,7 +97,7 @@ export function GdlAccountStep(props: GdlAccountStepProps) {
         })()}
       </Show>
 
-      <Show when={gdlState().type === "none" && flow.data.gdlAccountId !== ""}>
+      <Show when={nokiatisState().type === "none" && flow.data.nokiatisAccountId !== ""}>
         <>
           <div class="bg-primary-500/10 flex h-20 w-20 items-center justify-center rounded-full">
             <div class="i-hugeicons:cloud-upload h-10 w-10 text-primary-400" />
@@ -113,11 +113,11 @@ export function GdlAccountStep(props: GdlAccountStepProps) {
             </h4>
             <Collapsable
               defaultOpened={false}
-              title={t("auth:_trn_login.what_is_a_gdlauncher_account")}
+              title={t("auth:_trn_login.what_is_a_nokiatis-launcher_account")}
               noPadding
             >
               <p class="text-lightSlate-600 text-sm m-0 pt-2 pb-3 pl-6 text-left leading-relaxed">
-                <Trans key="auth:_trn_login.what_is_a_gdlauncher_account_text" />
+                <Trans key="auth:_trn_login.what_is_a_nokiatis-launcher_account_text" />
               </p>
             </Collapsable>
             <Collapsable
@@ -169,8 +169,8 @@ export function GdlAccountStep(props: GdlAccountStepProps) {
 
       <Show
         when={
-          gdlState().type === "linked" ||
-          (gdlState().type === "none" && flow.data.gdlAccountId === "")
+          nokiatisState().type === "linked" ||
+          (nokiatisState().type === "none" && flow.data.nokiatisAccountId === "")
         }
       >
         <>
@@ -180,7 +180,7 @@ export function GdlAccountStep(props: GdlAccountStepProps) {
 
           <p class="text-lightSlate-400 m-0 max-w-md text-base leading-relaxed">
             <Show
-              when={gdlState().type === "linked"}
+              when={nokiatisState().type === "linked"}
               fallback={<Trans key="auth:_trn_login.ready_to_launch" />}
             >
               <Trans key="auth:_trn_login.cloud_sync_active" />
@@ -189,9 +189,9 @@ export function GdlAccountStep(props: GdlAccountStepProps) {
         </>
       </Show>
 
-      <Show when={gdlState().type === "error"}>
+      <Show when={nokiatisState().type === "error"}>
         {(() => {
-          const state = gdlState()
+          const state = nokiatisState()
           const errorMessage =
             state.type === "error" ? state.message : "Unknown error"
 

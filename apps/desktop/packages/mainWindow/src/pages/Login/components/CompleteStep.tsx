@@ -6,26 +6,26 @@ import { Show } from "solid-js"
  * Authentication complete step
  *
  * Shows success message and provides options to:
- * 1. Start using GDLauncher immediately (triggers welcome animation)
- * 2. Set up optional GDL account for cloud features
- * 3. Link existing GDL account (if found)
+ * 1. Start using Nokiatis Launcher immediately (triggers welcome animation)
+ * 2. Set up optional Nokiatis account for cloud features
+ * 3. Link existing Nokiatis account (if found)
  */
 
 interface CompleteStepProps {
-  /** Whether user already has a GDL account linked */
-  hasGDLAccount?: boolean
-  /** Whether we found an existing GDL account in the cloud */
+  /** Whether user already has a Nokiatis account linked */
+  hasNokiatisAccount?: boolean
+  /** Whether we found an existing Nokiatis account in the cloud */
   foundExistingAccount?: boolean
-  /** GDL account data if found */
-  foundGDLAccountData?: {
+  /** Nokiatis account data if found */
+  foundNokiatisAccountData?: {
     profileIconUrl: string
     nickname: string
     email: string
   } | null
   /** Callback to navigate to library (with animation) - saves "" if skipping */
   onContinue: () => void
-  /** Callback to open GDL account setup modal */
-  onSetupGDLAccount?: () => void
+  /** Callback to open Nokiatis account setup modal */
+  onSetupNokiatisAccount?: () => void
   /** Callback to link found existing account */
   onLinkExistingAccount?: () => void
 }
@@ -42,7 +42,7 @@ export function CompleteStep(props: CompleteStepProps) {
       <div class="flex flex-col gap-2">
         <h2 class="text-lightSlate-50 m-0 text-2xl font-bold">
           <Show
-            when={props.hasGDLAccount}
+            when={props.hasNokiatisAccount}
             fallback={
               <Trans key="auth:_trn_login.titles.authentication_complete" />
             }
@@ -52,7 +52,7 @@ export function CompleteStep(props: CompleteStepProps) {
         </h2>
         <p class="text-lightSlate-600 m-0 text-sm">
           <Show
-            when={props.hasGDLAccount}
+            when={props.hasNokiatisAccount}
             fallback={<Trans key="auth:_trn_login.ready_to_launch" />}
           >
             <Trans key="auth:_trn_login.cloud_sync_active" />
@@ -60,15 +60,15 @@ export function CompleteStep(props: CompleteStepProps) {
         </p>
       </div>
 
-      {/* GDL Account section */}
+      {/* Nokiatis Account section */}
       <Show when={props.foundExistingAccount}>
-        {/* Found existing GDL account */}
+        {/* Found existing Nokiatis account */}
         <div class="flex w-full max-w-96 flex-col gap-4">
           <div class="border-primary-500/40 bg-primary-500/5 relative w-full overflow-hidden rounded-lg border p-5">
             <div class="flex flex-col gap-4">
               <div class="flex items-start gap-3">
                 <Show
-                  when={props.foundGDLAccountData?.profileIconUrl}
+                  when={props.foundNokiatisAccountData?.profileIconUrl}
                   fallback={
                     <div class="bg-primary-500/30 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">
                       <div class="i-hugeicons:user-account h-5 w-5 text-primary-400" />
@@ -76,7 +76,7 @@ export function CompleteStep(props: CompleteStepProps) {
                   }
                 >
                   <img
-                    src={props.foundGDLAccountData!.profileIconUrl}
+                    src={props.foundNokiatisAccountData!.profileIconUrl}
                     alt="Profile"
                     class="h-10 w-10 shrink-0 rounded-lg object-cover"
                   />
@@ -86,7 +86,7 @@ export function CompleteStep(props: CompleteStepProps) {
                     <Trans
                       key="auth:_trn_login.welcome_back_name"
                       options={{
-                        name: props.foundGDLAccountData?.nickname || "User"
+                        name: props.foundNokiatisAccountData?.nickname || "User"
                       }}
                     />
                   </h3>
@@ -134,9 +134,9 @@ export function CompleteStep(props: CompleteStepProps) {
 
       <Show
         when={
-          !props.hasGDLAccount &&
+          !props.hasNokiatisAccount &&
           !props.foundExistingAccount &&
-          props.onSetupGDLAccount
+          props.onSetupNokiatisAccount
         }
       >
         {/* No account - can create new one */}
@@ -183,7 +183,7 @@ export function CompleteStep(props: CompleteStepProps) {
                 size="large"
                 variant="primary"
                 fullWidth
-                onClick={props.onSetupGDLAccount}
+                onClick={props.onSetupNokiatisAccount}
               >
                 <Trans key="auth:_trn_login.enable_cloud_sync" />
                 <div class="i-hugeicons:arrow-right-01 h-4 w-4 ml-2" />

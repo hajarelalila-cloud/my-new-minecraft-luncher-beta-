@@ -52,7 +52,7 @@ function setOverwolfEmail(email: string) {
     try {
       const hashes = hashEmailForOverwolf(email)
       ;(app as any).overwolf.setUserEmailHashes(hashes)
-      console.log("GDL account email hashes sent to Overwolf")
+      console.log("Nokiatis account email hashes sent to Overwolf")
     } catch (error) {
       console.error("Failed to set email hashes:", error)
     }
@@ -65,7 +65,7 @@ function clearOverwolfEmail() {
   if (overwolfReady && (app as any).overwolf) {
     try {
       ;(app as any).overwolf.setUserEmailHashes({})
-      console.log("GDL account email hashes cleared")
+      console.log("Nokiatis account email hashes cleared")
     } catch (error) {
       console.error("Failed to clear email hashes:", error)
     }
@@ -221,7 +221,7 @@ Object.assign(console, log.functions)
 
 if (app.isPackaged) {
   const overrideCLIDataPath = validateArgument("--runtime_path")
-  const overrideEnvDataPath = process.env.GDL_RUNTIME_PATH
+  const overrideEnvDataPath = process.env.Nokiatis_RUNTIME_PATH
 
   initRTPath(overrideCLIDataPath?.value || overrideEnvDataPath)
 } else {
@@ -240,10 +240,10 @@ const sentrySessionId = crypto.randomUUID()
 console.log("SENTRY SESSION ID", sentrySessionId)
 
 const allowMultipleInstances = validateArgument(
-  "--gdl_allow_multiple_instances"
+  "--nokiatis_allow_multiple_instances"
 )
 
-const overrideBaseApi = validateArgument("--gdl_override_base_api")
+const overrideBaseApi = validateArgument("--nokiatis_override_base_api")
 
 if (!allowMultipleInstances) {
   if (!app.requestSingleInstanceLock()) {
@@ -253,7 +253,7 @@ if (!allowMultipleInstances) {
   }
 }
 
-const disableSentry = validateArgument("--gdl_disable_sentry")
+const disableSentry = validateArgument("--nokiatis_disable_sentry")
 
 if (!disableSentry) {
   if (import.meta.env.VITE_MAIN_DSN) {
@@ -266,7 +266,7 @@ if (!disableSentry) {
     })
 
     Sentry.setContext("session", {
-      gdl_session_id: sentrySessionId
+      nokiatis_session_id: sentrySessionId
     })
     console.log("Sentry initialized")
   }
@@ -499,7 +499,7 @@ const loadCoreModule: CoreModule = () =>
           const rightPart = row.split(":")[1]
           showAppCloseWarning = rightPart === "true"
           console.log("Show app close warning:", showAppCloseWarning)
-        } else if (row.startsWith("_GDL_ACCOUNT_EMAIL_:")) {
+        } else if (row.startsWith("_Nokiatis_ACCOUNT_EMAIL_:")) {
           const email = row.split(":")[1]?.trim() || ""
           if (email) {
             setOverwolfEmail(email)
@@ -803,7 +803,7 @@ ipcMain.handle("relaunch", async () => {
 ipcMain.handle("deleteDbAndRestart", async () => {
   console.log("deleting database and restarting app...")
 
-  const dbPath = path.join(CURRENT_RUNTIME_PATH!, "gdl_conf.db")
+  const dbPath = path.join(CURRENT_RUNTIME_PATH!, "nokiatis_conf.db")
 
   try {
     await fs.unlink(dbPath)
@@ -1169,7 +1169,7 @@ app.on("render-process-gone", (event, webContents, detailed) => {
 app.on("open-url", (event, url) => {
   console.log("Protocol URL received:", url)
 
-  // Handle gdlauncher://, curseforge://, and modrinth:// protocol URLs
+  // Handle nokiatis-launcher://, curseforge://, and modrinth:// protocol URLs
   if (isSupportedProtocol(url)) {
     event.preventDefault()
 

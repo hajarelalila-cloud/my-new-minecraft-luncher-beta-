@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { marked } from "marked";
 
 const response = await fetch(
-  "https://raw.githubusercontent.com/gorilla-devs/ToS-Privacy/master/privacy-statement.md"
+  "https://raw.githubusercontent.com/nokiatis-team/ToS-Privacy/master/privacy-statement.md"
 );
 const data = await response.text();
 const md = marked(data);
@@ -11,7 +11,7 @@ const md = marked(data);
 
 <Layout
   title="Privacy Statement"
-  description="gdlauncher privacy statement"
+  description="nokiatis-launcher privacy statement"
   pubDate={new Date("August 08 2021")}
 >
   <div set:html={md} />
@@ -26,7 +26,7 @@ const md = marked(data);
   const root = document.getElementById("root");
   
   const response = await fetch(
-    "https://raw.githubusercontent.com/gorilla-devs/ToS-Privacy/master/privacy-statement.md"
+    "https://raw.githubusercontent.com/nokiatis-team/ToS-Privacy/master/privacy-statement.md"
   );
   const data = await response.text();
 root?.attachShadow({ mode: "open" });

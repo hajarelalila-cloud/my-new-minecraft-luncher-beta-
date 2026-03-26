@@ -5,7 +5,7 @@ use crate::domain::instance::info::{
 };
 use crate::domain::instance::{self as domain, GameLogId, InstanceId};
 use crate::domain::java::{JavaComponent, JavaComponentType, SystemJavaProfileName};
-use crate::domain::metrics::GDLMetricsEvent;
+use crate::domain::metrics::NokiatisMetricsEvent;
 use crate::domain::vtask::VisualTaskId;
 use crate::managers::AppInner;
 use crate::managers::instance::log::GameLog;

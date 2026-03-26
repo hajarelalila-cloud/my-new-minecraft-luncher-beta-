@@ -8,7 +8,7 @@ use crate::{
     domain::instance::info::{GameVersion, ModLoader, ModLoaderType},
     domain::instance::{self as domain, GameLogId},
     domain::java::{JavaComponent, JavaComponentType, SystemJavaProfileName},
-    domain::metrics::GDLMetricsEvent,
+    domain::metrics::NokiatisMetricsEvent,
     domain::vtask::VisualTaskId,
     managers::instance::log::{
         GameLog, LogEntry, LogEntrySourceKind, format_message_as_log4j_event,
@@ -266,7 +266,7 @@ impl ManagerRef<'_, InstanceManager> {
         let logs_file_path = if launch_account.is_some() {
             Some(
                 instance_path
-                    .get_gdl_logs_path()
+                    .get_nokiatis_logs_path()
                     .join(format!("{}.log", log_file_name)),
             )
         } else {
@@ -730,7 +730,7 @@ impl ManagerRef<'_, InstanceManager> {
             if is_setup {
                 let res = app
                     .metrics_manager()
-                    .track_event(GDLMetricsEvent::InstanceInstalled {
+                    .track_event(NokiatisMetricsEvent::InstanceInstalled {
                         mods_count: mods as u32,
                         modloader_name: instance_details
                             .modloaders
@@ -759,7 +759,7 @@ impl ManagerRef<'_, InstanceManager> {
 
                 let res = app
                     .metrics_manager()
-                    .track_event(GDLMetricsEvent::InstanceLaunched {
+                    .track_event(NokiatisMetricsEvent::InstanceLaunched {
                         mods_count: mods as u32,
                         modloader_name: instance_details
                             .modloaders

@@ -21,7 +21,7 @@ use tokio::sync::{Mutex, Semaphore};
 use tokio_util::sync::CancellationToken;
 use tracing::{error, info, instrument, warn};
 
-const PART_POSTFIX: &str = ".__gdl_part~";
+const PART_POSTFIX: &str = ".__nokiatis_part~";
 
 #[derive(Error, Debug)]
 pub enum DownloadError {

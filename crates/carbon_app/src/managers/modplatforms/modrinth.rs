@@ -320,12 +320,12 @@ pub async fn convert_mr_version_to_standard_version(
         });
     }
 
-    let gdl_version = StandardVersion {
+    let nokiatis_version = StandardVersion {
         release: minecraft_version,
         modloaders,
     };
 
-    Ok(gdl_version)
+    Ok(nokiatis_version)
 }
 
 pub fn convert_standard_version_to_mr_version(

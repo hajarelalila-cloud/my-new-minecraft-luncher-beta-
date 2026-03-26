@@ -197,7 +197,7 @@ impl<'s> ManagerRef<'s, InstanceManager> {
                 .file_name()
                 .expect("path given to scan_instance should never have a null filename")
                 .to_str()
-                .expect("current GDL versions only support UTF8 paths")
+                .expect("current Nokiatis versions only support UTF8 paths")
                 .to_string();
 
             let cached = instance_cache
@@ -881,7 +881,7 @@ impl<'s> ManagerRef<'s, InstanceManager> {
         }
 
         if !instance_path.is_dir() {
-            bail!("GDL instances path is not a directory. Please move the file blocking it.");
+            bail!("Nokiatis instances path is not a directory. Please move the file blocking it.");
         }
 
         sanitized_name = truncate_name(&sanitized_name, &instance_path);

@@ -13,7 +13,7 @@ pub mod terms_and_privacy;
 pub(crate) struct SettingsManager {
     pub runtime_path: carbon_rt_path::RuntimePath,
     pub terms_and_privacy: TermsAndPrivacy,
-    pub gdl_base_api_url: String,
+    pub nokiatis_base_api_url: String,
     pub latest_consent_checksum: Option<String>,
 }
 
@@ -21,13 +21,13 @@ impl SettingsManager {
     pub fn new(
         runtime_path: PathBuf,
         http_client: ClientWithMiddleware,
-        gdl_base_api_url: String,
+        nokiatis_base_api_url: String,
         latest_consent_checksum: Option<String>,
     ) -> Self {
         Self {
             runtime_path: carbon_rt_path::RuntimePath::new(runtime_path),
-            terms_and_privacy: TermsAndPrivacy::new(http_client, gdl_base_api_url.clone()),
-            gdl_base_api_url,
+            terms_and_privacy: TermsAndPrivacy::new(http_client, nokiatis_base_api_url.clone()),
+            nokiatis_base_api_url,
             latest_consent_checksum,
         }
     }

@@ -113,7 +113,7 @@ const ConfirmChangeRuntimePath = (props: ModalProps) => {
                           class="text-lightSlate-50 hover:text-lightSlate-400 cursor-pointer underline"
                           onClick={() => {
                             window.openExternalLink(
-                              "https://gdlauncher.com/docs/troubleshooting/#migration-error"
+                              "https://nokiatis-launcher.com/docs/troubleshooting/#migration-error"
                             )
                           }}
                         />

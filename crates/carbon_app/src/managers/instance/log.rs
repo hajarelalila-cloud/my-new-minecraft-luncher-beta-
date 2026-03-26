@@ -166,7 +166,7 @@ impl LogEntry {
     pub fn system_message(msg: impl ToString) -> Self {
         Self {
             source_kind: LogEntrySourceKind::System,
-            logger: "GDLauncher".into(),
+            logger: "Nokiatis Launcher".into(),
             timestamp: chrono::Local::now().timestamp_millis() as u64,
             thread: "N/A".into(),
             level: LogEntryLevel::Info,
@@ -367,7 +367,7 @@ impl ManagerRef<'_, InstanceManager> {
                 .runtime_path
                 .get_instances()
                 .get_instance_path(&shortpath)
-                .get_gdl_logs_path();
+                .get_nokiatis_logs_path();
 
             if instance_logs_path.exists() {
                 let Ok(instance_logs_path) = instance_logs_path.read_dir() else {
@@ -439,7 +439,7 @@ impl ManagerRef<'_, InstanceManager> {
 
 pub fn format_message_as_log4j_event(message: &str) -> String {
     format!(
-        "<log4j:Event logger=\"GDLAUNCHER\" timestamp=\"{}\" level=\"INFO\" thread=\"N/A\">\n\t<log4j:Message><![CDATA[{}]]></log4j:Message>\n</log4j:Event>\n",
+        "<log4j:Event logger=\"NokiatisAUNCHER\" timestamp=\"{}\" level=\"INFO\" thread=\"N/A\">\n\t<log4j:Message><![CDATA[{}]]></log4j:Message>\n</log4j:Event>\n",
         Utc::now().timestamp_millis(),
         message
     )

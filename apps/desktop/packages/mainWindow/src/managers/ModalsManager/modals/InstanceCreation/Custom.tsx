@@ -154,7 +154,7 @@ const Custom = (props: Pick<ModalProps, "data">) => {
     }
   })
 
-  const DUMMY_META_VERSION = "${gdlauncher.gameVersion}"
+  const DUMMY_META_VERSION = "${nokiatis-launcher.gameVersion}"
 
   const isNeoForge = () => loader() === Modloaders._NeoForge
   const isFabric = () => loader() === Modloaders._Fabric

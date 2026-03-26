@@ -451,7 +451,7 @@ fn test_illegal_crash() {
     let input = r#"
     Exception in thread "main" java.lang.ExceptionInInitializerError
 	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
-Caused by: java.lang.IllegalStateException: duplicate ASM classes found on classpath: jar:file:/Users/davideceschia/Library/Application%20Support/gdlauncher_carbon_dev/data/libraries/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar!/org/objectweb/asm/ClassReader.class, jar:file:/Users/davideceschia/Library/Application%20Support/gdlauncher_carbon_dev/data/libraries/org/ow2/asm/asm/9.3/asm-9.3.jar!/org/objectweb/asm/ClassReader.class
+Caused by: java.lang.IllegalStateException: duplicate ASM classes found on classpath: jar:file:/Users/davideceschia/Library/Application%20Support/nokiatis-launcher_carbon_dev/data/libraries/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar!/org/objectweb/asm/ClassReader.class, jar:file:/Users/davideceschia/Library/Application%20Support/nokiatis-launcher_carbon_dev/data/libraries/org/ow2/asm/asm/9.3/asm-9.3.jar!/org/objectweb/asm/ClassReader.class
 	at net.fabricmc.loader.impl.util.LoaderUtil.verifyClasspath(LoaderUtil.java:83)
 	at net.fabricmc.loader.impl.launch.knot.Knot.<clinit>(Knot.java:345)
 	... 1 more

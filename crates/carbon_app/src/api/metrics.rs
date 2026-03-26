@@ -27,7 +27,7 @@ pub enum FEMetricsEvent {
     ChangelogViewed,
 }
 
-impl From<FEMetricsEvent> for crate::domain::metrics::GDLMetricsEvent {
+impl From<FEMetricsEvent> for crate::domain::metrics::NokiatisMetricsEvent {
     fn from(event: FEMetricsEvent) -> Self {
         match event {
             FEMetricsEvent::PageView(page_url) => Self::PageView { page_url },

@@ -59,7 +59,7 @@ const Presets = () => {
       ?.id
   })
 
-  const DUMMY_META_VERSION = "${gdlauncher.gameVersion}"
+  const DUMMY_META_VERSION = "${nokiatis-launcher.gameVersion}"
 
   const presetOptions: PresetOption[] = [
     {

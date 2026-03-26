@@ -8,7 +8,7 @@ import { useGlobalStore } from "@/components/GlobalStoreContext"
 import { Show } from "solid-js"
 import { convertSecondsToHumanTime } from "@/utils/helpers"
 
-const ChangeGDLAccountRecoveryEmail = () => {
+const ChangeNokiatisAccountRecoveryEmail = () => {
   const [t] = useTransContext()
   const modalsContext = useModal()
   const [newRecoveryEmail, setNewRecoveryEmail] = createSignal("")
@@ -116,4 +116,4 @@ const ChangeGDLAccountRecoveryEmail = () => {
   )
 }
 
-export default ChangeGDLAccountRecoveryEmail
+export default ChangeNokiatisAccountRecoveryEmail

@@ -15,9 +15,9 @@ use carbon_repos::pcr::{
     Direction, QueryError, chrono::DateTime, prisma_errors::query_engine::RecordNotFound,
 };
 use chrono::{FixedOffset, Utc};
-use gdl_account::{
-    ChangeNicknameError, GDLAccountStatus, GDLAccountTask, GDLUser, NicknameHistoryEntry,
-    RegisterAccountBody, RequestGDLAccountDeletionError, RequestNewEmailChangeError,
+use nokiatis_account::{
+    ChangeNicknameError, NokiatisAccountStatus, NokiatisAccountTask, NokiatisUser, NicknameHistoryEntry,
+    RegisterAccountBody, RequestNokiatisAccountDeletionError, RequestNewEmailChangeError,
     RequestNewVerificationTokenError,
 };
 use jwt::{Header, Token};
@@ -45,7 +45,7 @@ use super::{AppInner, AppRef, ManagerRef};
 
 pub mod api;
 mod enroll;
-pub mod gdl_account;
+pub mod nokiatis_account;
 mod oauth_server;
 pub mod protocol_handler;
 pub mod skin;
@@ -57,20 +57,20 @@ pub(crate) struct AccountManager {
     refreshloop_sleep: Mutex<Option<Instant>>,
     skin_manager: SkinManager,
 
-    gdl_account_task: GDLAccountTask,
-    /// Protocol handler for gdlauncher:// OAuth callbacks
+    nokiatis_account_task: NokiatisAccountTask,
+    /// Protocol handler for nokiatis-launcher:// OAuth callbacks
     protocol_handler: protocol_handler::ProtocolHandler,
 }
 
 impl AccountManager {
-    pub fn new(client: reqwest_middleware::ClientWithMiddleware, gdl_base_api: String) -> Self {
+    pub fn new(client: reqwest_middleware::ClientWithMiddleware, nokiatis_base_api: String) -> Self {
         Self {
             currently_refreshing: RwLock::new(HashMap::new()),
             active_enrollment: RwLock::new(None),
             refreshloop_sleep: Mutex::new(None),
             skin_manager: SkinManager {},
 
-            gdl_account_task: GDLAccountTask::new(client, gdl_base_api),
+            nokiatis_account_task: NokiatisAccountTask::new(client, nokiatis_base_api),
             protocol_handler: protocol_handler::ProtocolHandler::new(),
         }
     }
@@ -224,12 +224,12 @@ impl<'s> ManagerRef<'s, AccountManager> {
 
         info!("Waiting for account validation");
 
-        self.gdl_account_task
+        self.nokiatis_account_task
             .wait_for_account_validation(id_token)
             .await
     }
 
-    pub async fn peek_gdl_account(self, uuid: String) -> anyhow::Result<Option<GDLUser>> {
+    pub async fn peek_nokiatis_account(self, uuid: String) -> anyhow::Result<Option<NokiatisUser>> {
         let Some(id_token) = self
             .get_account_entries()
             .await?
@@ -245,27 +245,27 @@ impl<'s> ManagerRef<'s, AccountManager> {
             );
         };
 
-        Ok(self.gdl_account_task.get_account(id_token).await?)
+        Ok(self.nokiatis_account_task.get_account(id_token).await?)
     }
 
-    pub async fn request_gdl_account_deletion(
+    pub async fn request_nokiatis_account_deletion(
         self,
         uuid: String,
-    ) -> Result<(), RequestGDLAccountDeletionError> {
+    ) -> Result<(), RequestNokiatisAccountDeletionError> {
         let Some(id_token) = self
             .get_account_entries()
             .await
-            .map_err(|e| RequestGDLAccountDeletionError::RequestFailed(e))?
+            .map_err(|e| RequestNokiatisAccountDeletionError::RequestFailed(e))?
             .into_iter()
             .find(|account| account.uuid == uuid)
-            .ok_or(RequestGDLAccountDeletionError::RequestFailed(
+            .ok_or(RequestNokiatisAccountDeletionError::RequestFailed(
                 anyhow::anyhow!(
-                    "attempted to request a gdl account deletion for an account that does not exist"
+                    "attempted to request a nokiatis account deletion for an account that does not exist"
                 ),
             ))?
             .id_token
         else {
-            return Err(RequestGDLAccountDeletionError::RequestFailed(
+            return Err(RequestNokiatisAccountDeletionError::RequestFailed(
                 anyhow::anyhow!(
                     "this account is present in the db but the id_token is missing. Presumably offline account. (uuid: {uuid})"
                 ),
@@ -273,26 +273,26 @@ impl<'s> ManagerRef<'s, AccountManager> {
         };
 
         let deletion = self
-            .gdl_account_task
+            .nokiatis_account_task
             .request_deletion(id_token)
             .await
             .with_context(|| format!("failed to request account deletion: {}", uuid))
-            .map_err(|e| RequestGDLAccountDeletionError::RequestFailed(e));
+            .map_err(|e| RequestNokiatisAccountDeletionError::RequestFailed(e));
 
         self.app
-            .invalidate(PEEK_GDL_ACCOUNT, Some(uuid.clone().into()));
-        self.app.invalidate(GET_GDL_ACCOUNT, None);
+            .invalidate(PEEK_Nokiatis_ACCOUNT, Some(uuid.clone().into()));
+        self.app.invalidate(GET_Nokiatis_ACCOUNT, None);
 
         deletion?;
 
         Ok(())
     }
 
-    pub async fn register_gdl_account(
+    pub async fn register_nokiatis_account(
         self,
         uuid: String,
         body: RegisterAccountBody,
-    ) -> anyhow::Result<GDLUser> {
+    ) -> anyhow::Result<NokiatisUser> {
         let Some(id_token) = self
             .get_account_entries()
             .await?
@@ -309,19 +309,19 @@ impl<'s> ManagerRef<'s, AccountManager> {
         };
 
         let user = self
-            .gdl_account_task
+            .nokiatis_account_task
             .register_account(body, id_token)
             .await
             .with_context(|| format!("failed to register account: {uuid}"))?;
 
         self.app
-            .invalidate(PEEK_GDL_ACCOUNT, Some(uuid.clone().into()));
-        self.app.invalidate(GET_GDL_ACCOUNT, None);
+            .invalidate(PEEK_Nokiatis_ACCOUNT, Some(uuid.clone().into()));
+        self.app.invalidate(GET_Nokiatis_ACCOUNT, None);
 
         Ok(user)
     }
 
-    pub async fn save_gdl_account(&self, uuid: Option<String>) -> anyhow::Result<()> {
+    pub async fn save_nokiatis_account(&self, uuid: Option<String>) -> anyhow::Result<()> {
         use db::app_configuration::SetParam;
         use db::app_configuration::UniqueWhereParam;
 
@@ -330,10 +330,10 @@ impl<'s> ManagerRef<'s, AccountManager> {
             .set(SetParam::SetGdlAccountUuid(uuid.clone()))
             .await?;
 
-        self.app.invalidate(GET_GDL_ACCOUNT, None);
+        self.app.invalidate(GET_Nokiatis_ACCOUNT, None);
         self.app.invalidate(GET_SETTINGS, None);
 
-        // Notify Electron main process of GDL account email change for Overwolf ad personalization
+        // Notify Electron main process of Nokiatis account email change for Overwolf ad personalization
         if let Some(account_uuid) = uuid {
             // Fetch the account to get the email
             if let Some(id_token) = self
@@ -343,20 +343,20 @@ impl<'s> ManagerRef<'s, AccountManager> {
                 .find(|account| account.uuid == account_uuid)
                 .and_then(|account| account.id_token)
             {
-                if let Ok(Some(user)) = self.gdl_account_task.get_account(id_token).await {
-                    info!("_GDL_ACCOUNT_EMAIL_:{}", user.email);
-                    println!("_GDL_ACCOUNT_EMAIL_:{}", user.email);
+                if let Ok(Some(user)) = self.nokiatis_account_task.get_account(id_token).await {
+                    info!("_Nokiatis_ACCOUNT_EMAIL_:{}", user.email);
+                    println!("_Nokiatis_ACCOUNT_EMAIL_:{}", user.email);
                 } else {
-                    info!("_GDL_ACCOUNT_EMAIL_:");
-                    println!("_GDL_ACCOUNT_EMAIL_:");
+                    info!("_Nokiatis_ACCOUNT_EMAIL_:");
+                    println!("_Nokiatis_ACCOUNT_EMAIL_:");
                 }
             } else {
-                info!("_GDL_ACCOUNT_EMAIL_:");
-                println!("_GDL_ACCOUNT_EMAIL_:");
+                info!("_Nokiatis_ACCOUNT_EMAIL_:");
+                println!("_Nokiatis_ACCOUNT_EMAIL_:");
             }
         } else {
-            info!("_GDL_ACCOUNT_EMAIL_:");
-            println!("_GDL_ACCOUNT_EMAIL_:");
+            info!("_Nokiatis_ACCOUNT_EMAIL_:");
+            println!("_Nokiatis_ACCOUNT_EMAIL_:");
         }
 
         // TODO!: Should get status from the API
@@ -364,42 +364,42 @@ impl<'s> ManagerRef<'s, AccountManager> {
         Ok(())
     }
 
-    pub async fn get_gdl_account(self) -> anyhow::Result<GDLAccountStatus> {
-        let saved_gdl_account_uuid = self
+    pub async fn get_nokiatis_account(self) -> anyhow::Result<NokiatisAccountStatus> {
+        let saved_nokiatis_account_uuid = self
             .app
             .settings_manager()
             .get_settings()
             .await?
-            .gdl_account_uuid;
+            .nokiatis_account_uuid;
 
-        let Some(saved_gdl_account_uuid) = saved_gdl_account_uuid else {
-            return Ok(GDLAccountStatus::Unset);
+        let Some(saved_nokiatis_account_uuid) = saved_nokiatis_account_uuid else {
+            return Ok(NokiatisAccountStatus::Unset);
         };
 
-        if saved_gdl_account_uuid.is_empty() {
-            return Ok(GDLAccountStatus::Skipped);
+        if saved_nokiatis_account_uuid.is_empty() {
+            return Ok(NokiatisAccountStatus::Skipped);
         }
 
         let Some(id_token) = self
             .get_account_entries()
             .await?
             .into_iter()
-            .find(|account| account.uuid == saved_gdl_account_uuid)
+            .find(|account| account.uuid == saved_nokiatis_account_uuid)
             .ok_or(anyhow::anyhow!(
-                "attempted to get a gdl account that does not exist"
+                "attempted to get a nokiatis account that does not exist"
             ))?
             .id_token
         else {
             bail!(
-                "this account is present in the db but the id_token is missing. Presumably offline account. (uuid: {saved_gdl_account_uuid})"
+                "this account is present in the db but the id_token is missing. Presumably offline account. (uuid: {saved_nokiatis_account_uuid})"
             )
         };
 
-        let Some(user) = self.gdl_account_task.get_account(id_token).await? else {
-            return Ok(GDLAccountStatus::Invalid);
+        let Some(user) = self.nokiatis_account_task.get_account(id_token).await? else {
+            return Ok(NokiatisAccountStatus::Invalid);
         };
 
-        Ok(GDLAccountStatus::Valid(user))
+        Ok(NokiatisAccountStatus::Valid(user))
     }
 
     pub async fn request_new_verification_token(
@@ -425,13 +425,13 @@ impl<'s> ManagerRef<'s, AccountManager> {
         };
 
         let request = self
-            .gdl_account_task
+            .nokiatis_account_task
             .request_new_verification_token(id_token)
             .await;
 
         self.app
-            .invalidate(PEEK_GDL_ACCOUNT, Some(uuid.clone().into()));
-        self.app.invalidate(GET_GDL_ACCOUNT, None);
+            .invalidate(PEEK_Nokiatis_ACCOUNT, Some(uuid.clone().into()));
+        self.app.invalidate(GET_Nokiatis_ACCOUNT, None);
 
         request?;
 
@@ -460,20 +460,20 @@ impl<'s> ManagerRef<'s, AccountManager> {
         };
 
         let request = self
-            .gdl_account_task
+            .nokiatis_account_task
             .request_email_change(id_token, email)
             .await;
 
         self.app
-            .invalidate(PEEK_GDL_ACCOUNT, Some(uuid.clone().into()));
-        self.app.invalidate(GET_GDL_ACCOUNT, None);
+            .invalidate(PEEK_Nokiatis_ACCOUNT, Some(uuid.clone().into()));
+        self.app.invalidate(GET_Nokiatis_ACCOUNT, None);
 
         request?;
 
         Ok(())
     }
 
-    pub async fn remove_gdl_account(self) -> anyhow::Result<()> {
+    pub async fn remove_nokiatis_account(self) -> anyhow::Result<()> {
         use db::app_configuration::SetParam;
 
         self.app
@@ -486,12 +486,12 @@ impl<'s> ManagerRef<'s, AccountManager> {
             .set(SetParam::SetGdlAccountStatus(None))
             .await?;
 
-        self.app.invalidate(GET_GDL_ACCOUNT, None);
+        self.app.invalidate(GET_Nokiatis_ACCOUNT, None);
         self.app.invalidate(GET_SETTINGS, None);
 
-        // Notify Electron main process that GDL account was removed for Overwolf ad personalization
-        info!("_GDL_ACCOUNT_EMAIL_:");
-        println!("_GDL_ACCOUNT_EMAIL_:");
+        // Notify Electron main process that Nokiatis account was removed for Overwolf ad personalization
+        info!("_Nokiatis_ACCOUNT_EMAIL_:");
+        println!("_Nokiatis_ACCOUNT_EMAIL_:");
 
         Ok(())
     }
@@ -517,13 +517,13 @@ impl<'s> ManagerRef<'s, AccountManager> {
             )));
         };
 
-        self.gdl_account_task
+        self.nokiatis_account_task
             .change_nickname(id_token, nickname)
             .await?;
 
         self.app
-            .invalidate(PEEK_GDL_ACCOUNT, Some(uuid.clone().into()));
-        self.app.invalidate(GET_GDL_ACCOUNT, None);
+            .invalidate(PEEK_Nokiatis_ACCOUNT, Some(uuid.clone().into()));
+        self.app.invalidate(GET_Nokiatis_ACCOUNT, None);
 
         Ok(())
     }
@@ -532,7 +532,7 @@ impl<'s> ManagerRef<'s, AccountManager> {
         self,
         friend_code: String,
     ) -> anyhow::Result<Vec<NicknameHistoryEntry>> {
-        self.gdl_account_task
+        self.nokiatis_account_task
             .get_nickname_history(friend_code)
             .await
     }
@@ -553,7 +553,7 @@ impl<'s> ManagerRef<'s, AccountManager> {
             ));
         };
 
-        self.gdl_account_task
+        self.nokiatis_account_task
             .clear_nickname_history(id_token)
             .await?;
 
@@ -577,14 +577,14 @@ impl<'s> ManagerRef<'s, AccountManager> {
         };
 
         let request = self
-            .gdl_account_task
+            .nokiatis_account_task
             .upload_profile_icon(id_token, icon_path)
             .await;
 
         // Invalidate caches so UI refreshes with new avatar
         self.app
-            .invalidate(PEEK_GDL_ACCOUNT, Some(uuid.clone().into()));
-        self.app.invalidate(GET_GDL_ACCOUNT, None);
+            .invalidate(PEEK_Nokiatis_ACCOUNT, Some(uuid.clone().into()));
+        self.app.invalidate(GET_Nokiatis_ACCOUNT, None);
 
         request?;
 
@@ -607,12 +607,12 @@ impl<'s> ManagerRef<'s, AccountManager> {
             ));
         };
 
-        let request = self.gdl_account_task.delete_profile_icon(id_token).await;
+        let request = self.nokiatis_account_task.delete_profile_icon(id_token).await;
 
         // Invalidate caches so UI refreshes with generated avatar
         self.app
-            .invalidate(PEEK_GDL_ACCOUNT, Some(uuid.clone().into()));
-        self.app.invalidate(GET_GDL_ACCOUNT, None);
+            .invalidate(PEEK_Nokiatis_ACCOUNT, Some(uuid.clone().into()));
+        self.app.invalidate(GET_Nokiatis_ACCOUNT, None);
 
         request?;
 
@@ -869,7 +869,7 @@ impl<'s> ManagerRef<'s, AccountManager> {
         let settings = self.app.settings_manager().get_settings().await?;
 
         let active_account = settings.active_account_uuid;
-        let active_gdl_account = settings.gdl_account_uuid;
+        let active_nokiatis_account = settings.nokiatis_account_uuid;
 
         if let Some(active_account) = active_account {
             if active_account == uuid {
@@ -889,12 +889,12 @@ impl<'s> ManagerRef<'s, AccountManager> {
 
         let accounts = self.get_account_entries().await?;
 
-        match (active_gdl_account, accounts.len()) {
-            (Some(gdl_account), _) if gdl_account == uuid => {
-                self.remove_gdl_account().await?;
+        match (active_nokiatis_account, accounts.len()) {
+            (Some(nokiatis_account), _) if nokiatis_account == uuid => {
+                self.remove_nokiatis_account().await?;
             }
             (_, 1) => {
-                self.remove_gdl_account().await?;
+                self.remove_nokiatis_account().await?;
             }
             _ => {}
         }
@@ -1008,7 +1008,7 @@ impl<'s> ManagerRef<'s, AccountManager> {
         }
     }
 
-    /// Handle an OAuth callback from the custom protocol (gdlauncher://oauth/callback)
+    /// Handle an OAuth callback from the custom protocol (nokiatis-launcher://oauth/callback)
     ///
     /// This stores the callback for consumption by an active enrollment task.
     /// The frontend should call this when Electron's 'open-url' event fires.
@@ -1443,26 +1443,26 @@ impl AccountRefreshService {
                 let account_manager = app.account_manager();
 
                 let current_account = account_manager.get_active_uuid().await.unwrap_or_default();
-                let saved_gdl_account_uuid = app
+                let saved_nokiatis_account_uuid = app
                     .settings_manager()
                     .get_settings()
                     .await
-                    .map(|settings| settings.gdl_account_uuid)
+                    .map(|settings| settings.nokiatis_account_uuid)
                     .unwrap_or_default();
 
                 // TODO: there's not really a way to handle an error in here
                 if let Ok(accounts) = account_manager.get_account_entries().await {
                     // Sort accounts by priority. Currently priority is
-                    // 1. GDL account (if any)
-                    // 2. Currently selected account (if any and different from GDL account)
+                    // 1. Nokiatis account (if any)
+                    // 2. Currently selected account (if any and different from Nokiatis account)
                     // 3. All other accounts
 
                     let mut accounts = accounts.into_iter().collect::<Vec<_>>();
                     accounts.sort_by(|a, b| {
-                        if let Some(gdl_account_uuid) = &saved_gdl_account_uuid {
-                            if &a.uuid == gdl_account_uuid {
+                        if let Some(nokiatis_account_uuid) = &saved_nokiatis_account_uuid {
+                            if &a.uuid == nokiatis_account_uuid {
                                 return Ordering::Less;
-                            } else if &b.uuid == gdl_account_uuid {
+                            } else if &b.uuid == nokiatis_account_uuid {
                                 return Ordering::Greater;
                             }
                         }
@@ -1522,8 +1522,8 @@ impl AccountRefreshService {
                                 continue;
                             };
 
-                            // This works because GDL account is guaranteed to be first in the list
-                            // and if there is no gdl account, the currently selected account is guaranteed
+                            // This works because Nokiatis account is guaranteed to be first in the list
+                            // and if there is no nokiatis account, the currently selected account is guaranteed
                             // to be first
                             if !first_check_done {
                                 let _ = handler.await;

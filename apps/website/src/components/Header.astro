@@ -19,8 +19,8 @@ const { pathname } = Astro.url;
     <div class="closebtn" onclick="closeNav()">
       <AiOutlineClose class="text-graygd" />
     </div>
-    <a href="/" class="gdlogo">
-      <Image src={Logo} alt="gdlauncher logo" width="173" height="40" />
+    <a href="/" class="nokiatisogo">
+      <Image src={Logo} alt="nokiatis-launcher logo" width="173" height="40" />
     </a>
     <div class="internal-links">
       <HeaderLink class="text-graygd" href="/">Home</HeaderLink>
@@ -44,8 +44,8 @@ const { pathname } = Astro.url;
       <DownloadButton />
     </div>
   </nav>
-  <a href="/" class="gdlogo gdlogo-mobile">
-    <Image src={Logo} alt="gdlauncher logo" width="173" height="40" />
+  <a href="/" class="nokiatisogo nokiatisogo-mobile">
+    <Image src={Logo} alt="nokiatis-launcher logo" width="173" height="40" />
   </a>
 </header>
 <style>
@@ -65,11 +65,11 @@ const { pathname } = Astro.url;
     padding: 1em;
     cursor: pointer;
   }
-  .gdlogo-mobile {
+  .nokiatisogo-mobile {
     display: none;
   }
   @media screen and (max-width: 1081px) {
-    .gdlogo-mobile {
+    .nokiatisogo-mobile {
       display: block;
       padding-top: 0;
     }
@@ -89,7 +89,7 @@ const { pathname } = Astro.url;
     }
   }
   @media screen and (max-width: 1081px) {
-    /* .gdlogo {
+    /* .nokiatisogo {
       padding-top: 1rem;
     } */
     .closebtn {

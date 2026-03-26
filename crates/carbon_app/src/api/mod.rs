@@ -92,7 +92,7 @@ enum AnnouncementType {
     Error,
 }
 
-pub fn build_rspc_router(gdl_base_api: String) -> RouterBuilder<App> {
+pub fn build_rspc_router(nokiatis_base_api: String) -> RouterBuilder<App> {
     let mut counter = Arc::new(0);
 
     rspc::Router::<App>::new()

@@ -10,7 +10,7 @@ const additionalStyles = `
   }
 
   /* Make logo more visible with white background */
-  nav img[src*="gdlauncher_wide_logo"] {
+  nav img[src*="nokiatis-launcher_wide_logo"] {
     background-color: white;
     padding: 4px 8px;
     border-radius: 6px !important;

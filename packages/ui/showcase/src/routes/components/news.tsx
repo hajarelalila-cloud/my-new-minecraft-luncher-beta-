@@ -23,9 +23,9 @@ function NewsPage() {
         <News
           slides={[
             {
-              title: "GDLauncher 1.2.0 Released",
+              title: "Nokiatis Launcher 1.2.0 Released",
               description:
-                "We're excited to announce the release of GDLauncher 1.2.0 with new features, performance improvements, and bug fixes.",
+                "We're excited to announce the release of Nokiatis Launcher 1.2.0 with new features, performance improvements, and bug fixes.",
               date: "2024-01-15",
               image: "https://picsum.photos/800/400?random=1"
             }

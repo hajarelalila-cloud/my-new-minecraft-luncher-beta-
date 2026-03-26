@@ -6,29 +6,29 @@ import Linux from "./assets/Linux";
 import Windows from "./assets/Windows";
 
 export const APP_URLS = {
-  cdn: "https://cdn.gdlauncher.com",
+  cdn: "https://cdn.nokiatis-launcher.com",
   socials: {
-    discord: "https://discord.gdlauncher.com",
-    github: "https://github.com/gorilla-devs/GDLauncher-Carbon",
-    instagram: "https://www.instagram.com/gdlauncher",
-    twitter: "https://twitter.com/gdlauncher",
+    discord: "https://discord.nokiatis-launcher.com",
+    github: "https://github.com/nokiatis-team/Nokiatis Launcher-Carbon",
+    instagram: "https://www.instagram.com/nokiatis-launcher",
+    twitter: "https://twitter.com/nokiatis-launcher",
   },
-  newsletter: "https://api.gdl.gg/v1",
+  newsletter: "https://api.nokiatis.gg/v1",
   olddownload: {
-    win: "https://github.com/gorilla-devs/GDLauncher/releases/latest/download/GDLauncher-win-setup.exe",
+    win: "https://github.com/nokiatis-team/Nokiatis Launcher/releases/latest/download/Nokiatis Launcher-win-setup.exe",
     macOs:
-      "https://github.com/gorilla-devs/GDLauncher/releases/latest/download/GDLauncher-mac-setup.dmg",
+      "https://github.com/nokiatis-team/Nokiatis Launcher/releases/latest/download/Nokiatis Launcher-mac-setup.dmg",
     linux:
-      "https://github.com/gorilla-devs/GDLauncher/releases/latest/download/GDLauncher-linux-setup.AppImage",
-    releases: "https://github.com/gorilla-devs/GDLauncher/releases",
+      "https://github.com/nokiatis-team/Nokiatis Launcher/releases/latest/download/Nokiatis Launcher-linux-setup.AppImage",
+    releases: "https://github.com/nokiatis-team/Nokiatis Launcher/releases",
   },
 };
 export const ADD_USER_ENDPOINT = `${APP_URLS.newsletter}/mailing`;
 
 export const SITE_TITLE =
-  "GDLauncher - Your All-In-One Modded Minecraft Launcher";
+  "Nokiatis Launcher - Your All-In-One Modded Minecraft Launcher";
 export const SITE_DESCRIPTION =
-  "GDLauncher - Your All-In-One Modded Minecraft Launcher";
+  "Nokiatis Launcher - Your All-In-One Modded Minecraft Launcher";
 
 export const DownloadItems: Array<{
   item: Element | string;

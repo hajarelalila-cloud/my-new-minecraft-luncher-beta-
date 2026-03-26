@@ -38,7 +38,7 @@ import { useModal } from "@/managers/ModalsManager"
 import { AccountEntry } from "@gd/core_module/bindings"
 import { getAccountImageUuid } from "@/utils/showcaseHelpers"
 
-const GDLAccountRowItem = (props: {
+const NokiatisAccountRowItem = (props: {
   title?: string
   value?: string | null | undefined
   children?: JSX.Element
@@ -191,7 +191,7 @@ const Accounts = () => {
   const gdNavigator = useGDNavigate()
   const modalsContext = useModal()
 
-  const removeGDLAccountMutation = rspc.createMutation(() => ({
+  const removeNokiatisAccountMutation = rspc.createMutation(() => ({
     mutationKey: ["account.removeGdlAccount"]
   }))
 
@@ -221,23 +221,23 @@ const Accounts = () => {
     mutationKey: ["account.clearNicknameHistory"]
   }))
 
-  const validGDLUser = () =>
-    globalStore.gdlAccount.data?.status === "valid"
-      ? globalStore.gdlAccount.data?.value
+  const validNokiatisUser = () =>
+    globalStore.nokiatisAccount.data?.status === "valid"
+      ? globalStore.nokiatisAccount.data?.value
       : undefined
 
-  const friendCode = createMemo(() => validGDLUser()?.friendCode)
+  const friendCode = createMemo(() => validNokiatisUser()?.friendCode)
 
   const nicknameHistoryQuery = rspc.createQuery(() => ({
     queryKey: ["account.getNicknameHistory", friendCode() ?? ""],
     enabled: !!friendCode()
   }))
 
-  const invalidGDLUser = () => globalStore.gdlAccount.data?.status === "invalid"
+  const invalidNokiatisUser = () => globalStore.nokiatisAccount.data?.status === "invalid"
 
-  // Initialize avatar preview from GDL account
+  // Initialize avatar preview from Nokiatis account
   createEffect(() => {
-    const url = validGDLUser()?.profileIconUrl
+    const url = validNokiatisUser()?.profileIconUrl
     if (url) {
       setAvatarPreview(url)
     } else {
@@ -290,12 +290,12 @@ const Accounts = () => {
   }
 
   const deleteAccountContent = () => {
-    if (validGDLUser()?.deletionTimeout) {
+    if (validNokiatisUser()?.deletionTimeout) {
       return (
         <Trans
           key="accounts:_trn_cannot_request_deletion_for_time"
           options={{
-            time: convertSecondsToHumanTime(validGDLUser()?.deletionTimeout!)
+            time: convertSecondsToHumanTime(validNokiatisUser()?.deletionTimeout!)
           }}
         />
       )
@@ -305,13 +305,13 @@ const Accounts = () => {
   }
 
   const verificationContent = () => {
-    if (validGDLUser()?.verificationTimeout) {
+    if (validNokiatisUser()?.verificationTimeout) {
       return (
         <Trans
           key="accounts:_trn_cannot_request_deletion_for_time"
           options={{
             time: convertSecondsToHumanTime(
-              validGDLUser()?.verificationTimeout!
+              validNokiatisUser()?.verificationTimeout!
             )
           }}
         />
@@ -337,29 +337,29 @@ const Accounts = () => {
       <RowsContainer>
         <Row forceContentBelow>
           <Title>
-            <Trans key="accounts:_trn_gdl_account_title" />
+            <Trans key="accounts:_trn_nokiatis_account_title" />
           </Title>
           <div class="bg-darkSlate-700 mb-6 p-4">
             <Switch>
-              <Match when={validGDLUser()}>
+              <Match when={validNokiatisUser()}>
                 <div class="flex flex-col gap-4">
                   <div class="flex items-center justify-between gap-2">
                     <div class="text-xl text-green-400">
-                      <Trans key="accounts:_trn_gdl_account_synced" />
+                      <Trans key="accounts:_trn_nokiatis_account_synced" />
                     </div>
 
                     <Popover>
                       <PopoverTrigger>
                         <Button type="outline">
                           <div class="i-hugeicons:logout-01 block h-6 w-6" />
-                          <Trans key="accounts:_trn_log_out_gdl_account" />
+                          <Trans key="accounts:_trn_log_out_nokiatis_account" />
                         </Button>
                       </PopoverTrigger>
                       <PopoverContent>
                         <Button
                           type="secondary"
                           onClick={() => {
-                            removeGDLAccountMutation.mutate(undefined)
+                            removeNokiatisAccountMutation.mutate(undefined)
                           }}
                         >
                           <div class="i-hugeicons:logout-01 block h-6 w-6" />
@@ -369,26 +369,26 @@ const Accounts = () => {
                     </Popover>
                   </div>
                   <Show
-                    when={validGDLUser() && !validGDLUser()?.isEmailVerified}
+                    when={validNokiatisUser() && !validNokiatisUser()?.isEmailVerified}
                   >
                     <div class="mb-4 flex items-center justify-between gap-8 rounded-md p-4 text-yellow-500 outline outline-yellow-500">
                       <div class="flex items-center gap-4">
                         <div class="i-hugeicons:alert-01 block h-6 w-6" />
-                        <Trans key="accounts:_trn_gdl_account_not_verified" />
+                        <Trans key="accounts:_trn_nokiatis_account_not_verified" />
                       </div>
                       <Tooltip>
                         <TooltipTrigger>
                           <Button
-                            disabled={!!validGDLUser()?.verificationTimeout}
+                            disabled={!!validNokiatisUser()?.verificationTimeout}
                             onClick={async () => {
                               const uuid = globalStore.accounts.data?.find(
                                 (account) =>
                                   account.uuid ===
-                                  globalStore.settings.data?.gdlAccountId
+                                  globalStore.settings.data?.nokiatisAccountId
                               )?.uuid
 
                               if (!uuid) {
-                                throw new Error("No active gdl account")
+                                throw new Error("No active nokiatis account")
                               }
 
                               const request =
@@ -421,18 +421,18 @@ const Accounts = () => {
                         onSelect={handleAvatarSelect}
                         onDelete={handleAvatarDelete}
                         isLoading={avatarLoading}
-                        deletable={!!validGDLUser()?.hasCustomAvatar}
+                        deletable={!!validNokiatisUser()?.hasCustomAvatar}
                         confirmDelete={true}
                         sizeClass="h-12 w-12"
                         class="rounded-md"
                         dialogTitle={t("accounts:_trn_select_avatar_image")}
                       />
-                      <GDLAccountRowItem
+                      <NokiatisAccountRowItem
                         title={t("accounts:_trn_nickname")}
-                        value={validGDLUser()?.nickname}
+                        value={validNokiatisUser()?.nickname}
                         onEdit={() => {
                           modalsContext?.openModal({
-                            name: "changeGDLAccountNickname"
+                            name: "changeNokiatisAccountNickname"
                           })
                         }}
                         extraAction={
@@ -510,36 +510,36 @@ const Accounts = () => {
                         }
                       />
                     </div>
-                    <GDLAccountRowItem
+                    <NokiatisAccountRowItem
                       title={t("accounts:_trn_friend_code")}
-                      value={validGDLUser()?.friendCode}
+                      value={validNokiatisUser()?.friendCode}
                     />
-                    <GDLAccountRowItem
+                    <NokiatisAccountRowItem
                       title={t("accounts:_trn_microsoft_username")}
                       value={
                         globalStore.accounts.data?.find(
                           (account) =>
                             account.uuid ===
-                            globalStore.settings.data?.gdlAccountId
+                            globalStore.settings.data?.nokiatisAccountId
                         )?.username
                       }
                     />
-                    <GDLAccountRowItem
+                    <NokiatisAccountRowItem
                       title={t("accounts:_trn_microsoft_oid")}
-                      value={validGDLUser()?.microsoftOid}
+                      value={validNokiatisUser()?.microsoftOid}
                     />
-                    <GDLAccountRowItem
+                    <NokiatisAccountRowItem
                       title={t("accounts:_trn_recovery_email")}
-                      value={validGDLUser()?.email}
+                      value={validNokiatisUser()?.email}
                       onEdit={() => {
                         modalsContext?.openModal({
-                          name: "changeGDLAccountRecoveryEmail"
+                          name: "changeNokiatisAccountRecoveryEmail"
                         })
                       }}
                     />
-                    <GDLAccountRowItem
+                    <NokiatisAccountRowItem
                       title={t("accounts:_trn_microsoft_email")}
-                      value={validGDLUser()?.microsoftEmail}
+                      value={validNokiatisUser()?.microsoftEmail}
                     />
                   </div>
                 </div>
@@ -557,10 +557,10 @@ const Accounts = () => {
                       <Button
                         variant="red"
                         size="large"
-                        disabled={!!validGDLUser()?.deletionTimeout}
+                        disabled={!!validNokiatisUser()?.deletionTimeout}
                         onClick={() => {
                           modalsContext?.openModal({
-                            name: "confirmGDLAccountDeletion"
+                            name: "confirmNokiatisAccountDeletion"
                           })
                         }}
                       >
@@ -572,40 +572,40 @@ const Accounts = () => {
                   </Tooltip>
                 </div>
               </Match>
-              <Match when={!validGDLUser() && !invalidGDLUser()}>
+              <Match when={!validNokiatisUser() && !invalidNokiatisUser()}>
                 <div class="flex items-center justify-between gap-2">
                   <div class="text-xl text-red-400">
-                    <Trans key="accounts:_trn_gdl_account_not_synced" />
+                    <Trans key="accounts:_trn_nokiatis_account_not_synced" />
                   </div>
 
                   <Button
                     type="outline"
                     onClick={async () => {
-                      await removeGDLAccountMutation.mutateAsync(undefined)
+                      await removeNokiatisAccountMutation.mutateAsync(undefined)
                       gdNavigator.navigate(
                         "/?addGdlAccount=true&returnTo=/settings/accounts"
                       )
                     }}
                   >
                     <div class="i-hugeicons:link-01 text-lg" />
-                    <Trans key="accounts:_trn_link_gdl_account" />
+                    <Trans key="accounts:_trn_link_nokiatis_account" />
                   </Button>
                 </div>
               </Match>
-              <Match when={invalidGDLUser()}>
+              <Match when={invalidNokiatisUser()}>
                 <div class="flex items-center justify-between gap-2">
                   <div class="text-xl text-yellow-400">
-                    <Trans key="accounts:_trn_gdl_account_error" />
+                    <Trans key="accounts:_trn_nokiatis_account_error" />
                   </div>
 
                   <Button
                     type="outline"
                     onClick={() => {
-                      removeGDLAccountMutation.mutate(undefined)
+                      removeNokiatisAccountMutation.mutate(undefined)
                     }}
                   >
                     <div class="i-hugeicons:logout-01 block h-6 w-6" />
-                    <Trans key="accounts:_trn_log_out_gdl_account" />
+                    <Trans key="accounts:_trn_log_out_nokiatis_account" />
                   </Button>
                 </div>
               </Match>
@@ -708,18 +708,18 @@ const Accounts = () => {
                                 <div
                                   class="i-hugeicons:delete-02 h-4 w-4"
                                   onClick={async () => {
-                                    const gdlAccountUuid =
-                                      globalStore.settings.data?.gdlAccountId
+                                    const nokiatisAccountUuid =
+                                      globalStore.settings.data?.nokiatisAccountId
                                     const accountsLength =
                                       globalStore.accounts.data?.length
 
                                     if (
-                                      gdlAccountUuid &&
-                                      gdlAccountUuid === row.original.uuid
+                                      nokiatisAccountUuid &&
+                                      nokiatisAccountUuid === row.original.uuid
                                     ) {
                                       modalsContext?.openModal(
                                         {
-                                          name: "confirmMsWithGDLAccountRemoval"
+                                          name: "confirmMsWithNokiatisAccountRemoval"
                                         },
                                         {
                                           uuid: row.original.uuid
@@ -791,7 +791,7 @@ const Accounts = () => {
 
 export default Accounts
 
-// Handle automatic redirect to gdl login that fails on peek because
+// Handle automatic redirect to nokiatis login that fails on peek because
 // all accounts are invalid because of the migration.
 // Maybe show special login page for this case?
-// or show gdl login but with all accounts disabled and a special message?
+// or show nokiatis login but with all accounts disabled and a special message?

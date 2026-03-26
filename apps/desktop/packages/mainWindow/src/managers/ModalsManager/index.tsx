@@ -115,24 +115,24 @@ const getDefaultModals = (t: TypedTFunction) => ({
     component: lazy(() => import("./modals/Changelogs")),
     title: t("modals:_trn_welcome_new_version")
   },
-  confirmGDLAccountDeletion: {
-    component: lazy(() => import("./modals/ConfirmGDLAccountDeletion")),
+  confirmNokiatisAccountDeletion: {
+    component: lazy(() => import("./modals/ConfirmNokiatisAccountDeletion")),
     title: t("modals:_trn_confirm_account_deletion")
   },
-  confirmMsWithGDLAccountRemoval: {
-    component: lazy(() => import("./modals/ConfirmMsWithGDLAccountRemoval")),
+  confirmMsWithNokiatisAccountRemoval: {
+    component: lazy(() => import("./modals/ConfirmMsWithNokiatisAccountRemoval")),
     title: t("modals:_trn_confirm_account_removal")
   },
   accountExpired: {
     component: lazy(() => import("./modals/AccountExpired")),
     title: t("modals:_trn_account_expired")
   },
-  changeGDLAccountRecoveryEmail: {
-    component: lazy(() => import("./modals/ChangeGDLAccountRecoveryEmail")),
+  changeNokiatisAccountRecoveryEmail: {
+    component: lazy(() => import("./modals/ChangeNokiatisAccountRecoveryEmail")),
     title: t("modals:_trn_change_recovery_email")
   },
-  changeGDLAccountNickname: {
-    component: lazy(() => import("./modals/ChangeGDLAccountNickname")),
+  changeNokiatisAccountNickname: {
+    component: lazy(() => import("./modals/ChangeNokiatisAccountNickname")),
     title: t("modals:_trn_change_nickname")
   },
   modDetails: {

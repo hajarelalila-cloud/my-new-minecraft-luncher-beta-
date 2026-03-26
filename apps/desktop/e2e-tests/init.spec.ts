@@ -20,7 +20,7 @@ const getRootPath = () => {
   } else if (process.platform === "linux") {
     basePath = path.join(basePath, "linux-unpacked")
   } else if (process.platform === "darwin") {
-    basePath = path.join(basePath, "mac-universal", "GDLauncher.app")
+    basePath = path.join(basePath, "mac-universal", "Nokiatis Launcher.app")
   }
 
   return basePath
@@ -30,11 +30,11 @@ const getBinaryPath = async () => {
   const rootPath = getRootPath()
 
   if (process.platform === "win32") {
-    return path.join(rootPath, "GDLauncher.exe")
+    return path.join(rootPath, "Nokiatis Launcher.exe")
   } else if (process.platform === "linux") {
     return path.join(rootPath, "@gddesktop")
   } else if (process.platform === "darwin") {
-    return path.join(rootPath, "Contents", "MacOS", "GDLauncher")
+    return path.join(rootPath, "Contents", "MacOS", "Nokiatis Launcher")
   }
 }
 
@@ -172,7 +172,7 @@ test.describe("Init Tests", () => {
     expect(errorInnerText).toBeUndefined()
 
     const title = await page.title()
-    expect(title).toBe("GDLauncher Carbon")
+    expect(title).toBe("Nokiatis Launcher Carbon")
   })
 
   test.afterAll(async () => {

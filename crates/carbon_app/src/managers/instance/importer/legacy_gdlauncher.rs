@@ -23,7 +23,7 @@ use tracing::trace;
 struct Importable {
     filename: String,
     path: PathBuf,
-    config: LegacyGDLauncherConfig,
+    config: LegacyNokiatis LauncherConfig,
 }
 
 impl From<Importable> for ImportableInstance {
@@ -36,11 +36,11 @@ impl From<Importable> for ImportableInstance {
 }
 
 #[derive(Debug)]
-pub struct LegacyGDLauncherImporter {
+pub struct LegacyNokiatis LauncherImporter {
     state: RwLock<ImporterState<Importable>>,
 }
 
-impl LegacyGDLauncherImporter {
+impl LegacyNokiatis LauncherImporter {
     pub fn new() -> Self {
         Self {
             state: RwLock::new(ImporterState::NoResults),
@@ -50,13 +50,13 @@ impl LegacyGDLauncherImporter {
     pub async fn get_default_scan_path() -> anyhow::Result<PathBuf> {
         let basedirs = directories::BaseDirs::new().ok_or(anyhow!("Cannot build basedirs"))?;
 
-        // old gdl did not respect the xdg basedirs spec on linux
+        // old nokiatis did not respect the xdg basedirs spec on linux
         #[cfg(target_os = "linux")]
         let p = basedirs.config_dir();
         #[cfg(not(target_os = "linux"))]
         let p = basedirs.data_dir();
 
-        let mut p = p.join("gdlauncher_next");
+        let mut p = p.join("nokiatis-launcher_next");
 
         let override_path = p.join("override.data");
         if override_path.exists() {
@@ -82,7 +82,7 @@ impl LegacyGDLauncherImporter {
         }
 
         let config = tokio::fs::read_to_string(config).await?;
-        let config = serde_json::from_str::<LegacyGDLauncherConfig>(&config);
+        let config = serde_json::from_str::<LegacyNokiatis LauncherConfig>(&config);
         let filename = path
             .file_name()
             .expect("filename cannot be empty")
@@ -104,7 +104,7 @@ impl LegacyGDLauncherImporter {
 }
 
 #[async_trait::async_trait]
-impl InstanceImporter for LegacyGDLauncherImporter {
+impl InstanceImporter for LegacyNokiatis LauncherImporter {
     async fn scan(&self, app: &Arc<AppInner>, scan_path: PathBuf) -> anyhow::Result<()> {
         if scan_path.is_dir() {
             let Ok(mut dir) = tokio::fs::read_dir(&scan_path).await else {
@@ -137,7 +137,7 @@ impl InstanceImporter for LegacyGDLauncherImporter {
         index: u32,
         name: Option<String>,
     ) -> anyhow::Result<VisualTaskId> {
-        trace!(?index, ?name, "Beginning legacy gdl import");
+        trace!(?index, ?name, "Beginning legacy nokiatis import");
 
         let instance = self
             .state
@@ -180,13 +180,13 @@ impl InstanceImporter for LegacyGDLauncherImporter {
 
                     let Some(project_id) = instance.config.loader.project_id else {
                         trace!(
-                            "Legacy gdl import specifies curseforge source but is missing project id, ignoring"
+                            "Legacy nokiatis import specifies curseforge source but is missing project id, ignoring"
                         );
                         break 'cf;
                     };
                     let Some(file_id) = instance.config.loader.file_id else {
                         trace!(
-                            "Legacy gdl import specifies curseforge source but is missing file id, ignoring"
+                            "Legacy nokiatis import specifies curseforge source but is missing file id, ignoring"
                         );
                         break 'cf;
                     };
@@ -278,7 +278,7 @@ impl InstanceImporter for LegacyGDLauncherImporter {
 
 #[derive(Debug, Clone, serde::Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct LegacyGDLauncherConfig {
+pub struct LegacyNokiatis LauncherConfig {
     loader: _Loader,
     time_played: Option<u32>,
     last_played: Option<u64>,

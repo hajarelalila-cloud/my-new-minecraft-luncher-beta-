@@ -1,5 +1,5 @@
 { pkgs ? import <nixpkgs> {} }: pkgs.mkShell {
-  name = "gdl-shell";
+  name = "nokiatis-shell";
 
   nativeBuildInputs = with pkgs; [
     nodejs-18_x

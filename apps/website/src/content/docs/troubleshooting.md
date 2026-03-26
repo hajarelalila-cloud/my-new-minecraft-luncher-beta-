@@ -4,20 +4,20 @@ title: "Troubleshooting"
 
 ## App Data Path
 
-This is the path where GDLauncher stores electron's data, as well as the Core Module Runtime Path by default.
+This is the path where Nokiatis Launcher stores electron's data, as well as the Core Module Runtime Path by default.
 
 ### Windows
 
-`C:\Users\\{{Your Username}}\\AppData\Roaming\gdlauncher_carbon`
+`C:\Users\\{{Your Username}}\\AppData\Roaming\nokiatis-launcher_carbon`
 
 ### macOS
 
-`/Users/{{Your Username}}/Library/Application Support/gdlauncher_carbon`
+`/Users/{{Your Username}}/Library/Application Support/nokiatis-launcher_carbon`
 
 ### Linux
 
-- if `$XDG_DATA_HOME` env is available: `$XDG_DATA_HOME/gdlauncher_carbon`
-- else: `{{homedir}}/.local/share/gdlauncher_carbon`
+- if `$XDG_DATA_HOME` env is available: `$XDG_DATA_HOME/nokiatis-launcher_carbon`
+- else: `{{homedir}}/.local/share/nokiatis-launcher_carbon`
 
 [More details on homedir](https://nodejs.org/api/os.html#oshomedir)
 
@@ -28,7 +28,7 @@ It is usually located in the same path as the App Data Path, nested in the `data
 
 ### App Database
 
-The app database is located in the Core Module Runtime Path, and it is a SQLite database file named `gdl_conf.db`.
+The app database is located in the Core Module Runtime Path, and it is a SQLite database file named `nokiatis_conf.db`.
 
 **DO NOT SEND THIS FILE TO ANYONE, IT CONTAINS SENSITIVE DATA.**
 
@@ -55,4 +55,4 @@ If all the files were copied successfully, it probably errored while trying to d
 
 Make sure to NOT DELETE the file called `runtime_path_override` in the old runtime path, as it is used by the app to detect if the runtime path has been changed.
 
-If you're in doubt, make sure to join our [discord server](https://discord.gdlauncher.com) and ask for help.
+If you're in doubt, make sure to join our [discord server](https://discord.nokiatis-launcher.com) and ask for help.

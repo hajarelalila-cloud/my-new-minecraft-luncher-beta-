@@ -5,7 +5,7 @@ import MultiMCLogo from "/assets/images/icons/multimc_logo.png"
 import TechnicLogo from "/assets/images/icons/technic_logo.svg"
 import PrismLogo from "/assets/images/icons/prism_logo.svg"
 import ModrinthLogo from "/assets/images/icons/modrinth_logo.svg"
-import LegacyGDL from "/assets/images/icons/legacy_gdlauncher.svg"
+import LegacyNokiatis from "/assets/images/icons/legacy_nokiatis-launcher.svg"
 import {
   CFFEModSearchSortField,
   ImportEntity,
@@ -49,9 +49,9 @@ interface EntityValue {
 }
 
 export const ENTITIES: Record<ImportEntity, EntityValue> = {
-  LegacyGDLauncher: {
-    translation: "enums:_trn_entity.legacygdlauncher",
-    icon: LegacyGDL
+  LegacyNokiatis Launcher: {
+    translation: "enums:_trn_entity.legacynokiatis-launcher",
+    icon: LegacyNokiatis
   },
   ATLauncher: {
     translation: "enums:_trn_entity.atlauncher",

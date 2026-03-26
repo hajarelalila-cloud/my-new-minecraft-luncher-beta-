@@ -42,7 +42,7 @@ pub(super) async fn load_and_migrate(
 
     let db_uri = format!(
         "file:{}?connection_limit=1",
-        runtime_path.join("gdl_conf.db").to_str().unwrap()
+        runtime_path.join("nokiatis_conf.db").to_str().unwrap()
     );
 
     let (migrations, migration_count) = carbon_repos::get_migrations();

@@ -359,7 +359,7 @@ impl TryFrom<MinecraftJavaProfile> for SystemJavaProfileName {
     }
 }
 
-pub const SYSTEM_JAVA_PROFILE_NAME_PREFIX: &str = "__gdl_system_java_profile__";
+pub const SYSTEM_JAVA_PROFILE_NAME_PREFIX: &str = "__nokiatis_system_java_profile__";
 
 impl ToString for SystemJavaProfileName {
     fn to_string(&self) -> String {

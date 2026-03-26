@@ -91,7 +91,7 @@ function AuthFlowInner(props: AuthFlowInnerProps) {
     accounts: globalStore.accounts.data!,
     isFirstLaunch: props.isFirstLaunch,
     termsAndPrivacyAccepted: globalStore.settings.data!.termsAndPrivacyAccepted,
-    gdlAccountId: globalStore.settings.data!.gdlAccountId,
+    nokiatisAccountId: globalStore.settings.data!.nokiatisAccountId,
     reducedMotion: globalStore.settings.data!.reducedMotion,
     isAddingMicrosoftFromSettings: searchParams.addMicrosoftAccount === "true",
     isAddingGdlFromSettings: searchParams.addGdlAccount === "true",
@@ -140,7 +140,7 @@ function AuthFlowInner(props: AuthFlowInnerProps) {
     queryKey: ["account.getAccounts"]
   }))
 
-  const gdlAccountQuery = rspc.createQuery(() => ({
+  const nokiatisAccountQuery = rspc.createQuery(() => ({
     queryKey: ["account.peekGdlAccount", config.activeUuid || ""],
     enabled: !!config.activeUuid
   }))
@@ -159,7 +159,7 @@ function AuthFlowInner(props: AuthFlowInnerProps) {
         createProfileMutation={createProfileMutation}
         enrollResumeMutation={enrollResumeMutation}
         accountsQuery={accountsQuery}
-        gdlAccountQuery={gdlAccountQuery}
+        nokiatisAccountQuery={nokiatisAccountQuery}
       >
         <AuthFlowContent />
       </FlowProvider>
@@ -182,14 +182,14 @@ function AuthFlowContent() {
   const [usernameError, setUsernameError] = createSignal<string | null>(null)
   const [buttonLoading, setButtonLoading] = createSignal(false)
 
-  // GDL account form state
-  const [gdlEmail, setGdlEmail] = createSignal("")
-  const [gdlNickname, setGdlNickname] = createSignal("")
-  const [gdlEmailError, setGdlEmailError] = createSignal<string | undefined>()
-  const [gdlNicknameError, setGdlNicknameError] = createSignal<
+  // Nokiatis account form state
+  const [nokiatisEmail, setGdlEmail] = createSignal("")
+  const [nokiatisNickname, setGdlNickname] = createSignal("")
+  const [nokiatisEmailError, setGdlEmailError] = createSignal<string | undefined>()
+  const [nokiatisNicknameError, setGdlNicknameError] = createSignal<
     string | undefined
   >()
-  const [gdlFormInitialized, setGdlFormInitialized] = createSignal(false)
+  const [nokiatisFormInitialized, setGdlFormInitialized] = createSignal(false)
 
   // Track if sidebar initial animation completed
   const [sidebarShown, setSidebarShown] = createSignal(false)
@@ -254,17 +254,17 @@ function AuthFlowContent() {
     onCleanup(() => clearTimeout(timer))
   })
 
-  // Initialize GDL form when entering gdl-account-form step
+  // Initialize Nokiatis form when entering nokiatis-account-form step
   createEffect(
     on(
       () => {
         const state = flow.state()
-        if (state.phase === "content" && state.step.type === "gdl-account-form")
+        if (state.phase === "content" && state.step.type === "nokiatis-account-form")
           return state.step
         return null
       },
       (step) => {
-        if (step && !gdlFormInitialized()) {
+        if (step && !nokiatisFormInitialized()) {
           // Set default nickname from step (Microsoft username)
           if (step.nickname) {
             setGdlNickname(step.nickname)
@@ -312,10 +312,10 @@ function AuthFlowContent() {
         )
 
         if (hasActiveMicrosoftAccount) {
-          const gdlState = await flow.checkGDLAccount()
+          const nokiatisState = await flow.checkNokiatisAccount()
 
-          if (gdlState.type === "none" || gdlState.type === "found-existing") {
-            await flow.goToStep({ type: "gdl-account", gdlAccount: gdlState })
+          if (nokiatisState.type === "none" || nokiatisState.type === "found-existing") {
+            await flow.goToStep({ type: "nokiatis-account", nokiatisAccount: nokiatisState })
           } else {
             await flow.exitFlow("library", true)
           }
@@ -339,8 +339,8 @@ function AuthFlowContent() {
 
     try {
       await flow.createProfile(step.accessToken, username())
-      const gdlState = await flow.checkGDLAccount()
-      await flow.goToStep({ type: "gdl-account", gdlAccount: gdlState })
+      const nokiatisState = await flow.checkNokiatisAccount()
+      await flow.goToStep({ type: "nokiatis-account", nokiatisAccount: nokiatisState })
     } catch (err: any) {
       console.error("Error creating profile:", err)
       if (err.message?.includes("InvalidUsername")) {
@@ -368,7 +368,7 @@ function AuthFlowContent() {
     }
   }
 
-  // GDL account form mutation
+  // Nokiatis account form mutation
   const registerGdlAccountMutation = rspc.createMutation(() => ({
     mutationKey: ["account.registerGdlAccount"]
   }))
@@ -377,16 +377,16 @@ function AuthFlowContent() {
     mutationKey: ["account.saveGdlAccount"]
   }))
 
-  // GDL account validation helpers
+  // Nokiatis account validation helpers
   const isGdlEmailValid = createMemo(() => {
-    const email = gdlEmail().trim()
+    const email = nokiatisEmail().trim()
     if (email.length === 0) return false
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(email)
   })
 
   const isGdlNicknameValid = createMemo(() => {
-    const nickname = gdlNickname().trim()
+    const nickname = nokiatisNickname().trim()
     return nickname.length >= 3
   })
 
@@ -397,12 +397,12 @@ function AuthFlowContent() {
   const handleRegisterGdlAccount = async () => {
     if (!canSubmitGdlForm()) {
       // Show validation errors
-      if (!gdlEmail().trim()) {
+      if (!nokiatisEmail().trim()) {
         setGdlEmailError("Email is required")
       } else if (!isGdlEmailValid()) {
         setGdlEmailError("Please enter a valid email address")
       }
-      if (!gdlNickname().trim()) {
+      if (!nokiatisNickname().trim()) {
         setGdlNicknameError("Nickname is required")
       } else if (!isGdlNicknameValid()) {
         setGdlNicknameError("Nickname must be at least 3 characters")
@@ -422,19 +422,19 @@ function AuthFlowContent() {
 
       // Register the account
       await registerGdlAccountMutation.mutateAsync({
-        email: gdlEmail().trim(),
-        nickname: gdlNickname().trim(),
+        email: nokiatisEmail().trim(),
+        nickname: nokiatisNickname().trim(),
         uuid: activeUuid
       })
 
       // Navigate to verification step
       await flow.goToStep({
-        type: "gdl-account-verification",
-        email: gdlEmail().trim(),
+        type: "nokiatis-account-verification",
+        email: nokiatisEmail().trim(),
         uuid: activeUuid
       })
     } catch (error) {
-      console.error("[AuthFlow] Failed to register GDL account:", error)
+      console.error("[AuthFlow] Failed to register Nokiatis account:", error)
       setGdlEmailError(
         error instanceof Error ? error.message : "Failed to create account"
       )
@@ -447,7 +447,7 @@ function AuthFlowContent() {
     setButtonLoading(true)
     try {
       const step = getCurrentStep()
-      if (step?.type === "gdl-account-verification") {
+      if (step?.type === "nokiatis-account-verification") {
         // Save the UUID even though not verified
         await saveGdlAccountMutation.mutateAsync(step.uuid)
       }
@@ -458,25 +458,25 @@ function AuthFlowContent() {
     }
   }
 
-  // GDL Account step handlers
+  // Nokiatis Account step handlers
   const handleSyncExistingAccount = async () => {
     const step = getCurrentStep()
-    if (step?.type !== "gdl-account") return
+    if (step?.type !== "nokiatis-account") return
 
-    const gdlAccount = step.gdlAccount
-    if (gdlAccount?.type !== "found-existing") return
+    const nokiatisAccount = step.nokiatisAccount
+    if (nokiatisAccount?.type !== "found-existing") return
 
     setButtonLoading(true)
     try {
-      await flow.linkExistingGDLAccount(gdlAccount.data)
+      await flow.linkExistingNokiatisAccount(nokiatisAccount.data)
       await flow.exitFlow("library", flow.data.isFirstLaunch)
     } catch (error) {
-      console.error("[AuthFlow] Failed to link GDL account:", error)
+      console.error("[AuthFlow] Failed to link Nokiatis account:", error)
       setButtonLoading(false)
     }
   }
 
-  const handleSetupGDLAccount = async () => {
+  const handleSetupNokiatisAccount = async () => {
     // Get default nickname from current account
     const account = flow.data.accounts.find(
       (acc) => acc.uuid === flow.data.activeUuid
@@ -484,7 +484,7 @@ function AuthFlowContent() {
     const defaultNickname = account?.username || ""
 
     await flow.goToStep({
-      type: "gdl-account-form",
+      type: "nokiatis-account-form",
       email: "",
       nickname: defaultNickname
     })
@@ -502,10 +502,10 @@ function AuthFlowContent() {
   const handleRetryGdlCheck = async () => {
     setButtonLoading(true)
     try {
-      const gdlState = await flow.checkGDLAccount(true)
-      await flow.goToStep({ type: "gdl-account", gdlAccount: gdlState })
+      const nokiatisState = await flow.checkNokiatisAccount(true)
+      await flow.goToStep({ type: "nokiatis-account", nokiatisAccount: nokiatisState })
     } catch (error) {
-      console.error("[AuthFlow] Failed to retry GDL check:", error)
+      console.error("[AuthFlow] Failed to retry Nokiatis check:", error)
     } finally {
       setButtonLoading(false)
     }
@@ -520,7 +520,7 @@ function AuthFlowContent() {
   let backButtonRef: HTMLDivElement | undefined
   let skipButtonRef: HTMLDivElement | undefined
   let welcomeToTextRef: HTMLDivElement | undefined
-  let gdlauncherTextRef: HTMLDivElement | undefined
+  let nokiatis-launcherTextRef: HTMLDivElement | undefined
 
   // Register refs when mounted
   onMount(() => {
@@ -533,7 +533,7 @@ function AuthFlowContent() {
       backButton: backButtonRef,
       skipButton: skipButtonRef,
       welcomeToText: welcomeToTextRef,
-      gdlauncherText: gdlauncherTextRef
+      nokiatis-launcherText: nokiatis-launcherTextRef
     })
 
     // Back button visibility will be handled by createEffect
@@ -577,12 +577,12 @@ function AuthFlowContent() {
           case "auth-method":
           case "enrolling":
           case "profile-creation":
-          case "gdl-account-form":
+          case "nokiatis-account-form":
             return true
           case "error":
-          case "gdl-account-verification":
+          case "nokiatis-account-verification":
             return false
-          case "gdl-account":
+          case "nokiatis-account":
             // Show back button when adding from settings (allows cancel)
             return flow.data.isAddingGdlFromSettings
           default:
@@ -611,13 +611,13 @@ function AuthFlowContent() {
           flow.data.isAddingGdlFromSettings
 
         // Show skip button when:
-        // 1. On gdl-account step AND NOT adding from settings AND user hasn't made a decision yet
-        // 2. On gdl-account-verification step (as "Verify Later")
+        // 1. On nokiatis-account step AND NOT adding from settings AND user hasn't made a decision yet
+        // 2. On nokiatis-account-verification step (as "Verify Later")
         const shouldShowSkip =
           (!isAddingFromSettings &&
-            step?.type === "gdl-account" &&
-            flow.data.gdlAccountId === null) ||
-          step?.type === "gdl-account-verification"
+            step?.type === "nokiatis-account" &&
+            flow.data.nokiatisAccountId === null) ||
+          step?.type === "nokiatis-account-verification"
 
         return shouldShowSkip
       },
@@ -651,10 +651,10 @@ function AuthFlowContent() {
       await animations.text.fadeIn("welcomeToText", { duration: 500 })
       await new Promise((resolve) => setTimeout(resolve, 800))
 
-      await animations.text.fadeIn("gdlauncherText", { duration: 600 })
+      await animations.text.fadeIn("nokiatis-launcherText", { duration: 600 })
       await new Promise((resolve) => setTimeout(resolve, 1200))
 
-      await animations.text.fadeOut(["welcomeToText", "gdlauncherText"], {
+      await animations.text.fadeOut(["welcomeToText", "nokiatis-launcherText"], {
         duration: 500
       })
     }
@@ -676,7 +676,7 @@ function AuthFlowContent() {
 
     switch (step.type) {
       case "welcome":
-        return <Trans key="auth:_trn_login.titles.welcome_to_gdlauncher" />
+        return <Trans key="auth:_trn_login.titles.welcome_to_nokiatis-launcher" />
       case "terms":
         return step.variant === "forced" ? (
           <Trans key="auth:_trn_login.titles.updated_terms" />
@@ -693,12 +693,12 @@ function AuthFlowContent() {
         )
       case "profile-creation":
         return <Trans key="auth:_trn_login.titles.create_profile" />
-      case "gdl-account":
+      case "nokiatis-account":
         return <Trans key="auth:_trn_login.enable_cloud_sync" />
-      case "gdl-account-form":
-        return <Trans key="auth:_trn_login.titles.create_gdl_account" />
-      case "gdl-account-verification":
-        return <Trans key="auth:_trn_login.titles.gdl_account_verification" />
+      case "nokiatis-account-form":
+        return <Trans key="auth:_trn_login.titles.create_nokiatis_account" />
+      case "nokiatis-account-verification":
+        return <Trans key="auth:_trn_login.titles.nokiatis_account_verification" />
       case "error":
         return <Trans key="auth:_trn_login.titles.something_went_wrong" />
       default:
@@ -814,25 +814,25 @@ function AuthFlowContent() {
                   )}
                 </Match>
 
-                <Match when={getStepAs("gdl-account")}>
+                <Match when={getStepAs("nokiatis-account")}>
                   {(step) => <GdlAccountStep step={step()} />}
                 </Match>
 
-                <Match when={getStepAs("gdl-account-form")}>
+                <Match when={getStepAs("nokiatis-account-form")}>
                   {(step) => (
                     <GdlAccountFormStep
                       step={step()}
-                      email={gdlEmail()}
-                      nickname={gdlNickname()}
+                      email={nokiatisEmail()}
+                      nickname={nokiatisNickname()}
                       onEmailChange={setGdlEmail}
                       onNicknameChange={setGdlNickname}
-                      emailError={gdlEmailError()}
-                      nicknameError={gdlNicknameError()}
+                      emailError={nokiatisEmailError()}
+                      nicknameError={nokiatisNicknameError()}
                     />
                   )}
                 </Match>
 
-                <Match when={getStepAs("gdl-account-verification")}>
+                <Match when={getStepAs("nokiatis-account-verification")}>
                   {(step) => <GdlAccountVerificationStep step={step()} />}
                 </Match>
 
@@ -900,16 +900,16 @@ function AuthFlowContent() {
                         { direction: "backward" }
                       )
                       break
-                    case "gdl-account":
+                    case "nokiatis-account":
                       // When adding from settings, return to settings
                       if (isAddingFromSettings) {
                         flow.exitFlow("settings")
                       }
                       break
-                    case "gdl-account-form":
-                      // Go back to gdl-account info step
+                    case "nokiatis-account-form":
+                      // Go back to nokiatis-account info step
                       flow.goToStep(
-                        { type: "gdl-account", gdlAccount: { type: "none" } },
+                        { type: "nokiatis-account", nokiatisAccount: { type: "none" } },
                         { direction: "backward" }
                       )
                       break
@@ -936,11 +936,11 @@ function AuthFlowContent() {
                 fullWidth
                 onClick={async () => {
                   const step = getCurrentStep()
-                  if (step?.type === "gdl-account") {
+                  if (step?.type === "nokiatis-account") {
                     // Save the skip decision
-                    await flow.skipGDLAccount()
+                    await flow.skipNokiatisAccount()
                     flow.exitFlow("library", flow.data.isFirstLaunch)
-                  } else if (step?.type === "gdl-account-verification") {
+                  } else if (step?.type === "nokiatis-account-verification") {
                     // Verify later - save UUID and exit
                     await handleVerifyLater()
                   } else {
@@ -952,7 +952,7 @@ function AuthFlowContent() {
                 disabled={buttonLoading()}
               >
                 <Show
-                  when={getCurrentStep()?.type === "gdl-account-verification"}
+                  when={getCurrentStep()?.type === "nokiatis-account-verification"}
                   fallback={
                     <>
                       <Trans key="auth:_trn_login.skip_for_now" />
@@ -1031,8 +1031,8 @@ function AuthFlowContent() {
               )}
             </Show>
 
-            {/* GDL Account Form Step - Register button */}
-            <Show when={getCurrentStep()?.type === "gdl-account-form"}>
+            {/* Nokiatis Account Form Step - Register button */}
+            <Show when={getCurrentStep()?.type === "nokiatis-account-form"}>
               <Button
                 size="large"
                 type="primary"
@@ -1046,10 +1046,10 @@ function AuthFlowContent() {
               </Button>
             </Show>
 
-            {/* GDL Account Step - Sync existing account button */}
+            {/* Nokiatis Account Step - Sync existing account button */}
             <Show
               when={
-                getStepAs("gdl-account")?.gdlAccount?.type === "found-existing"
+                getStepAs("nokiatis-account")?.nokiatisAccount?.type === "found-existing"
               }
             >
               <Button
@@ -1065,18 +1065,18 @@ function AuthFlowContent() {
               </Button>
             </Show>
 
-            {/* GDL Account Step - Enable Cloud Sync button (no existing account) */}
+            {/* Nokiatis Account Step - Enable Cloud Sync button (no existing account) */}
             <Show
               when={
-                getStepAs("gdl-account")?.gdlAccount?.type === "none" &&
-                flow.data.gdlAccountId !== ""
+                getStepAs("nokiatis-account")?.nokiatisAccount?.type === "none" &&
+                flow.data.nokiatisAccountId !== ""
               }
             >
               <Button
                 size="large"
                 type="primary"
                 fullWidth
-                onClick={handleSetupGDLAccount}
+                onClick={handleSetupNokiatisAccount}
                 loading={buttonLoading()}
                 disabled={buttonLoading()}
               >
@@ -1085,12 +1085,12 @@ function AuthFlowContent() {
               </Button>
             </Show>
 
-            {/* GDL Account Step - Continue button (already linked or skipped) */}
+            {/* Nokiatis Account Step - Continue button (already linked or skipped) */}
             <Show
               when={
-                getStepAs("gdl-account")?.gdlAccount?.type === "linked" ||
-                (getStepAs("gdl-account")?.gdlAccount?.type === "none" &&
-                  flow.data.gdlAccountId === "")
+                getStepAs("nokiatis-account")?.nokiatisAccount?.type === "linked" ||
+                (getStepAs("nokiatis-account")?.nokiatisAccount?.type === "none" &&
+                  flow.data.nokiatisAccountId === "")
               }
             >
               <Button
@@ -1106,8 +1106,8 @@ function AuthFlowContent() {
               </Button>
             </Show>
 
-            {/* GDL Account Step - Retry button (error state) */}
-            <Show when={getStepAs("gdl-account")?.gdlAccount?.type === "error"}>
+            {/* Nokiatis Account Step - Retry button (error state) */}
+            <Show when={getStepAs("nokiatis-account")?.nokiatisAccount?.type === "error"}>
               <Button
                 size="large"
                 type="primary"
@@ -1137,8 +1137,8 @@ function AuthFlowContent() {
           <div ref={welcomeToTextRef} class="opacity-0">
             <Trans key="auth:_trn_login.welcome_to" />
           </div>
-          <div ref={gdlauncherTextRef} class="opacity-0">
-            <Trans key="auth:_trn_login.gdlauncher" />
+          <div ref={nokiatis-launcherTextRef} class="opacity-0">
+            <Trans key="auth:_trn_login.nokiatis-launcher" />
           </div>
         </div>
         <div

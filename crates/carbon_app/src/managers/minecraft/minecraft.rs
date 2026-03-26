@@ -390,7 +390,7 @@ fn replace_placeholder(replacer_args: &ReplacerArgs, placeholder: ArgPlaceholder
         ArgPlaceholder::UserProperties => replacer_args.user_properties.clone(), // Not sure what this is,
         ArgPlaceholder::ClassPath => replacer_args.libraries.clone(),
         ArgPlaceholder::NativesDirectory => replacer_args.natives_path.display().to_string(),
-        ArgPlaceholder::LauncherName => "GDLauncher".to_string(),
+        ArgPlaceholder::LauncherName => "Nokiatis Launcher".to_string(),
         ArgPlaceholder::LauncherVersion => APP_VERSION.to_string(),
         ArgPlaceholder::ClasspathSeparator => CLASSPATH_SEPARATOR.to_string(),
         ArgPlaceholder::LibraryDirectory => replacer_args

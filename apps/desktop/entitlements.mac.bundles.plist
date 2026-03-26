@@ -53,7 +53,7 @@
                 <string>mrpack</string>
             </array>
             <key>CFBundleTypeName</key>
-            <string>GDLauncher instance</string>
+            <string>Nokiatis Launcher instance</string>
             <key>CFBundleTypeOSTypes</key>
             <array>
                 <string>TEXT</string>

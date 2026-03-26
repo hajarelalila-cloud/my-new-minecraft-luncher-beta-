@@ -1046,7 +1046,7 @@ displayName = "TestMod"
     "TestAuthor2"
   ],
   "contact": {
-    "homepage": "https://gdlauncher.com/",
+    "homepage": "https://nokiatis-launcher.com/",
     "sources": "https://github.com/grilla-devs/fabric-test-mod"
   },
 
@@ -1138,7 +1138,7 @@ displayName = "TestMod"
 				"TestAuthor2": "SomeOtherRole"
 			},
 			"contact": {
-				"homepage": "https://gdlauncher.com/",
+				"homepage": "https://nokiatis-launcher.com/",
 				"issues": "https://github.com/grilla-devs/quilt-test-mod/issues",
 				"sources": "https://github.com/grilla-devs/quilt-test-mod"
 			},

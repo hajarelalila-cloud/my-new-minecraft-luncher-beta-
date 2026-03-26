@@ -42,8 +42,8 @@ function getMessage(
     case "checking-account":
       return "auth:_trn_login.checking_account"
 
-    case "checking-gdl":
-      return "auth:_trn_login.checking_gdl_account"
+    case "checking-nokiatis":
+      return "auth:_trn_login.checking_nokiatis_account"
 
     default:
       return null

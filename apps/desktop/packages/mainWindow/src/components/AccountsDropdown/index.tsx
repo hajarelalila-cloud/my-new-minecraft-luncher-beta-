@@ -45,12 +45,12 @@ export const AccountsDropdown = (props: Props) => {
     mutationKey: ["account.setActiveUuid"]
   }))
 
-  const validGDLUser = () =>
-    globalStore.gdlAccount.data?.status === "valid"
-      ? globalStore.gdlAccount.data?.value
+  const validNokiatisUser = () =>
+    globalStore.nokiatisAccount.data?.status === "valid"
+      ? globalStore.nokiatisAccount.data?.value
       : undefined
 
-  let gdlAccountRef: HTMLDivElement | undefined
+  let nokiatisAccountRef: HTMLDivElement | undefined
   let mcAccountsRef: HTMLDivElement | undefined
   let settingsButtonRef: HTMLDivElement | undefined
 
@@ -63,8 +63,8 @@ export const AccountsDropdown = (props: Props) => {
 
         if (!open) return
 
-        if (gdlAccountRef) {
-          gdlAccountRef.animate(
+        if (nokiatisAccountRef) {
+          nokiatisAccountRef.animate(
             [
               {
                 opacity: 0
@@ -161,12 +161,12 @@ export const AccountsDropdown = (props: Props) => {
         <div class="flex flex-col gap-1">
           <div
             class="bg-darkSlate-700 shadow-darkSlate-900 mr-2 h-auto w-full rounded-lg p-2 opacity-0 shadow-lg transition-opacity"
-            ref={gdlAccountRef}
+            ref={nokiatisAccountRef}
           >
             <div class="flex items-center gap-4 px-4 py-2 text-xl">
               <img src={logoUrl} class="h-6 w-6" />
               <div>
-                <Trans key="accounts:_trn_gdlauncher_account" />
+                <Trans key="accounts:_trn_nokiatis-launcher_account" />
               </div>
             </div>
             <hr class="border-darkSlate-50 w-full opacity-20" />
@@ -180,14 +180,14 @@ export const AccountsDropdown = (props: Props) => {
                 </div>
               }
             >
-              <Match when={validGDLUser()}>
+              <Match when={validNokiatisUser()}>
                 <div class="flex items-center gap-4 rounded-lg px-4 py-2">
                   <img
-                    src={validGDLUser()?.profileIconUrl}
+                    src={validNokiatisUser()?.profileIconUrl}
                     class="h-6 w-6 rounded-md"
                   />
                   <div class="max-w-50 truncate">
-                    {validGDLUser()?.nickname}
+                    {validNokiatisUser()?.nickname}
                   </div>
                 </div>
               </Match>

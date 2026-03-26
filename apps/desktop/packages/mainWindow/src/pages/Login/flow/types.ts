@@ -8,7 +8,7 @@ import type {
   AccountType,
   AccountStatus,
   XboxError,
-  FEGDLAccount
+  FENokiatisAccount
 } from "@gd/core_module/bindings"
 
 // Re-export types from bindings for convenience
@@ -21,7 +21,7 @@ export type {
   AccountType,
   AccountStatus,
   XboxError,
-  FEGDLAccount
+  FENokiatisAccount
 }
 
 // ============================================================================
@@ -35,7 +35,7 @@ export type {
 export type LoadingOperation =
   | "initializing"
   | "checking-account"
-  | "checking-gdl"
+  | "checking-nokiatis"
 
 export type AuthFlowState =
   // Global loading states (show spinner overlay, no sidebar)
@@ -78,19 +78,19 @@ export type AuthStep =
       method: "browser" | "device-code"
     }
   | { type: "profile-creation"; accessToken: string }
-  | { type: "gdl-account"; gdlAccount: GDLAccountState }
-  | { type: "gdl-account-form"; email?: string; nickname?: string }
-  | { type: "gdl-account-verification"; email: string; uuid: string }
+  | { type: "nokiatis-account"; nokiatisAccount: NokiatisAccountState }
+  | { type: "nokiatis-account-form"; email?: string; nickname?: string }
+  | { type: "nokiatis-account-verification"; email: string; uuid: string }
   | { type: "error"; message: string; canRetry: boolean }
 
 // EnrollmentStatus, DeviceCode, EnrollmentError types are imported from bindings
 
 /**
- * GDL account state
+ * Nokiatis account state
  */
-export type GDLAccountState =
-  | { type: "none" } // No GDL account
-  | { type: "found-existing"; data: FEGDLAccount } // Found existing account
+export type NokiatisAccountState =
+  | { type: "none" } // No Nokiatis account
+  | { type: "found-existing"; data: FENokiatisAccount } // Found existing account
   | { type: "linked" } // Already linked
   | { type: "error"; message: string } // Error checking account
 
@@ -112,11 +112,11 @@ export interface AuthSharedData {
   termsAndPrivacyAccepted: boolean
   reducedMotion: boolean
 
-  // GDL account
-  gdlAccountId: string | null
-  hasGDLAccount: boolean
-  foundGDLAccountData: FEGDLAccount | null
-  pendingGDLAccountUuid: string | null
+  // Nokiatis account
+  nokiatisAccountId: string | null
+  hasNokiatisAccount: boolean
+  foundNokiatisAccountData: FENokiatisAccount | null
+  pendingNokiatisAccountUuid: string | null
 
   // UI state
   termsAccepted: boolean
@@ -170,7 +170,7 @@ export type AnimationRefName =
   | "backButton"
   | "skipButton"
   | "welcomeToText"
-  | "gdlauncherText"
+  | "nokiatis-launcherText"
 
 /**
  * Collection of DOM refs for animations
@@ -220,10 +220,10 @@ export interface FlowController {
     username: string
   ): Promise<"available" | "taken" | "notallowed">
   createProfile(accessToken: string, username: string): Promise<void>
-  checkGDLAccount(showLoading?: boolean): Promise<GDLAccountState>
-  setupGDLAccount(): Promise<void>
-  linkExistingGDLAccount(gdlAccountData: any): Promise<void>
-  skipGDLAccount(): Promise<void>
+  checkNokiatisAccount(showLoading?: boolean): Promise<NokiatisAccountState>
+  setupNokiatisAccount(): Promise<void>
+  linkExistingNokiatisAccount(nokiatisAccountData: any): Promise<void>
+  skipNokiatisAccount(): Promise<void>
   checkExistingAccount(): Promise<void>
   completeAuth(uuid: string): Promise<void>
   finalizeEnrollment(): Promise<void>
@@ -317,7 +317,7 @@ export interface AuthFlowConfig {
   // Settings
   isFirstLaunch: boolean
   termsAndPrivacyAccepted: boolean
-  gdlAccountId: string | null
+  nokiatisAccountId: string | null
   reducedMotion: boolean
 
   // Navigation context

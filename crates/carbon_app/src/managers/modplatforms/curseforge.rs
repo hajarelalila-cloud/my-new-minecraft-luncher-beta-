@@ -454,12 +454,12 @@ pub async fn convert_cf_version_to_standard_version(
         .into_iter()
         .collect();
 
-    let gdl_version = StandardVersion {
+    let nokiatis_version = StandardVersion {
         release: curseforge_version.version.clone(),
         modloaders,
     };
 
-    Ok(gdl_version)
+    Ok(nokiatis_version)
 }
 
 pub fn convert_standard_version_to_cf_version(

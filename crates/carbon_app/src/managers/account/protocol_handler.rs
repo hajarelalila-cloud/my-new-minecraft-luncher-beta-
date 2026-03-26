@@ -5,16 +5,16 @@ use tokio::sync::RwLock;
 use tracing::{debug, error, info, warn};
 use url::Url;
 
-/// Protocol handler for OAuth callbacks via gdlauncher:// custom protocol.
+/// Protocol handler for OAuth callbacks via nokiatis-launcher:// custom protocol.
 ///
 /// This serves as a fallback mechanism for systems where localhost OAuth
 /// redirects don't work properly (e.g., some security software, corporate proxies).
 ///
-/// Expected URL format: `gdlauncher://oauth/callback?code=...&state=...`
+/// Expected URL format: `nokiatis-launcher://oauth/callback?code=...&state=...`
 ///
 /// Flow:
-/// 1. Microsoft OAuth redirects to gdlauncher://oauth/callback?code=...&state=...
-/// 2. OS launches GDLauncher with the protocol URL
+/// 1. Microsoft OAuth redirects to nokiatis-launcher://oauth/callback?code=...&state=...
+/// 2. OS launches Nokiatis Launcher with the protocol URL
 /// 3. Electron main process captures the URL via 'open-url' event
 /// 4. Frontend calls rspc mutation with the callback data
 /// 5. This handler parses and validates the callback
@@ -47,7 +47,7 @@ impl ProtocolHandler {
 
     /// Parse and store an OAuth callback from a protocol URL
     ///
-    /// Expected URL format: `gdlauncher://oauth/callback?code=...&state=...`
+    /// Expected URL format: `nokiatis-launcher://oauth/callback?code=...&state=...`
     ///
     /// Note: The URL parser interprets `oauth` as the host component and `/callback`
     /// as the path. The validation logic handles this standard custom protocol format.
@@ -59,16 +59,16 @@ impl ProtocolHandler {
             Url::parse(protocol_url).map_err(|e| anyhow::anyhow!("Invalid protocol URL: {}", e))?;
 
         // Validate scheme
-        if url.scheme() != "gdlauncher" {
+        if url.scheme() != "nokiatis-launcher" {
             bail!(
-                "Invalid protocol scheme: expected 'gdlauncher', got '{}'",
+                "Invalid protocol scheme: expected 'nokiatis-launcher', got '{}'",
                 url.scheme()
             );
         }
 
         // Validate path
         // The URL parser treats 'oauth' as the host and '/callback' as the path
-        // For example: gdlauncher://oauth/callback -> host="oauth", path="/callback"
+        // For example: nokiatis-launcher://oauth/callback -> host="oauth", path="/callback"
         let host = url.host_str();
         let path = url.path();
 
@@ -81,7 +81,7 @@ impl ProtocolHandler {
 
         if !is_valid {
             bail!(
-                "Invalid protocol URL: expected 'gdlauncher://oauth/callback', got host={:?} path='{}'",
+                "Invalid protocol URL: expected 'nokiatis-launcher://oauth/callback', got host={:?} path='{}'",
                 host,
                 path
             );
@@ -161,7 +161,7 @@ mod tests {
     #[tokio::test]
     async fn test_parse_valid_callback() {
         let handler = ProtocolHandler::new();
-        let url = "gdlauncher://oauth/callback?code=test_code_123&state=test_state";
+        let url = "nokiatis-launcher://oauth/callback?code=test_code_123&state=test_state";
 
         let result = handler.handle_callback(url).await;
         assert!(result.is_ok());
@@ -180,7 +180,7 @@ mod tests {
         let handler = ProtocolHandler::new();
         // Test with standard format
         let url =
-            "gdlauncher://oauth/callback?error=access_denied&error_description=User%20cancelled";
+            "nokiatis-launcher://oauth/callback?error=access_denied&error_description=User%20cancelled";
 
         let result = handler.handle_callback(url).await;
         assert!(result.is_err());
@@ -201,7 +201,7 @@ mod tests {
     #[tokio::test]
     async fn test_invalid_path() {
         let handler = ProtocolHandler::new();
-        let url = "gdlauncher://wrong/path?code=test";
+        let url = "nokiatis-launcher://wrong/path?code=test";
 
         let result = handler.handle_callback(url).await;
         assert!(result.is_err());
@@ -210,7 +210,7 @@ mod tests {
     #[tokio::test]
     async fn test_missing_code() {
         let handler = ProtocolHandler::new();
-        let url = "gdlauncher://oauth/callback";
+        let url = "nokiatis-launcher://oauth/callback";
 
         let result = handler.handle_callback(url).await;
         assert!(result.is_err());
@@ -219,7 +219,7 @@ mod tests {
     #[tokio::test]
     async fn test_take_pending_code_consumes() {
         let handler = ProtocolHandler::new();
-        let url = "gdlauncher://oauth/callback?code=test";
+        let url = "nokiatis-launcher://oauth/callback?code=test";
 
         handler.handle_callback(url).await.unwrap();
 

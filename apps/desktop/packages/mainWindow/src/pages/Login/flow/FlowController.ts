@@ -5,7 +5,7 @@ import type {
 } from "@tanstack/solid-query"
 import type { RSPCError } from "@rspc/client"
 import type {
-  FEGDLAccount,
+  FENokiatisAccount,
   FESettingsUpdate,
   FECheckUsernameAvailability,
   FECreateProfile,
@@ -17,7 +17,7 @@ import type {
   AuthStep,
   AuthSharedData,
   FlowController,
-  GDLAccountState,
+  NokiatisAccountState,
   AccountEntry,
   LoadingOperation,
   TransitionDirection
@@ -79,7 +79,7 @@ export class FlowControllerImpl implements FlowController {
   >
   private enrollResumeMutation: CreateMutationResult<null, RSPCError, undefined>
   private accountsQuery: CreateQueryResult<AccountEntry[], RSPCError>
-  private gdlAccountQuery: CreateQueryResult<FEGDLAccount | null, RSPCError>
+  private nokiatisAccountQuery: CreateQueryResult<FENokiatisAccount | null, RSPCError>
 
   // Abort controller for cancelling pending operations
   private abortController: AbortController | null = null
@@ -110,7 +110,7 @@ export class FlowControllerImpl implements FlowController {
       >
       enrollResumeMutation: CreateMutationResult<null, RSPCError, undefined>
       accountsQuery: CreateQueryResult<AccountEntry[], RSPCError>
-      gdlAccountQuery: CreateQueryResult<FEGDLAccount | null, RSPCError>
+      nokiatisAccountQuery: CreateQueryResult<FENokiatisAccount | null, RSPCError>
     }
   ) {
     // Initialize shared data from config
@@ -120,10 +120,10 @@ export class FlowControllerImpl implements FlowController {
       isFirstLaunch: config.isFirstLaunch,
       termsAndPrivacyAccepted: config.termsAndPrivacyAccepted,
       reducedMotion: config.reducedMotion,
-      gdlAccountId: config.gdlAccountId,
-      hasGDLAccount: false,
-      foundGDLAccountData: null,
-      pendingGDLAccountUuid: null,
+      nokiatisAccountId: config.nokiatisAccountId,
+      hasNokiatisAccount: false,
+      foundNokiatisAccountData: null,
+      pendingNokiatisAccountUuid: null,
       termsAccepted: config.termsAndPrivacyAccepted,
       currentOccasion: config.currentOccasion,
       isAddingMicrosoftFromSettings: config.isAddingMicrosoftFromSettings,
@@ -144,7 +144,7 @@ export class FlowControllerImpl implements FlowController {
     this.createProfileMutation = deps.createProfileMutation
     this.enrollResumeMutation = deps.enrollResumeMutation
     this.accountsQuery = deps.accountsQuery
-    this.gdlAccountQuery = deps.gdlAccountQuery
+    this.nokiatisAccountQuery = deps.nokiatisAccountQuery
 
     // Create abort controller for this initialization
     this.abortController = new AbortController()
@@ -432,10 +432,10 @@ export class FlowControllerImpl implements FlowController {
     }
   }
 
-  async setupGDLAccount(): Promise<void> {
+  async setupNokiatisAccount(): Promise<void> {
     try {
-      // This would open a modal or navigate to GDL account setup
-      // For now, just save an empty GDL account ID to indicate "asked but skipped"
+      // This would open a modal or navigate to Nokiatis account setup
+      // For now, just save an empty Nokiatis account ID to indicate "asked but skipped"
       await this.saveGdlAccountMutation.mutateAsync("")
 
       // Refetch settings to update cache
@@ -444,14 +444,14 @@ export class FlowControllerImpl implements FlowController {
       })
 
       // Update local state
-      this.data.gdlAccountId = ""
+      this.data.nokiatisAccountId = ""
     } catch (error) {
-      console.error("[FlowController] Failed to setup GDL account:", error)
+      console.error("[FlowController] Failed to setup Nokiatis account:", error)
       throw error
     }
   }
 
-  async linkExistingGDLAccount(_gdlAccountData: any): Promise<void> {
+  async linkExistingNokiatisAccount(_nokiatisAccountData: any): Promise<void> {
     try {
       await this.saveGdlAccountMutation.mutateAsync(this.data.activeUuid)
 
@@ -461,17 +461,17 @@ export class FlowControllerImpl implements FlowController {
       })
 
       // Update local state
-      this.data.gdlAccountId = this.data.activeUuid!
+      this.data.nokiatisAccountId = this.data.activeUuid!
     } catch (error) {
       console.error(
-        "[FlowController] Failed to link existing GDL account:",
+        "[FlowController] Failed to link existing Nokiatis account:",
         error
       )
       throw error
     }
   }
 
-  async skipGDLAccount(): Promise<void> {
+  async skipNokiatisAccount(): Promise<void> {
     try {
       // Save empty string to indicate user chose to skip
       await this.saveGdlAccountMutation.mutateAsync("")
@@ -482,20 +482,20 @@ export class FlowControllerImpl implements FlowController {
       })
 
       // Update local state
-      this.data.gdlAccountId = ""
+      this.data.nokiatisAccountId = ""
     } catch (error) {
-      console.error("[FlowController] Failed to save skip GDL account:", error)
+      console.error("[FlowController] Failed to save skip Nokiatis account:", error)
       throw error
     }
   }
 
-  async checkGDLAccount(showLoading = false): Promise<GDLAccountState> {
+  async checkNokiatisAccount(showLoading = false): Promise<NokiatisAccountState> {
     if (showLoading) {
-      this.showGlobalLoading("checking-gdl")
+      this.showGlobalLoading("checking-nokiatis")
     }
 
     try {
-      const { activeUuid, gdlAccountId } = this.data
+      const { activeUuid, nokiatisAccountId } = this.data
 
       if (!activeUuid) {
         return { type: "none" }
@@ -511,28 +511,28 @@ export class FlowControllerImpl implements FlowController {
         throw new Error(`Account ${activeUuid} not found`)
       }
 
-      // Check cloud for GDL account
+      // Check cloud for Nokiatis account
       try {
-        const gdlAccount = await this.rspcContext.client.query([
+        const nokiatisAccount = await this.rspcContext.client.query([
           "account.peekGdlAccount",
           activeUuid
         ])
 
-        if (gdlAccount) {
-          this.data.hasGDLAccount = true
-          this.data.foundGDLAccountData = gdlAccount
+        if (nokiatisAccount) {
+          this.data.hasNokiatisAccount = true
+          this.data.foundNokiatisAccountData = nokiatisAccount
 
           // Check if it's the same as local
-          if (gdlAccountId === activeUuid) {
+          if (nokiatisAccountId === activeUuid) {
             return { type: "linked" }
           }
 
-          return { type: "found-existing", data: gdlAccount }
+          return { type: "found-existing", data: nokiatisAccount }
         }
 
         return { type: "none" }
       } catch (error) {
-        console.error("[FlowController] Failed to peek GDL account:", error)
+        console.error("[FlowController] Failed to peek Nokiatis account:", error)
         const errorMessage =
           error instanceof Error ? error.message : "Failed to check account"
         return { type: "error", message: errorMessage }
@@ -545,19 +545,19 @@ export class FlowControllerImpl implements FlowController {
   async checkExistingAccount(): Promise<void> {
     try {
       // If user already skipped (empty string) AND not adding from settings, exit immediately
-      if (this.data.gdlAccountId === "" && !this.data.isAddingGdlFromSettings) {
+      if (this.data.nokiatisAccountId === "" && !this.data.isAddingGdlFromSettings) {
         await this.exitFlow("library")
         return
       }
 
-      this.showGlobalLoading("checking-gdl")
+      this.showGlobalLoading("checking-nokiatis")
 
-      const { activeUuid, gdlAccountId } = this.data
+      const { activeUuid, nokiatisAccountId } = this.data
 
       if (!activeUuid) {
         this.setState({
           phase: "content",
-          step: { type: "gdl-account", gdlAccount: { type: "none" } }
+          step: { type: "nokiatis-account", nokiatisAccount: { type: "none" } }
         })
         return
       }
@@ -572,21 +572,21 @@ export class FlowControllerImpl implements FlowController {
         throw new Error(`Account ${activeUuid} not found`)
       }
 
-      // Check cloud for GDL account
+      // Check cloud for Nokiatis account
       try {
-        const gdlAccount = await this.rspcContext.client.query([
+        const nokiatisAccount = await this.rspcContext.client.query([
           "account.peekGdlAccount",
           activeUuid
         ])
 
-        if (gdlAccount) {
-          this.data.hasGDLAccount = true
-          this.data.foundGDLAccountData = gdlAccount
+        if (nokiatisAccount) {
+          this.data.hasNokiatisAccount = true
+          this.data.foundNokiatisAccountData = nokiatisAccount
 
           // Check if verified
-          if (gdlAccount.isEmailVerified) {
+          if (nokiatisAccount.isEmailVerified) {
             // Already verified - check if same as local
-            if (gdlAccountId === activeUuid) {
+            if (nokiatisAccountId === activeUuid) {
               // Already linked - exit to library
               await this.exitFlow("library")
               return
@@ -595,8 +595,8 @@ export class FlowControllerImpl implements FlowController {
             this.setState({
               phase: "content",
               step: {
-                type: "gdl-account",
-                gdlAccount: { type: "found-existing", data: gdlAccount }
+                type: "nokiatis-account",
+                nokiatisAccount: { type: "found-existing", data: nokiatisAccount }
               }
             })
           } else {
@@ -604,8 +604,8 @@ export class FlowControllerImpl implements FlowController {
             this.setState({
               phase: "content",
               step: {
-                type: "gdl-account-verification",
-                email: gdlAccount.email,
+                type: "nokiatis-account-verification",
+                email: nokiatisAccount.email,
                 uuid: activeUuid
               }
             })
@@ -613,20 +613,20 @@ export class FlowControllerImpl implements FlowController {
           return
         }
 
-        // No GDL account found
+        // No Nokiatis account found
         this.setState({
           phase: "content",
-          step: { type: "gdl-account", gdlAccount: { type: "none" } }
+          step: { type: "nokiatis-account", nokiatisAccount: { type: "none" } }
         })
       } catch (error) {
-        console.error("[FlowController] Failed to peek GDL account:", error)
+        console.error("[FlowController] Failed to peek Nokiatis account:", error)
         const errorMessage =
           error instanceof Error ? error.message : "Failed to check account"
         this.setState({
           phase: "content",
           step: {
-            type: "gdl-account",
-            gdlAccount: { type: "error", message: errorMessage }
+            type: "nokiatis-account",
+            nokiatisAccount: { type: "error", message: errorMessage }
           }
         })
       }
@@ -653,11 +653,11 @@ export class FlowControllerImpl implements FlowController {
     const accountsResult = await this.accountsQuery.refetch()
     this.data.accounts = accountsResult.data || []
 
-    // If dual-flow (Microsoft + GDL), proceed to GDL setup
+    // If dual-flow (Microsoft + Nokiatis), proceed to Nokiatis setup
     if (this.data.shouldSetupGdlAfterAuth) {
-      // Navigate to gdl-account step for GDL account checking
-      await this.goToStep({ type: "gdl-account", gdlAccount: { type: "none" } })
-      // Trigger GDL account check
+      // Navigate to nokiatis-account step for Nokiatis account checking
+      await this.goToStep({ type: "nokiatis-account", nokiatisAccount: { type: "none" } })
+      // Trigger Nokiatis account check
       await this.checkExistingAccount()
     }
   }
@@ -682,7 +682,7 @@ export class FlowControllerImpl implements FlowController {
       ])
 
       // Get the new active UUID from the backend and update local state
-      // This is critical for checkGDLAccount() to work correctly after enrollment
+      // This is critical for checkNokiatisAccount() to work correctly after enrollment
       const activeUuid = await this.rspcContext.client.query([
         "account.getActiveUuid"
       ])
@@ -727,7 +727,7 @@ export class FlowControllerImpl implements FlowController {
       activeUuid,
       accounts,
       termsAndPrivacyAccepted,
-      gdlAccountId,
+      nokiatisAccountId,
       isAddingMicrosoftFromSettings,
       isAddingGdlFromSettings
     } = this.data
@@ -737,18 +737,18 @@ export class FlowControllerImpl implements FlowController {
       return { type: "auth-method" }
     }
 
-    // Adding GDL account from settings - check for existing account
+    // Adding Nokiatis account from settings - check for existing account
     if (isAddingGdlFromSettings) {
-      // GDL account requires a Microsoft account to be logged in
+      // Nokiatis account requires a Microsoft account to be logged in
       if (!activeUuid || accounts.length === 0) {
         console.warn(
-          "[FlowController] Cannot add GDL account without Microsoft account"
+          "[FlowController] Cannot add Nokiatis account without Microsoft account"
         )
         // User needs to sign in with Microsoft first
         return { type: "auth-method" }
       }
-      // Go directly to GDL account checking (will load in initializeFlow)
-      return { type: "gdl-account", gdlAccount: { type: "none" } }
+      // Go directly to Nokiatis account checking (will load in initializeFlow)
+      return { type: "nokiatis-account", nokiatisAccount: { type: "none" } }
     }
 
     // Forced terms reacceptance for returning users
@@ -760,16 +760,16 @@ export class FlowControllerImpl implements FlowController {
     if (
       activeUuid &&
       termsAndPrivacyAccepted &&
-      gdlAccountId // Truthy check: excludes null, "", and undefined
+      nokiatisAccountId // Truthy check: excludes null, "", and undefined
     ) {
-      // User has GDL account linked - fast path
-      return { type: "gdl-account", gdlAccount: { type: "none" } }
+      // User has Nokiatis account linked - fast path
+      return { type: "nokiatis-account", nokiatisAccount: { type: "none" } }
     }
 
-    // Existing account needs GDL check
+    // Existing account needs Nokiatis check
     if (activeUuid) {
       // Will load data in initializeFlow
-      return { type: "gdl-account", gdlAccount: { type: "none" } }
+      return { type: "nokiatis-account", nokiatisAccount: { type: "none" } }
     }
 
     // First-time user needs onboarding
@@ -783,7 +783,7 @@ export class FlowControllerImpl implements FlowController {
 
   private requiresDataLoading(step: AuthStep): boolean {
     // Steps that need data before showing
-    if (step.type === "gdl-account" && this.data.activeUuid) {
+    if (step.type === "nokiatis-account" && this.data.activeUuid) {
       return true
     }
 
@@ -791,7 +791,7 @@ export class FlowControllerImpl implements FlowController {
   }
 
   private async loadInitialData(step: AuthStep): Promise<void> {
-    if (step.type === "gdl-account" && this.data.activeUuid) {
+    if (step.type === "nokiatis-account" && this.data.activeUuid) {
       // Add 10-second timeout
       const timeoutPromise = new Promise<never>((_, reject) => {
         setTimeout(
@@ -839,7 +839,7 @@ export function createFlowController(
     >
     enrollResumeMutation: CreateMutationResult<null, RSPCError, undefined>
     accountsQuery: CreateQueryResult<AccountEntry[], RSPCError>
-    gdlAccountQuery: CreateQueryResult<FEGDLAccount | null, RSPCError>
+    nokiatisAccountQuery: CreateQueryResult<FENokiatisAccount | null, RSPCError>
   }
 ): FlowController {
   return new FlowControllerImpl(config, deps)

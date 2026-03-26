@@ -522,12 +522,12 @@ mod test {
 
         app.download_manager()
             .download(
-                String::from("https://gdlauncher.com"),
+                String::from("https://nokiatis-launcher.com"),
                 &app.settings_manager()
                     .runtime_path
                     .get_temp()
                     .to_path()
-                    .join("gdl.html"),
+                    .join("nokiatis.html"),
                 &mut |downloaded, total| error!("Downloaded {downloaded}/{total:?}"),
             )
             .await

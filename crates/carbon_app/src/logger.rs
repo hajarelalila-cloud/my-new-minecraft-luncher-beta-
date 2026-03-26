@@ -71,7 +71,7 @@ fn cleanup_old_logs(logs_path: &Path, keep_count: usize) {
 }
 
 pub async fn setup_logger(runtime_path: &Path) -> Option<WorkerGuard> {
-    let logs_path = runtime_path.join("__gdl_logs__");
+    let logs_path = runtime_path.join("__nokiatis_logs__");
 
     println!("Logs path: {}", logs_path.display());
 

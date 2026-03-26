@@ -153,7 +153,7 @@ impl InstancePath {
         self.get_data_path().join("logs")
     }
 
-    pub fn get_gdl_logs_path(&self) -> PathBuf {
+    pub fn get_nokiatis_logs_path(&self) -> PathBuf {
         self.get_root().join("logs")
     }
 

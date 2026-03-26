@@ -9,10 +9,10 @@ function Index() {
     <div class="max-w-4xl">
       <div class="mb-8">
         <h1 class="text-4xl font-bold text-gray-900 mb-4">
-          GDLauncher UI Components
+          Nokiatis Launcher UI Components
         </h1>
         <p class="text-xl text-gray-600">
-          A comprehensive showcase of all UI components used in GDLauncher,
+          A comprehensive showcase of all UI components used in Nokiatis Launcher,
           featuring interactive demos and configuration options.
         </p>
       </div>

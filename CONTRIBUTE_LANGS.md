@@ -1,6 +1,6 @@
-# Contributing Languages to GDLauncher
+# Contributing Languages to Nokiatis Launcher
 
-Thank you for your interest in translating GDLauncher into your language! This guide explains how to add a new language to the launcher.
+Thank you for your interest in translating Nokiatis Launcher into your language! This guide explains how to add a new language to the launcher.
 
 ## 📋 Before You Start
 
@@ -116,7 +116,7 @@ This validates:
 
 ## Adding Missing Keys to an Existing Language
 
-When new features are added to GDLauncher, new translation keys are added to English. To keep an existing language up to date:
+When new features are added to Nokiatis Launcher, new translation keys are added to English. To keep an existing language up to date:
 
 ### 1. Sync the Language
 
@@ -244,6 +244,6 @@ export const supportedLanguages = {
 
 ## ❓ Questions?
 
-If you have questions about translating a specific term or feature, feel free to open an issue or contact us on our Discord server [here](https://discord.gdlauncher.com).
+If you have questions about translating a specific term or feature, feel free to open an issue or contact us on our Discord server [here](https://discord.nokiatis-launcher.com).
 
-Thank you for helping make GDLauncher accessible to more people! 🌍
+Thank you for helping make Nokiatis Launcher accessible to more people! 🌍

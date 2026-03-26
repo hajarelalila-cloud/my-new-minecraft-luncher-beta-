@@ -121,7 +121,7 @@ Nokiatis Launcher is released under the Business Source License 1.1 (BSL 1.1) - 
 
 **Nokiatis Launcher** is developed and maintained by **Nokiatis Team**.
 
-Based on the original GDLauncher Carbon project.
+Based on the original Nokiatis Launcher Carbon project.
 
 ---
 

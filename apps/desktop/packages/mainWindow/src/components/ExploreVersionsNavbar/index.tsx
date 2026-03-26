@@ -75,7 +75,7 @@ const ExploreVersionsNavbar = (props: Props) => {
     queryKey: ["instance.getInstanceDetails", instanceId()]
   }))
 
-  // Supported modloaders in GDLauncher
+  // Supported modloaders in Nokiatis Launcher
   const SUPPORTED_MODLOADERS = ["forge", "fabric", "quilt", "neoforge"]
 
   const modloaders = () => {

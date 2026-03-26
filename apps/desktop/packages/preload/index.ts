@@ -32,7 +32,7 @@ contextBridge.exposeInMainWorld("closeWindow", async () =>
   ipcRenderer.invoke("closeWindow")
 )
 
-// Protocol URL handler (curseforge://, modrinth://, gdlauncher://)
+// Protocol URL handler (curseforge://, modrinth://, nokiatis-launcher://)
 contextBridge.exposeInMainWorld(
   "onProtocolUrl",
   (cb: (url: string) => void) => {

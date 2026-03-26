@@ -234,7 +234,7 @@ const AddonExplore = () => {
   }
 
   onMount(() => {
-    const scrollContainer = document.getElementById("gdl-content-wrapper")
+    const scrollContainer = document.getElementById("nokiatis-content-wrapper")
     if (scrollContainer) {
       scrollContainer.addEventListener("scroll", handleScroll)
       onCleanup(() =>

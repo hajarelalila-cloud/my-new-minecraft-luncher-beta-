@@ -10,7 +10,7 @@ interface Props {
   uuid: string
 }
 
-const ConfirmMsWithGDLAccountRemoval = (props: ModalProps) => {
+const ConfirmMsWithNokiatisAccountRemoval = (props: ModalProps) => {
   const [t] = useTransContext()
   const navigator = useGDNavigate()
   const data: () => Props = () => props?.data
@@ -33,7 +33,7 @@ const ConfirmMsWithGDLAccountRemoval = (props: ModalProps) => {
     >
       <div class="flex h-full flex-col justify-between">
         <div class="h-h-full">
-          <Trans key="accounts:_trn_remove_ms_account_with_gdl_account_removal_description" />
+          <Trans key="accounts:_trn_remove_ms_account_with_nokiatis_account_removal_description" />
         </div>
         <div class="flex w-full justify-between">
           <Button
@@ -62,4 +62,4 @@ const ConfirmMsWithGDLAccountRemoval = (props: ModalProps) => {
   )
 }
 
-export default ConfirmMsWithGDLAccountRemoval
+export default ConfirmMsWithNokiatisAccountRemoval

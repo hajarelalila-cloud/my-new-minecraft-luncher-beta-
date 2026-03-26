@@ -5,7 +5,7 @@ use crate::domain::instance::info::{
 };
 use crate::domain::instance::{self as domain, GameLogId, InstanceId};
 use crate::domain::java::{JavaComponent, JavaComponentType, SystemJavaProfileName};
-use crate::domain::metrics::GDLMetricsEvent;
+use crate::domain::metrics::NokiatisMetricsEvent;
 use crate::domain::vtask::VisualTaskId;
 use crate::managers::AppInner;
 use crate::managers::instance::log::{
@@ -378,14 +378,14 @@ pub async fn process_modpack(
                     .dummy_replace_string
                     .clone();
 
-                let gdl_version = convert_cf_version_to_standard_version(
+                let nokiatis_version = convert_cf_version_to_standard_version(
                     app.clone(),
                     curseforge_version,
                     dummy_string,
                 )
                 .await?;
 
-                Some(gdl_version)
+                Some(nokiatis_version)
             }
             Some(Modplatform::Modrinth) => {
                 let (modpack_progress_tx, mut modpack_progress_rx) =
@@ -436,10 +436,10 @@ pub async fn process_modpack(
 
                 let modrinth_version = modpack_info.index.dependencies;
 
-                let gdl_version =
+                let nokiatis_version =
                     convert_mr_version_to_standard_version(app.clone(), modrinth_version).await?;
 
-                Some(gdl_version)
+                Some(nokiatis_version)
             }
             None => None,
         };
@@ -760,7 +760,7 @@ pub async fn process_modpack_staging(
         tokio::fs::create_dir(&audit_dir).await?;
 
         let audit_file = audit_dir.join("audit.txt");
-        let mut audit_txt = "GDLauncher Modpack Install/Update Audit\n".to_string();
+        let mut audit_txt = "Nokiatis Launcher Modpack Install/Update Audit\n".to_string();
 
         if (!skipped_replacements.is_empty()) {
             audit_txt += "\nFiles that could not be replaced:\n";

@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> {} }: let
   shell = import ./shell.nix { inherit pkgs; };
 in (pkgs.buildFHSEnv {
-  name = "gdl-fhs-env";
+  name = "nokiatis-fhs-env";
 
   targetPkgs = pkgs: with pkgs; [
     # electron

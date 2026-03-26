@@ -15,14 +15,14 @@ pub enum ConsentType {
 
 pub struct TermsAndPrivacy {
     http_client: ClientWithMiddleware,
-    gdl_base_api: String,
+    nokiatis_base_api: String,
 }
 
 impl TermsAndPrivacy {
-    pub fn new(http_client: ClientWithMiddleware, gdl_base_api: String) -> Self {
+    pub fn new(http_client: ClientWithMiddleware, nokiatis_base_api: String) -> Self {
         Self {
             http_client,
-            gdl_base_api,
+            nokiatis_base_api,
         }
     }
 
@@ -44,7 +44,7 @@ impl TermsAndPrivacy {
             pub consented: bool,
         }
 
-        let consent_url = format!("{}/v1/record_consent", self.gdl_base_api);
+        let consent_url = format!("{}/v1/record_consent", self.nokiatis_base_api);
         let body = Body {
             secret,
             user_id,
@@ -86,7 +86,7 @@ impl TermsAndPrivacy {
     pub async fn fetch_terms_of_service_body(&self) -> anyhow::Result<String> {
         let response = self
             .http_client
-            .get(format!("{}/v1/terms_of_service_md", self.gdl_base_api))
+            .get(format!("{}/v1/terms_of_service_md", self.nokiatis_base_api))
             .send()
             .await?
             .text()
@@ -98,7 +98,7 @@ impl TermsAndPrivacy {
     pub async fn fetch_privacy_statement_body(&self) -> anyhow::Result<String> {
         let response = self
             .http_client
-            .get(format!("{}/v1/privacy_statement_md", self.gdl_base_api))
+            .get(format!("{}/v1/privacy_statement_md", self.nokiatis_base_api))
             .send()
             .await?
             .text()
@@ -108,10 +108,10 @@ impl TermsAndPrivacy {
     }
 
     #[tracing::instrument]
-    pub async fn get_latest_consent_sha(gdl_base_api: &str) -> anyhow::Result<String> {
-        let client = crate::iridium_client::get_client(gdl_base_api.to_string()).build();
+    pub async fn get_latest_consent_sha(nokiatis_base_api: &str) -> anyhow::Result<String> {
+        let client = crate::iridium_client::get_client(nokiatis_base_api.to_string()).build();
 
-        let url = format!("{}/v1/latest_consent_checksum", gdl_base_api);
+        let url = format!("{}/v1/latest_consent_checksum", nokiatis_base_api);
 
         let latest_consent_sha = client.get(&url).send().await?;
 

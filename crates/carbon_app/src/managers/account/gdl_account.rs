@@ -8,7 +8,7 @@ use reqwest::multipart::Form;
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 
-pub struct GDLAccountTask {
+pub struct NokiatisAccountTask {
     client: reqwest_middleware::ClientWithMiddleware,
     base_api: String,
 }
@@ -43,7 +43,7 @@ pub enum RequestNewEmailChangeError {
 }
 
 #[derive(Error, Debug)]
-pub enum RequestGDLAccountDeletionError {
+pub enum RequestNokiatisAccountDeletionError {
     #[error("Too many requests")]
     TooManyRequests(u32),
 
@@ -67,15 +67,15 @@ pub struct NicknameHistoryEntry {
 }
 
 #[derive(Clone, Serialize, Deserialize)]
-pub enum GDLAccountStatus {
-    Valid(GDLUser),
+pub enum NokiatisAccountStatus {
+    Valid(NokiatisUser),
     Invalid,
     Skipped,
     Unset,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
-pub struct GDLUser {
+pub struct NokiatisUser {
     pub email: String,
     pub microsoft_oid: String,
     pub nickname: String,
@@ -93,7 +93,7 @@ pub struct GDLUser {
     pub nickname_change_timeout: Option<i64>,
 }
 
-impl GDLAccountTask {
+impl NokiatisAccountTask {
     pub fn new(client: reqwest_middleware::ClientWithMiddleware, base_api: String) -> Self {
         Self { client, base_api }
     }
@@ -102,7 +102,7 @@ impl GDLAccountTask {
         &self,
         body: RegisterAccountBody,
         id_token: String,
-    ) -> anyhow::Result<GDLUser> {
+    ) -> anyhow::Result<NokiatisUser> {
         let url = format!("{}/v1/users/user", self.base_api);
 
         let authorization = format!("Bearer {}", id_token);
@@ -123,7 +123,7 @@ impl GDLAccountTask {
 
         let resp = resp.error_for_status()?;
 
-        let user: GDLUser = resp.json().await?;
+        let user: NokiatisUser = resp.json().await?;
 
         Ok(user)
     }
@@ -155,7 +155,7 @@ impl GDLAccountTask {
         }
     }
 
-    pub async fn get_account(&self, id_token: String) -> anyhow::Result<Option<GDLUser>> {
+    pub async fn get_account(&self, id_token: String) -> anyhow::Result<Option<NokiatisUser>> {
         let url = format!("{}/v1/users/user", self.base_api);
         let authorization = format!("Bearer {}", id_token);
         let mut headers = HeaderMap::new();
@@ -169,7 +169,7 @@ impl GDLAccountTask {
 
         let resp = resp.error_for_status()?;
 
-        let user: GDLUser = resp.json().await?;
+        let user: NokiatisUser = resp.json().await?;
 
         Ok(Some(user))
     }
@@ -268,7 +268,7 @@ impl GDLAccountTask {
     pub async fn request_deletion(
         &self,
         id_token: String,
-    ) -> Result<(), RequestGDLAccountDeletionError> {
+    ) -> Result<(), RequestNokiatisAccountDeletionError> {
         let url = format!("{}/v1/users/user", self.base_api);
 
         let authorization = format!("Bearer {}", id_token);
@@ -281,7 +281,7 @@ impl GDLAccountTask {
             .headers(headers)
             .send()
             .await
-            .map_err(|err| RequestGDLAccountDeletionError::RequestFailed(err.into()))?;
+            .map_err(|err| RequestNokiatisAccountDeletionError::RequestFailed(err.into()))?;
 
         if resp.status() == StatusCode::TOO_MANY_REQUESTS {
             let retry_after = resp
@@ -290,18 +290,18 @@ impl GDLAccountTask {
                 .and_then(|v| v.to_str().ok())
                 .and_then(|v| v.parse::<u32>().ok());
 
-            return Err(RequestGDLAccountDeletionError::TooManyRequests(
+            return Err(RequestNokiatisAccountDeletionError::TooManyRequests(
                 retry_after.unwrap_or(0),
             ));
         }
 
         let resp = resp
             .error_for_status()
-            .map_err(|err| RequestGDLAccountDeletionError::RequestFailed(err.into()))?;
+            .map_err(|err| RequestNokiatisAccountDeletionError::RequestFailed(err.into()))?;
 
         resp.bytes()
             .await
-            .map_err(|err| RequestGDLAccountDeletionError::RequestFailed(err.into()))?;
+            .map_err(|err| RequestNokiatisAccountDeletionError::RequestFailed(err.into()))?;
 
         Ok(())
     }

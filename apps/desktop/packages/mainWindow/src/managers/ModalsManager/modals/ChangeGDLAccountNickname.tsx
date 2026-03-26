@@ -7,7 +7,7 @@ import { queryClient, rspc } from "@/utils/rspcClient"
 import { useGlobalStore } from "@/components/GlobalStoreContext"
 import { convertSecondsToHumanTime } from "@/utils/helpers"
 
-const ChangeGDLAccountNickname = () => {
+const ChangeNokiatisAccountNickname = () => {
   const [t] = useTransContext()
   const modalsContext = useModal()
   const [newNickname, setNewNickname] = createSignal("")
@@ -19,14 +19,14 @@ const ChangeGDLAccountNickname = () => {
 
   const globalStore = useGlobalStore()
 
-  const validGDLUser = () =>
-    globalStore.gdlAccount.data?.status === "valid"
-      ? globalStore.gdlAccount.data?.value
+  const validNokiatisUser = () =>
+    globalStore.nokiatisAccount.data?.status === "valid"
+      ? globalStore.nokiatisAccount.data?.value
       : undefined
 
-  // Initialize cooldown from GDL user data
+  // Initialize cooldown from Nokiatis user data
   createEffect(() => {
-    const timeout = validGDLUser()?.nicknameChangeTimeout
+    const timeout = validNokiatisUser()?.nicknameChangeTimeout
     if (timeout && timeout > 0) {
       setCooldown(timeout)
       startCooldownTimer()
@@ -173,4 +173,4 @@ const ChangeGDLAccountNickname = () => {
   )
 }
 
-export default ChangeGDLAccountNickname
+export default ChangeNokiatisAccountNickname

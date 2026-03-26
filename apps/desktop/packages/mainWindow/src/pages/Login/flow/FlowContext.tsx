@@ -5,7 +5,7 @@ import type {
 } from "@tanstack/solid-query"
 import type { RSPCError } from "@rspc/client"
 import type {
-  FEGDLAccount,
+  FENokiatisAccount,
   FESettingsUpdate,
   FECheckUsernameAvailability,
   FECreateProfile,
@@ -40,7 +40,7 @@ export interface FlowProviderProps {
   createProfileMutation: CreateMutationResult<null, RSPCError, FECreateProfile>
   enrollResumeMutation: CreateMutationResult<null, RSPCError, undefined>
   accountsQuery: CreateQueryResult<AccountEntry[], RSPCError>
-  gdlAccountQuery: CreateQueryResult<FEGDLAccount | null, RSPCError>
+  nokiatisAccountQuery: CreateQueryResult<FENokiatisAccount | null, RSPCError>
 }
 
 /**
@@ -59,7 +59,7 @@ export function FlowProvider(props: FlowProviderProps) {
     createProfileMutation: props.createProfileMutation,
     enrollResumeMutation: props.enrollResumeMutation,
     accountsQuery: props.accountsQuery,
-    gdlAccountQuery: props.gdlAccountQuery
+    nokiatisAccountQuery: props.nokiatisAccountQuery
   })
 
   return (

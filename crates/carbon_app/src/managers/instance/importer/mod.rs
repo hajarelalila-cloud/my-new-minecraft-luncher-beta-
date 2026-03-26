@@ -15,14 +15,14 @@ use crate::{
 
 use self::{
     curseforge::CurseforgeImporter, curseforge_archive::CurseforgeArchiveImporter,
-    legacy_gdlauncher::LegacyGDLauncherImporter, modrinth_archive::ModrinthArchiveImporter,
+    legacy_nokiatis-launcher::LegacyNokiatis LauncherImporter, modrinth_archive::ModrinthArchiveImporter,
 };
 
 use super::{InstanceManager, export::InstanceExportManager};
 
 mod curseforge;
 mod curseforge_archive;
-mod legacy_gdlauncher;
+mod legacy_nokiatis-launcher;
 mod modrinth_archive;
 
 #[derive(Debug)]
@@ -166,7 +166,7 @@ pub enum SelectionType {
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, EnumIter, Eq, PartialEq)]
 pub enum Entity {
-    LegacyGDLauncher,
+    LegacyNokiatis Launcher,
     CurseForgeZip,
     CurseForge,
     MRPack,
@@ -181,7 +181,7 @@ pub enum Entity {
 impl Entity {
     pub fn to_selection_type(self) -> SelectionType {
         match self {
-            Self::LegacyGDLauncher => SelectionType::Directory,
+            Self::LegacyNokiatis Launcher => SelectionType::Directory,
             Self::CurseForgeZip => SelectionType::File,
             Self::CurseForge => SelectionType::Directory,
             Self::MRPack => SelectionType::File,
@@ -198,7 +198,7 @@ impl Entity {
         use strum::IntoEnumIterator;
 
         const SUPPORT: [Entity; 4] = [
-            Entity::LegacyGDLauncher,
+            Entity::LegacyNokiatis Launcher,
             Entity::CurseForgeZip,
             Entity::MRPack,
             Entity::CurseForge,
@@ -211,7 +211,7 @@ impl Entity {
 
     pub fn create_importer(self) -> Arc<dyn InstanceImporter> {
         match self {
-            Self::LegacyGDLauncher => Arc::new(LegacyGDLauncherImporter::new()),
+            Self::LegacyNokiatis Launcher => Arc::new(LegacyNokiatis LauncherImporter::new()),
             Self::CurseForgeZip => Arc::new(CurseforgeArchiveImporter::new()),
             Self::MRPack => Arc::new(ModrinthArchiveImporter::new()),
             Self::CurseForge => Arc::new(CurseforgeImporter::new()),
@@ -221,8 +221,8 @@ impl Entity {
 
     pub async fn get_default_scan_path(self) -> anyhow::Result<Option<PathBuf>> {
         Ok(match self {
-            Self::LegacyGDLauncher => {
-                Some(LegacyGDLauncherImporter::get_default_scan_path().await?)
+            Self::LegacyNokiatis Launcher => {
+                Some(LegacyNokiatis LauncherImporter::get_default_scan_path().await?)
             }
             Self::CurseForge => Some(CurseforgeImporter::get_default_scan_path().await?),
             _ => None,

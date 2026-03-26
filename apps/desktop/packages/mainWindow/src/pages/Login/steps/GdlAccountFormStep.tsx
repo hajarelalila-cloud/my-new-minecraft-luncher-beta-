@@ -4,7 +4,7 @@ import { Tooltip, TooltipTrigger, TooltipContent } from "@gd/ui"
 import type { AuthStep } from "../flow/types"
 
 interface GdlAccountFormStepProps {
-  step: Extract<AuthStep, { type: "gdl-account-form" }>
+  step: Extract<AuthStep, { type: "nokiatis-account-form" }>
   email: string
   nickname: string
   onEmailChange: (email: string) => void

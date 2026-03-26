@@ -442,7 +442,7 @@ const Changelogs = (props: ModalProps) => {
               <Button
                 backgroundColor="bg-brands-discord"
                 onClick={() => {
-                  window.open("https://discord.gdlauncher.com", "_blank")
+                  window.open("https://discord.nokiatis-launcher.com", "_blank")
                 }}
               >
                 <div class="flex items-center justify-center gap-2">
@@ -466,7 +466,7 @@ const Changelogs = (props: ModalProps) => {
                 type="secondary"
                 onClick={() => {
                   window.open(
-                    "https://github.com/gorilla-devs/GDLauncher-Carbon",
+                    "https://github.com/nokiatis-team/Nokiatis Launcher-Carbon",
                     "_blank"
                   )
                 }}
@@ -493,7 +493,7 @@ const Changelogs = (props: ModalProps) => {
               type="outline"
               onClick={() => {
                 window.open(
-                  "https://github.com/gorilla-devs/GDLauncher-Carbon/issues/new",
+                  "https://github.com/nokiatis-team/Nokiatis Launcher-Carbon/issues/new",
                   "_blank"
                 )
               }}

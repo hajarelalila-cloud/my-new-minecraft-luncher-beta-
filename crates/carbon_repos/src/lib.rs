@@ -54,7 +54,7 @@ pub fn get_migrations() -> (Migrations<'static>, i32) {
         ))),
         M::up(include_str!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/prisma/migrations/20241124163738_gdl_accounts/migration.sql"
+            "/prisma/migrations/20241124163738_nokiatis_accounts/migration.sql"
         ))),
         M::up(include_str!(concat!(
             env!("CARGO_MANIFEST_DIR"),

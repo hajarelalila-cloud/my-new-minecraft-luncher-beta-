@@ -79,7 +79,7 @@ const Masonry: Component<MasonryProps> = (props) => {
                 }`}
                 onClick={() => {
                   const scrollContainer = document.getElementById(
-                    "gdl-content-wrapper"
+                    "nokiatis-content-wrapper"
                   )
                   saveScrollPosition(scrollContainer)
                   navigator.navigate(`/addon/${element.id}/${element.platform}`)

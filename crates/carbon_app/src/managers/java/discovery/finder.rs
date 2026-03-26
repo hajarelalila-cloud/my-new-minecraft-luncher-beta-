@@ -4,7 +4,7 @@ use tracing::trace;
 
 use crate::managers::java::utils::PATH_SEPARATOR;
 
-const SEARCH_ENV_VARS: [&str; 2] = ["PATH", "GDL_JAVA_PATH"];
+const SEARCH_ENV_VARS: [&str; 2] = ["PATH", "Nokiatis_JAVA_PATH"];
 
 async fn load_java_paths_from_env() -> anyhow::Result<Vec<PathBuf>> {
     let mut java_paths = Vec::new();

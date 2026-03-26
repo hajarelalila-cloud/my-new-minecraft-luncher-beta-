@@ -1,4 +1,4 @@
-use crate::{domain::metrics::GDLMetricsEvent, iridium_client::get_client};
+use crate::{domain::metrics::NokiatisMetricsEvent, iridium_client::get_client};
 use carbon_repos::db::{PrismaClient, app_configuration};
 use display_info::DisplayInfo;
 use reqwest_middleware::ClientWithMiddleware;
@@ -13,7 +13,7 @@ use super::ManagerRef;
 pub(crate) struct MetricsManager {
     client: ClientWithMiddleware,
     prisma_client: Arc<PrismaClient>,
-    gdl_base_api: String,
+    nokiatis_base_api: String,
     random_session_uuid: Uuid,
 }
 
@@ -21,22 +21,22 @@ impl MetricsManager {
     pub fn new(
         prisma_client: Arc<PrismaClient>,
         http_client: ClientWithMiddleware,
-        gdl_base_api: String,
+        nokiatis_base_api: String,
     ) -> Self {
         let random_session_uuid = Uuid::new_v4();
 
         Self {
             client: http_client,
             prisma_client,
-            gdl_base_api,
+            nokiatis_base_api,
             random_session_uuid,
         }
     }
 }
 
 impl ManagerRef<'_, MetricsManager> {
-    pub async fn track_event(&self, event: GDLMetricsEvent) -> anyhow::Result<()> {
-        let endpoint = format!("{}/v1/metrics/event", self.gdl_base_api);
+    pub async fn track_event(&self, event: NokiatisMetricsEvent) -> anyhow::Result<()> {
+        let endpoint = format!("{}/v1/metrics/event", self.nokiatis_base_api);
 
         let Some(metrics_user_id) = self
             .prisma_client
@@ -57,7 +57,7 @@ impl ManagerRef<'_, MetricsManager> {
         };
 
         #[derive(Serialize)]
-        struct GDLAppEvent {
+        struct NokiatisAppEvent {
             id: String,
             domain: String,
             domain_version: String,
@@ -67,7 +67,7 @@ impl ManagerRef<'_, MetricsManager> {
             os: String,
             os_version: Option<String>,
             #[serde(flatten)]
-            event: GDLMetricsEvent,
+            event: NokiatisMetricsEvent,
         }
 
         let display_infos = DisplayInfo::all()
@@ -91,9 +91,9 @@ impl ManagerRef<'_, MetricsManager> {
 
         let os_version = self.app.system_info_manager().get_os_version().await;
 
-        let serialized_event = json!(GDLAppEvent {
+        let serialized_event = json!(NokiatisAppEvent {
             id: metrics_user_id,
-            domain: "gdl-carbon-app".to_string(),
+            domain: "nokiatis-carbon-app".to_string(),
             domain_version: env!("APP_VERSION").to_string(),
             screen_resolutions: display_infos,
             cpus_count: self.app.system_info_manager().get_cpus().await as u32,

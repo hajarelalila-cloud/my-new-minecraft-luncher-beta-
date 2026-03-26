@@ -13,7 +13,7 @@ export default function Navbar() {
             class="text-2xl font-bold"
             style={`color: rgb(var(--lightSlate-50))`}
           >
-            GDLauncher UI
+            Nokiatis Launcher UI
           </h1>
           <span class="text-sm" style={`color: rgb(var(--lightSlate-300))`}>
             Component Showcase

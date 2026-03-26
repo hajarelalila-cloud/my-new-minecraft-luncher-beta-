@@ -2,7 +2,7 @@ import { rspc } from "@/utils/rspcClient"
 import {
   AccountEntry,
   Announcement,
-  FEGDLAccountStatus,
+  FENokiatisAccountStatus,
   FESettings,
   FEUnifiedCategories,
   FEUnifiedModLoaders,
@@ -27,7 +27,7 @@ interface Context {
   accounts: CreateQueryResult<AccountEntry[], RSPCError>
   currentlySelectedAccount: () => AccountEntry | null
   currentlySelectedAccountUuid: CreateQueryResult<string | null, RSPCError>
-  gdlAccount: CreateQueryResult<FEGDLAccountStatus | null, RSPCError>
+  nokiatisAccount: CreateQueryResult<FENokiatisAccountStatus | null, RSPCError>
   announcements: CreateQueryResult<Announcement[], RSPCError>
   categories: CreateQueryResult<FEUnifiedCategories, RSPCError>
   modloaders: CreateQueryResult<FEUnifiedModLoaders, RSPCError>
@@ -59,7 +59,7 @@ export const GlobalStoreProvider = (props: { children: JSX.Element }) => {
     queryKey: ["account.getActiveUuid"]
   }))
 
-  const gdlAccountRaw = rspc.createQuery(() => ({
+  const nokiatisAccountRaw = rspc.createQuery(() => ({
     queryKey: ["account.getGdlAccount"]
   }))
 
@@ -112,9 +112,9 @@ export const GlobalStoreProvider = (props: { children: JSX.Element }) => {
       }) as CreateQueryResult<AccountEntry[], RSPCError>)
     : accountsRaw
 
-  const gdlAccount = __SHOWCASE_MODE__
+  const nokiatisAccount = __SHOWCASE_MODE__
     ? // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
-      (new Proxy(gdlAccountRaw, {
+      (new Proxy(nokiatisAccountRaw, {
         get(target, prop) {
           if (prop === "data") {
             const data = target.data
@@ -135,8 +135,8 @@ export const GlobalStoreProvider = (props: { children: JSX.Element }) => {
           }
           return target[prop as keyof typeof target]
         }
-      }) as CreateQueryResult<FEGDLAccountStatus | null, RSPCError>)
-    : gdlAccountRaw
+      }) as CreateQueryResult<FENokiatisAccountStatus | null, RSPCError>)
+    : nokiatisAccountRaw
 
   const currentlySelectedAccount = () => {
     const uuid = currentlySelectedAccountUuid.data
@@ -196,7 +196,7 @@ export const GlobalStoreProvider = (props: { children: JSX.Element }) => {
     accounts,
     currentlySelectedAccountUuid,
     currentlySelectedAccount,
-    gdlAccount,
+    nokiatisAccount,
     announcements,
     categories,
     modloaders,

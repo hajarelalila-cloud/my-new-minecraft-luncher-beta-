@@ -22,11 +22,11 @@ const FirstStep = (props: Props) => {
     <div class="lg:w-160 box-border flex h-full flex-col justify-between">
       <div class="flex flex-col lg:w-[35rem]">
         <h1 class="m-0 mt-10 text-center text-lg font-bold">
-          <Trans key="onboarding:_trn_welcome_gdlauncher_title" />
+          <Trans key="onboarding:_trn_welcome_nokiatis-launcher_title" />
         </h1>
         <pre class="text-lightSlate-700 max-w-140 whitespace-pre-line text-left text-xs leading-5 lg:text-base">
           <Trans
-            key="onboarding:_trn_welcome_gdlauncher_text"
+            key="onboarding:_trn_welcome_nokiatis-launcher_text"
             options={{ user: currentAccount?.username || "there" }}
           />
         </pre>

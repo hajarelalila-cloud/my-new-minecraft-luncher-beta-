@@ -20,7 +20,7 @@ use std::{collections::HashMap, fs::File, io::Write, path::PathBuf, sync::Arc};
 use tokio::sync::mpsc;
 use tracing::trace;
 
-pub async fn export_gdlauncher(
+pub async fn export_nokiatis-launcher(
     app: Arc<AppInner>,
     instance_id: InstanceId,
     save_path: PathBuf,

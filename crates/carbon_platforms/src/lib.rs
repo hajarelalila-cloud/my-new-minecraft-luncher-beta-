@@ -6,7 +6,7 @@ use itertools::Itertools;
 use serde::{Deserialize, Deserializer, Serialize, Serializer, de::DeserializeOwned};
 
 pub mod curseforge;
-pub mod gdlauncher;
+pub mod nokiatis-launcher;
 pub mod modrinth;
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]

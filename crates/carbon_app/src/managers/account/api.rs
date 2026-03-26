@@ -431,7 +431,7 @@ impl XboxError {
                 "Visit xbox.com and create a free Xbox account",
                 "Sign in with the same Microsoft account you used here",
                 "Complete the Xbox account setup process",
-                "Return to GDLauncher and try signing in again",
+                "Return to Nokiatis Launcher and try signing in again",
             ],
             Self::XboxServicesBanned => vec![
                 "Check if Xbox Live is available in your country",
@@ -442,19 +442,19 @@ impl XboxError {
                 "Visit xbox.com and sign in to your account",
                 "Follow the adult verification process in your account settings",
                 "You may need to provide proof of age",
-                "Return to GDLauncher and try signing in again",
+                "Return to Nokiatis Launcher and try signing in again",
             ],
             Self::ChildAccount => vec![
                 "Ask your parent or guardian to add your account to their Microsoft Family",
                 "Visit account.microsoft.com/family to set up family management",
                 "Your parent/guardian will need to approve Minecraft access",
-                "Return to GDLauncher and try signing in again",
+                "Return to Nokiatis Launcher and try signing in again",
             ],
             Self::Unknown(_) => vec![
                 "Wait a few minutes and try again",
                 "Check Xbox Live service status at xbox.com/status",
                 "Try signing out of all Microsoft services and signing back in",
-                "Restart GDLauncher and try again",
+                "Restart Nokiatis Launcher and try again",
             ],
         }
     }
@@ -880,7 +880,7 @@ impl GetProfileError {
             Self::AuthTokenInvalid => vec![
                 "Sign out and sign back in to refresh your authentication",
                 "Make sure you're using the correct Microsoft account",
-                "If the problem persists, try restarting GDLauncher",
+                "If the problem persists, try restarting Nokiatis Launcher",
             ],
         }
     }
@@ -938,7 +938,7 @@ pub enum McEntitlementError {
     #[error("response data could not be verified")]
     InvalidSignature,
 
-    #[error("GDLauncher account verifcation checks are outdated")]
+    #[error("Nokiatis Launcher account verifcation checks are outdated")]
     Outdated,
 
     #[error("JWT error: {0}")]

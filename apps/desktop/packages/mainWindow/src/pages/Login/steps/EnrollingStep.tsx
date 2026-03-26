@@ -170,12 +170,12 @@ export function EnrollingStep(props: EnrollingStepProps) {
 
     // Handle successful completion
     if (typeof backendStatus === "object" && "complete" in backendStatus) {
-      // Enrollment successful - save to database, then check GDL account
+      // Enrollment successful - save to database, then check Nokiatis account
       flow
         .finalizeEnrollment()
-        .then(() => flow.checkGDLAccount())
-        .then((gdlState) => {
-          flow.goToStep({ type: "gdl-account", gdlAccount: gdlState })
+        .then(() => flow.checkNokiatisAccount())
+        .then((nokiatisState) => {
+          flow.goToStep({ type: "nokiatis-account", nokiatisAccount: nokiatisState })
         })
         .catch((error) => {
           console.error("[EnrollingStep] Failed to finalize enrollment:", error)

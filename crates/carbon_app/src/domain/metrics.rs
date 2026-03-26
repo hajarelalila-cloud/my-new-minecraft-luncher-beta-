@@ -7,7 +7,7 @@ fn skip_serializing_if_zero(value: &u32) -> bool {
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(tag = "event_name", content = "data")]
 #[serde(rename_all = "snake_case")]
-pub enum GDLMetricsEvent {
+pub enum NokiatisMetricsEvent {
     LauncherStarted,
     PageView {
         page_url: String,

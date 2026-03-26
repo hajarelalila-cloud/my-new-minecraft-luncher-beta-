@@ -17,17 +17,17 @@ const changelogs: Changelog = {
       description:
         "Completely rethought and redesigned addons browser with support for mods, resource packs, shaders, modpacks, data packs, and worlds. Features a unified search experience, enhanced filtering, type-aware installation, and a modern interface that replaces the old separate mod and modpack pages.",
       media:
-        "https://cdn.gdl.gg/launcher/changelog/2.0.26/addons-browser-overhaul.mp4"
+        "https://cdn.nokiatis.gg/launcher/changelog/2.0.26/addons-browser-overhaul.mp4"
     },
     {
       title: "Custom Profile Avatar",
       description:
-        "Upload and customize your GDL account profile picture. Your avatar is displayed throughout the launcher and to other users."
+        "Upload and customize your Nokiatis account profile picture. Your avatar is displayed throughout the launcher and to other users."
     },
     {
       title: "Nickname Change",
       description:
-        "Change your GDL account nickname from the account settings. A 7-day cooldown applies between changes."
+        "Change your Nokiatis account nickname from the account settings. A 7-day cooldown applies between changes."
     },
     {
       title: "Nickname History",
@@ -37,7 +37,7 @@ const changelogs: Changelog = {
     {
       title: "Japanese Language Support",
       description:
-        "Added Japanese translations for the entire interface, making GDLauncher accessible to Japanese-speaking users."
+        "Added Japanese translations for the entire interface, making Nokiatis Launcher accessible to Japanese-speaking users."
     },
     {
       title: "Addons Grid View Mode",
@@ -131,7 +131,7 @@ const changelogs: Changelog = {
         "Resolved issues with empty versions when navigating from instance to modpack and improved Modrinth modpack latest version selection."
     },
     {
-      title: "Fixed authentication issues with GDL accounts",
+      title: "Fixed authentication issues with Nokiatis accounts",
       description: "The token is now refreshed before opening the app window."
     },
     {
@@ -171,7 +171,7 @@ const changelogs: Changelog = {
         "Fixed caching errors that were causing the cache subroutine to hang/crash"
     },
     {
-      title: "Fixed GDL account verification sometimes hanging"
+      title: "Fixed Nokiatis account verification sometimes hanging"
     },
     {
       title: "Fixed mods deletion on version/modloader update",

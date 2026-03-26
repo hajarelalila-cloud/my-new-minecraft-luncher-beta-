@@ -7,7 +7,7 @@ import { rspc, port } from "@/utils/rspcClient"
 import { convertSecondsToHumanTime } from "@/utils/helpers"
 
 interface GdlAccountVerificationStepProps {
-  step: Extract<AuthStep, { type: "gdl-account-verification" }>
+  step: Extract<AuthStep, { type: "nokiatis-account-verification" }>
 }
 
 export function GdlAccountVerificationStep(

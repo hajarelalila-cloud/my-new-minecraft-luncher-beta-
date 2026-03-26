@@ -29,8 +29,8 @@ export default defineConfig(({ mode }) => {
     plugins: [
       // Put the Sentry vite plugin after all other plugins
       sentryVitePlugin({
-        org: "gorilladevs-inc",
-        project: "gdlauncher-app-vite-main",
+        org: "nokiatis-inc",
+        project: "nokiatis-launcher-app-vite-main",
         authToken: process.env.SENTRY_AUTH_TOKEN,
         release: {
           name: appVersion,

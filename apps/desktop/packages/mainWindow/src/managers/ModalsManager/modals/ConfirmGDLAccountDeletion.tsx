@@ -5,7 +5,7 @@ import { Button, toast } from "@gd/ui"
 import { Trans, useTransContext } from "@gd/i18n"
 import { useGlobalStore } from "@/components/GlobalStoreContext"
 
-const ConfirmGDLAccountDeletion = (props: ModalProps) => {
+const ConfirmNokiatisAccountDeletion = (props: ModalProps) => {
   const [t] = useTransContext()
   const globalStore = useGlobalStore()
 
@@ -39,11 +39,11 @@ const ConfirmGDLAccountDeletion = (props: ModalProps) => {
             onClick={async () => {
               const uuid = globalStore.accounts.data?.find(
                 (account) =>
-                  account.uuid === globalStore.settings.data?.gdlAccountId
+                  account.uuid === globalStore.settings.data?.nokiatisAccountId
               )?.uuid
 
               if (!uuid) {
-                throw new Error("No active gdl account")
+                throw new Error("No active nokiatis account")
               }
 
               await requestAccountDeletionMutation.mutateAsync(uuid)
@@ -62,4 +62,4 @@ const ConfirmGDLAccountDeletion = (props: ModalProps) => {
   )
 }
 
-export default ConfirmGDLAccountDeletion
+export default ConfirmNokiatisAccountDeletion

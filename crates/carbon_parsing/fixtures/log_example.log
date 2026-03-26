@@ -1,4 +1,4 @@
-<log4j:Event logger="GDLAUNCHER" timestamp="1736404489354" level="INFO" thread="N/A">
+<log4j:Event logger="NokiatisAUNCHER" timestamp="1736404489354" level="INFO" thread="N/A">
 	<log4j:Message><![CDATA[Mods (266 enabled / 0 disabled): 
 	 [x] AchievementOptimizer-1.20.1-1.0.5.jar
 	 [x] AdvancementPlaques-1.20.1-forge-1.6.7.jar
@@ -267,10 +267,10 @@
 	 [x] xptome-1.20.1-2.2.1.jar
 	 [x] zume-1.1.4.jar]]></log4j:Message>
 </log4j:Event>
-<log4j:Event logger="GDLAUNCHER" timestamp="1736404489405" level="INFO" thread="N/A">
+<log4j:Event logger="NokiatisAUNCHER" timestamp="1736404489405" level="INFO" thread="N/A">
 	<log4j:Message><![CDATA[Suggested Java Profile: JavaRuntimeGamma]]></log4j:Message>
 </log4j:Event>
-<log4j:Event logger="GDLAUNCHER" timestamp="1736404489421" level="INFO" thread="N/A">
+<log4j:Event logger="NokiatisAUNCHER" timestamp="1736404489421" level="INFO" thread="N/A">
 	<log4j:Message><![CDATA[Using Java: JavaComponent {
     path: "C:\\Program Files\\Java\\jdk-20.0.2\\bin\\java.exe",
     arch: X86_64,
@@ -287,10 +287,10 @@
     vendor: "Oracle Corporation",
 }]]></log4j:Message>
 </log4j:Event>
-<log4j:Event logger="GDLAUNCHER" timestamp="1736404489737" level="INFO" thread="N/A">
+<log4j:Event logger="NokiatisAUNCHER" timestamp="1736404489737" level="INFO" thread="N/A">
 	<log4j:Message><![CDATA[LWJGL Meta org.lwjgl3 - 3.3.1]]></log4j:Message>
 </log4j:Event>
-<log4j:Event logger="GDLAUNCHER" timestamp="1736404489737" level="INFO" thread="N/A">
+<log4j:Event logger="NokiatisAUNCHER" timestamp="1736404489737" level="INFO" thread="N/A">
 	<log4j:Message><![CDATA[Libraries (126): 
 	-> \cpw/mods/securejarhandler/2.1.10/securejarhandler-2.1.10.jar
 	-> \org/ow2/asm/asm/9.7.1/asm-9.7.1.jar
@@ -419,11 +419,11 @@
 	-> \org/lwjgl/lwjgl-tinyfd/3.3.1/lwjgl-tinyfd-3.3.1-natives-windows.jar
 	-> \org/lwjgl/lwjgl-tinyfd/3.3.1/lwjgl-tinyfd-3.3.1-natives-windows-x86.jar]]></log4j:Message>
 </log4j:Event>
-<log4j:Event logger="GDLAUNCHER" timestamp="1736404489737" level="INFO" thread="N/A">
-	<log4j:Message><![CDATA[Client Main Jar: D:\gdlauncher_carbon\libraries\net/minecraft/client\1.20.1\1.20.1.jar]]></log4j:Message>
+<log4j:Event logger="NokiatisAUNCHER" timestamp="1736404489737" level="INFO" thread="N/A">
+	<log4j:Message><![CDATA[Client Main Jar: D:\nokiatis-launcher_carbon\libraries\net/minecraft/client\1.20.1\1.20.1.jar]]></log4j:Message>
 </log4j:Event>
   <log4j:Event logger="cpw.mods.modlauncher.Launcher" timestamp="1736404517640" level="INFO" thread="main">
-    <log4j:Message><![CDATA[ModLauncher running: args [--username, username, --version, 1.20.1, --gameDir, D:\gdlauncher_carbon\instances\Mystic Horizons1\instance, --assetsDir, D:\gdlauncher_carbon\assets, --assetIndex, 5, --uuid, uuid, --accessToken, ❄❄❄❄❄❄❄❄, --userType, msa, --versionType, release, --launchTarget, forgeclient, --fml.forgeVersion, 47.3.22, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --width=1920, --height=1080]]]></log4j:Message>
+    <log4j:Message><![CDATA[ModLauncher running: args [--username, username, --version, 1.20.1, --gameDir, D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance, --assetsDir, D:\nokiatis-launcher_carbon\assets, --assetIndex, 5, --uuid, uuid, --accessToken, ❄❄❄❄❄❄❄❄, --userType, msa, --versionType, release, --launchTarget, forgeclient, --fml.forgeVersion, 47.3.22, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --width=1920, --height=1080]]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="cpw.mods.modlauncher.Launcher" timestamp="1736404517645" level="INFO" thread="main">
     <log4j:Message><![CDATA[ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 20.0.2 by Oracle Corporation; OS Windows 11 arch amd64 version 10.0]]></log4j:Message>
@@ -437,11 +437,11 @@
 [LWJGL] 	JVM: OpenJDK 64-Bit Server VM v20.0.2+9-78 by Oracle Corporation
 [LWJGL] Loading JNI library: lwjgl
 [LWJGL] 	Module: org.lwjgl
-[LWJGL] 	Loaded from org.lwjgl.librarypath: D:\gdlauncher_carbon\natives\1.20.1-forge-47.3.22\lwjgl.dll
+[LWJGL] 	Loaded from org.lwjgl.librarypath: D:\nokiatis-launcher_carbon\natives\1.20.1-forge-47.3.22\lwjgl.dll
 [LWJGL] Loading library: glfw
 [LWJGL] 	Module: org.lwjgl.glfw
 [LWJGL] [ThreadLocalUtil] Unsupported JNI version detected, this may result in a crash. Please inform LWJGL developers.
-[LWJGL] 	Loaded from org.lwjgl.librarypath: D:\gdlauncher_carbon\natives\1.20.1-forge-47.3.22\glfw.dll
+[LWJGL] 	Loaded from org.lwjgl.librarypath: D:\nokiatis-launcher_carbon\natives\1.20.1-forge-47.3.22\glfw.dll
   <log4j:Event logger="EARLYDISPLAY" timestamp="1736404519003" level="INFO" thread="main">
     <log4j:Message><![CDATA[Trying GL version 4.6]]></log4j:Message>
   </log4j:Event>
@@ -450,7 +450,7 @@
   </log4j:Event>
 [LWJGL] Loading library: jemalloc
 [LWJGL] 	Module: org.lwjgl.jemalloc
-[LWJGL] 	Loaded from org.lwjgl.librarypath: D:\gdlauncher_carbon\natives\1.20.1-forge-47.3.22\jemalloc.dll
+[LWJGL] 	Loaded from org.lwjgl.librarypath: D:\nokiatis-launcher_carbon\natives\1.20.1-forge-47.3.22\jemalloc.dll
 [LWJGL] MemoryUtil allocator: JEmallocAllocator
 [LWJGL] Java 9 check intrinsics enabled
 [LWJGL] Closure Registry: simple
@@ -465,14 +465,14 @@
   <log4j:Event logger="mixin-transmog" timestamp="1736404519253" level="INFO" thread="main">
     <log4j:Message><![CDATA[Original mixin transformation service successfully crobbed by mixin-transmogrifier!]]></log4j:Message>
   </log4j:Event>
-[LWJGL] 	Loaded from org.lwjgl.librarypath: D:\gdlauncher_carbon\natives\1.20.1-forge-47.3.22\lwjgl_opengl.dll
+[LWJGL] 	Loaded from org.lwjgl.librarypath: D:\nokiatis-launcher_carbon\natives\1.20.1-forge-47.3.22\lwjgl_opengl.dll
 [LWJGL] Loading library: opengl32
 [LWJGL] 	Module: org.lwjgl.opengl
-[LWJGL] 	opengl32.dll not found in org.lwjgl.librarypath=D:\gdlauncher_carbon\natives\1.20.1-forge-47.3.22
+[LWJGL] 	opengl32.dll not found in org.lwjgl.librarypath=D:\nokiatis-launcher_carbon\natives\1.20.1-forge-47.3.22
 [LWJGL] 	Loaded from system paths: C:\WINDOWS\SYSTEM32\opengl32.dll
 [LWJGL] Java 10 multiplyHigh enabled
   <log4j:Event logger="mixin" timestamp="1736404519296" level="INFO" thread="main">
-    <log4j:Message><![CDATA[SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/D:/gdlauncher_carbon/instances/Mystic%20Horizons1/instance/mods/Connector-1.0.0-beta.46+1.20.1.jar%23415%23418!/ Service=ModLauncher Env=CLIENT]]></log4j:Message>
+    <log4j:Message><![CDATA[SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/D:/nokiatis-launcher_carbon/instances/Mystic%20Horizons1/instance/mods/Connector-1.0.0-beta.46+1.20.1.jar%23415%23418!/ Service=ModLauncher Env=CLIENT]]></log4j:Message>
   </log4j:Event>
 [LWJGL] Java 9 text decoding enabled
   <log4j:Event logger="EARLYDISPLAY" timestamp="1736404519358" level="INFO" thread="pool-2-thread-1">
@@ -483,763 +483,763 @@
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519396" level="INFO" thread="main">
     <log4j:Message><![CDATA[Found mod file Connector-1.0.0-beta.46+1.20.1-mod.jar of type MOD with provider org.sinytra.connector.locator.ConnectorEarlyLocator@7923f5b3]]></log4j:Message>
   </log4j:Event>
-[LWJGL] 	Loaded from org.lwjgl.librarypath: D:\gdlauncher_carbon\natives\1.20.1-forge-47.3.22\lwjgl_stb.dll
+[LWJGL] 	Loaded from org.lwjgl.librarypath: D:\nokiatis-launcher_carbon\natives\1.20.1-forge-47.3.22\lwjgl_stb.dll
 [LWJGL] Java 10 memcpy enabled
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519856" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file AchievementOptimizer-1.20.1-1.0.5.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file AchievementOptimizer-1.20.1-1.0.5.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519856" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file AdvancementPlaques-1.20.1-forge-1.6.7.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file AdvancementPlaques-1.20.1-forge-1.6.7.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519856" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file alekiNiftyShips-FORGE-1.20.1-1.0.13.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file alekiNiftyShips-FORGE-1.20.1-1.0.13.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519856" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file alexscaves-2.0.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file alexscaves-2.0.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519857" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file AmbientSounds_FORGE_v6.1.4_mc1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file AmbientSounds_FORGE_v6.1.4_mc1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519857" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Animalistic_mod_1.2.2_1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Animalistic_mod_1.2.2_1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519857" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ApothicAttributes-1.20.1-1.3.7.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ApothicAttributes-1.20.1-1.3.7.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519857" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file aquamirae-6.API15.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file aquamirae-6.API15.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519857" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file architectury-9.2.14-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file architectury-9.2.14-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519857" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file armordamagescale-1.20.1-3.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file armordamagescale-1.20.1-3.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519857" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ArPhEx-4.0.2-forge-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ArPhEx-4.0.2-forge-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519857" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file artifacts-forge-9.5.13.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file artifacts-forge-9.5.13.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519857" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ati_structures(1.20)_v1.1.0_FORGE.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ati_structures(1.20)_v1.1.0_FORGE.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519857" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file AttributeFix-Forge-1.20.1-21.0.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file AttributeFix-Forge-1.20.1-21.0.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519857" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file AutoLeveling-1.20-1.19b.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file AutoLeveling-1.20-1.19b.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519858" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file azurelib-neo-1.20.1-2.0.41.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file azurelib-neo-1.20.1-2.0.41.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519858" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file azurelibarmor-neo-1.20.1-2.0.14.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file azurelibarmor-neo-1.20.1-2.0.14.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519858" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file BadMobs-1.20.1-19.0.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file BadMobs-1.20.1-19.0.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519858" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file BadOptimizations-2.2.1-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file BadOptimizations-2.2.1-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519858" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file balm-forge-1.20.1-7.3.10-all.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file balm-forge-1.20.1-7.3.10-all.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519858" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file BetterF3-7.0.2-Forge-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file BetterF3-7.0.2-Forge-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519858" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file BetterModsButton-v8.0.2-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file BetterModsButton-v8.0.2-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519858" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file BetterQuesting-Forge-1.20.1-4.0.28.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file BetterQuesting-Forge-1.20.1-4.0.28.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519858" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file bettervillage-forge-1.20.1-3.2.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file bettervillage-forge-1.20.1-3.2.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519858" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file BHMenu-Forge-1.20.1-2.4.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file BHMenu-Forge-1.20.1-2.4.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519859" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file blur-forge-3.1.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file blur-forge-3.1.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519859" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file BOMD-Forge-1.20.1-1.1.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file BOMD-Forge-1.20.1-1.1.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519859" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Bookshelf-Forge-1.20.1-20.2.13.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Bookshelf-Forge-1.20.1-20.2.13.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519859" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file bygonenether-1.3.2-1.20.x.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file bygonenether-1.3.2-1.20.x.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519859" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file caelus-forge-3.2.0+1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file caelus-forge-3.2.0+1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519860" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file castle_dungeons-4.0.0-1.20-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file castle_dungeons-4.0.0-1.20-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519860" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Celestial Configuration-forge-1.20.1-1.1.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Celestial Configuration-forge-1.20.1-1.1.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519860" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file celestisynth-1.20.1-1.3.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file celestisynth-1.20.1-1.3.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519860" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file CerbonsAPI-Forge-1.20.1-1.1.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file CerbonsAPI-Forge-1.20.1-1.1.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519860" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file champions-forge-1.20.1-2.1.7.1-beta-5.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file champions-forge-1.20.1-2.1.7.1-beta-5.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519860" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file charms-2.0.2-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file charms-2.0.2-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519860" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file chat_heads-0.13.7-forge-1.20.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file chat_heads-0.13.7-forge-1.20.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519860" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file cherishedworlds-forge-6.1.7+1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file cherishedworlds-forge-6.1.7+1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519860" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file citadel-2.6.1-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file citadel-2.6.1-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519860" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file cloth-config-11.1.136-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file cloth-config-11.1.136-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519861" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Clumps-forge-1.20.1-12.0.0.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Clumps-forge-1.20.1-12.0.0.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519861" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file collective-1.20.1-7.87.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file collective-1.20.1-7.87.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519861" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file comforts-forge-6.4.0+1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file comforts-forge-6.4.0+1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519861" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file common-networking-forge-1.0.5-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file common-networking-forge-1.0.5-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519861" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file configured-forge-1.20.1-2.2.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file configured-forge-1.20.1-2.2.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519861" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ConnectorExtras-1.11.2+1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ConnectorExtras-1.11.2+1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519861" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Controlling-forge-1.20.1-12.0.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Controlling-forge-1.20.1-12.0.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519861" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Corgilib-Forge-1.20.1-4.0.3.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Corgilib-Forge-1.20.1-4.0.3.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519861" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file coroutil-forge-1.20.1-1.3.7.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file coroutil-forge-1.20.1-1.3.7.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519861" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file corpse-forge-1.20.1-1.0.19.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file corpse-forge-1.20.1-1.0.19.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519862" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file cpapireforged-1.0.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file cpapireforged-1.0.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519862" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file CraftTweaker-forge-1.20.1-14.0.44.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file CraftTweaker-forge-1.20.1-14.0.44.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519862" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file CraterLib-Forge-1.20-2.1.2+hotfix.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file CraterLib-Forge-1.20-2.1.2+hotfix.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519862" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file CreativeCore_FORGE_v2.12.27_mc1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file CreativeCore_FORGE_v2.12.27_mc1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519862" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file CullLessLeaves-Reforged-1.20.1-1.0.5.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file CullLessLeaves-Reforged-1.20.1-1.0.5.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519862" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file cupboard-1.20.1-2.7.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file cupboard-1.20.1-2.7.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519863" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file curios-forge-5.11.0+1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file curios-forge-5.11.0+1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519863" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file DamageIndicatorReborn-forge-1.20.1-1.0.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file DamageIndicatorReborn-forge-1.20.1-1.0.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519863" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file deeperdarker-forge-1.20.1-1.3.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file deeperdarker-forge-1.20.1-1.3.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519863" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file defaultoptions-forge-1.20-18.0.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file defaultoptions-forge-1.20-18.0.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519863" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file doom-neo-1.20.1-7.0.13.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file doom-neo-1.20.1-7.0.13.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519863" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file drippyloadingscreen_forge_3.0.9_MC_1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file drippyloadingscreen_forge_3.0.9_MC_1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519863" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file dummmmmmy-1.20-2.0.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file dummmmmmy-1.20-2.0.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519863" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Dungeon Crawl-1.20.1-2.3.14.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Dungeon Crawl-1.20.1-2.3.14.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519863" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file dungeons-and-taverns-3.0.3.f[Forge].jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file dungeons-and-taverns-3.0.3.f[Forge].jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519863" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file dungeons_enhanced-1.20.1-5.3.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file dungeons_enhanced-1.20.1-5.3.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519864" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file DungeonsArise-1.20.x-2.1.58-release.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file DungeonsArise-1.20.x-2.1.58-release.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519864" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file DungeonsAriseSevenSeas-1.20.x-1.0.2-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file DungeonsAriseSevenSeas-1.20.x-1.0.2-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519864" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file EasyAnvils-v8.0.2-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file EasyAnvils-v8.0.2-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519864" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file effortlessbuilding-1.20.1-3.8.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file effortlessbuilding-1.20.1-3.8.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519864" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file efiscompat-2.2.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file efiscompat-2.2.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519864" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file embeddium-0.3.31+mc1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file embeddium-0.3.31+mc1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519864" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file emi-1.1.18+1.20.1+forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file emi-1.1.18+1.20.1+forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519865" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file enchantlimiter-3.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file enchantlimiter-3.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519865" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file EnchantmentDescriptions-Forge-1.20.1-17.1.19.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file EnchantmentDescriptions-Forge-1.20.1-17.1.19.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519865" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file EnhancedVisuals_FORGE_v1.8.1_mc1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file EnhancedVisuals_FORGE_v1.8.1_mc1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519865" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file EnigmaticLegacy-2.30.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file EnigmaticLegacy-2.30.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519865" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file entity_model_features_forge_1.20.1-2.4.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file entity_model_features_forge_1.20.1-2.4.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519865" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file entity_texture_features_forge_1.20.1-6.2.9.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file entity_texture_features_forge_1.20.1-6.2.9.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519865" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file entityculling-forge-1.7.2-mc1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file entityculling-forge-1.7.2-mc1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519865" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file epicfight-forge-20.9.6-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file epicfight-forge-20.9.6-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519865" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file epictweaks-forge-1.20.1-1.0.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file epictweaks-forge-1.20.1-1.0.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519865" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file expandability-9.0.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file expandability-9.0.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519866" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file extrasounds-1.20.1-forge-1.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file extrasounds-1.20.1-forge-1.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519866" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file fabric-api-0.92.2+1.11.9+1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file fabric-api-0.92.2+1.11.9+1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519866" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file falchionmoveset-20.8.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file falchionmoveset-20.8.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519866" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file fallingtrees-forge-0.12.7-1.20.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file fallingtrees-forge-0.12.7-1.20.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519866" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file FancyBlockParticles-1.20.1-forge-20.1.2.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file FancyBlockParticles-1.20.1-forge-20.1.2.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519866" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file fancymenu_forge_3.3.2_MC_1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file fancymenu_forge_3.3.2_MC_1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519866" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file fantasyfurniture-1.20.1-9.0.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file fantasyfurniture-1.20.1-9.0.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519866" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file farsight-1.20.1-3.7.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file farsight-1.20.1-3.7.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519866" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file fastboot-1.20.x-1.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file fastboot-1.20.x-1.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519866" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ferritecore-6.0.1-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ferritecore-6.0.1-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Galosphere-1.20.1-1.4.1-Forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Galosphere-1.20.1-1.4.1-Forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file GatewaysToEternity-1.20.1-4.2.6.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file GatewaysToEternity-1.20.1-4.2.6.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file geckolib-forge-1.20.1-4.4.9.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file geckolib-forge-1.20.1-4.4.9.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file GeophilicReforged-v1.2.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file GeophilicReforged-v1.2.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file hardernaturalhealing-1.20-46.1.14.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file hardernaturalhealing-1.20-46.1.14.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file harderspawners-1.20-46.25.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file harderspawners-1.20-46.25.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Highlighter-1.20.1-forge-1.1.9.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Highlighter-1.20.1-forge-1.1.9.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Icarus-NeoForge-2.10.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Icarus-NeoForge-2.10.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file iceandfire-2.1.13-1.20.1-beta-5.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file iceandfire-2.1.13-1.20.1-beta-5.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Iceberg-1.20.1-forge-1.1.25.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Iceberg-1.20.1-forge-1.1.25.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ImmediatelyFast-Forge-1.3.3+1.20.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ImmediatelyFast-Forge-1.3.3+1.20.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ImmersiveUI-FORGE-0.3.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ImmersiveUI-FORGE-0.3.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file InsaneLib-1.15.1-mc1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file InsaneLib-1.15.1-mc1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file inventoryhud.forge.1.20.1-3.4.26.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file inventoryhud.forge.1.20.1-3.4.26.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file irons_rpg_tweaks-1.20-1.2.5.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file irons_rpg_tweaks-1.20-1.2.5.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file irons_spellbooks-1.20.1-3.4.0.5.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file irons_spellbooks-1.20.1-3.4.0.5.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519867" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ItemBorders-1.20.1-forge-1.2.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ItemBorders-1.20.1-forge-1.2.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519868" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ItemPhysicLite_FORGE_v1.6.5_mc1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ItemPhysicLite_FORGE_v1.6.5_mc1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519868" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file keebszs_battletowers_0.6.0-1.20.1BETA.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file keebszs_battletowers_0.6.0-1.20.1BETA.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519868" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file knavesneeds-forge-2.0+1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file knavesneeds-forge-2.0+1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519868" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file konkrete_forge_1.8.0_MC_1.20-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file konkrete_forge_1.8.0_MC_1.20-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519868" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file L_Enders_Cataclysm-2.27 - 1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file L_Enders_Cataclysm-2.27 - 1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519868" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file leawind_third_person-v2.2.0-mc1.20-1.20.1-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file leawind_third_person-v2.2.0-mc1.20-1.20.1-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519868" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file legendarymonsters-1.5.2 MC 1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file legendarymonsters-1.5.2 MC 1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519868" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file LegendaryTooltips-1.20.1-forge-1.4.5.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file LegendaryTooltips-1.20.1-forge-1.4.5.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519868" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file libraryferret-forge-1.20.1-4.0.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file libraryferret-forge-1.20.1-4.0.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519869" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file lionfishapi-2.4-Fix.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file lionfishapi-2.4-Fix.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519869" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file lmft-1.0.4+1.20.1-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file lmft-1.0.4+1.20.1-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519869" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Log-Begone-Forge-1.20.1-1.0.8.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Log-Begone-Forge-1.20.1-1.0.8.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519869" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file LongerChatHistory-1.3-Forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file LongerChatHistory-1.3-Forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519869" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file looot-1.20.1-1.2.0.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file looot-1.20.1-1.2.0.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519869" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file loot_journal-forge-1.20.1-4.0.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file loot_journal-forge-1.20.1-4.0.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519869" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file lootbeams-1.20.1-1.2.6.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file lootbeams-1.20.1-1.2.6.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519869" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file lootintegrations-1.20.1-4.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file lootintegrations-1.20.1-4.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519869" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file lootr-forge-1.20-0.7.35.90.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file lootr-forge-1.20-0.7.35.90.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file lukis-grand-capitals-1.1.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file lukis-grand-capitals-1.1.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Lunar-forge-1.20.1-0.2.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Lunar-forge-1.20.1-0.2.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file majrusz-library-forge-1.20.1-7.0.8.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file majrusz-library-forge-1.20.1-7.0.8.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file majruszs-enchantments-forge-1.20.1-1.10.8.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file majruszs-enchantments-forge-1.20.1-1.10.8.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file MaxHealthFix-Forge-1.20.1-12.0.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file MaxHealthFix-Forge-1.20.1-12.0.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file melody_forge_1.0.3_MC_1.20.1-1.20.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file melody_forge_1.0.3_MC_1.20.1-1.20.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file mes-1.3.4-1.20-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file mes-1.3.4-1.20-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file miningmaster-1.20.1-4.1.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file miningmaster-1.20.1-4.1.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file mobhealthbar-forge-1.20.x-2.3.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file mobhealthbar-forge-1.20.x-2.3.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file mobtimizations-forge-1.20.1-1.0.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file mobtimizations-forge-1.20.1-1.0.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file modernfix-forge-5.20.0+mc1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file modernfix-forge-5.20.0+mc1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file moonlight-1.20-2.13.42-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file moonlight-1.20-2.13.42-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519870" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file morevillagers-forge-1.20.1-5.0.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file morevillagers-forge-1.20.1-5.0.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519871" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file MouseTweaks-forge-mc1.20.1-2.25.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file MouseTweaks-forge-mc1.20.1-2.25.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519871" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file mowziesmobs-1.6.5.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file mowziesmobs-1.6.5.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519871" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file mss-1.2.6-1.20.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file mss-1.2.6-1.20.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519871" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file mythicmounts-20.1-7.4.2-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file mythicmounts-20.1-7.4.2-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519871" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Nameless Trinkets-1.20.1-1.8.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Nameless Trinkets-1.20.1-1.8.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519871" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file nanhealthfixer-1.20.1-0.0.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file nanhealthfixer-1.20.1-0.0.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519871" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file naturalist-forge-4.0.3-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file naturalist-forge-4.0.3-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519871" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Necronomicon-Forge-1.6.0+1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Necronomicon-Forge-1.6.0+1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519871" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file noisium-forge-2.3.0+mc1.20-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file noisium-forge-2.3.0+mc1.20-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519871" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file notenoughanimations-forge-1.9.0-mc1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file notenoughanimations-forge-1.9.0-mc1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519871" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Nullscape_1.20.x_v1.2.8.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Nullscape_1.20.x_v1.2.8.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519871" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file obscure_api-15.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file obscure_api-15.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519872" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file OctoLib-FORGE-0.4.2+1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file OctoLib-FORGE-0.4.2+1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519872" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file oculus-flywheel-compat-forge1.20.1+1.1.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file oculus-flywheel-compat-forge1.20.1+1.1.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519872" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file oculus-mc1.20.1-1.8.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file oculus-mc1.20.1-1.8.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519872" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Oh-The-Biomes-Weve-Gone-Forge-1.4.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Oh-The-Biomes-Weve-Gone-Forge-1.4.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519872" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Oh-The-Trees-Youll-Grow-forge-1.20.1-1.3.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Oh-The-Trees-Youll-Grow-forge-1.20.1-1.3.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519872" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file open-parties-and-claims-forge-1.20.1-0.23.6.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file open-parties-and-claims-forge-1.20.1-0.23.6.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519872" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file OverflowingBars-v8.0.1-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file OverflowingBars-v8.0.1-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519872" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file pandalib-forge-0.4.2-1.20.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file pandalib-forge-0.4.2-1.20.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519872" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Patchouli-1.20.1-84-FORGE.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Patchouli-1.20.1-84-FORGE.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519872" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Paxi-1.20-Forge-4.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Paxi-1.20-Forge-4.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519872" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Pehkui-3.8.2+1.20.1-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Pehkui-3.8.2+1.20.1-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519873" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file pickableorbs-1.20.1-3.1.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file pickableorbs-1.20.1-3.1.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519873" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Placebo-1.20.1-8.6.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Placebo-1.20.1-8.6.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519873" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file player-animation-lib-forge-1.0.2-rc1+1.20.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file player-animation-lib-forge-1.0.2-rc1+1.20.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519873" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file polymorph-forge-0.49.8+1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file polymorph-forge-0.49.8+1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519873" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file PresenceFootsteps-1.20.1-1.9.1-beta.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file PresenceFootsteps-1.20.1-1.9.1-beta.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519873" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Prism-1.20.1-forge-1.0.5.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Prism-1.20.1-forge-1.0.5.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519873" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ProgressiveBosses-4.2.1-mc1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ProgressiveBosses-4.2.1-mc1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519874" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file projectile_damage-forge-3.2.2+1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file projectile_damage-forge-3.2.2+1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519874" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file puffish_attributes-0.6.6-1.20-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file puffish_attributes-0.6.6-1.20-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519874" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file puffish_skills-0.14.3-1.20-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file puffish_skills-0.14.3-1.20-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519874" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file PuzzlesLib-v8.1.25-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file PuzzlesLib-v8.1.25-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519874" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file quality_equipment-1.6-forge_neoforge-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file quality_equipment-1.6-forge_neoforge-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519874" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Quark-4.0-460.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Quark-4.0-460.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519875" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file radium-mc1.20.1-0.12.4+git.26c9d8e.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file radium-mc1.20.1-0.12.4+git.26c9d8e.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519875" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Random Crits 1.3.2 - 1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Random Crits 1.3.2 - 1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519875" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file realmrpg_imps_and_demons_0.9.0_forge_1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file realmrpg_imps_and_demons_0.9.0_forge_1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519875" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file reds-more-structures-1.0.8-common.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file reds-more-structures-1.0.8-common.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519875" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file RegionsUnexploredForge-0.5.6+1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file RegionsUnexploredForge-0.5.6+1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519875" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file relics-1.20.1-0.8.0.7.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file relics-1.20.1-0.8.0.7.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519875" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file reliquary-1.20.1-2.0.45.1248.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file reliquary-1.20.1-2.0.45.1248.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519875" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file repurposed_structures-7.1.15+1.20.1-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file repurposed_structures-7.1.15+1.20.1-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519875" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file resourcefulconfig-forge-1.20.1-2.1.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file resourcefulconfig-forge-1.20.1-2.1.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519876" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ResourcePackOverrides-v8.0.3-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ResourcePackOverrides-v8.0.3-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519876" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Searchables-forge-1.20.1-1.0.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Searchables-forge-1.20.1-1.0.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519876" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file serverconfigupdater-4.0.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file serverconfigupdater-4.0.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519876" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file shineals_prehistoric_expansion-1.4-forge-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file shineals_prehistoric_expansion-1.4-forge-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519876" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Shrines-1.20.1-6.0.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Shrines-1.20.1-6.0.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519876" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file simplehats-forge-1.20.1-0.3.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file simplehats-forge-1.20.1-0.3.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519876" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file SimpleRPC-Universal-3.3.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file SimpleRPC-Universal-3.3.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519876" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file simplyswords-forge-1.56.0-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file simplyswords-forge-1.56.0-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519876" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file SmartBrainLib-forge-1.20.1-1.15.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file SmartBrainLib-forge-1.20.1-1.15.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519876" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file sodiumextras-forge-1.0.6-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file sodiumextras-forge-1.0.6-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519876" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file sodiumoptionsapi-forge-1.0.8-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file sodiumoptionsapi-forge-1.0.8-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519877" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file sol_valheim-1.1.3-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file sol_valheim-1.1.3-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519877" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file sons-of-sins-1.20.1-2.1.7.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file sons-of-sins-1.20.1-2.1.7.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519877" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file sophisticatedbackpacks-1.20.1-3.20.17.1150.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file sophisticatedbackpacks-1.20.1-3.20.17.1150.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519877" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file sophisticatedcore-1.20.1-1.0.1.809.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file sophisticatedcore-1.20.1-1.0.1.809.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519877" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file sophisticatedstorage-1.20.1-1.0.2.985.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file sophisticatedstorage-1.20.1-1.0.2.985.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519877" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file soulslike-weaponry-1.1.5-1.20.1-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file soulslike-weaponry-1.1.5-1.20.1-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519877" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file spark-1.10.53-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file spark-1.10.53-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519877" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file SpartanShields-1.20.1-forge-3.1.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file SpartanShields-1.20.1-forge-3.1.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519877" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file StandardExpansion-Forge-1.20.1-4.0.18.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file StandardExpansion-Forge-1.20.1-4.0.18.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519878" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file structure_gel-1.20.1-2.16.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file structure_gel-1.20.1-2.16.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519878" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file structureessentials-1.20.1-3.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file structureessentials-1.20.1-3.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519878" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file structurify-forge-mc1.20.1-1.0.11.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file structurify-forge-mc1.20.1-1.0.11.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519878" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file takesapillage-1.0.3-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file takesapillage-1.0.3-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519879" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file tarotcards-1.20-1.7.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file tarotcards-1.20-1.7.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519879" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file TATOS 1.0.5_beta.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file TATOS 1.0.5_beta.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519879" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file tectonic-forge-1.20.1-2.4.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file tectonic-forge-1.20.1-2.4.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519879" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file TerraBlender-forge-1.20.1-3.0.1.7.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file TerraBlender-forge-1.20.1-3.0.1.7.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519879" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Terralith_1.20.x_v2.5.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Terralith_1.20.x_v2.5.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519879" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file terramity-0.9.6.1-forge-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file terramity-0.9.6.1-forge-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519879" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file the-orcs-1.0-FORGE-1.20.x.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file the-orcs-1.0-FORGE-1.20.x.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519879" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ToastControl-1.20.1-8.0.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ToastControl-1.20.1-8.0.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519879" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file TonsOfEnchants-1.20.1-1.0.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file TonsOfEnchants-1.20.1-1.0.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519879" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file ToolBelt-1.20.1-1.20.02.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file ToolBelt-1.20.1-1.20.02.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519880" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file transmog-forge-1.3.0+1.20.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file transmog-forge-1.3.0+1.20.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519880" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file TravelersTitles-1.20-Forge-4.0.2.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file TravelersTitles-1.20-Forge-4.0.2.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519880" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file traveloptics_tweaks-3.0.1-1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file traveloptics_tweaks-3.0.1-1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519880" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file TreeChop-1.20.1-forge-0.19.0-fixed.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file TreeChop-1.20.1-forge-0.19.0-fixed.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519880" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file UniversalEnchants-v8.0.0-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file UniversalEnchants-v8.0.0-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519880" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file unusualprehistory-1.5.0.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file unusualprehistory-1.5.0.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519880" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file villagernames-1.20.1-8.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file villagernames-1.20.1-8.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519880" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file VisualWorkbench-v8.0.0-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file VisualWorkbench-v8.0.0-1.20.1-Forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519880" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file voicechat-forge-1.20.1-2.5.27.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file voicechat-forge-1.20.1-2.5.27.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519880" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file waystones-forge-1.20-14.1.6.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file waystones-forge-1.20-14.1.6.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519880" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file weaponmaster_ydm-forge-1.20.1-4.2.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file weaponmaster_ydm-forge-1.20.1-4.2.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519881" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file WeaponsOfMiracles-20.1.8.5.6.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file WeaponsOfMiracles-20.1.8.5.6.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519881" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Wesley's Roguelike Dungeons 1.20.1-2.3.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Wesley's Roguelike Dungeons 1.20.1-2.3.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519881" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file XaeroPlus-2.24.9+forge-1.20.1-WM1.39.2-MM24.6.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file XaeroPlus-2.24.9+forge-1.20.1-WM1.39.2-MM24.6.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519881" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Xaeros_Minimap_24.6.1_Forge_1.20.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Xaeros_Minimap_24.6.1_Forge_1.20.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519881" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file XaerosWorldMap_1.39.2_Forge_1.20.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file XaerosWorldMap_1.39.2_Forge_1.20.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519881" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file xptome-1.20.1-2.2.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file xptome-1.20.1-2.2.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519881" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file YeetusExperimentus-Forge-2.3.1-build.6+mc1.20.1.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file YeetusExperimentus-Forge-2.3.1-build.6+mc1.20.1.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519881" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file YetAnotherConfigLib-3.6.2+1.20.1-forge.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file YetAnotherConfigLib-3.6.2+1.20.1-forge.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519881" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file YungsApi-1.20-Forge-4.0.6.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file YungsApi-1.20-Forge-4.0.6.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519882" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file YungsBetterDungeons-1.20-Forge-4.0.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file YungsBetterDungeons-1.20-Forge-4.0.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519882" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file YungsBetterEndIsland-1.20-Forge-2.0.6.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file YungsBetterEndIsland-1.20-Forge-2.0.6.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519882" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file YungsBetterMineshafts-1.20-Forge-4.0.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file YungsBetterMineshafts-1.20-Forge-4.0.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519882" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file YungsBetterNetherFortresses-1.20-Forge-2.0.6.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file YungsBetterNetherFortresses-1.20-Forge-2.0.6.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519882" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file YungsBetterOceanMonuments-1.20-Forge-3.0.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file YungsBetterOceanMonuments-1.20-Forge-3.0.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519882" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file YungsBetterStrongholds-1.20-Forge-4.0.3.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file YungsBetterStrongholds-1.20-Forge-4.0.3.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519882" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file Zeta-1.0-24.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file Zeta-1.0-24.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404519882" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Found mod file zume-1.1.4.jar of type MOD with provider {mods folder locator at D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
+    <log4j:Message><![CDATA[Found mod file zume-1.1.4.jar of type MOD with provider {mods folder locator at D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods}]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModFileParser" timestamp="1736404520000" level="WARN" thread="main">
-    <log4j:Message><![CDATA[Mod file D:\gdlauncher_carbon\libraries\net\minecraftforge\fmlcore\1.20.1-47.3.22\fmlcore-1.20.1-47.3.22.jar is missing mods.toml file]]></log4j:Message>
+    <log4j:Message><![CDATA[Mod file D:\nokiatis-launcher_carbon\libraries\net\minecraftforge\fmlcore\1.20.1-47.3.22\fmlcore-1.20.1-47.3.22.jar is missing mods.toml file]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModFileParser" timestamp="1736404520068" level="WARN" thread="main">
-    <log4j:Message><![CDATA[Mod file D:\gdlauncher_carbon\libraries\net\minecraftforge\javafmllanguage\1.20.1-47.3.22\javafmllanguage-1.20.1-47.3.22.jar is missing mods.toml file]]></log4j:Message>
+    <log4j:Message><![CDATA[Mod file D:\nokiatis-launcher_carbon\libraries\net\minecraftforge\javafmllanguage\1.20.1-47.3.22\javafmllanguage-1.20.1-47.3.22.jar is missing mods.toml file]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModFileParser" timestamp="1736404520107" level="WARN" thread="main">
-    <log4j:Message><![CDATA[Mod file D:\gdlauncher_carbon\libraries\net\minecraftforge\lowcodelanguage\1.20.1-47.3.22\lowcodelanguage-1.20.1-47.3.22.jar is missing mods.toml file]]></log4j:Message>
+    <log4j:Message><![CDATA[Mod file D:\nokiatis-launcher_carbon\libraries\net\minecraftforge\lowcodelanguage\1.20.1-47.3.22\lowcodelanguage-1.20.1-47.3.22.jar is missing mods.toml file]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModFileParser" timestamp="1736404520144" level="WARN" thread="main">
-    <log4j:Message><![CDATA[Mod file D:\gdlauncher_carbon\libraries\net\minecraftforge\mclanguage\1.20.1-47.3.22\mclanguage-1.20.1-47.3.22.jar is missing mods.toml file]]></log4j:Message>
+    <log4j:Message><![CDATA[Mod file D:\nokiatis-launcher_carbon\libraries\net\minecraftforge\mclanguage\1.20.1-47.3.22\mclanguage-1.20.1-47.3.22.jar is missing mods.toml file]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer" timestamp="1736404520284" level="INFO" thread="main">
     <log4j:Message><![CDATA[Found mod file fmlcore-1.20.1-47.3.22.jar of type LIBRARY with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@4992613f]]></log4j:Message>
@@ -1263,7 +1263,7 @@
     <log4j:Message><![CDATA[Attempted to select two dependency jars from JarJar which have the same identification: Mod File:  and Mod File: . Using Mod File: ]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.jarjar.selection.JarSelector" timestamp="1736404520781" level="WARN" thread="main">
-    <log4j:Message><![CDATA[Attempted to select a dependency jar for JarJar which was passed in as source: expandability. Using Mod File: D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\mods\expandability-9.0.4.jar]]></log4j:Message>
+    <log4j:Message><![CDATA[Attempted to select a dependency jar for JarJar which was passed in as source: expandability. Using Mod File: D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\mods\expandability-9.0.4.jar]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator" timestamp="1736404520781" level="INFO" thread="main">
     <log4j:Message><![CDATA[Found 90 dependencies adding them to mods collection]]></log4j:Message>
@@ -1644,7 +1644,7 @@
     <log4j:Message><![CDATA[Successfully loaded Mixin Connector [com.aizistral.enigmaticlegacy.MixinConnector]]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="cpw.mods.modlauncher.LaunchServiceHandler" timestamp="1736404548195" level="INFO" thread="main">
-    <log4j:Message><![CDATA[Launching target 'forgeclient' with arguments [--version, 1.20.1, --gameDir, D:\gdlauncher_carbon\instances\Mystic Horizons1\instance, --assetsDir, D:\gdlauncher_carbon\assets, --uuid, uuid, --username, username, --assetIndex, 5, --accessToken, ❄❄❄❄❄❄❄❄, --userType, msa, --versionType, release, --width=1920, --height=1080]]]></log4j:Message>
+    <log4j:Message><![CDATA[Launching target 'forgeclient' with arguments [--version, 1.20.1, --gameDir, D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance, --assetsDir, D:\nokiatis-launcher_carbon\assets, --uuid, uuid, --username, username, --assetIndex, 5, --accessToken, ❄❄❄❄❄❄❄❄, --userType, msa, --versionType, release, --width=1920, --height=1080]]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="mixin" timestamp="1736404548218" level="WARN" thread="main">
     <log4j:Message><![CDATA[Reference map 'sol_valheim-forge-refmap.json' for sol_valheim.mixins.json could not be read. If this is a development environment you can ignore this message]]></log4j:Message>
@@ -2434,10 +2434,10 @@
     <log4j:Message><![CDATA[Method overwrite conflict for m_47505_ in lithium.mixins.json:world.temperature_cache.BiomeMixin from mod radium, previously written by org.embeddedt.modernfix.common.mixin.perf.remove_biome_temperature_cache.BiomeMixin. Skipping method.]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraft.server.packs.VanillaPackResourcesBuilder" timestamp="1736404558404" level="WARN" thread="Render thread">
-    <log4j:Message><![CDATA[Assets URL 'union:/D:/gdlauncher_carbon/libraries/net/minecraft/client/1.20.1-20230612.114412/client-1.20.1-20230612.114412-srg.jar%23685!/assets/.mcassetsroot' uses unexpected schema]]></log4j:Message>
+    <log4j:Message><![CDATA[Assets URL 'union:/D:/nokiatis-launcher_carbon/libraries/net/minecraft/client/1.20.1-20230612.114412/client-1.20.1-20230612.114412-srg.jar%23685!/assets/.mcassetsroot' uses unexpected schema]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraft.server.packs.VanillaPackResourcesBuilder" timestamp="1736404558405" level="WARN" thread="Render thread">
-    <log4j:Message><![CDATA[Assets URL 'union:/D:/gdlauncher_carbon/libraries/net/minecraft/client/1.20.1-20230612.114412/client-1.20.1-20230612.114412-srg.jar%23685!/data/.mcassetsroot' uses unexpected schema]]></log4j:Message>
+    <log4j:Message><![CDATA[Assets URL 'union:/D:/nokiatis-launcher_carbon/libraries/net/minecraft/client/1.20.1-20230612.114412/client-1.20.1-20230612.114412-srg.jar%23685!/data/.mcassetsroot' uses unexpected schema]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService" timestamp="1736404558428" level="INFO" thread="Render thread">
     <log4j:Message><![CDATA[Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD']]></log4j:Message>
@@ -2485,7 +2485,7 @@
     <log4j:Message><![CDATA[--------------------------------------------]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="YetAnotherConfigLib" timestamp="1736404559756" level="INFO" thread="Render thread">
-    <log4j:Message><![CDATA[Deserializing ModConfig from 'D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config\ReactiveMusic.json5']]></log4j:Message>
+    <log4j:Message><![CDATA[Deserializing ModConfig from 'D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config\ReactiveMusic.json5']]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="reactive_music" timestamp="1736404559868" level="INFO" thread="Render thread">
     <log4j:Message><![CDATA[Took 107ms to parse available songpacks, found 1!]]></log4j:Message>
@@ -2521,7 +2521,7 @@
     <log4j:Message><![CDATA[Mixing MixinEntityRenderer from enigmaticlegacy.mixins.json into net.minecraft.client.renderer.entity.EntityRenderer]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="YetAnotherConfigLib" timestamp="1736404560249" level="INFO" thread="Render thread">
-    <log4j:Message><![CDATA[Deserializing Config from 'D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config\betterclouds-v1.json']]></log4j:Message>
+    <log4j:Message><![CDATA[Deserializing Config from 'D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config\betterclouds-v1.json']]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="betterclouds" timestamp="1736404560254" level="INFO" thread="Render thread">
     <log4j:Message><![CDATA[[betterclouds] Initializing DistantHorizons compat]]></log4j:Message>
@@ -2706,13 +2706,13 @@ hardernaturalhealing: Registering Mod.
     <log4j:Message><![CDATA[@Redirect conflict. Skipping forge-badoptimizations.mixins.json:MixinWorldRenderer from mod (unknown)->@Redirect::getSkyAngle(Lnet/minecraft/client/multiplayer/ClientLevel;F)F with priority 700, already redirected by citadel.mixins.json:client.LevelRendererMixin from mod citadel->@Redirect::citadel_getTimeOfDay(Lnet/minecraft/client/multiplayer/ClientLevel;F)F with priority 1000]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="com.deltajay.tonsofenchants.Main" timestamp="1736404561689" level="INFO" thread="modloading-worker-0">
-    <log4j:Message><![CDATA[Loading config: D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config\TonsOfEnchants-GlobalConfig.toml]]></log4j:Message>
+    <log4j:Message><![CDATA[Loading config: D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config\TonsOfEnchants-GlobalConfig.toml]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="com.deltajay.tonsofenchants.Main" timestamp="1736404561693" level="INFO" thread="modloading-worker-0">
-    <log4j:Message><![CDATA[Built config: D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config\TonsOfEnchants-GlobalConfig.toml]]></log4j:Message>
+    <log4j:Message><![CDATA[Built config: D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config\TonsOfEnchants-GlobalConfig.toml]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="com.deltajay.tonsofenchants.Main" timestamp="1736404561694" level="INFO" thread="modloading-worker-0">
-    <log4j:Message><![CDATA[Loaded config: D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config\TonsOfEnchants-GlobalConfig.toml]]></log4j:Message>
+    <log4j:Message><![CDATA[Loaded config: D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config\TonsOfEnchants-GlobalConfig.toml]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="com.jtorleonstudios.libraryferret.LibraryFerret" timestamp="1736404561707" level="INFO" thread="modloading-worker-0">
     <log4j:Message><![CDATA[Initialize mod Library Ferret]]></log4j:Message>
@@ -2958,7 +2958,7 @@ hardernaturalhealing: Registering Mod.
     <log4j:Message><![CDATA[Here we go! Launching Dungeon Crawl 2.3.14...]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="Leawind's Third Person" timestamp="1736404564497" level="INFO" thread="modloading-worker-0">
-    <log4j:Message><![CDATA[Config is loaded from D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config\leawind_third_person.json]]></log4j:Message>
+    <log4j:Message><![CDATA[Config is loaded from D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config\leawind_third_person.json]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.potionstudios.biomeswevegone.BiomesWeveGone" timestamp="1736404564535" level="INFO" thread="modloading-worker-0">
     <log4j:Message><![CDATA[Registering Oh The Biomes We've Gone Blocks]]></log4j:Message>
@@ -3038,7 +3038,7 @@ hardernaturalhealing: Registering Mod.
   <log4j:Event logger="Enchantment Descriptions" timestamp="1736404564732" level="INFO" thread="modloading-worker-0">
     <log4j:Message><![CDATA[Saved config file.]]></log4j:Message>
   </log4j:Event>
-D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config
+D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config
   <log4j:Event logger="Enigmatic Legacy" timestamp="1736404564756" level="INFO" thread="modloading-worker-0">
     <log4j:Message><![CDATA[Mod instance constructed successfully.]]></log4j:Message>
   </log4j:Event>
@@ -3091,13 +3091,13 @@ D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config
     <log4j:Message><![CDATA[Registering Oh The Biomes We've Gone Custom Structure Processors]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="com.decursioteam.pickableorbs.PickableOrbs" timestamp="1736404565165" level="INFO" thread="modloading-worker-0">
-    <log4j:Message><![CDATA[Built config: D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config\pickableorbs\common.toml]]></log4j:Message>
+    <log4j:Message><![CDATA[Built config: D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config\pickableorbs\common.toml]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="com.decursioteam.pickableorbs.PickableOrbs" timestamp="1736404565166" level="INFO" thread="modloading-worker-0">
-    <log4j:Message><![CDATA[Loaded config: D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config\pickableorbs\common.toml]]></log4j:Message>
+    <log4j:Message><![CDATA[Loaded config: D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config\pickableorbs\common.toml]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="YetAnotherConfigLib" timestamp="1736404565183" level="INFO" thread="modloading-worker-0">
-    <log4j:Message><![CDATA[Deserializing YACLConfig from 'D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config\yacl.json5']]></log4j:Message>
+    <log4j:Message><![CDATA[Deserializing YACLConfig from 'D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config\yacl.json5']]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="TrustManager" timestamp="1736404565213" level="FATAL" thread="modloading-worker-0">
     <log4j:Message><![CDATA[Could not determine mod trust worthiness, Assuming Jar was downloaded from trusted source!]]></log4j:Message>
@@ -3105,7 +3105,7 @@ D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config
   <log4j:Event logger="TrustManager" timestamp="1736404565213" level="INFO" thread="modloading-worker-0">
     <log4j:Message><![CDATA[Loaded mod 'apexcore' TrustWorthiness: UNKNOWN]]></log4j:Message>
   </log4j:Event>
-D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config
+D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config
   <log4j:Event logger="TrustManager" timestamp="1736404565299" level="FATAL" thread="modloading-worker-0">
     <log4j:Message><![CDATA[Could not determine mod trust worthiness, Assuming Jar was downloaded from trusted source!]]></log4j:Message>
   </log4j:Event>
@@ -3672,7 +3672,7 @@ D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config
   </log4j:Event>
 [LWJGL] Loading library: OpenAL
 [LWJGL] 	Module: org.lwjgl.openal
-[LWJGL] 	Loaded from org.lwjgl.librarypath: D:\gdlauncher_carbon\natives\1.20.1-forge-47.3.22\OpenAL.dll
+[LWJGL] 	Loaded from org.lwjgl.librarypath: D:\nokiatis-launcher_carbon\natives\1.20.1-forge-47.3.22\OpenAL.dll
   <log4j:Event logger="com.github.alexmodguy.alexscaves.AlexsCaves" timestamp="1736404573519" level="INFO" thread="Render thread">
     <log4j:Message><![CDATA[loaded in block colorizer]]></log4j:Message>
   </log4j:Event>
@@ -3778,7 +3778,7 @@ D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config
 HarderSpawners: Initialization Commencing.
 HarderSpawners: Initialization complete.
   <log4j:Event logger="net.minecraftforge.common.ForgeConfigSpec" timestamp="1736404576090" level="WARN" thread="modloading-worker-0">
-    <log4j:Message><![CDATA[Configuration file D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config\unusualprehistory-common.toml is not correct. Correcting]]></log4j:Message>
+    <log4j:Message><![CDATA[Configuration file D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config\unusualprehistory-common.toml is not correct. Correcting]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="zeta" timestamp="1736404576125" level="INFO" thread="modloading-worker-0">
     <log4j:Message><![CDATA['zeta' is enabling Zeta's piston structure resolver.]]></log4j:Message>
@@ -6629,7 +6629,7 @@ Caused by: com.google.gson.stream.MalformedJsonException: Unterminated object at
     <log4j:Message><![CDATA[[visualworkbench] Starting version check at https://raw.githubusercontent.com/Fuzss/modresources/main/update/visualworkbench.json]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="de.keksuccino.fancymenu.util.resource.resources.texture.SimpleTexture" timestamp="1736404582810" level="ERROR" thread="Render thread">
-    <log4j:Message><![CDATA[[FANCYMENU] Failed to read texture from file! File not found: D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\scripts\bar.png]]></log4j:Message>
+    <log4j:Message><![CDATA[[FANCYMENU] Failed to read texture from file! File not found: D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\scripts\bar.png]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.VersionChecker" timestamp="1736404582866" level="INFO" thread="Forge Version Check">
     <log4j:Message><![CDATA[[visualworkbench] Found status: UP_TO_DATE Current: 8.0.0 Target: null]]></log4j:Message>
@@ -7607,7 +7607,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was NUMBER
     <log4j:Message><![CDATA[Registering config factory for mod overflowingbars. Found 1 config(s)]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.common.ForgeConfigSpec" timestamp="1736404587842" level="WARN" thread="Render thread">
-    <log4j:Message><![CDATA[Configuration file D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\config\badmobs-common.toml is not correct. Correcting]]></log4j:Message>
+    <log4j:Message><![CDATA[Configuration file D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\config\badmobs-common.toml is not correct. Correcting]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraft.Util" timestamp="1736404588109" level="ERROR" thread="modloading-worker-0">
     <log4j:Message><![CDATA[Entity simplyskills:custom_entity_1 has no attributes]]></log4j:Message>
@@ -11214,7 +11214,7 @@ java.lang.IllegalStateException: No constructor information has provided in User
     <log4j:Message><![CDATA[GET request failed. Response Code: 404]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="de.keksuccino.fancymenu.util.resource.resources.texture.SimpleTexture" timestamp="1736404600968" level="ERROR" thread="Render thread">
-    <log4j:Message><![CDATA[[FANCYMENU] Failed to read texture from file! File not found: D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\scripts\bar.png]]></log4j:Message>
+    <log4j:Message><![CDATA[[FANCYMENU] Failed to read texture from file! File not found: D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\scripts\bar.png]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="Embeddium" timestamp="1736404600992" level="INFO" thread="Render thread">
     <log4j:Message><![CDATA[Block minecraft:large_fern had its color provider replaced and will not use per-vertex coloring]]></log4j:Message>
@@ -23343,19 +23343,19 @@ java.lang.NullPointerException: Cannot invoke "com.google.gson.JsonElement.getAs
     <log4j:Message><![CDATA[Generating keypair]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.common.ForgeConfigSpec" timestamp="1736404635421" level="WARN" thread="Server thread">
-    <log4j:Message><![CDATA[Configuration file D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\saves\Test\serverconfig\corpse-server.toml is not correct. Correcting]]></log4j:Message>
+    <log4j:Message><![CDATA[Configuration file D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\saves\Test\serverconfig\corpse-server.toml is not correct. Correcting]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.common.ForgeConfigSpec" timestamp="1736404635423" level="WARN" thread="Server thread">
-    <log4j:Message><![CDATA[Configuration file D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\saves\Test\serverconfig\curios-server.toml is not correct. Correcting]]></log4j:Message>
+    <log4j:Message><![CDATA[Configuration file D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\saves\Test\serverconfig\curios-server.toml is not correct. Correcting]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.common.ForgeConfigSpec" timestamp="1736404635424" level="WARN" thread="Server thread">
-    <log4j:Message><![CDATA[Configuration file D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\saves\Test\serverconfig\alekiships-server.toml is not correct. Correcting]]></log4j:Message>
+    <log4j:Message><![CDATA[Configuration file D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\saves\Test\serverconfig\alekiships-server.toml is not correct. Correcting]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.common.ForgeConfigSpec" timestamp="1736404635425" level="WARN" thread="Server thread">
-    <log4j:Message><![CDATA[Configuration file D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\saves\Test\serverconfig\pehkui-server.toml is not correct. Correcting]]></log4j:Message>
+    <log4j:Message><![CDATA[Configuration file D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\saves\Test\serverconfig\pehkui-server.toml is not correct. Correcting]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.common.ForgeConfigSpec" timestamp="1736404635435" level="WARN" thread="Server thread">
-    <log4j:Message><![CDATA[Configuration file D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\saves\Test\serverconfig\champions-server.toml is not correct. Correcting]]></log4j:Message>
+    <log4j:Message><![CDATA[Configuration file D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\saves\Test\serverconfig\champions-server.toml is not correct. Correcting]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraftforge.fml.javafmlmod.FMLModContainer" timestamp="1736404635456" level="ERROR" thread="Server thread">
     <log4j:Message><![CDATA[]]></log4j:Message>
@@ -23401,7 +23401,7 @@ java.lang.NullPointerException: Cannot invoke "com.google.gson.JsonElement.getAs
     <log4j:Message><![CDATA[Preparing crash report with UUID b3bae5fa-cf2e-4967-a05a-95ac1ed49ec6]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraft.server.MinecraftServer" timestamp="1736404635524" level="ERROR" thread="Server thread">
-    <log4j:Message><![CDATA[This crash report has been saved to: D:\gdlauncher_carbon\instances\Mystic Horizons1\instance\crash-reports\crash-2025-01-09_07.37.15-server.txt]]></log4j:Message>
+    <log4j:Message><![CDATA[This crash report has been saved to: D:\nokiatis-launcher_carbon\instances\Mystic Horizons1\instance\crash-reports\crash-2025-01-09_07.37.15-server.txt]]></log4j:Message>
   </log4j:Event>
   <log4j:Event logger="net.minecraft.server.MinecraftServer" timestamp="1736404635525" level="INFO" thread="Server thread">
     <log4j:Message><![CDATA[Stopping server]]></log4j:Message>
@@ -23423,6 +23423,6 @@ java.lang.NullPointerException: Cannot invoke "com.google.gson.JsonElement.getAs
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 ]]></log4j:Throwable>
   </log4j:Event>
-<log4j:Event logger="GDLAUNCHER" timestamp="1736404733318" level="INFO" thread="N/A">
+<log4j:Event logger="NokiatisAUNCHER" timestamp="1736404733318" level="INFO" thread="N/A">
 	<log4j:Message><![CDATA[exit code: 1]]></log4j:Message>
 </log4j:Event>
