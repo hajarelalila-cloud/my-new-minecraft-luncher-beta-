@@ -1,0 +1,87 @@
+name: Pre-Build Check
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  check-all:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: 1.85.1
+          targets: x86_64-unknown-linux-gnu
+          components: clippy, rustfmt
+
+      - name: Prepare
+        run: |
+          echo "" > crates/carbon_repos/src/db.rs
+
+      - name: Install dependencies
+        run: |
+          npm run sudo-init
+          chmod -R a+x node_modules
+
+      - name: Iridium patchfix
+        run: node iridium_patchfix.js
+
+      - name: Generate Prisma
+        env:
+          CARGO_INCREMENTAL: 0
+        run: pnpm prisma:generate:linux-x64
+
+      - name: Check ALL Rust Errors
+        id: cargo-check
+        continue-on-error: true
+        run: |
+          echo "=== RUNNING CARGO CHECK TO FIND ALL ERRORS ==="
+          cargo check --all-targets --all-features 2>&1 | tee cargo_errors.txt
+          echo "check_exit_code=${PIPESTATUS[0]}" >> $GITHUB_OUTPUT
+
+      - name: Parse and Report ALL Errors
+        if: steps.cargo-check.outputs.check_exit_code != '0'
+        run: |
+          echo ""
+          echo "=========================================="
+          echo "ALL COMPILATION ERRORS FOUND:"
+          echo "=========================================="
+          echo ""
+
+          # Extract all error lines
+          grep -E "^error" cargo_errors.txt || true
+
+          echo ""
+          echo "=========================================="
+          echo "DETAILED ERROR LOCATIONS:"
+          echo "=========================================="
+          echo ""
+
+          # Show errors with file locations
+          grep -E "(error\[|-->)" cargo_errors.txt || true
+
+          echo ""
+          echo "=========================================="
+          echo "Please fix ALL errors above before building"
+          echo "=========================================="
+
+          exit 1
+
+      - name: Success Message
+        if: steps.cargo-check.outputs.check_exit_code == '0'
+        run: |
+          echo "✅ ALL CHECKS PASSED!"
+          echo "The code compiles successfully. Ready for full build."
