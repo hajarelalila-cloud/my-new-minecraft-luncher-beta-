@@ -507,18 +507,16 @@ impl ManagerRef<'_, InstanceManager> {
                     let _liveness_watch = app.instance_manager().instance_running_tracker.marker();
 
                     // Get modloader info for Discord Rich Presence
-                    // version is Option<StandardVersion> here - if we got this far, it should be Some
+                    // version is StandardVersion here - if we got this far, it should be valid
                     let (mod_loader, mod_loader_version) = version
-                        .as_ref()
-                        .and_then(|v| v.modloaders.iter().next())
+                        .modloaders
+                        .iter()
+                        .next()
                         .map(|ml| (Some(ml.type_.to_string()), Some(ml.version.clone())))
                         .unwrap_or((None, None));
 
                     // Get MC version for Discord Rich Presence
-                    let mc_version = version
-                        .as_ref()
-                        .map(|v| v.release.clone())
-                        .unwrap_or_else(|| "Unknown".to_string());
+                    let mc_version = version.release.clone();
 
                     // Get mod count for Discord Rich Presence
                     let mod_count = app

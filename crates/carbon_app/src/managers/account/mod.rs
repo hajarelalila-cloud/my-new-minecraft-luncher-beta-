@@ -327,7 +327,7 @@ impl<'s> ManagerRef<'s, AccountManager> {
 
         self.app
             .settings_manager()
-            .set(SetParam::SetGdlAccountUuid(uuid.clone()))
+            .set(SetParam::SetNokiatisAccountUuid(uuid.clone()))
             .await?;
 
         self.app.invalidate(GET_Nokiatis_ACCOUNT, None);
@@ -478,12 +478,12 @@ impl<'s> ManagerRef<'s, AccountManager> {
 
         self.app
             .settings_manager()
-            .set(SetParam::SetGdlAccountUuid(None))
+            .set(SetParam::SetNokiatisAccountUuid(None))
             .await?;
 
         self.app
             .settings_manager()
-            .set(SetParam::SetGdlAccountStatus(None))
+            .set(SetParam::SetNokiatisAccountStatus(None))
             .await?;
 
         self.app.invalidate(GET_Nokiatis_ACCOUNT, None);

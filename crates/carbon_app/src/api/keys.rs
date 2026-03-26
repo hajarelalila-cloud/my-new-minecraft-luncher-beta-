@@ -167,6 +167,9 @@ keys! {
         // GPU Selection
         SET_INSTANCE_GPU                            = "setInstanceGpu";
         GET_AVAILABLE_GPUS                          = "getAvailableGpus";
+
+        // Mod File Import
+        IMPORT_MOD_FILES                            = "importModFiles";
     }
 
     vtask {

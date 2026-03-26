@@ -14,6 +14,7 @@ pub type UtcDateTime = chrono::DateTime<chrono::Utc>;
 use serde::{Deserialize, Serialize};
 use url::Url;
 
+#[allow(dead_code)]
 fn deserialise_optional_url<'de, D: serde::Deserializer<'de>>(
     de: D,
 ) -> Result<Option<Url>, D::Error> {

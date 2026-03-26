@@ -316,7 +316,7 @@ impl<T: tempentry::TempEntryType> TempEntry<T> {
     pub async fn try_rename_or_move(self, path: impl AsRef<Path>) -> anyhow::Result<()> {
         let res = tokio::fs::rename(&*self, &path).await;
 
-        if let Err(err) = &res {
+        if let Err(_err) = &res {
             tokio::fs::copy(&*self, &path).await.with_context(|| {
                 format!(
                     "failed to copy {} to {}",
