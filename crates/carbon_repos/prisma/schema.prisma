@@ -6,7 +6,7 @@ datasource db {
 generator client {
   provider        = "cargo prisma"
   output          = "../src/db.rs"
-  binaryTargets   = ["native", "debian-openssl-3.4.x", "windows"]
+  binaryTargets   = ["native", "debian-openssl-1.1.x", "debian-openssl-3.0.x", "rhel-openssl-3.0.x", "linux-musl-openssl-3.0.x", "windows", "darwin"]
 }
 
 model AppConfiguration {
