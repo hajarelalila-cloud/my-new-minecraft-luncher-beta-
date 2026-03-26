@@ -682,12 +682,12 @@ impl ManagerRef<'_, InstanceManager> {
                                                     e
                                                 );
                                             }
+                                        }
+                                        None => {
+                                            tracing::error!("Post-exit hook is empty");
+                                        }
                                     }
-                                }
-                                None => {
-                                    tracing::error!("Post-exit hook is empty");
-                                }
-                            },
+                                },
                             Err(e) => {
                                 tracing::error!("Post-exit hook failed to parse: {:?}", e);
                             }
